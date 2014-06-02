@@ -7,5 +7,5 @@ app/bower_components
 !www/config.xml
 !www/res
 
-platforms/**/
+!platforms/**/
 www

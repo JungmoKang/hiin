@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3BC88B95-B539-4D4E-9BE3-C466CB801BA7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Hiin</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C3C0233D-6C90-462D-8392-18525E9990A3</key>
+		<string>https://github.com/hiinapp/hiin_ionic</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>platforms/ios/Hiin.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C3C0233D-6C90-462D-8392-18525E9990A3</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/hiinapp/hiin_ionic</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C3C0233D-6C90-462D-8392-18525E9990A3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C3C0233D-6C90-462D-8392-18525E9990A3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>hiin_ionic</string>
+		</dict>
+	</array>
+</dict>
+</plist>
