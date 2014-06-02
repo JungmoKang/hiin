@@ -56,11 +56,6 @@ angular.module("hiin", [
     templateUrl: "views/event/attention.html"
     controller: "CreateEventCtrl"      
   )   
-  .state("activity",
-    url: "/activity"
-    templateUrl: "views/list/activity.html"
-    controller: "ActivityCtrl"
-  )
   .state('list', 
     url: '/list'
     abstract: true
@@ -87,6 +82,13 @@ angular.module("hiin", [
       menuContent:
         templateUrl: "views/chat/chat_room.html"
         controller: "grpChatCtrl"
+  )
+  .state("list.activity",
+    url: "/activity"
+    views:
+      menuContent:
+        templateUrl: "views/list/activity.html"
+        controller: "ActivityCtrl"
   )
   .state("list.eventInfo",
     url: "/eventInfo"

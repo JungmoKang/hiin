@@ -1,9 +1,6 @@
 'use strict'
 
-angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope, $window, Util, socket, $modal, storage ) ->
-
-    socket.removeAllListeners("activity")
-    socket.removeAllListeners("myInfo")
+angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope, $window, Util, socket, $modal) ->
     socket.emit "activity"
     #scope가 destroy될때, 등록한 이벤트를 모두 지움
     $scope.$on "$destroy", (event) ->
@@ -52,7 +49,6 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope, $window, 
       if $scope.modalInstance? 
         $scope.modalInstance.close()
       Util.Go('chatRoom/' + user._id )
-   
     $scope.sayHi = (user) ->
       if user.status == '0'
         console.log 'sayhi'
@@ -61,10 +57,6 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope, $window, 
             targetId : user._id
           }, 100000
         return
-
-    
- 
-
 angular.module('hiin').filter 'convertMsg', () ->
   return (activity) -> 
     if activity.lastMsg.type == 'hi' 

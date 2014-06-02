@@ -59,7 +59,7 @@ angular.module('hiin').controller 'ListCtrl', ($rootScope,$scope, $window, Util,
       return
     socket.emit "currentEventUserList"
   $scope.activity = ->
-  	$state.go('activity')
+  	$location.url('/list/activity')
   $scope.groupChat = ->
     $location.url('/list/groupChat')
   $scope.info = ->

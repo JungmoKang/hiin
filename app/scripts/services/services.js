@@ -10,4 +10,4 @@ angular.module('services', [])
   // API_HOST를 상수로 정의.
   //.constant('API_HOST', "http://192.168.0.26");
   //.constant('API_HOST', "http://localhost");
-  .constant('API_HOST', "http://192.168.11.4");
+  .constant('API_HOST', "http://sdent.kr");
