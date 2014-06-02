@@ -1,0 +1,91 @@
+//color
+@color_1:#3D65E6; 	// royal blue
+@color_2:#ffbc00; 	// gold
+@color_3:#f9f7ef; 	// china ceramic
+@color_4:#e8e8e8;		// gray
+@color_5:#ccc;		// dark gray
+@color_6:#333;		// very dark grey
+@color_7:#173372; //deep blue
+@color_8:#4d4d4d; 
+//font
+.font_common(@size)
+{
+  font-family: 'Montserrat', sans-serif;
+  font-size: @size;
+}
+.font_style_0() {
+  .font_common(9px);
+  color: @color_4;
+}
+.font_style_1() {
+  .font_common(12px);
+  color: @color_1;
+}
+.font_style_3() {
+	.font_common(12px);
+	color: @color_6;
+	letter-spacing: 0.2em;
+}
+.font_style_4() {
+	.font_common(12px);
+	color: white;
+	letter-spacing: 0.2em;
+}
+.font_style_5()
+{
+	.font_common(12px);
+	color: @color_1;
+}
+.font_style_6()
+{
+	.font_common(11.5px);
+	color: @color_4;
+	line-height: 12px;
+}
+.font_style_7()
+{
+	.font_common(10px);
+	color: @color_4;
+}
+.font_style_9()
+{
+  font-family: 'Georgia', serif;
+  font-size: 12px;
+  font-style: italic;
+}
+.font_style_10()  {
+	.font_common(18px);
+	color: white;
+	letter-spacing: 0.2em;
+	font-weight:bold;
+}
+.font_style_11() {
+  .font_common(10px);
+  color: @color_1;
+}
+.font_style_12() {
+	.font_style_11();
+	letter-spacing: 0.2em;
+	color: @color_1;
+}
+
+.fon_style_13(){
+  .font_common(26px);
+  color: @color_5;
+}
+
+//footer
+.page_footer (@height) {
+	  width: 100%;
+    background: @color_4;
+    position: fixed; 
+    bottom: 0;
+    height: @height;
+}
+//menu content
+.menu_contents()
+{
+  background-color: @color_3;
+  text-align:center;
+  height:100%;
+} 

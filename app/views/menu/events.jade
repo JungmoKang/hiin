@@ -1,0 +1,26 @@
+ion-view(title='EVENTS')
+  ion-nav-buttons(side='left')
+    button.button.button-icon.icon#list_header_button(menu-toggle='left')
+  ion-content.has-header#menu_events
+    .event.current_event
+      .title Current event
+      div.event_item(ng-repeat='event in events | filter:thisEvent',ng-click='GotoEvent(event.code)')
+        .list_separatebar
+        .event_name {{event.name}}
+        .event_code PASSCODE: {{event.code}}
+    .event.past_events
+      .title Past event(s)(With in 48hours)
+      .list_separatebar
+      div.event_item(ng-repeat='event in events | filter:pastEvent',ng-click='GotoEvent(event.code)')
+        .event_name {{event.name}}
+        .event_code PASSCODE: {{event.code}}
+        .list_separatebar
+    .event.my_event
+      .title Your event(s)
+      .list_separatebar
+      div.event_item(ng-repeat='event in events | filter:myEvent',ng-click='GotoEvent(event.code)')
+        .event_name {{event.name}}
+        .event_code PASSCODE: {{event.code}}
+        .list_separatebar
+    .btn_create_event(ng-click="goToCreateEvent()")
+      .text_create_event CREATE EVENT

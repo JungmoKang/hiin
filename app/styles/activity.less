@@ -1,0 +1,202 @@
+@import "global.less";
+
+.fixedInActivity
+{
+ position: fixed;
+ width: 100%;
+}
+
+#headerActivity
+{
+  background-color: black;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  margin-top: 0;
+  width: 100%;
+  z-index:1000;
+}
+
+#headerActivity .etc_link
+{
+  background-image:url(../images/nav/btn-back-100x38.png);
+  background-size:50px 19px;
+  float: left;
+  height: 19px;
+  margin-top: 12px;
+  width: 50px;
+}
+
+#headerActivity h1
+{
+  display: block;
+  float: left;
+  line-height: 50px;
+  text-align: center;
+  width: 80%;
+  margin-top: 0px;
+  .font_style_4;
+}
+
+#userActivityInfo{
+  background: linear-gradient(to bottom, @color_1 50%, #ffffff 50%);
+  height: 160px;
+  width: 100%;
+
+  .job 
+  {
+    top: 5px;
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .name 
+  {
+    position: relative;
+    text-align: center;
+    top: -10px;
+    height: 20px;
+    color: #ffffff;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+
+  }
+
+  img
+  {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rank_group
+  {
+    top: 30px;
+    position: relative;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+
+    .rank
+    {
+      color: @color_1;
+      top: 15px;
+      font-size: 12px;
+      float: left;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .icon_i
+    {
+      background-image:url(../images/activity/i-20x20.png);
+      height: 10px;
+      width: 10px;
+      background-size: 10px 10px;
+      margin-top: 3px;
+      float: left;
+    }
+  }
+  
+
+  
+}
+#seperatorLineInActivity
+  {
+    background: #ccc;
+    height: 1px;
+    width: 100%;
+    bottom: 0px;
+  }
+#list_contents
+{
+  width: 100%;
+  height: 120px;
+}
+#list_contents
+{
+
+  .activityList
+  {
+    .child_list
+     {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 60px;
+      overflow: hidden;
+
+      .dot
+      {
+        border-radius: 50% 50% 50% 50%;
+        position: relative;
+        float: left;
+        height: 4px;
+        width: 4px;
+        background-color: red;
+        top: 30px;
+        left: 10px;
+      }
+      .pic
+      {
+        position: relative;
+        left: 23px;
+        float: left;
+        top: 5px;
+      }
+      .content
+      {
+        position: relative;
+        float: left;
+        left: 40px;
+        top: 17px;
+        .blue_arrow
+        {
+          position: relative;
+          float: left;
+          color: @color_1;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 12px;
+
+        }
+        .msgct
+        {
+          position: relative;
+          color: #B3B3B3;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 10px;
+        }
+        .display_you
+        {
+          position: relative;
+          float: left;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 12px;
+          color: #4D4D4D;
+        }
+        .name
+        {
+          position: relative;
+          float: left;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 12px;
+          color: #4D4D4D;
+
+        }
+
+      }
+
+    }
+  }
+  .activityList:nth-child(odd)
+  {
+      background: #F9F7EF;
+  }
+}
+
+
+

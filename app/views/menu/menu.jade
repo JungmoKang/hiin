@@ -1,0 +1,23 @@
+ion-side-menus
+    ion-pane(ion-side-menu-content='ion-side-menu-content')
+        ion-nav-bar.bar-stable#black_header
+          ion-nav-back-button.etc_link
+        ion-nav-view(name='menuContent', animation='slide-left-right')
+    ion-side-menu#menuleft(side='left')
+      #header
+        .logo
+      #menus
+        ion-list
+          .list_separatebar
+          ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/profile')
+            | PROFILE
+          .list_separatebar
+          ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/userlists')
+            | CURRENT EVENT
+          .list_separatebar
+          ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/events')
+            | EVENTS
+          .list_separatebar
+          ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/setting')
+            | SETTING
+          .list_separatebar

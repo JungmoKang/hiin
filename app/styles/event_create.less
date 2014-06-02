@@ -1,0 +1,99 @@
+@import "global.less";
+.create_event
+{
+	padding:44px 0;
+	background-color: @color_3;
+	text-align:center;
+	height:100%;
+	.row
+	{
+		background-color: @color_3;
+		height:50px;
+		width:100%;
+		margin:0;
+		input
+		{	
+			background-color: @color_3;
+			height:50px;
+			border:0px;
+			width:100%;
+			height:100%;
+			.font_style_1;
+			text-align:center;
+			.note
+			{
+				text-align:left;
+			}
+		}
+		.time
+		{
+			-webkit-appearance: none;
+  		-moz-appearance: none;
+  		display: block;
+		  margin: 0;
+		  width: 100%;
+		  height: 100%; 
+		  font-size: 17px;
+		}
+	  textarea
+		{
+			border:0px;
+			width:100%;
+			text-align:left;
+		}
+		input::-webkit-input-placeholder {
+	    .font_style_7;
+	    font-size: 13px;
+	    text-align:center;
+	    background-color: @color_3;
+	  }
+	}
+	.notes
+	{
+		height:100px;
+		textarea
+	  {
+	  	color:@color_1;
+	  	height:100%;
+	  	rows:2;
+	  	text-align:left;
+	  	padding:30px;
+	  	background-color: @color_3;
+	  	resize: none;
+	  }
+	  textarea::-webkit-input-placeholder {
+	    .font_style_7;
+	    font-size: 13px;
+	    text-align:center;
+	    background-color: @color_3;
+	    resize: none; 
+	  }
+	}
+	.line
+	{
+		height:5px;
+	}
+	.publish
+	{
+		position:relative;
+		top:50px;
+		height:70px;
+		.btn_publish
+		{
+			border:0px;
+			height:100%;
+		  width:80px;
+		  background: transparent;
+		  background-image:url(../images/creationpage/btn-preview90x90.png) ;
+		  background-size:45px 45px;
+		  background-repeat: no-repeat;
+	  	background-position: top;
+		}
+		span
+    {
+      position:relative;
+      top:20px;
+      .font_style_11;
+    }
+	}
+}

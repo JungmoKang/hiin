@@ -1,0 +1,50 @@
+@import "global.less";
+
+#menuleft
+{
+	background-color:@color_7;
+	#header
+	{
+		height:161px;
+		.logo
+		{
+			background-image:url(../images/sidenav/hi-in-logo120x120.png) ;
+		  background-size:60px 60px;
+		  background-repeat: no-repeat;
+	  	background-position: center;
+	  	height:60px;
+	 		position:relative;
+	  	top:50px;
+		}
+	}
+	#menus
+	{
+		.list_separatebar
+		{
+		  background-image:url('../images/sidenav/bluebar.png');
+		  background-size:305px 5px;
+		  background-repeat: no-repeat;
+		  width:95%;
+		  height:5px;
+		  position:relative;
+		  float: right;
+		  margin:0;
+		  top:-3px;
+		}
+		.item
+		{
+			background: transparent;
+		}
+		.item-content
+		{
+			background: transparent;
+			.font_style_3;
+			color:@color_4;
+		
+		}
+		.selected_item_class
+		{
+			color:@color_2;
+		}
+	}
+}

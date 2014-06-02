@@ -1,0 +1,71 @@
+@import "global.less";
+
+#menu_profile
+{
+  .menu_contents;
+  background-color: white;
+  .header
+  {
+    .profile_pic
+    {
+      width: 100px;
+      height: 100px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .btn_edit
+    {
+      background-image:url(../images/profilepage/icn-changephoto-48x38.png);
+      background-size:24px 19px;
+      width:24px;
+      height:19px;
+      margin-left: auto;
+      margin-right: auto;
+      position:relative;
+      top:-80px;
+      left:68px;
+    }
+  }
+  .row
+  {
+    margin:0;
+  }
+  .item
+  {
+    height:50px;
+    .font_style_6;
+    text-align:center;
+    padding-top:20px;
+    width:100%;
+  }
+  .name
+  {
+    .font_style_5;
+  }
+}
+#profile_foot
+{
+  .page_footer(90px);
+  background-color: @color_3;
+  border-top: 1px solid @color_4;
+  .btn-group
+  {
+    text-align:center;
+    .icon
+    {
+      background-image:url(../images/profilepage/btn-edit-100x100.png) ;
+      background-size:50px 50px;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 50px;
+    }
+    .title
+    {
+      .font_style_12;
+      color: @color_8;
+    }
+  }
+  .btn-group:active {
+    background-color: @color_4;
+  }
+}

@@ -1,0 +1,70 @@
+@import "global.less";
+.full_page
+{
+	height:100%;
+}
+#menu_setting
+{
+	.menu_contents;
+	.row
+	{
+		height:85px;
+		text-align:center;
+		margin:0;
+		.col-xs-12
+		{
+			height:100%;
+			padding:0;
+		}
+		.input-group
+		{
+			height:100%;
+			width:100%;
+			input
+			{
+				height:100%;
+				margin:0;
+				padding:0;
+				border:0;
+				width:90%;
+				background-color:@color_3;
+				text-align:center;
+				.font_style_3;
+				float:left;
+			}
+			.arrow
+			{
+				height:100%;
+				margin:0;
+				padding:0;
+				border:0;
+				width:10%;
+				background-image:url(../images/settings/setting-arrow14x26.png) ;
+			  background-size:7px 13px;
+			  background-repeat: no-repeat;
+		  	background-position: center;
+		  	background-color:@color_3;
+		  	float:left;
+			}
+		}
+	}
+	.foot_link
+	{
+	  float: none;
+    display: inline-block;
+		display:table !important;
+		height:90px;
+		border-top:1px solid @color_4;
+		text-align:center;
+		.font_style_3;
+		.log_out
+		{
+			position:relative;
+			top:30px;
+		}
+	}
+	.foot_link:active
+  {
+    background-color: @color_4;
+  }
+}

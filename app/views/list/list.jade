@@ -1,0 +1,28 @@
+ion-view(title='{{eventName}}')
+  ion-nav-buttons(side='left')
+    button.button.button-icon.icon#list_header_button(menu-toggle='left')
+  ion-content.has-header
+    ion-list#user_lists
+      ion-item(ng-repeat='user in users | filter:query')
+        .row.user_list
+          .col-xs-3
+            span.helper
+            img.thumb_image.img-circle(ng-src='{{imagePath}}{{user.thumbnailUrl}}')
+          .col-xs-5
+            a.name(ng-click='ShowProfile(user)') {{user.lastName}} {{user.firstName}}
+            .job {{user.job}}
+          .col-xs-2
+            .btn-container(ng-flip-btn = 'ng-flip-btn'  hiStatus = '{{user.status}}')
+              button.btn-Hi(ng-click="sayHi(user)" ng-Hi-Btn = 'ng-hi-btn' hiStatus = '{{user.status}}') hi
+              button.btn-In(ng-click="chatRoom(user)" ng-In-Btn = 'ng-in-btn' hiStatus = '{{user.status}}') in
+        .list_separatebar
+.bar.bar-footer.list_footer
+  .btn-group
+    button.btn.btn-default.btn_activity(ng-click='activity()') 
+      span ACTIVITY
+  .btn-group
+    button.btn.btn-default.btn_group_chat(ng-click='groupChat()')
+      span GROUP CHAT
+  .btn-group
+    button.btn.btn-default.btn_info(ng-click='info()')
+      span INFO

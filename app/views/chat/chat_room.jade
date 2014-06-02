@@ -1,0 +1,11 @@
+ion-view(title='{{roomName}}')
+  ion-content.has-header
+    div.chat-container(ng-repeat='message in messages track by $index',
+    	ng-chat-balloon = 'ng-chat-balloon',user='{{message.user}}',msg='{{message.text}}')
+      img.thumb_image.img-circle(src='{{imagePath}}{{message.thumbnailUrl}}', alt='')
+      .name {{message.user}}
+      textarea(readonly="readonly") {{message.text}}
+  ion-footer-bar
+    .input-group#chat_room_footer
+      input(ng-model='msg', name='msg', placeholder='Type your message')
+      button(ng-click='sendMessage()') SEND

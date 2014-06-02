@@ -1,0 +1,141 @@
+@import "global.less";
+
+//CONTENTS
+.item
+{
+  border:0px;
+}
+
+//Footer
+.footer-buttons (@path) {
+  height:100%;
+  width:100%;
+  background: transparent;
+  background-image:url('../images/nav/@{path}');
+  background-size:50px 50px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  border-color: transparent;
+}
+.list_footer {
+  .page_footer(80px);
+  .btn-group
+  {
+    height:100%;
+    .btn_activity
+    {
+      .footer-buttons('btn-activity.png');
+    }
+    .btn_group_chat
+    {
+      .footer-buttons('btn-groupchat-100x100.png'); 
+    }
+    .btn_info
+    {
+      .footer-buttons('btn-info-100x100.png'); 
+    }
+  }
+  span
+  {
+    position:relative;
+    top:20px;
+    .font_style_12;
+    color:black;
+  }
+  .btn-group
+  {
+    width:33.3%;
+  }
+}
+//end
+
+//LIST
+
+#user_lists
+{
+  .item-content
+  {
+    padding:0px; 
+  }
+  ion-item
+  {
+    padding:0px;
+  }
+  .user_list
+  {
+    height:85px;
+    img
+    {
+      position:relative;
+      left:8px;
+      top:15px;
+      vertical-align: middle;      
+    }
+    .name
+    {
+      position:relative;
+      top:25px;
+      .font_style_5;
+    }
+    .job
+    {
+      position:relative;
+      top:25px;
+      .font_style_7;
+    }
+  }
+}
+
+//Circle Button
+.btn-container{
+	position: relative;
+  top:20px;
+  left:40px;
+  vertical-align:middle;
+}
+.btn-flip{
+  -webkit-transform-style: preserve-3d;
+  -webkit-animation: flip_btn 1s linear;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.btn-circle {
+  position:absolute;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 20px;
+  z-index:20
+}
+.btn-Hi {
+  .btn-circle;
+  background-color: #3D65E6;
+  color: white;
+  -webkit-backface-visibility : hidden;
+}
+.btn-In {
+  .btn-circle ;
+  background-color: #FFBC00;
+  color: white;
+  -webkit-backface-visibility : hidden;
+}
+
+.btn-back{
+  -webkit-transform: rotateY(180deg);
+}
+f
+.btn-front{
+  z-index: 2;
+}
+
+@-webkit-keyframes flip_btn{
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(180deg);
+  }
+}

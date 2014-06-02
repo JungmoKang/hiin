@@ -1,0 +1,23 @@
+ion-view(title='PROFILE')
+  ion-nav-buttons(side='left')
+    button.button.button-icon.icon#list_header_button(menu-toggle='left')
+  ion-content.has-header#menu_profile
+    .header
+      img.img-circle.profile_pic(src='{{imagePath}}{{userInfo.photoUrl}}')
+      .btn_edit(ng-click="PicEdit()")
+    .list_separatebar
+    .desc
+      .form-group
+        .row
+          .col-xs-12
+            .item.name {{userInfo.firstName}} {{userInfo.lastName}}
+        .row
+          .col-xs-12
+            .item {{userInfo.gender | gender}}
+        .row
+          .col-xs-12
+            .item {{userInfo.job}}
+#profile_foot.btn-group.btn-group-justified
+  .btn-group(ng-click='edit()') 
+    .icon
+    .title EDIT

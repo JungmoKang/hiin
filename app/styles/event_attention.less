@@ -1,0 +1,50 @@
+@import "global.less";
+.attention_body
+{
+		text-align:center;
+		.notice
+		{
+			position:relative;
+			top:70px;	
+			.font_style_3;
+		}
+		.icon
+		{
+			position:relative;
+			top:90px;	
+		  background-image:url(../images/creationpage/icn-notice46x42.png) ;
+		  background-size:23px 21px;
+		  background-repeat: no-repeat;
+    	background-position: center;
+		  height: 21px;
+		}
+		.attention
+		{
+			position:relative;
+			top:110px;	
+			.font_style_11;
+		}	
+}
+.foot_link
+{
+	.page_footer(150px);
+	background-color: @color_3;
+	border-top: 1px solid @color_4;
+	.btn-group
+	{
+		border-right: 1px solid @color_4;
+		text-align:center;
+		.title
+		{
+			.font_style_10;
+			color: @color_1;
+		}
+		.desc
+		{
+			.font_style_11;
+		}
+	}
+	.btn-group:active {
+		background-color: @color_4;
+	}
+}

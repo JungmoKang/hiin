@@ -1,0 +1,19 @@
+ion-view(title='SETTING')
+  ion-nav-buttons(side='left')
+    button.button.button-icon.icon#list_header_button(menu-toggle='left')
+  ion-content.has-header#menu_setting
+    .container
+      .row
+        .col-xs-12
+          .input-group(ng-click='TermAndPolish()')
+            input(value='TERM & POLISH',readonly)
+            span.arrow
+      .list_separatebar
+      .row
+        .col-xs-12
+          .input-group(ng-click='Report()')
+            input(value='REPORT',readonly)
+            span.arrow
+      .list_separatebar
+    .foot_link(ng-click='signOut()') 
+      .log_out LOG OUT

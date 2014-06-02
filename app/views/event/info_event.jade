@@ -1,0 +1,25 @@
+ion-view(title='INFO')
+  ion-content.has-header
+    .event_info_code
+      .passcode 
+        .code {{eventInfo.code}}
+    .event_info_detail
+      form
+        .row
+          .col-xs-12
+            input(type='text', placeholder='EVENT TITLE', ng-model="eventInfo.name",required,ng-readonly="!editMode")
+        .list_separatebar
+        .row
+          .col-xs-6
+            input(type='date', placeholder='DATE', ng-model="eventInfo.date",required,ng-readonly="!editMode")
+          .col-xs-6
+            input(type='time', placeholder='TIME', ng-model='eventInfo.time',required,ng-readonly="!editMode")
+        .list_separatebar
+        .row
+          .col-xs-12
+            input(type='text', placeholder='LOCATION', ng-model="eventInfo.place",ng-readonly="!editMode")
+        .list_separatebar
+        .row
+          .col-xs-12
+            input.note(type='text', placeholder='NOTES', ng-model="eventInfo.desc",ng-readonly="!editMode")
+        .list_separatebar

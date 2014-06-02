@@ -1,0 +1,35 @@
+ion-nav-bar.nav-title-slide-ios7.bar-light
+    ion-nav-back-button.button-icon.ion-arrow-left-c
+ion-view(title='')
+    ion-nav-buttons(side='left')
+        button.button.button-positive.button-clear.no-animation(ng-click='startApp()', ng-if='!slideIndex')
+          | Skip Intro
+        button.button.button-positive.button-clear.no-animation(ng-click='previous()', ng-if='ng-if', slideindex='slideIndex')
+          | 0"
+          | Previous Slide
+      ion-nav-buttons(side='right')
+        button.button.button-positive.button-clear.no-animation(ng-click='next()', ng-if='slideIndex != 2')
+          | Next
+        button.button.button-positive.button-clear.no-animation(ng-click='startApp()', ng-if='slideIndex == 2')
+          | Start using MyApp
+      ion-slide-box(on-slide-changed='slideChanged(index)')
+        ion-slide
+          h3 Thank you for choosing the Awesome App!
+          #logo
+            img(src='images/app_icon.png')
+          p
+            | We've worked super hard to make you happy.
+          p
+            | But if you are angry, too bad.
+        ion-slide
+          h3 Using Awesome
+          #list
+            h5 Just three steps:
+            ol
+              li Be awesome
+              li Stay awesome
+              li There is no step 3
+        ion-slide
+          h3 Any questions?
+          p
+            | Too bad!

@@ -1,0 +1,26 @@
+.fixedInActivity
+  #headerActivity
+    a.etc_link(ng-click='backToList()')
+    h1 ACTIVITY
+
+  #userActivityInfo
+    .name {{myInfo.firstName}} {{myInfo.lastName}} 
+    .job {{myInfo.job}}
+    img.thumb_image_big.img-circle(ng-src='{{imagePath}}{{myInfo.photoUrl}}')
+    .rank_group
+      .rank RANK No.{{rank}}&nbsp;
+      .icon_i(ng-click='showRank()')
+  #seperatorLineInActivity
+  #list_contents
+   .activityList(ng-repeat='activity in activitys | filter:query')
+     a.child_list(ng-click='ShowProfile(activity)')
+        .dot(ng-dot='ng-dot' read='{{activity.lastMsg.read}}')
+        .pic
+          span.helper
+           img.thumb_image.img-circle(ng-src='{{imagePath}}{{activity.thumbnailUrl}}')
+        .content
+          .display_you(ng-display-you = 'ng-display-you' sender='{{activity.lastSender}}') You
+          .blue_arrow(ng-display-you = 'ng-display-you' sender='{{activity.lastSender}}') &rarr;
+          .name {{activity.lastName}}&nbsp;{{activity.firstName}}
+          .msgct {{activity | convertMsg}}
+
