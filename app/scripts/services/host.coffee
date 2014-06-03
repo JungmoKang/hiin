@@ -6,7 +6,6 @@ angular.module('services').factory 'Host', ($window, API_HOST,API_PORT) ->
     if host and host != ""
       _API_HOST = host
   _API_PORT = API_PORT
-
   getAPIHost: () ->
     return _API_HOST
 
