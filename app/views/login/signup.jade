@@ -1,59 +1,36 @@
-//-.email_singup_page
-  //-.email_singup_formBox
-    //-.email_singup_logo
-    //-.email_signup_form
-      //-form(name='form')
-        //-.form-group
-          //-input.singup_login_input(type='email', placeholder='your email', ng-model="userInfo.email",requered)
-          //-.emial_singup_horizontal_line
-        //-.form-group
-          //-input.email_singup_input(type='password', placeholder='password', ng-model="userInfo.password",requered)
-          //-.emial_singup_horizontal_line
-                  //-input.singup_login_input(type='email', placeholder='your email', ng-model="userInfo.email",requered)
-          //-.emial_singup_horizontal_line
-        //-.form-group
-          //-input.email_singup_input(type='password', placeholder='password', ng-model="userInfo.password",requered)
-          //-.emial_singup_horizontal_line
-                  //-input.singup_login_input(type='email', placeholder='your email', ng-model="userInfo.email",requered)
-          //-.emial_singup_horizontal_line
-        //-.form-group
-          //-input.email_singup_input(type='password', placeholder='password', ng-model="userInfo.password",requered)
-          //-.emial_singup_horizontal_line
-  //-.email_signup_btn(ng-click='',ng-disabled="form.$invalid")
-
-
-h1 SignUp
-form.form.col-xs-12.center-block.css-form(name='createUserForm')
-  .form-group
-    input.form-control.input-lg(type='email', placeholder='yourEmail@hiin.co', ng-model="userInfo.email",requered)
-    .row
-      .col-xs-6
-        input.form-control.input-lg(type='password', placeholder='Password', ng-model="userInfo.password",requered)
-      //입력이 끝났을때, 입력한 패스워드가 동일한지 안한지, validation이 필요함. 
-      .col-xs-6
-        input.form-control.input-lg(type='password', placeholder='Confirm Password', ng-model="userInfo.ConfirmPassword",requered)
-    .row
-      .col-xs-12
-        input.form-control.input-lg(type='text', placeholder='FirstName', ng-model="userInfo.firstName",requered)
-    .row
-      .col-xs-12
-        input.form-control.input-lg(type='text', placeholder='LastName', ng-model="userInfo.lastName",requered)
-    .row
-      .col-xs-12
-        | Gender:  
-        input(type='radio', ng-model='userInfo.gender', value='1')
-        | Male
-        input(type='radio', ng-model='userInfo.gender', value='2')
-        | Female
-    .row
-      .col-xs-12
-        input.form-control.input-lg(type='text', placeholder='job', ng-model="userInfo.job")
-    .row
-      .col-xs-6.col-xs-offset-3
-        div.img_profile
-          img.img-rounded(id="img_profile" src="{{photoUrl}}" selected='selected(cord)')
-        button.btn.btn-primary.btn-upload(url='{{imageUploadUrl}}',accept="image/*,application/pdf",on-success="onSuccess(response)", upload_button) File Upload
-        div.thumb_nail
-          img(id="img_profile" src="{{thumbnailUrl}}")
-  .form-group
-    button.btn.btn-primary.btn-lg.btn-block.col-xs-6(ng-click='signUp()',ng-disabled="form.$invalid") Sign Up
+.singup_page
+  .singup_formBox
+    .singup_logo
+    .signup_form
+      form(name='form')
+        .form-group
+          input.signup_input(type='email', placeholder='yourEmail@hiin.co', ng-model="userInfo.email",requered)
+          .signup_horizontal_line
+        .form-group
+          input.signup_input(type='password', placeholder='password', ng-model="userInfo.password",requered)
+          .signup_horizontal_line
+        .form-group
+          input.signup_input(type='name', placeholder='your name', ng-model="userInfo.name",requered)
+          .signup_horizontal_line
+        .form-group
+          input.signup_input(type='occupation', placeholder='occupation', ng-model="userInfo.occupation",requered)
+          .signup_horizontal_line
+        .form-group-btm
+          .wrapper_photo
+            button(url='{{imageUploadUrl}}',accept="image/*,application/pdf",on-success="onSuccess(response)", upload_button)
+            img.image_upload_btn
+            .add_photo add&nbsp;photo
+          .vertical_line
+              //-img.img-rounded(id="img_profile" src="{{photoUrl}}" selected='selected(cord)')
+              //-.image_upload_btn(url='{{imageUploadUrl}}',accept="image/*,application/pdf",on-success="onSuccess(response)", upload_button)
+              //-.thumb_nail
+              //-img(id="img_profile" src="{{thumbnailUrl}}")
+          .gender
+            .sex_label
+              .sex Male
+              .sex female
+            .sex_input
+              input(type='radio', ng-model='userInfo.gender', value='1')
+              br
+              input(type='radio', ng-model='userInfo.gender', value='2')
+  .signup_btn(ng-click='signUp()',ng-disabled="form.$invalid")

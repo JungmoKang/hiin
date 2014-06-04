@@ -1,64 +1,87 @@
 @import "global.less";
-.login_page
+.email_login_page
 {
   background-color: gray;
-  height:100%;
-  /*background-image:url(../images/login/bg-photo.jpg);*/
-  .loginLogo
+  height: 100%;
+
+  .email_login_formBox
   {
     position:relative;
-    top: 70px;
-    background-image:url(../images/login/logo-150x150.png);
-    background-size:75px 75px;
-    background-repeat:no-repeat;
-    background-position: center;
-    height:75px;
-    
-  }
-  .login_btn_group{
-    position: absolute;
-    bottom: 100px;
-    background-image:url(../images/login/bg-314x314.png);
-    background-size: 157px 157px;
-    height: 157px;
-    background-repeat:no-repeat;
-    background-position: center;
-    left: 0;
-    right: 0;
-    
-    .btnfb
+    top: 6%;
+    background-color: white;
+    width: 75%;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2%;
+
+    .email_login_logo
     {
-      background-image:url(../images/login/btn-fb-200x200.png);
-      position:relative;
+      position: relative;
+      top: 35px;
+      background-image:url(../images/login/logo-150x150.png);
+      background-size: 75px 75px;
       background-repeat:no-repeat;
-      background-size: 100px 100px;
-      height: 100px;
-      width: 100px;
       background-position: center;
-      top: -21.5px;
+      height: 75px;
+      width: 75px;
       margin-left: auto;
       margin-right: auto;
-      left: -50px;
-     }
-
-
-    .btnlogin
+    }
+    .email_login_form
     {
-      background-image:url(../images/login/btn-email-200x200.png);
-      position:relative;
-      background-repeat:no-repeat;
-      background-size: 100px 100px;
-      height: 100px;
-      width: 100px;
-      background-position: center;
-      top: -21.5px;
-      margin-left: auto;
-      margin-right: auto;
-      left: 50px;
+      top: 50px;
+      position: relative;
+      .form-group
+      {
+        width: 210px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        .email_login_input
+        {
+          width: 210px;
+          height: 35px;
+          border: 0px solid;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 13px;
+          line-height: 50px;
+          
+        }
 
+        .emial_login_horizontal_line
+        {
+            background-image:url(../images/login/graphic-line-416x10.png);
+            background-size: 210px 5px;
+            width: 210px;
+            height: 5px;
+          
+        }
+      }
     }
   }
+
+  .email_login_btn
+  {
+      position: absolute;
+      background-image:url(../images/login/btn-login-1.png);
+      background-repeat:no-repeat;
+      background-size: 170px 100px;
+      width: 170px;
+      height: 100px;
+      background-position: center;
+      bottom: 35px;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+  }
 }
+
+
+
+
+
 
 
 
