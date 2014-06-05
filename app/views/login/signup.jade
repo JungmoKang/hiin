@@ -2,18 +2,21 @@
   .singup_formBox
     .singup_logo
     .signup_form
-      form(name='form')
+      form.css-form(name='userForm' novalidate)
         .form-group
           input.signup_input(type='email', placeholder='yourEmail@hiin.co', ng-model="userInfo.email",requered)
           .signup_horizontal_line
         .form-group
-          input.signup_input(type='password', placeholder='password', ng-model="userInfo.password",requered)
+          input.signup_input(type='password', placeholder='password', ng-model="userInfo.password",requered, ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }")
           .signup_horizontal_line
         .form-group
-          input.signup_input(type='name', placeholder='your name', ng-model="userInfo.name",requered)
+          input.signup_input(type='firstName', placeholder='first name', ng-model="userInfo.firstName",requered)
           .signup_horizontal_line
         .form-group
-          input.signup_input(type='occupation', placeholder='occupation', ng-model="userInfo.occupation",requered)
+          input.signup_input(type='LastName', placeholder='Last name', ng-model="userInfo.lastName",requered)
+          .signup_horizontal_line
+        .form-group
+          input.signup_input(type='occupation', placeholder='occupation', ng-model="userInfo.job",requered)
           .signup_horizontal_line
         .form-group-btm
           .wrapper_photo
@@ -30,7 +33,7 @@
               .sex Male
               .sex female
             .sex_input
-              input(type='radio', ng-model='userInfo.gender', value='1')
+              input(type='radio', ng-model='userInfo.gender', value='1',requered)
               br
-              input(type='radio', ng-model='userInfo.gender', value='2')
-  .signup_btn(ng-click='signUp()',ng-disabled="form.$invalid")
+              input(type='radio', ng-model='userInfo.gender', value='2',requered)
+  .signup_btn(ng-click='signUp(userForm.$valid)')

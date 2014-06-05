@@ -3,6 +3,8 @@
 {
   background-color: gray;
   height: 100%;
+
+
   .singup_formBox
   {
     position: relative;
@@ -30,6 +32,20 @@
     {
       top: 20px;
       position: relative;
+
+        .css-form {
+          input.ng-invalid.ng-dirty {
+            border-radius: 5%;
+            background-color: #FA787E;
+            opacity: 0.5;
+          }
+          input.ng-valid.ng-dirty {
+            border-radius: 5%;
+            background-color: #78FA89;
+            opacity: 0.5;
+          }
+        }
+
       .form-group-btm{
         position: relative;
         height: 60px;
@@ -116,18 +132,18 @@
       .form-group
       {
         width: 210px;
-        height: 40px;
+        height: 30px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 10px;
         .signup_input
         {
           width: 210px;
-          height: 35px;
+          height: 25px;
           border: 0px solid;
           font-family: 'Montserrat', sans-serif;
           font-size: 13px;
-          line-height: 50px;
+          line-height: 20px;
         }
         .signup_horizontal_line
         {
