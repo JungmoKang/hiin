@@ -28,24 +28,25 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
 			$scope.eventInfo.endDate = new Date($scope.eventInfo.startDate.getTime())
 			$scope.eventInfo.endDate.setMinutes($scope.eventInfo.endDate.getMinutes() + $scope.durationHour * 60)
 			$scope.CreateEvent($scope.eventInfo)
-			.then (data) ->
-				confirmData =
-				  code: data.eventCode
-				$scope.eventCode = data.eventCode
-				Util.ConfirmEvent(confirmData)
-	      .then (data) ->
-					modalInstance = $modal.open(
-			      templateUrl: "views/event/passcode_dialog.html"
-			      scope: $scope
-			      )
-					modalInstance.result.then  ->
-			    	console.log '불가'
-			    , ->
-			    	$state.go('list.userlists')
-      	,(status) ->
-        	alert "invalid event code"
-	    ,(status) ->
-	      alert 'err'
+        .then (data) ->
+          console.log data
+          confirmData =
+            code: data.eventCode
+          $scope.eventCode = data.eventCode
+          Util.ConfirmEvent(confirmData)
+          .then (data) ->
+            modalInstance = $modal.open(
+              templateUrl: "views/event/passcode_dialog.html"
+              scope: $scope
+              )
+            modalInstance.result.then  ->
+              console.log '불가'
+            , ->
+              $state.go('list.userlists')
+          ,(status) ->
+            alert "invalid event code"
+        ,(status) ->
+          alert 'err'
     return
 	$scope.yes = ->
 		$state.go('createEvent')
