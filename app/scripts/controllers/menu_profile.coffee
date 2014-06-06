@@ -1,6 +1,7 @@
 'use strict'
 
-angular.module('hiin').controller 'ProfileCtrl', ($scope, Util, Host, socket,upload) ->
+angular.module('hiin').controller 'ProfileCtrl', ($rootScope,$scope, Util, Host, socket,upload) ->
+  $rootScope.selectedItem = 1
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()

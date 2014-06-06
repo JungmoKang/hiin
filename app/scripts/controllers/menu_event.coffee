@@ -1,6 +1,7 @@
 'use strict'
 
-angular.module('hiin').controller 'MenuEventCtrl', ($scope,Util,$http,socket,$log,$state) ->
+angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http,socket,$log,$state) ->
+  $rootScope.selectedItem = 3
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
