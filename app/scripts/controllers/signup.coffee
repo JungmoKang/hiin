@@ -9,7 +9,10 @@ angular.module("hiin").controller "SignUpCtrl", ($modal,$sce,$q,$http,$scope, $w
     console.log "onSucess"
     console.log response
     $timeout (->
-      userInfo={}
+      if $scope.userInfo?
+        userInfo = $scope.userInfo
+      else
+        userInfo={}
       userInfo.photoUrl = response.data.photoUrl
       userInfo.thumbnailUrl = response.data.thumbnailUrl
       $scope.photoUrl = Util.serverUrl() + "/" + response.data.photoUrl
