@@ -180,11 +180,12 @@ module.exports = function (grunt) {
               }]
           }
       },
-      'bower-install': {
-          app: {
-              html: '<%= yeoman.app %>/index.jade',
-              ignorePath: '<%= yeoman.app %>/'
-          }
+      // Automatically inject Bower components into the app
+      bowerInstall: {
+        app: {
+          src: ['<%= yeoman.app %>/index.html'],
+          ignorePath: '<%= yeoman.app %>/'
+        }
       },
       // Renames files for browser caching purposes
       rev: {
@@ -304,11 +305,6 @@ module.exports = function (grunt) {
                   dest: '<%= yeoman.dist %>/'
               }, {
                   expand: true,
-                  cwd: "<%= yeoman.app %>/",
-                  src: "scripts/l10n/*.json",
-                  dest: "phonegap/platforms/ios/www"
-              }, {
-                  expand: true,
                   cwd: "<%= yeoman.dist %>/",
                   src: "**",
                   dest: "www"
@@ -388,7 +384,7 @@ module.exports = function (grunt) {
   // directories, we watch all registered files and then copy all un-built assets
   // over to www/. Last step is running ordova prepare so we can refresh the ripple
   // browser tab to see the changes.
-  grunt.registerTask('ripple', ['bower-install', 'copy:dist', 'prepare', 'ripple-emulator']);
+  grunt.registerTask('ripple', ['bowerInstall', 'copy:dist', 'prepare', 'ripple-emulator']);
   grunt.registerTask('ripple-emulator', function () {
     grunt.config.set('watch', {
       all: {
@@ -431,7 +427,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'bower-install',
+      'bowerInstall',
       'concurrent:server',
       'concat',
       'autoprefixer',
@@ -450,17 +446,17 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'bower-install',
+    'bowerInstall',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
     'concat',
-    //'ngmin',
-    'copy:dist',
+    'ngmin',
     'cssmin',
     //'uglify',
     'usemin',
     'htmlmin',
+    'copy:dist',
     'cordova:build'
   ]);
 

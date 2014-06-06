@@ -1,6 +1,7 @@
 'use strict'
 
 angular.module('hiin').controller 'ListCtrl', ($rootScope,$scope, $window, Util, socket, $modal, $state,$location,$ionicNavBarDelegate) ->
+  $rootScope.selectedItem = 2
   socket.emit "currentEvent"
   socket.emit "myInfo"
   #scope가 destroy될때, 등록한 이벤트를 모두 지움

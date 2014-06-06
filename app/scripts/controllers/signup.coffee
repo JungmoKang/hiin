@@ -1,14 +1,16 @@
 "use strict"
 
-angular.module("hiin").controller "SignUpCtrl", ($modal,$sce,$q,$http,$scope, $window, Util, Host,socket,$state) ->  
+angular.module("hiin").controller "SignUpCtrl", ($modal,$sce,$q,$http,$scope, $window, Util, Host,socket,$state,$timeout) ->  
   #init
   $scope.photoUrl = 'images/no_image.jpg'
   $scope.imageUploadUrl = "#{Host.getAPIHost()}:#{Host.getAPIPort()}/profileImage"
-
   $scope.onSuccess = (response) ->
     console.log "onSucess"
     console.log response
-    userInfo={}
+    if $scope.userInfo?
+      userInfo = $scope.userInfo
+    else
+      userInfo={}
     userInfo.photoUrl = response.data.photoUrl
     userInfo.thumbnailUrl = response.data.thumbnailUrl
     $scope.photoUrl = Util.serverUrl() + "/" + response.data.photoUrl
@@ -16,7 +18,6 @@ angular.module("hiin").controller "SignUpCtrl", ($modal,$sce,$q,$http,$scope, $w
     $scope.userInfo = userInfo
     angular.element('img.image_upload_btn').attr("src", $scope.thumbnailUrl)
     return
-
   $scope.makeId = (userInfo) ->
     console.log userInfo
     deferred = $q.defer()
