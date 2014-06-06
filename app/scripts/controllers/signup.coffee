@@ -1,6 +1,6 @@
 "use strict"
 
-angular.module("hiin").controller "SignUpCtrl", ($modal,$sce,$q,$http,$scope, $window, Util, Host,socket,$state) ->  
+angular.module("hiin").controller "SignUpCtrl", ($modal,$sce,$q,$http,$scope, $window, Util, Host,socket,$state,$timeout) ->  
   #init
   $scope.photoUrl = 'images/no_image.jpg'
   $scope.imageUploadUrl = "#{Host.getAPIHost()}:#{Host.getAPIPort()}/profileImage"
@@ -8,13 +8,16 @@ angular.module("hiin").controller "SignUpCtrl", ($modal,$sce,$q,$http,$scope, $w
   $scope.onSuccess = (response) ->
     console.log "onSucess"
     console.log response
-    userInfo={}
-    userInfo.photoUrl = response.data.photoUrl
-    userInfo.thumbnailUrl = response.data.thumbnailUrl
-    $scope.photoUrl = Util.serverUrl() + "/" + response.data.photoUrl
-    $scope.thumbnailUrl = Util.serverUrl() + "/" + response.data.thumbnailUrl
-    $scope.userInfo = userInfo
-    angular.element('img.image_upload_btn').attr("src", $scope.thumbnailUrl)
+    $timeout (->
+      userInfo={}
+      userInfo.photoUrl = response.data.photoUrl
+      userInfo.thumbnailUrl = response.data.thumbnailUrl
+      $scope.photoUrl = Util.serverUrl() + "/" + response.data.photoUrl
+      $scope.thumbnailUrl = Util.serverUrl() + "/" + response.data.thumbnailUrl
+      $scope.userInfo = userInfo
+      angular.element('img.image_upload_btn').attr("src", $scope.thumbnailUrl)
+      return
+    ), 1000
     return
 
   $scope.makeId = (userInfo) ->
