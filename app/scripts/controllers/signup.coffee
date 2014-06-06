@@ -46,7 +46,7 @@ angular.module("hiin").controller "SignUpCtrl", ($modal,$sce,$q,$http,$scope, $w
   $scope.signIn = ->
     Util.emailLogin($scope.userInfo)
     .then (data) ->
-      $state.go('enterEvent')
+      $state.go('list.events')
     , (status) ->
       alert status
     return

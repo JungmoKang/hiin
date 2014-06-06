@@ -5,7 +5,7 @@ angular.module('hiin')
     $scope.signIn = ->
       Util.emailLogin($scope.userInfo)
       .then (data) ->
-        $state.go('enterEvent')
+        $state.go('list.events')
       , (status) ->
         console.log status
         console.log 'hi'

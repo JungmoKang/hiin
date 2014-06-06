@@ -37,11 +37,6 @@ angular.module("hiin", [
     templateUrl: "views/login/email_login.html"
     controller: "EmailLoginCtrl"
   )
-  .state("enterEvent",
-    url: "/enterEvent"
-    templateUrl: "views/event/confirm_event.html"
-    controller: "eventCtrl"
-  )
   .state("signUp",
     url: "/signUp"
     templateUrl: "views/login/signup.html"

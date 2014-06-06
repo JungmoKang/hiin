@@ -1,8 +1,82 @@
 @import "global.less";
 
+.confirm_event
+{
+  height:50%;
+  .center{
+    bottom: 0;
+    height: 36px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    .key {
+      bottom: 0;
+      width: 72px;
+      height: 31px;
+      left: 0;
+      margin: auto;
+      position: relative;
+      top: -60px;
+      right: 0;
+      background-image:url(../images/passcodepage/icon-key144x62.png);
+      background-size:72px 31px;
+    }
+    .text_box()
+    {
+      text-align: center;
+      width:80%;
+      height:36px;
+      border-radius: 10px;
+      .font_style_10;
+      margin:auto;
+      position: relative;  
+      border:0px;   
+    }
+    .text_box_enter_code{
+      .text_box;
+      background-color:@color_1;
+      top:20px;
+    }
+    .text_box_enter_code::-webkit-input-placeholder {
+        .font_style_10;
+        font-size: 13px;
+        padding-left:10px;
+    }
+    .form-group
+    {
+      margin-bottom:0px;
+    }
+    .or
+    {
+      position:relative;
+      top:0px;
+      .font_style_1;
+    }
+    .btn_create_event
+    {
+      .text_box;
+      background-color:@color_4;
+      top:10px;
+    }
+  }
+  .btn_go
+  {
+    width: 35px;
+    height: 29px;  
+    position:absolute;
+    background-image:url(../images/passcodepage/btn-go-70x58.png);
+    background-size:35px 29px; 
+    top:23px;
+    right:11%;
+  }
+}
 #menu_events
 {
-  .menu_contents;
+  text-align: center;
+  top: 50%;
   .title
   {
     text-align:left;

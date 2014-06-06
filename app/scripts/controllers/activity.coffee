@@ -19,10 +19,6 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope,$location,
       console.log data
     $scope.okay =->
       console.log 'ih'
-    $scope.backToList =->
-      $scope.slide = 'slide-right'
-      $window.history.back()
-
     $scope.showRank =->
       modalInstance = $modal.open(
         templateUrl: "views/list/rank_modal.html"

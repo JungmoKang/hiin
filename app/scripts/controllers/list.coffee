@@ -2,6 +2,8 @@
 
 angular.module('hiin').controller 'ListCtrl', ($rootScope,$scope, $window, Util, socket, $modal, $state,$location,$ionicNavBarDelegate) ->
   $rootScope.selectedItem = 2
+  ionic.DomUtil.ready ->
+    $ionicNavBarDelegate.showBackButton(false);
   socket.emit "currentEvent"
   socket.emit "myInfo"
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
@@ -14,8 +16,6 @@ angular.module('hiin').controller 'ListCtrl', ($rootScope,$scope, $window, Util,
     window.localStorage['thisEvent'] = data.code
     socket.emit "currentEventUserList"
     console.log "socket emit current event user list"
-    #임시 방편.
-    $ionicNavBarDelegate.showBackButton(false);
     return
   socket.on "myInfo", (data) ->
     console.log "list myInfo"

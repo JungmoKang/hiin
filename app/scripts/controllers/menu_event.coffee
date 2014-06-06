@@ -1,7 +1,21 @@
 'use strict'
 
-angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http,socket,$log,$state) ->
+angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http,socket,$log,$state,$ionicScrollDelegate, $ionicNavBarDelegate, $timeout) ->
   $rootScope.selectedItem = 3
+  ionic.DomUtil.ready ->
+    $ionicNavBarDelegate.showBackButton(false);
+  #오너인지도 확인해야함..
+  if window.localStorage['thisEvent']?
+    $scope.enteredEventsOrOwner = true
+  $scope.confirmCode = ->
+    Util.ConfirmEvent($scope.formData )
+    .then (data) ->
+      $state.go('list.userlists',null,{ 'reload': true})
+    ,(status) ->
+      alert "invalid event code"
+  $scope.CreateEvent = ->
+    console.log('goto Create Event');
+    $state.go('createEventAttention')
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
@@ -32,6 +46,3 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
       $state.go('list.userlists')
     ,(status) ->
       alert "invalid event code"
-  $scope.goToCreateEvent = ->
-    console.log('goto Create Event');
-    $state.go('createEventAttention')

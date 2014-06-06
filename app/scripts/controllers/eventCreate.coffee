@@ -53,5 +53,4 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
 	$scope.no = ->
 		$window.history.back()
 	$scope.backToList =->
-    $scope.slide = 'slide-right'
     $window.history.back()

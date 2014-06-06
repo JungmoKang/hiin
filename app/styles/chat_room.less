@@ -1,38 +1,43 @@
 @import "global.less";
-
-#chat_room_footer
+#chat_room
 {
-  .page_footer(40px);
-  background-color : white;
-
-  .input-group
+  padding:0px;
+  #chat_room_footer
   {
-    width:100%;
-      border-top:2px solid @color_1;
-  }
-  input
-  {
-    padding: 10px;
-    .font_style_7;
-    color: black;
-    border: 0px;
-    height:38px;
-    width:80%;
-    font-size: 15px;
-  }
-  input::-webkit-input-placeholder {
-    .font_style_7;
-    font-size: 15px;
-  }
-  button
-  {
-    background-color : @color_1;
-    .font_style_4;
-    width:20%;
-    height:40px;
-    border:0px;
+    .page_footer(40px);
+    background-color : white;
+    
+    .input-group
+    {
+      width:100%;
+        border-top:2px solid @color_1;
+    }
+    input
+    {
+      padding: 10px;
+      .font_style_7;
+      color: black;
+      border: 0px;
+      height:38px;
+      width:80%;
+      font-size: 15px;
+    }
+    input::-webkit-input-placeholder {
+      .font_style_7;
+      font-size: 15px;
+    }
+    button
+    {
+      background-color : @color_1;
+      .font_style_4;
+      width:20%;
+      height:40px;
+      border:0px;
+      padding:0px;
+    }
   }
 }
+
 //chat balloon
 .chat-img()
 {
