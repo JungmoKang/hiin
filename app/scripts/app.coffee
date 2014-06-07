@@ -13,7 +13,6 @@ angular.module("hiin", [
   "ui.bootstrap"
   "lr.upload"
   "ui.date"
-  "flow"
 ])
 .config ($stateProvider, $urlRouterProvider) ->
   $stateProvider
