@@ -16,8 +16,10 @@ ion-view(title='ACTIVITY')
             span.helper
              img.thumb_image.img-circle(ng-src='{{imagePath}}{{activity.thumbnailUrl}}')
           .content
-            .display_you(ng-display-you = 'ng-display-you' sender='{{activity.lastSender}}') You
-            .blue_arrow(ng-display-you = 'ng-display-you' sender='{{activity.lastSender}}') &rarr;
-            .name {{activity.lastName}}&nbsp;{{activity.firstName}}
+            .first_line
+              .display_you(ng-display-you = 'ng-display-you' sender='{{activity.lastSender}}') You
+              .blue_arrow(ng-display-you = 'ng-display-you' sender='{{activity.lastSender}}') &rarr;
+              .name {{activity.firstName}}&nbsp;{{activity.lastName}}&nbsp;&nbsp;&nbsp;&nbsp;
+              .time {{activity.lastMsg.created_at | fromNow}}
             .msgct {{activity | convertMsg}}
 

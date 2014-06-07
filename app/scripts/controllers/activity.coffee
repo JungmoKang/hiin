@@ -12,18 +12,21 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope,$location,
       $scope.myInfo = data
       $scope.imagePath = Util.serverUrl()+'/'
       return
+
     socket.on "activity", (data)->
       $scope.rank = data.rank
       $scope.activitys = data.activity
       console.log "activity"
       console.log data
-    $scope.okay =->
-      console.log 'ih'
+
     $scope.showRank =->
-      modalInstance = $modal.open(
+      $scope.modalInstance = $modal.open(
         templateUrl: "views/list/rank_modal.html"
         scope: $scope
       )
+
+    $scope.ok = -> 
+        $scope.modalInstance.close()
 
     $scope.ShowProfile = (user) ->
       console.log user
@@ -60,6 +63,11 @@ angular.module('hiin').filter 'convertMsg', () ->
       return 'Sent \'HI\'!'
     else
       return activity.lastMsg.content
+ 
+angular.module('hiin').filter 'fromNow', () ->
+  return (time) -> 
+    moment(time).fromNow()
+
 
 angular.module("hiin").directive "ngDisplayYou", ($window)->
   link: (scope, element, attrs) ->

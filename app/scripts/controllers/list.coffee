@@ -3,9 +3,10 @@
 angular.module('hiin').controller 'ListCtrl', ($rootScope,$scope, $window, Util, socket, $modal, $state,$location,$ionicNavBarDelegate) ->
   $rootScope.selectedItem = 2
   ionic.DomUtil.ready ->
-    $ionicNavBarDelegate.showBackButton(false);
+    $ionicNavBarDelegate.showBackButton(false)
   socket.emit "currentEvent"
   socket.emit "myInfo"
+
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
@@ -22,13 +23,13 @@ angular.module('hiin').controller 'ListCtrl', ($rootScope,$scope, $window, Util,
     console.log data
     window.localStorage['myId'] = data._id
     #임시 방편.
-    $ionicNavBarDelegate.showBackButton(false);
+    $ionicNavBarDelegate.showBackButton(false)
     return
   socket.on "currentEventUserList", (data) ->
     console.log "list currentEventUserList"
     $scope.users = data
     #임시 방편.
-    $ionicNavBarDelegate.showBackButton(false);
+    $ionicNavBarDelegate.showBackButton(false)
   socket.on "userListChange", (data) ->
     console.log 'userListChange'
     console.log data
@@ -47,12 +48,15 @@ angular.module('hiin').controller 'ListCtrl', ($rootScope,$scope, $window, Util,
         }, 100000
       return
   socket.on "hi", (data) ->
-    console.log "list hi"
-    if data.status == '0'
-      console.log 'hi'
+      $scope.sendHi = data.fromName
+      $scope.modalInstance = $modal.open(
+        templateUrl: "views/list/hi_modal.html"
+        scope: $scope
+      )
+
+  socket.on "hiMe", (data) ->
       socket.emit "currentEventUserList"
-    else
-      alert data.fromName + " say hi"
+
   socket.on "pendingHi", (data) ->
     console.log "list pedinghi"
     if data.status isnt "0"
@@ -84,7 +88,7 @@ angular.module('hiin').controller 'ListCtrl', ($rootScope,$scope, $window, Util,
 angular.module("hiin").directive "ngHiBtn", ($window)->
   link: (scope, element, attrs) ->
     console.log attrs.histatus
-    if attrs.histatus == '0'
+    if attrs.histatus is '0' or attrs.histatus is '2'
       console.log('btn status = hi')
       element.addClass 'btn-front'
     else
@@ -95,7 +99,7 @@ angular.module("hiin").directive "ngHiBtn", ($window)->
 angular.module("hiin").directive "ngInBtn", ($window)->
   link: (scope, element, attrs) ->
     console.log attrs.histatus
-    if attrs.histatus == '0'
+    if attrs.histatus is '0' or attrs.histatus is '2' 
       console.log('btn status = hi')
       element.addClass 'btn-back'
     else
@@ -106,7 +110,7 @@ angular.module("hiin").directive "ngInBtn", ($window)->
 angular.module("hiin").directive "ngFlipBtn", ($window)->
   link: (scope, element, attrs) ->
     console.log attrs.histatus
-    if attrs.histatus == '0'
+    if attrs.histatus is '0' or attrs.histatus is '2'
       element.bind 'click', ()->
         element.addClass 'btn-flip'
         console.log('addclass')
