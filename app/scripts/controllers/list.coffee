@@ -28,6 +28,7 @@ angular.module('hiin').controller 'ListCtrl', ($rootScope,$scope, $window, Util,
   socket.on "currentEventUserList", (data) ->
     console.log "list currentEventUserList"
     $scope.users = data
+    console.log data
     #임시 방편.
     $ionicNavBarDelegate.showBackButton(false)
   socket.on "userListChange", (data) ->

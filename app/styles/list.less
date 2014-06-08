@@ -55,14 +55,30 @@
 {
   .user_list
   {
-    height:85px;
-    img
-    {
-      position:relative;
-      left:8px;
-      top:15px;
-      vertical-align: middle;      
+    height: 85px;
+    .imgContainer{
+      position: relative;
+      left: 8px;
+      top: 15px;
+      vertical-align: middle; 
+      .profile{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+      .firstBadge
+      {
+        position: relative;
+        z-index: 2;
+        /*background-image:url('../images/nav/badge-1st.png');*/
+        background-size: 22px 31px;
+        background-repeat: no-repeat;
+        width: 22px;
+        height: 31px;
+        left: 33px;
+      }
     }
+   
     .name
     {
       position:relative;

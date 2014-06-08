@@ -134,3 +134,9 @@ angular.module("hiin", [
       return data  if data is `undefined`
       $.param data
     $httpProvider.defaults.withCredentials = true
+
+angular.module("hiin").run ($window,  Migration) ->
+  # prepare database 
+  $window.localDb = $window.openDatabase "hiin", "1.0", "hiin DB", 1000000
+  Migration.apply $window.localDb
+
