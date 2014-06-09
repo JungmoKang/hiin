@@ -1,0 +1,81 @@
+2014-06-09 09:54:36.546 Hiin[71655:70b] Multi-tasking -> Device: YES, App: YES
+2014-06-09 09:54:36.577 Hiin[71655:70b] Unlimited access to network resources
+2014-06-09 09:54:36.784 Hiin[71655:70b] Resetting plugins due to page load.
+2014-06-09 09:54:37.154 Hiin[71655:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/9477BCDE-5165-4CC6-B300-1A6DE036E3A2/Hiin.app/www/index.html#/
+2014-06-09 09:54:38.023 Hiin[71655:70b] localstorage host = null
+2014-06-09 09:54:44.939 Hiin[71655:70b] http://localhost:3000/login
+2014-06-09 09:54:51.381 Hiin[71655:70b] http://localhost:3000/enterEvent
+2014-06-09 09:54:51.648 Hiin[71655:70b] list myInfo
+2014-06-09 09:54:51.649 Hiin[71655:70b] {"_id":"539086ae618f164cba9f94d1","email":"t1@test.com","firstName":"jungmo","lastName":"kang","gender":"1","birth":"undefined","job":"none","photoUrl":"profileImageOriginal/5c6ae7f4963db6d7_1401980180700.png","thumbnailUrl":"profileImageThumbnail/5c6ae7f4963db6d7_1401980180700_thumb.png","enteredEvent":"5409"}
+2014-06-09 09:54:51.649 Hiin[71655:70b] list currentEvent
+2014-06-09 09:54:51.649 Hiin[71655:70b] socket emit current event user list
+2014-06-09 09:54:51.650 Hiin[71655:70b] list currentEventUserList
+2014-06-09 09:54:51.654 Hiin[71655:70b] list currentEventUserList
+2014-06-09 09:55:01.571 Hiin[71655:70b] list myInfo
+2014-06-09 09:55:01.571 Hiin[71655:70b] {"_id":"539086ae618f164cba9f94d1","email":"t1@test.com","firstName":"jungmo","lastName":"kang","gender":"1","birth":"undefined","job":"none","photoUrl":"profileImageOriginal/5c6ae7f4963db6d7_1401980180700.png","thumbnailUrl":"profileImageThumbnail/5c6ae7f4963db6d7_1401980180700_thumb.png","enteredEvent":"5409"}
+2014-06-09 09:55:01.572 Hiin[71655:70b] list currentEvent
+2014-06-09 09:55:01.572 Hiin[71655:70b] socket emit current event user list
+2014-06-09 09:55:01.572 Hiin[71655:70b] list currentEventUserList
+2014-06-09 09:55:01.577 Hiin[71655:70b] list currentEventUserList
+2014-06-09 09:55:25.012 Hiin[71655:70b] userListChange
+2014-06-09 09:55:25.012 Hiin[71655:70b] {"status":"0","message":""}
+2014-06-09 09:55:25.033 Hiin[71655:70b] list currentEventUserList
+2014-06-09 09:55:25.033 Hiin[71655:70b] 0
+2014-06-09 09:55:25.034 Hiin[71655:70b] btn status = hi
+2014-06-09 09:55:25.034 Hiin[71655:70b] 0
+2014-06-09 09:55:25.034 Hiin[71655:70b] btn status = hi
+2014-06-09 09:55:25.035 Hiin[71655:70b] 0
+2014-06-09 09:55:35.508 Hiin[71655:70b] grpChat
+2014-06-09 09:55:38.543 Hiin[71655:70b] list myInfo
+2014-06-09 09:55:38.543 Hiin[71655:70b] {"_id":"539086ae618f164cba9f94d1","email":"t1@test.com","firstName":"jungmo","lastName":"kang","gender":"1","birth":"undefined","job":"none","photoUrl":"profileImageOriginal/5c6ae7f4963db6d7_1401980180700.png","thumbnailUrl":"profileImageThumbnail/5c6ae7f4963db6d7_1401980180700_thumb.png","enteredEvent":"5409"}
+2014-06-09 09:55:38.544 Hiin[71655:70b] list currentEvent
+2014-06-09 09:55:38.544 Hiin[71655:70b] socket emit current event user list
+2014-06-09 09:55:38.554 Hiin[71655:70b] list currentEventUserList
+2014-06-09 09:55:38.555 Hiin[71655:70b] 0
+2014-06-09 09:55:38.555 Hiin[71655:70b] btn status = hi
+2014-06-09 09:55:38.555 Hiin[71655:70b] 0
+2014-06-09 09:55:38.556 Hiin[71655:70b] btn status = hi
+2014-06-09 09:55:38.556 Hiin[71655:70b] 0
+2014-06-09 10:08:41.665 Hiin[73780:70b] Multi-tasking -> Device: YES, App: YES
+2014-06-09 10:08:41.675 Hiin[73780:70b] Unlimited access to network resources
+2014-06-09 10:08:41.787 Hiin[73780:70b] Resetting plugins due to page load.
+2014-06-09 10:08:42.195 Hiin[73780:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/9477BCDE-5165-4CC6-B300-1A6DE036E3A2/Hiin.app/www/index.html#/
+2014-06-09 10:08:57.988 Hiin[75640:70b] Multi-tasking -> Device: YES, App: YES
+2014-06-09 10:08:57.994 Hiin[75640:70b] Unlimited access to network resources
+2014-06-09 10:08:58.103 Hiin[75640:70b] Resetting plugins due to page load.
+2014-06-09 10:08:58.387 Hiin[75640:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/9477BCDE-5165-4CC6-B300-1A6DE036E3A2/Hiin.app/www/index.html#/
+2014-06-09 10:08:58.991 Hiin[75640:70b] localstorage host = null
+2014-06-09 10:09:07.009 Hiin[75640:70b] http://localhost:3000/login
+2014-06-09 10:09:14.800 Hiin[75640:70b] http://localhost:3000/enterEvent
+2014-06-09 10:09:15.084 Hiin[75640:70b] list myInfo
+2014-06-09 10:09:15.085 Hiin[75640:70b] {"_id":"539086ae618f164cba9f94d1","email":"t1@test.com","firstName":"jungmo","lastName":"kang","gender":"1","birth":"undefined","job":"none","photoUrl":"profileImageOriginal/5c6ae7f4963db6d7_1401980180700.png","thumbnailUrl":"profileImageThumbnail/5c6ae7f4963db6d7_1401980180700_thumb.png","enteredEvent":"5409"}
+2014-06-09 10:09:15.085 Hiin[75640:70b] list currentEvent
+2014-06-09 10:09:15.085 Hiin[75640:70b] socket emit current event user list
+2014-06-09 10:09:15.098 Hiin[75640:70b] list currentEventUserList
+2014-06-09 10:09:15.099 Hiin[75640:70b] 0
+2014-06-09 10:09:15.099 Hiin[75640:70b] btn status = hi
+2014-06-09 10:09:15.099 Hiin[75640:70b] 0
+2014-06-09 10:09:15.100 Hiin[75640:70b] btn status = hi
+2014-06-09 10:09:15.100 Hiin[75640:70b] 0
+2014-06-09 10:18:21.953 Hiin[75640:70b] grpChat
+2014-06-09 10:18:25.050 Hiin[75640:70b] list myInfo
+2014-06-09 10:18:25.051 Hiin[75640:70b] {"_id":"539086ae618f164cba9f94d1","email":"t1@test.com","firstName":"jungmo","lastName":"kang","gender":"1","birth":"undefined","job":"none","photoUrl":"profileImageOriginal/5c6ae7f4963db6d7_1401980180700.png","thumbnailUrl":"profileImageThumbnail/5c6ae7f4963db6d7_1401980180700_thumb.png","enteredEvent":"5409"}
+2014-06-09 10:18:25.051 Hiin[75640:70b] list currentEvent
+2014-06-09 10:18:25.051 Hiin[75640:70b] socket emit current event user list
+2014-06-09 10:18:25.068 Hiin[75640:70b] list currentEventUserList
+2014-06-09 10:18:25.068 Hiin[75640:70b] 0
+2014-06-09 10:18:25.069 Hiin[75640:70b] btn status = hi
+2014-06-09 10:18:25.069 Hiin[75640:70b] 0
+2014-06-09 10:18:25.069 Hiin[75640:70b] btn status = hi
+2014-06-09 10:18:25.070 Hiin[75640:70b] 0
+2014-06-09 10:18:26.052 Hiin[75640:70b] grpChat
+2014-06-09 10:18:28.786 Hiin[75640:70b] list myInfo
+2014-06-09 10:18:28.787 Hiin[75640:70b] {"_id":"539086ae618f164cba9f94d1","email":"t1@test.com","firstName":"jungmo","lastName":"kang","gender":"1","birth":"undefined","job":"none","photoUrl":"profileImageOriginal/5c6ae7f4963db6d7_1401980180700.png","thumbnailUrl":"profileImageThumbnail/5c6ae7f4963db6d7_1401980180700_thumb.png","enteredEvent":"5409"}
+2014-06-09 10:18:28.787 Hiin[75640:70b] list currentEvent
+2014-06-09 10:18:28.787 Hiin[75640:70b] socket emit current event user list
+2014-06-09 10:18:28.799 Hiin[75640:70b] list currentEventUserList
+2014-06-09 10:18:28.799 Hiin[75640:70b] 0
+2014-06-09 10:18:28.799 Hiin[75640:70b] btn status = hi
+2014-06-09 10:18:28.799 Hiin[75640:70b] 0
+2014-06-09 10:18:28.800 Hiin[75640:70b] btn status = hi
+2014-06-09 10:18:28.800 Hiin[75640:70b] 0
