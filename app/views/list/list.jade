@@ -3,11 +3,13 @@ ion-view(title='{{eventName}}')
     button.button.button-icon.icon#list_header_button(menu-toggle='left')
   ion-content.has-header
     ion-list#user_lists
-      ion-item(ng-repeat='user in users | filter:query')
+      ion-item(ng-repeat='user in users track by user.rank | filter:query')
         .row.user_list
           .col-xs-3
             span.helper
-            img.thumb_image.img-circle(ng-src='{{imagePath}}{{user.thumbnailUrl}}')
+              .imgContainer
+                img.profile.thumb_image.img-circle(ng-src='{{imagePath}}{{user.thumbnailUrl}}')
+                img.firstBadge(ng-src='../images/nav/badge-1st.png' ng-show='user.rank==1')
           .col-xs-5
             a.name(ng-click='ShowProfile(user)') {{user.lastName}} {{user.firstName}}
             .job {{user.job}}
