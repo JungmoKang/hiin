@@ -12010,3 +12010,19 @@
 2014-06-10 13:13:38.514 Hiin[77202:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
 2014-06-10 13:13:38.515 Hiin[77202:70b] 1
 2014-06-10 13:13:38.515 Hiin[77202:70b] btn Status = in
+2014-06-10 13:19:33.864 Hiin[77202:70b] list myInfo
+2014-06-10 13:19:33.864 Hiin[77202:70b] {"_id":"539086ae618f164cba9f94d1","email":"t1@test.com","firstName":"jungmo","lastName":"kang","gender":"1","birth":"undefined","job":"none","photoUrl":"profileImageOriginal/5c6ae7f4963db6d7_1401980180700.png","thumbnailUrl":"profileImageThumbnail/5c6ae7f4963db6d7_1401980180700_thumb.png","enteredEvent":"5409"}
+2014-06-10 13:19:33.865 Hiin[77202:70b] list currentEvent
+2014-06-10 13:19:33.865 Hiin[77202:70b] socket emit current event user list
+2014-06-10 13:19:33.871 Hiin[77202:70b] list currentEventUserList
+2014-06-10 13:19:33.871 Hiin[77202:70b] [{"_id":"5390840addb9d1f3a1d67a7d","email":"t2@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ttt","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"5409","status":"1"}]
+2014-06-10 13:19:34.140 Hiin[77202:70b] list currentEventUserList
+2014-06-10 13:19:34.140 Hiin[77202:70b] [{"_id":"5390840addb9d1f3a1d67a7d","email":"t2@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ttt","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"5409","status":"1"}]
+2014-06-10 13:20:22.678 Hiin[77202:70b] list myInfo
+2014-06-10 13:20:22.679 Hiin[77202:70b] {"_id":"539086ae618f164cba9f94d1","email":"t1@test.com","firstName":"jungmo","lastName":"kang","gender":"1","birth":"undefined","job":"none","photoUrl":"profileImageOriginal/5c6ae7f4963db6d7_1401980180700.png","thumbnailUrl":"profileImageThumbnail/5c6ae7f4963db6d7_1401980180700_thumb.png","enteredEvent":"5409"}
+2014-06-10 13:20:22.680 Hiin[77202:70b] list currentEvent
+2014-06-10 13:20:22.680 Hiin[77202:70b] socket emit current event user list
+2014-06-10 13:20:22.686 Hiin[77202:70b] list currentEventUserList
+2014-06-10 13:20:22.686 Hiin[77202:70b] [{"_id":"5390840addb9d1f3a1d67a7d","email":"t2@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ttt","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"5409","status":"1"}]
+2014-06-10 13:20:22.753 Hiin[77202:70b] list currentEventUserList
+2014-06-10 13:20:22.753 Hiin[77202:70b] [{"_id":"5390840addb9d1f3a1d67a7d","email":"t2@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ttt","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"5409","status":"1"}]
