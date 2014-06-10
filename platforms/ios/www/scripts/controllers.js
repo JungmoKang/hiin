@@ -319,11 +319,9 @@
 (function() {
   'use strict';
   angular.module("hiin").controller("grpChatCtrl", function($scope, $window, socket, Util, $location, $ionicScrollDelegate) {
-    var messageKey, messages, myId, thisEvent;
+    var isIOS, messageKey, messages, myId, thisEvent;
     console.log('grpChat');
-    $scope.$on("$destroy", function(event) {
-      socket.removeAllListeners();
-    });
+    $scope.input_mode = false;
     $scope.imagePath = Util.serverUrl() + "/";
     myId = window.localStorage['myId'];
     thisEvent = window.localStorage['thisEvent'];
@@ -335,6 +333,28 @@
     } else {
       $scope.messages = messages;
     }
+    window.addEventListener("native.keyboardshow", function(e) {
+      console.log("Keyboard height is: " + e.keyboardHeight);
+      if ($scope.input_mode !== true) {
+        cordova.plugins.Keyboard.close();
+        $scope.input_mode = true;
+      }
+    });
+    window.addEventListener("native.keyboardhide", function(e) {
+      console.log("Keyboard close");
+    });
+    ionic.DomUtil.ready(function() {
+      if (window.cordova) {
+        return cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      }
+    });
+    $scope.$on("$destroy", function(event) {
+      if (window.cordova) {
+        cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close();
+      }
+      socket.removeAllListeners();
+    });
+    isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
     socket.on("groupMessage", function(data) {
       var whosMessage;
       console.log("grp chat,groupMessage");
@@ -357,17 +377,79 @@
       window.localStorage[messageKey] = JSON.stringify($scope.messages);
       $ionicScrollDelegate.scrollBottom();
     });
-    return $scope.sendMessage = function() {
+    $scope.sendMessage = function() {
       socket.emit("groupMessage", {
-        message: $scope.msg
+        message: $scope.data.message
       });
-      return $scope.msg = "";
+      return $scope.data.message = "";
+    };
+    $scope.inputUp = function() {
+      console.log('inputUp');
+      if (isIOS) {
+        $scope.data.keyboardHeight = 216;
+      }
+      $timeout((function() {
+        $ionicScrollDelegate.scrollBottom(true);
+      }), 300);
+    };
+    $scope.inputDown = function() {
+      console.log('inputDown');
+      if (isIOS) {
+        $scope.data.keyboardHeight = 0;
+      }
+      $ionicScrollDelegate.resize();
+    };
+    $scope.data = {};
+  });
+
+  angular.module("hiin").directive("ngChatInput", function($timeout) {
+    return {
+      restrict: "A",
+      scope: {
+        returnClose: "=",
+        onReturn: "&",
+        onFocus: "&",
+        onBlur: "&"
+      },
+      link: function(scope, element, attr) {
+        element.bind("focus", function(e) {
+          console.log('focusss');
+          if (scope.onFocus) {
+            window.scroll(0, 0);
+            $timeout(function() {
+              scope.onFocus();
+            });
+          }
+        });
+        element.bind("blur", function(e) {
+          if (scope.onBlur) {
+            $timeout(function() {
+              scope.onBlur();
+            });
+          }
+        });
+        element.bind("keydown", function(e) {
+          console.log(e);
+          if (e.which === 13) {
+            console.log('entered');
+            if (scope.returnClose) {
+              element[0].blur();
+            }
+            if (scope.onReturn) {
+              $timeout(function() {
+                scope.onReturn();
+              });
+            }
+          }
+        });
+      }
     };
   });
 
   angular.module("hiin").directive("ngChatBalloon", function($window) {
     return {
       link: function(scope, element, attrs) {
+        console.log('directive');
         console.log(attrs.user);
         if (attrs.user === 'me') {
           return element.addClass('chat-balloon-me');
@@ -408,6 +490,7 @@
     socket.on("currentEventUserList", function(data) {
       console.log("list currentEventUserList");
       $scope.users = data;
+      console.log(data);
       return $ionicNavBarDelegate.showBackButton(false);
     });
     socket.on("userListChange", function(data) {

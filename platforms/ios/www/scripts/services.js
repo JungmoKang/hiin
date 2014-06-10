@@ -206,3 +206,32 @@ angular.module('services', [])
   });
 
 }).call(this);
+
+(function() {
+  angular.module('services').factory('Migration', function() {
+    return {
+      truncate: function(db) {
+        console.log("migration truncate!");
+        return db.transaction(function(tx) {
+          var table_name;
+          table_name = "message";
+          return tx.executeSql("DELETE FROM " + table_name);
+        }, function(error) {
+          return console.error("Transaction error : " + error.message);
+        });
+      },
+      apply: function(db) {
+        console.log("webDb.apply");
+        return db.transaction(function(tx) {
+          var table_name;
+          table_name = "chatMessages";
+          tx.executeSql("CREATE TABLE IF NOT EXISTS " + table_name + " (id unique, message, from_id, from_name, thumnailUrl,regTime,eventCoide,msgId)");
+          return console.log("transaction function finished");
+        }, function(error) {
+          return console.error("Transaction error = " + error.message);
+        });
+      }
+    };
+  });
+
+}).call(this);

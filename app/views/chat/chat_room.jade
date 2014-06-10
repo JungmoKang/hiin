@@ -1,11 +1,15 @@
-ion-view(title='{{roomName}}')
-  ion-content.has-header
-    div.chat-container(ng-repeat='message in messages track by $index',
+ion-view.messaging-view(title='{{roomName}}')
+  ion-content(ng-style='{ bottom: (data.keyboardHeight + 40) + "px" }')
+    .message(ng-repeat='message in messages track by $index',
     	ng-chat-balloon = 'ng-chat-balloon',user='{{message.user}}',msg='{{message.text}}')
       img.thumb_image.img-circle(src='{{imagePath}}{{message.thumbnailUrl}}', alt='')
       .name {{message.user}}
-      textarea(readonly="readonly") {{message.text}}
-  ion-footer-bar#chat_room
-    .input-group#chat_room_footer
-      input(ng-model='msg', name='msg', placeholder='Type your message')
-      button(ng-click='sendMessage()') SEND
+      br
+      .message: span {{ message.text }}
+  .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }')
+    .row
+      .col-75
+        input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
+          on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()')
+      .col-25
+        button(ng-click='sendMessage()') SEND

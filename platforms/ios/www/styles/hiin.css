@@ -196,82 +196,39 @@
   text-align: left;
 }
 
-#chat_room {
-  padding: 0px;
+.messaging-view {
+  background-color: #f9f7ef;
 }
 
-#chat_room #chat_room_footer {
+.messaging-view .scroll {
+  min-height: 100%;
+  padding: 0px 0 50px;
+}
+
+.messaging-view .chat-balloon-me {
+  clear: both;
   width: 100%;
-  background: #e8e8e8;
-  position: fixed;
-  bottom: 0;
-  height: 40px;
-  background-color: white;
-}
-
-#chat_room #chat_room_footer .input-group {
-  width: 100%;
-  border-top: 2px solid #3d65e6;
-}
-
-#chat_room #chat_room_footer input {
-  padding: 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  color: #e8e8e8;
-  color: black;
-  border: 0px;
-  height: 38px;
-  width: 80%;
-  font-size: 15px;
-}
-
-#chat_room #chat_room_footer input::-webkit-input-placeholder {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  color: #e8e8e8;
-  font-size: 15px;
-}
-
-#chat_room #chat_room_footer button {
-  background-color: #3d65e6;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  color: white;
-  letter-spacing: 0.2em;
-  width: 20%;
-  height: 40px;
-  border: 0px;
-  padding: 0px;
-}
-
-.msg_name {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  color: #3d65e6;
-  color: #333333;
-}
-
-.chat-balloon-me {
   float: right;
 }
 
-.chat-balloon-me textarea {
+.messaging-view .chat-balloon-me .message {
+  overflow: hidden;
+  padding: 5px 5px 0;
+  position: relative;
+}
+
+.messaging-view .chat-balloon-me .message span {
   border-radius: 8px;
   background-color: white;
   color: gray;
-  clear: both;
-  margin-left: 53px;
-  margin-right: 53px;
   position: relative;
-  top: -15px;
-  resize: none;
-  width: 250px;
+  display: inline-block;
+  padding: 10px;
   border-top-right-radius: 0;
   float: right;
 }
 
-.chat-balloon-me img {
+.messaging-view .chat-balloon-me img {
   width: 35px;
   height: 35px;
   margin-left: 8px;
@@ -279,7 +236,7 @@
   float: right;
 }
 
-.chat-balloon-me .name {
+.messaging-view .chat-balloon-me .name {
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   color: #3d65e6;
@@ -287,11 +244,13 @@
   float: right;
 }
 
-.chat-balloon-you {
+.messaging-view .chat-balloon-you {
+  clear: both;
+  width: 100%;
   float: left;
 }
 
-.chat-balloon-you img {
+.messaging-view .chat-balloon-you img {
   margin-left: 10px;
   margin-right: 8px;
   width: 35px;
@@ -299,22 +258,24 @@
   float: left;
 }
 
-.chat-balloon-you textarea {
+.messaging-view .chat-balloon-you .message {
+  overflow: hidden;
+  padding: 0px 5px 5;
+  position: relative;
+}
+
+.messaging-view .chat-balloon-you .message span {
   border-radius: 8px;
   background-color: white;
   color: gray;
-  clear: both;
-  margin-left: 53px;
-  margin-right: 53px;
   position: relative;
-  top: -15px;
-  resize: none;
-  width: 250px;
+  display: inline-block;
+  padding: 10px;
   border-top-left-radius: 0;
   float: left;
 }
 
-.chat-balloon-you .name {
+.messaging-view .chat-balloon-you .name {
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   color: #3d65e6;
@@ -322,10 +283,49 @@
   float: left;
 }
 
-.chat-container {
-  clear: both;
-  width: 90%;
-  margin-bottom: 6px;
+.messaging-view .message-input {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: #FFF;
+  z-index: 20;
+}
+
+.messaging-view .message-input .row {
+  padding: 0px;
+  border-top: 1px solid #3d65e6;
+}
+
+.messaging-view .message-input input {
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: #e8e8e8;
+  color: black;
+  border: 0px;
+  height: 38px;
+  font-size: 15px;
+}
+
+.messaging-view .message-input input::-webkit-input-placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: #e8e8e8;
+  font-size: 15px;
+}
+
+.messaging-view .message-input button {
+  background-color: #3d65e6;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: white;
+  letter-spacing: 0.2em;
+  width: 100%;
+  height: 40px;
+  border: 0px;
+  padding: 0px;
 }
 
 .email_login_page {
@@ -720,34 +720,24 @@ body {
 #list_header_button {
   background-image: url(../images/nav/btn-sidenav-50x50.png);
   background-size: 25px 25px;
-  float: left;
   height: 29px;
   width: 29px;
   min-height: 25px;
   background-repeat: no-repeat;
 }
 
-.has-header {
-  top: 64px;
-}
-
 #black_header {
   background-color: black;
-  height: 64px;
-  width: 100%;
-  position: fixed;
-  z-index: 1000;
 }
 
 #black_header .etc_link {
   background-image: url(../images/nav/btn-back-100x38.png);
   background-size: 50px 19px;
-  float: left;
   height: 20px;
-  margin-top: 18px;
   width: 50px;
   border: 0px;
-  min-height: 20px;
+  position: relative;
+  top: 7px;
   background-color: transparent;
   background-repeat: no-repeat;
 }
@@ -777,10 +767,6 @@ body {
 }
 
 #black_header h1 {
-  display: block;
-  float: left;
-  line-height: 70px;
-  margin-top: 0px;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   color: white;
@@ -884,11 +870,28 @@ body {
   height: 85px;
 }
 
-#user_lists .user_list img {
+#user_lists .user_list .imgContainer {
   position: relative;
   left: 8px;
   top: 15px;
   vertical-align: middle;
+}
+
+#user_lists .user_list .imgContainer .profile {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#user_lists .user_list .imgContainer .firstBadge {
+  position: relative;
+  z-index: 2;
+  /*background-image:url('../images/nav/badge-1st.png');*/
+  background-size: 22px 31px;
+  background-repeat: no-repeat;
+  width: 22px;
+  height: 31px;
+  left: 33px;
 }
 
 #user_lists .user_list .name {

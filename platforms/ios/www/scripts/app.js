@@ -5,14 +5,6 @@
       url: "/",
       templateUrl: "views/login/login.html",
       controller: "LoginCtrl"
-    }).state("intro", {
-      url: "/intro",
-      templateUrl: "views/main/intro.html",
-      controller: "IntroCtrl"
-    }).state("main", {
-      url: "/main",
-      templateUrl: "views/main/main.html",
-      controller: "MainCtrl"
     }).state("emailLogin", {
       url: "/emailLogin",
       templateUrl: "views/login/email_login.html",
@@ -124,6 +116,11 @@
       return $.param(data);
     };
     return $httpProvider.defaults.withCredentials = true;
+  });
+
+  angular.module("hiin").run(function($window, Migration) {
+    $window.localDb = $window.openDatabase("hiin", "1.0", "hiin DB", 1000000);
+    Migration.apply($window.localDb);
   });
 
 }).call(this);

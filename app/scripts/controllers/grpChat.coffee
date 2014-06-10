@@ -1,11 +1,10 @@
 'use strict'
 
 angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,$location,$ionicScrollDelegate) ->
-  console.log('grpChat')
-  #scope가 destroy될때, 등록한 이벤트를 모두 지움
-  $scope.$on "$destroy", (event) ->
-    socket.removeAllListeners()
-    return  
+  console.log 'grpChat'
+
+  #init
+  $scope.input_mode = false
   $scope.imagePath = Util.serverUrl() + "/"
   myId = window.localStorage['myId']
   thisEvent = window.localStorage['thisEvent']
@@ -16,6 +15,28 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     $scope.messages = JSON.parse(messages)
   else
     $scope.messages = messages
+
+  #초기에 키보드가 표시되는 것을 방지하기 위한 플래그
+  window.addEventListener "native.keyboardshow", (e) ->
+    console.log "Keyboard height is: " + e.keyboardHeight
+    if $scope.input_mode isnt true
+      cordova.plugins.Keyboard.close()
+      $scope.input_mode = true
+    return
+  window.addEventListener "native.keyboardhide", (e) ->
+    console.log "Keyboard close"
+    return
+  #채팅창에서만 키보드 헤더를 표시하지 않음
+  ionic.DomUtil.ready ->
+    if window.cordova
+      cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true)
+  $scope.$on "$destroy", (event) ->
+    if window.cordova
+      cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
+    socket.removeAllListeners()
+    return  
+  isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
+
   socket.on "groupMessage", (data) ->
     console.log "grp chat,groupMessage"
     whosMessage = ""
@@ -37,11 +58,60 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     return
   $scope.sendMessage =->
     socket.emit "groupMessage",{
-    	message: $scope.msg
+      message: $scope.data.message
       }
-    $scope.msg = ""
+    $scope.data.message = ""
+  $scope.inputUp = ->
+    console.log 'inputUp'
+    $scope.data.keyboardHeight = 216  if isIOS
+    $timeout (->
+      $ionicScrollDelegate.scrollBottom true
+      return
+    ), 300
+    return
+  $scope.inputDown = ->
+    console.log 'inputDown'
+    $scope.data.keyboardHeight = 0  if isIOS
+    $ionicScrollDelegate.resize()
+    return
+  $scope.data = {}
+  return
+angular.module("hiin").directive "ngChatInput", ($timeout) ->
+  restrict: "A"
+  scope:
+    returnClose: "="
+    onReturn: "&"
+    onFocus: "&"
+    onBlur: "&"
+  link: (scope, element, attr) ->
+    element.bind "focus", (e) ->
+      console.log 'focusss'
+      if scope.onFocus
+        window.scroll(0,0)
+        $timeout ->       
+          scope.onFocus()
+          return
+      return
+    element.bind "blur", (e) ->
+      if scope.onBlur
+        $timeout ->
+          scope.onBlur()
+          return
+      return
+    element.bind "keydown", (e) ->
+      console.log e
+      if e.which is 13
+        console.log 'entered'
+        element[0].blur()  if scope.returnClose
+        if scope.onReturn
+          $timeout ->
+            scope.onReturn()
+            return
+      return
+    return
 angular.module("hiin").directive "ngChatBalloon", ($window)->
   link: (scope, element, attrs) ->
+    console.log 'directive'
     console.log attrs.user
     if attrs.user == 'me'
       element.addClass 'chat-balloon-me'
