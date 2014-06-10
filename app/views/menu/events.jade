@@ -4,7 +4,7 @@ ion-view(title='EVENTS')
   ion-pane.confirm_event
     .center
       .form-group
-        input.text_box_enter_code(max=9999,type='number', ng-model='formData.code', placeholder='ENTER EVENT PASSCODE')
+        input.text_box_enter_code(ng-maxlength='4',type='number', pattern="[0-9]*", ng-model='formData.code', placeholder='ENTER EVENT PASSCODE')
         a(ng-click="confirmCode()", ng-show="formData.code")
           span.btn_go(style="vertical-align:middle")
         .key

@@ -1,9 +1,9 @@
 'use strict'
 
-angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,$location,$ionicScrollDelegate) ->
+angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,$location,$ionicScrollDelegate,$timeout) ->
   console.log 'grpChat'
 
-  #init
+  #group chat init
   $scope.input_mode = false
   $scope.imagePath = Util.serverUrl() + "/"
   myId = window.localStorage['myId']
@@ -21,13 +21,14 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     console.log "Keyboard height is: " + e.keyboardHeight
     if $scope.input_mode isnt true
       cordova.plugins.Keyboard.close()
-      $scope.input_mode = true
     return
   window.addEventListener "native.keyboardhide", (e) ->
     console.log "Keyboard close"
+    $scope.input_mode = true
     return
   #채팅창에서만 키보드 헤더를 표시하지 않음
   ionic.DomUtil.ready ->
+    console.log 'ready'
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true)
   $scope.$on "$destroy", (event) ->
@@ -63,6 +64,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     $scope.data.message = ""
   $scope.inputUp = ->
     console.log 'inputUp'
+    window.scroll(0,0)
     $scope.data.keyboardHeight = 216  if isIOS
     $timeout (->
       $ionicScrollDelegate.scrollBottom true
@@ -88,7 +90,7 @@ angular.module("hiin").directive "ngChatInput", ($timeout) ->
       console.log 'focusss'
       if scope.onFocus
         window.scroll(0,0)
-        $timeout ->       
+        $timeout -> 
           scope.onFocus()
           return
       return

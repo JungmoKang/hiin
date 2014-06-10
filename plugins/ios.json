@@ -9,7 +9,7 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
                             "count": 1
                         },
                         {
@@ -17,7 +17,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -26,13 +26,13 @@
         }
     },
     "installed_plugins": {
-        "org.apache.cordova.device": {
+        "com.ionic.keyboard": {
             "PACKAGE_NAME": "com.example.Hiin"
         },
         "org.apache.cordova.console": {
             "PACKAGE_NAME": "com.example.Hiin"
         },
-        "com.ionic.keyboard": {
+        "org.apache.cordova.device": {
             "PACKAGE_NAME": "com.example.Hiin"
         }
     },

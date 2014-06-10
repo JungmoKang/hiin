@@ -13,10 +13,6 @@
       url: "/signUp",
       templateUrl: "views/login/signup.html",
       controller: "SignUpCtrl"
-    }).state("createEvent", {
-      url: "/createEvent",
-      templateUrl: "views/event/create_event.html",
-      controller: "CreateEventCtrl"
     }).state("createEventAttention", {
       url: "/createEventAttention",
       templateUrl: "views/event/attention.html",
@@ -88,6 +84,14 @@
         menuContent: {
           templateUrl: "views/menu/events.html",
           controller: "MenuEventCtrl"
+        }
+      }
+    }).state("list.createEvent", {
+      url: "/createEvent",
+      views: {
+        menuContent: {
+          templateUrl: "views/event/create_event.html",
+          controller: "CreateEventCtrl"
         }
       }
     }).state("list.termAndPolish", {

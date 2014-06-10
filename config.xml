@@ -12,9 +12,4 @@
     <feature name="Keyboard">
 		    <param name="ios-package" value="IonicKeyboard" onload="true" />
 		</feature>
-		<preference name="DisallowOverscroll" value="false" />
-		<preference name="EnableViewportScale" value="false" />
-		<preference name="HideKeyboardFormAccessoryBar" value="false" />
-		<preference name="KeyboardDisplayRequiresUserAction" value="true" />
-		<preference name="KeyboardShrinksView" value="false" />
 </widget>

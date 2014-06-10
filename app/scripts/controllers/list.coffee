@@ -1,17 +1,18 @@
 'use strict'
 
-angular.module('hiin').controller 'ListCtrl', ($rootScope,$scope, $window, Util, socket, $modal, $state,$location,$ionicNavBarDelegate) ->
+angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $window, Util, socket, $modal, $state,$location,$ionicNavBarDelegate,$timeout) ->
   $rootScope.selectedItem = 2
   ionic.DomUtil.ready ->
     $ionicNavBarDelegate.showBackButton(false)
   socket.emit "currentEvent"
   socket.emit "myInfo"
-
+  $scope.reloadFlg = false
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
     return
   socket.on "currentEvent", (data) ->
+    $scope.reloadFlg = true
     console.log "list currentEvent"
     $scope.eventName = data.name
     window.localStorage['thisEvent'] = data.code

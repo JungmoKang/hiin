@@ -1,9 +1,8 @@
 @import "global.less";
-.create_event
+#create_event
 {
 	background-color: @color_3;
 	text-align:center;
-	height:100%;
 	.row
 	{
 		background-color: @color_3;
@@ -34,12 +33,6 @@
 		  height: 100%; 
 		  font-size: 17px;
 		}
-	  textarea
-		{
-			border:0px;
-			width:100%;
-			text-align:left;
-		}
 		input::-webkit-input-placeholder {
 	    .font_style_1;
 	    font-size: 13px;
@@ -52,6 +45,9 @@
 		height:100px;
 		textarea
 	  {
+	  	border:0px;
+			width:100%;
+			text-align:left;
 	  	color:@color_1;
 	  	height:100%;
 	  	rows:2;
@@ -59,12 +55,14 @@
 	  	padding:30px;
 	  	background-color: @color_3;
 	  	resize: none;
+	  	.font_style_1;
 	  }
 	  textarea::-webkit-input-placeholder {
 	    .font_style_7;
 	    font-size: 13px;
 	    text-align:center;
 	    background-color: @color_3;
+	    color:@color_1;
 	    resize: none; 
 	  }
 	}

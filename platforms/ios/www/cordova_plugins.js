@@ -1,10 +1,10 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "file": "plugins/org.apache.cordova.device/www/device.js",
-        "id": "org.apache.cordova.device.device",
+        "file": "plugins/com.ionic.keyboard/www/keyboard.js",
+        "id": "com.ionic.keyboard.keyboard",
         "clobbers": [
-            "device"
+            "cordova.plugins.Keyboard"
         ]
     },
     {
@@ -22,19 +22,19 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.ionic.keyboard/www/keyboard.js",
-        "id": "com.ionic.keyboard.keyboard",
+        "file": "plugins/org.apache.cordova.device/www/device.js",
+        "id": "org.apache.cordova.device.device",
         "clobbers": [
-            "cordova.plugins.Keyboard"
+            "device"
         ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.device": "0.2.9",
+    "com.ionic.keyboard": "0.0.1",
     "org.apache.cordova.console": "0.2.8",
-    "com.ionic.keyboard": "0.0.1"
+    "org.apache.cordova.device": "0.2.9"
 }
 // BOTTOM OF METADATA
 });

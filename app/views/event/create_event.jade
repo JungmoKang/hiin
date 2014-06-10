@@ -1,9 +1,5 @@
-ion-pane
-  ion-header-bar#black_header
-    .buttons
-      a.etc_link(ng-click='backToList()')
-    h1.title CREATE EVENT
-  ion-pane.has-header.create_event
+ion-view(title='CREATE EVENT')
+  ion-pane.has-header#create_event
     form(name='createEventForm')
       .form-group
         .row
@@ -12,14 +8,15 @@ ion-pane
           .list_separatebar
         .row
           .col
-            input(ui-date='dateOptions', placeholder='DATE',ng-model="eventInfo.startDate",required,readOnly)
+            input(ui-date='sDate', placeholder='START DATE',ng-model="eventInfo.startDate",required,readOnly)
           .col
-            input.time(type='time', ng-model='time',required)
-        .line
-          .list_separatebar
+            input.time(type='time', ng-model='startTime',required)
         .row
           .col
-            input(type='number', pattern="[0-9]*",placeholder='EVENT DURATION(HRS)', ng-model="durationHour",required)
+            input(ui-date='eDate', placeholder='END DATE',ng-model="eventInfo.endDate",
+              required,readOnly)
+          .col
+            input.time(type='time', ng-model='endTime',required)
         .line
           .list_separatebar
         .row
@@ -31,5 +28,5 @@ ion-pane
           .col
             textarea(placeholder='NOTES', ng-model="eventInfo.desc")
         .publish
-          button.btn_publish(ng-click='pubish()') 
-            span ACTIVITY
+          button.btn_publish(ng-click='pubish()',ng-disabled="createEventForm.$invalid") 
+            span PUBLISH

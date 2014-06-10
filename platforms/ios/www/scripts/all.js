@@ -9,9 +9,9 @@ angular.module('services', [])
   .constant('API_PORT', 3000)
   // API_HOST를 상수로 정의.
   //.constant('API_HOST', "http://192.168.0.26");
-  //.constant('API_HOST', "http://ec2-54-86-232-223.compute-1.amazonaws.com");
+  .constant('API_HOST', "http://ec2-54-86-232-223.compute-1.amazonaws.com");
   //.constant('API_HOST', "http://sdent.kr");
-  .constant('API_HOST', "http://localhost");
+  //.constant('API_HOST', "http://localhost");
   
 
 (function() {
@@ -251,10 +251,6 @@ angular.module('services', [])
       url: "/signUp",
       templateUrl: "views/login/signup.html",
       controller: "SignUpCtrl"
-    }).state("createEvent", {
-      url: "/createEvent",
-      templateUrl: "views/event/create_event.html",
-      controller: "CreateEventCtrl"
     }).state("createEventAttention", {
       url: "/createEventAttention",
       templateUrl: "views/event/attention.html",
@@ -326,6 +322,14 @@ angular.module('services', [])
         menuContent: {
           templateUrl: "views/menu/events.html",
           controller: "MenuEventCtrl"
+        }
+      }
+    }).state("list.createEvent", {
+      url: "/createEvent",
+      views: {
+        menuContent: {
+          templateUrl: "views/event/create_event.html",
+          controller: "CreateEventCtrl"
         }
       }
     }).state("list.termAndPolish", {
@@ -469,13 +473,10 @@ angular.module('services', [])
 
 (function() {
   'use strict';
-  angular.module("hiin").controller("chatCtrl", function($scope, $window, socket, Util, $stateParams, $ionicScrollDelegate) {
-    var messageKey, messages, partnerId, thisEvent, w;
+  angular.module("hiin").controller("chatCtrl", function($scope, $window, socket, Util, $stateParams, $ionicScrollDelegate, $timeout) {
+    var isIOS, messageKey, messages, partnerId, thisEvent;
     console.log('chat');
     console.dir($stateParams);
-    $scope.$on("$destroy", function(event) {
-      socket.removeAllListeners();
-    });
     partnerId = $stateParams.userId;
     thisEvent = window.localStorage['thisEvent'];
     messageKey = thisEvent + '_' + partnerId;
@@ -488,6 +489,28 @@ angular.module('services', [])
     socket.emit("getUserInfo", {
       targetId: $stateParams.userId
     });
+    window.addEventListener("native.keyboardshow", function(e) {
+      console.log("Keyboard height is: " + e.keyboardHeight);
+      if ($scope.input_mode !== true) {
+        cordova.plugins.Keyboard.close();
+        $scope.input_mode = true;
+      }
+    });
+    window.addEventListener("native.keyboardhide", function(e) {
+      console.log("Keyboard close");
+    });
+    ionic.DomUtil.ready(function() {
+      if (window.cordova) {
+        return cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      }
+    });
+    $scope.$on("$destroy", function(event) {
+      if (window.cordova) {
+        cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close();
+      }
+      socket.removeAllListeners();
+    });
+    isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
     socket.on("getUserInfo", function(data) {
       console.log("chat,getUserInfo");
       $scope.opponent = data;
@@ -514,32 +537,50 @@ angular.module('services', [])
     $scope.sendMessage = function() {
       socket.emit("message", {
         targetId: $stateParams.userId,
-        message: $scope.msg
+        message: $scope.data.message
       });
       $scope.messages.push({
         user: 'me',
-        text: $scope.msg
+        text: $scope.data.message
       });
-      $scope.msg = "";
+      $scope.data.message = "";
       window.localStorage[messageKey] = JSON.stringify($scope.messages);
       return $ionicScrollDelegate.scrollBottom();
     };
-    w = angular.element($window);
-    $scope.getHeight = function() {
-      return w.height();
+    return;
+    $scope.inputUp = function() {
+      console.log('inputUp');
+      if (isIOS) {
+        $scope.data.keyboardHeight = 216;
+      }
+      $timeout((function() {
+        $ionicScrollDelegate.scrollBottom(true);
+      }), 300);
     };
-    $scope.$watch($scope.getHeight, function(newValue, oldValue) {
-      $scope.windowHeight = newValue;
-      $scope.style = function() {
-        return {
-          height: newValue + "px"
-        };
-      };
-    });
-    w.bind("resize", function() {
-      $scope.$apply();
-    });
+    $scope.inputDown = function() {
+      console.log('inputDown');
+      if (isIOS) {
+        $scope.data.keyboardHeight = 0;
+      }
+      $ionicScrollDelegate.resize();
+    };
+    $scope.data = {};
   });
+
+
+  /*
+    w = angular.element($window)
+    $scope.getHeight = ->
+      w.height()
+    $scope.$watch $scope.getHeight, (newValue, oldValue) ->
+      $scope.windowHeight = newValue
+      $scope.style = ->
+        height: newValue + "px"
+      return
+    w.bind "resize", ->
+      $scope.$apply()
+      return
+   */
 
 }).call(this);
 
@@ -566,9 +607,20 @@ angular.module('services', [])
 (function() {
   'use strict';
   angular.module('hiin').controller('CreateEventCtrl', function($scope, $window, $modal, Util, Host, $q, $state) {
-    $scope.dateOptions = {
+    $scope.sDate = {
+      minDate: new Date(),
+      onSelect: function(dateText, inst) {
+        $scope.eDate.minDate = new Date(dateText);
+        $scope.eventInfo.endDate = $scope.eventInfo.startDate;
+        return console.log(dateText);
+      }
+    };
+    $scope.eDate = {
       minDate: new Date()
     };
+    $scope.eventInfo = {};
+    $scope.startTime = "00:00";
+    $scope.endTime = "00:00";
     $scope.CreateEvent = function(eventInfo) {
       var deferred;
       deferred = $q.defer();
@@ -591,30 +643,22 @@ angular.module('services', [])
           alert('input start date');
           return;
         }
-        $scope.eventInfo.startDate.setHours($scope.time.split(":")[0]);
-        $scope.eventInfo.startDate.setMinutes($scope.time.split(":")[1]);
-        $scope.eventInfo.endDate = new Date($scope.eventInfo.startDate.getTime());
-        $scope.eventInfo.endDate.setMinutes($scope.eventInfo.endDate.getMinutes() + $scope.durationHour * 60);
+        $scope.eventInfo.startDate.setHours($scope.startTime.split(":")[0]);
+        $scope.eventInfo.startDate.setMinutes($scope.startTime.split(":")[1]);
+        $scope.eventInfo.endDate.setHours($scope.endTime.split(":")[0]);
+        $scope.eventInfo.endDate.setMinutes($scope.endTime.split(":")[1]);
         $scope.CreateEvent($scope.eventInfo).then(function(data) {
-          var confirmData;
+          var modalInstance;
           console.log(data);
-          confirmData = {
-            code: data.eventCode
-          };
           $scope.eventCode = data.eventCode;
-          return Util.ConfirmEvent(confirmData).then(function(data) {
-            var modalInstance;
-            modalInstance = $modal.open({
-              templateUrl: "views/event/passcode_dialog.html",
-              scope: $scope
-            });
-            return modalInstance.result.then(function() {
-              return console.log('불가');
-            }, function() {
-              return $state.go('list.userlists');
-            });
-          }, function(status) {
-            return alert("invalid event code");
+          modalInstance = $modal.open({
+            templateUrl: "views/event/passcode_dialog.html",
+            scope: $scope
+          });
+          return modalInstance.result.then(function() {
+            return console.log('불가');
+          }, function() {
+            return $state.go('list.userlists');
           });
         }, function(status) {
           return alert('err');
@@ -622,13 +666,10 @@ angular.module('services', [])
       }
     };
     $scope.yes = function() {
-      return $state.go('createEvent');
+      return $state.go('list.createEvent');
     };
-    $scope.no = function() {
-      return $window.history.back();
-    };
-    return $scope.backToList = function() {
-      return $window.history.back();
+    return $scope.no = function() {
+      return $state.go('list.events');
     };
   });
 
@@ -683,7 +724,7 @@ angular.module('services', [])
 
 (function() {
   'use strict';
-  angular.module("hiin").controller("grpChatCtrl", function($scope, $window, socket, Util, $location, $ionicScrollDelegate) {
+  angular.module("hiin").controller("grpChatCtrl", function($scope, $window, socket, Util, $location, $ionicScrollDelegate, $timeout) {
     var isIOS, messageKey, messages, myId, thisEvent;
     console.log('grpChat');
     $scope.input_mode = false;
@@ -702,13 +743,14 @@ angular.module('services', [])
       console.log("Keyboard height is: " + e.keyboardHeight);
       if ($scope.input_mode !== true) {
         cordova.plugins.Keyboard.close();
-        $scope.input_mode = true;
       }
     });
     window.addEventListener("native.keyboardhide", function(e) {
       console.log("Keyboard close");
+      $scope.input_mode = true;
     });
     ionic.DomUtil.ready(function() {
+      console.log('ready');
       if (window.cordova) {
         return cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       }
@@ -750,6 +792,7 @@ angular.module('services', [])
     };
     $scope.inputUp = function() {
       console.log('inputUp');
+      window.scroll(0, 0);
       if (isIOS) {
         $scope.data.keyboardHeight = 216;
       }
@@ -829,17 +872,19 @@ angular.module('services', [])
 
 (function() {
   'use strict';
-  angular.module('hiin').controller('ListCtrl', function($rootScope, $scope, $window, Util, socket, $modal, $state, $location, $ionicNavBarDelegate) {
+  angular.module('hiin').controller('ListCtrl', function($route, $rootScope, $scope, $window, Util, socket, $modal, $state, $location, $ionicNavBarDelegate, $timeout) {
     $rootScope.selectedItem = 2;
     ionic.DomUtil.ready(function() {
       return $ionicNavBarDelegate.showBackButton(false);
     });
     socket.emit("currentEvent");
     socket.emit("myInfo");
+    $scope.reloadFlg = false;
     $scope.$on("$destroy", function(event) {
       socket.removeAllListeners();
     });
     socket.on("currentEvent", function(data) {
+      $scope.reloadFlg = true;
       console.log("list currentEvent");
       $scope.eventName = data.name;
       window.localStorage['thisEvent'] = data.code;

@@ -1,9 +1,19 @@
 'use strict'
 
 angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util,Host,$q,$state) ->
-	#create event promise
-	$scope.dateOptions = 
-        minDate: new Date()
+	#init
+	$scope.sDate = 
+    minDate: new Date()
+    onSelect: (dateText, inst) ->
+    	$scope.eDate.minDate = new Date(dateText)
+    	$scope.eventInfo.endDate = $scope.eventInfo.startDate
+    	console.log dateText
+  $scope.eDate = 
+  	minDate: new Date()
+  $scope.eventInfo = {}
+  $scope.startTime = "00:00"
+  $scope.endTime = "00:00"
+
 	$scope.CreateEvent = (eventInfo) ->
 		deferred = $q.defer()
 		Util.makeReq('post','event',eventInfo)
@@ -20,37 +30,29 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
 	#confirm event
 	$scope.pubish = ->
 		if $scope.eventInfo isnt null
-			if typeof $scope.eventInfo.startDate is 'undefined' || !$scope.eventInfo.startDate? 
+			if typeof $scope.eventInfo.startDate == 'undefined' || !$scope.eventInfo.startDate? 
 				alert 'input start date'
 				return 
-			$scope.eventInfo.startDate.setHours($scope.time.split(":")[0])
-			$scope.eventInfo.startDate.setMinutes($scope.time.split(":")[1])
-			$scope.eventInfo.endDate = new Date($scope.eventInfo.startDate.getTime())
-			$scope.eventInfo.endDate.setMinutes($scope.eventInfo.endDate.getMinutes() + $scope.durationHour * 60)
+			$scope.eventInfo.startDate.setHours($scope.startTime.split(":")[0])
+			$scope.eventInfo.startDate.setMinutes($scope.startTime.split(":")[1])
+			$scope.eventInfo.endDate.setHours($scope.endTime.split(":")[0])
+			$scope.eventInfo.endDate.setMinutes($scope.endTime.split(":")[1])
 			$scope.CreateEvent($scope.eventInfo)
         .then (data) ->
           console.log data
-          confirmData =
-            code: data.eventCode
           $scope.eventCode = data.eventCode
-          Util.ConfirmEvent(confirmData)
-          .then (data) ->
-            modalInstance = $modal.open(
-              templateUrl: "views/event/passcode_dialog.html"
-              scope: $scope
-              )
-            modalInstance.result.then  ->
-              console.log '불가'
-            , ->
-              $state.go('list.userlists')
-          ,(status) ->
-            alert "invalid event code"
+          modalInstance = $modal.open(
+            templateUrl: "views/event/passcode_dialog.html"
+            scope: $scope
+            )
+          modalInstance.result.then  ->
+            console.log '불가'
+          , ->
+            $state.go('list.userlists')
         ,(status) ->
           alert 'err'
     return
 	$scope.yes = ->
-		$state.go('createEvent')
+		$state.go('list.createEvent')
 	$scope.no = ->
-		$window.history.back()
-	$scope.backToList =->
-    $window.history.back()
+		$state.go('list.events')

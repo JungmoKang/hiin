@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$stateParams,$ionicScrollDelegate) ->
+angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$stateParams,$ionicScrollDelegate,$timeout) ->
   console.log('chat')
   console.dir($stateParams)
 
