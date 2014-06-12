@@ -30,12 +30,7 @@ angular.module("hiin", [
     url: "/signUp"
     templateUrl: "views/login/signup.html"
     controller: "SignUpCtrl"
-  )
-  .state("createEventAttention",
-    url: "/createEventAttention"
-    templateUrl: "views/event/attention.html"
-    controller: "CreateEventCtrl"      
-  )   
+  ) 
   .state('list', 
     url: '/list'
     abstract: true

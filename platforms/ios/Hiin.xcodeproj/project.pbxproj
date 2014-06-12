@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -43,6 +42,7 @@
 		9C9FC7825C674078B384BC90 /* UIWebViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A7BF7B0634FF598B8B622 /* UIWebViewExtension.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		E779AE7E4E1E4293A442EA7F /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD04F4660BA44F909FB11CB0 /* CDVDevice.m */; };
+		A11BA7BF52FB487EA4465401 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB32ECAFC704C699168BD9E /* CDVStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +115,8 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Hiin/config.xml; sourceTree = "<group>"; };
 		FD04F4660BA44F909FB11CB0 /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
 		FF170BD301004A4E8C6E8375 /* IonicKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IonicKeyboard.m; path = com.ionic.keyboard/IonicKeyboard.m; sourceTree = "<group>"; };
+		FBB32ECAFC704C699168BD9E /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		46F61ED7B8E24A9EA865855D /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,8 @@
 				17CDA93D46714CF88E99960E /* CDVLogger.h */,
 				FD04F4660BA44F909FB11CB0 /* CDVDevice.m */,
 				CC895EC568D34BA483A6BE5D /* CDVDevice.h */,
+				FBB32ECAFC704C699168BD9E /* CDVStatusBar.m */,
+				46F61ED7B8E24A9EA865855D /* CDVStatusBar.h */,
 			);
 			name = Plugins;
 			path = Hiin/Plugins;
@@ -441,6 +445,7 @@
 				9C9FC7825C674078B384BC90 /* UIWebViewExtension.m in Sources */,
 				9902FF23621E4A19829D9433 /* CDVLogger.m in Sources */,
 				E779AE7E4E1E4293A442EA7F /* CDVDevice.m in Sources */,
+				A11BA7BF52FB487EA4465401 /* CDVStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

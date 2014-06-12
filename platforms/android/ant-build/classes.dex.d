@@ -8,4 +8,7 @@
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/ant-build/classes/com/example/Hiin/R.class \
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard$1.class \
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard.class \
+/Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/ant-build/classes/org/apache/cordova/statusbar/StatusBar$1.class \
+/Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/ant-build/classes/org/apache/cordova/statusbar/StatusBar$2.class \
+/Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/ant-build/classes/org/apache/cordova/statusbar/StatusBar.class \
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/ant-build/dexedLibs/classes-0c3482963a16a561a0ef757dd4d35d3a.jar \

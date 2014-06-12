@@ -21,4 +21,7 @@
         <param name="onload" value="true" />
         <param name="ios-package" onload="true" value="IonicKeyboard" />
     </feature>
+    <feature name="StatusBar">
+        <param name="android-package" onload="true" value="org.apache.cordova.statusbar.StatusBar" />
+    </feature>
 </widget>
