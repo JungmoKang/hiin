@@ -6,16 +6,15 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     $ionicNavBarDelegate.showBackButton(false)
   socket.emit "currentEvent"
   socket.emit "myInfo"
-  $scope.reloadFlg = false
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
     return
   socket.on "currentEvent", (data) ->
-    $scope.reloadFlg = true
     console.log "list currentEvent"
     $scope.eventName = data.name
     window.localStorage['thisEvent'] = data.code
+    window.localStorage['eventOwner'] = data.author
     socket.emit "currentEventUserList"
     console.log "socket emit current event user list"
     return

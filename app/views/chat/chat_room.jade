@@ -7,9 +7,29 @@ ion-view.messaging-view(title='{{roomName}}')
       br
       .message: span {{ message.text }}
   .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }')
-    .row
-      .col-80
-        input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
-          on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()')
-      .col-20
-        button(ng-click='sendMessage()') SEND
+    div(ng-hide="amIOwner")
+      .row
+        .col-80
+          input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
+            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()')
+        .col-20
+          button.send(ng-click='sendMessage()') SEND
+    div(ng-show="amIOwner")
+      .row
+        .col.col-70
+          input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
+            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()')
+        .col.col-10
+          button.owner_msg_on(ng-click='toggleOwnerMsg()', ng-class="regular_msg_flg ? 'owner_msg_on' : 'owner_msg_off' ")
+        .col.col-20
+          button.send(ng-click='sendMessage()') SEND
+      div.owner_header
+        .row
+          .col.col-5.image
+          .col.col-5.number
+            | {{userNum}}
+          .col.col-90.message
+            div(ng-show="showingMsg")
+              input(type='text', ng-model='popupMessage',readOnly,ng-class="regular_msg_flg ? 'on_msg' : 'off_msg'")
+
+

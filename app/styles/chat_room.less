@@ -12,7 +12,8 @@
   color: gray;
   position:relative;
   display:inline-block;
-  padding:10px; 
+  padding:10px;
+  max-width:55%;
 }
 .msg_name()
 {
@@ -83,33 +84,113 @@
     float: left;
   }
   .message-input { 
-      position:fixed; bottom:0; left:0; right:0; height:40px; background:#FFF; z-index:20;
+    position:fixed; bottom:0; left:0; right:0; height:40px; background:#FFF; z-index:20;
+    .row
+    {
+      padding:0px;
+      border-top:1px solid @color_1;
+    }
+    input
+    {
+      padding: 10px;
+      .font_style_7;
+      color: black;
+      border: 0px;
+      height:38px;
+      font-size: 15px;
+    }
+    input::-webkit-input-placeholder {
+      .font_style_7;
+      font-size: 15px;
+    }
+    .owner_msg_flg()
+    {
+      height:40px;
+      border:0px;
+      padding:0px;
+      width:100%;
+      background-size:24px 21px;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    .owner_msg_on
+    {
+      .owner_msg_flg;
+      background-color : @color_2;
+      background-image:url('../images/chat-organizer/switch-on-48x42.png'); 
+    }
+    .owner_msg_off
+    {
+      .owner_msg_flg;
+      background-color : @color_5;
+      background-image:url('../images/chat-organizer/switch-off-48x42.png'); 
+    }
+    .send
+    {
+      background-color : @color_1;
+      .font_style_4;
+      width:100%;
+      height:40px;
+      border:0px;
+      padding:0px;
+    }
+    .col
+    {
+      padding:0px;
+    }
+    .owner_header
+    {
+      position:relative;
+      top:-70px;
       .row
       {
-        padding:0px;
-        border-top:1px solid @color_1;
+        border-top:0px;
       }
-      input
+      .image
       {
-        padding: 10px;
-        .font_style_7;
-        color: black;
-        border: 0px;
-        height:38px;
-        font-size: 15px;
-      }
-      input::-webkit-input-placeholder {
-        .font_style_7;
-        font-size: 15px;
-      }
-      button
-      {
-        background-color : @color_1;
-        .font_style_4;
-        width:100%;
-        height:40px;
         border:0px;
         padding:0px;
+        height:20px;
+        width:100%;
+        background-size:8px 10px;
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-image:url('../images/chat-organizer/icn-online-16x20.png'); 
       }
+      .number
+      {
+        .font_style_7;
+        color:@color_5;
+        position:relative;
+        top:3px;
+      }
+      .message_common()
+      {
+        .font_style_7;
+        color:white;
+        padding:5px;
+        border-radius:4px;
+        height:100%;
+        width:70%;
+        position:relative;
+        left:10px;
+        top:-10px;
+        text-align:center;
+      }
+      .message
+      {
+        .on_msg
+        {
+          .message_common;
+          background-color : @color_2;
+
+        }
+        .off_msg
+        {
+          .message_common;
+          background-color : @color_5;
+        }
+      }
+    }
   }
 }

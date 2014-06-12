@@ -1,4 +1,6 @@
 ion-view(title='INFO')
+  ion-nav-buttons(side='right')
+    button.edit_link(ng-click='ToEditMode()', ng-show="isOwner", ng-class="right_link")
   ion-pane
     .event_info_code
       .passcode 

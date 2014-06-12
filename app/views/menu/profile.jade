@@ -1,6 +1,8 @@
 ion-view(title='PROFILE')
   ion-nav-buttons(side='left')
     button.button.button-icon.icon#list_header_button(menu-toggle='left')
+  ion-nav-buttons(side='right')
+    button.edit_link(ng-click='ToEditMode()', ng-class="right_link")
   ion-content.has-header#menu_profile
     .header
       img.img-circle.profile_pic(src='{{imagePath}}{{userInfo.photoUrl}}')

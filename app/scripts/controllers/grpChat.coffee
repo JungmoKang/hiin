@@ -6,7 +6,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
   #group chat init
   $scope.input_mode = false
   $scope.imagePath = Util.serverUrl() + "/"
-  myId = window.localStorage['myId']
+  $scope.myId = window.localStorage['myId']
   thisEvent = window.localStorage['thisEvent']
   messageKey = thisEvent + '_groupMessage'
   $scope.roomName = "GROUP CHAT"
@@ -17,6 +17,10 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     $scope.messages = messages
   $scope.data = {}
   $scope.data.message = ""
+  $scope.amIOwner = false
+  if window.localStorage['eventOwner'] == $scope.myId
+    $scope.amIOwner = true
+    $scope.regular_msg_flg = false
   #초기에 키보드가 표시되는 것을 방지하기 위한 플래그
   window.addEventListener "native.keyboardshow", (e) ->
     console.log "Keyboard height is: " + e.keyboardHeight
@@ -42,7 +46,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
   socket.on "groupMessage", (data) ->
     console.log "grp chat,groupMessage"
     whosMessage = ""
-    if myId == data._id
+    if $scope.myId == data._id
       whosMessage = 'me'
     else
       whosMessage = data.fromName
@@ -60,10 +64,15 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     return
   $scope.sendMessage =->
     if $scope.data.message == ""
-      return    
-    socket.emit "groupMessage",{
-      message: $scope.data.message
-      }
+      return
+    if $scope.regular_msg_flg is true
+      socket.emit "groupMessage",{
+        message: $scope.data.message
+        }
+    else
+      socket.emit "notice",{
+        message: $scope.data.message
+        }
     $scope.data.message = ""
   $scope.inputUp = ->
     console.log 'inputUp'
@@ -79,7 +88,19 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     $scope.data.keyboardHeight = 0  if isIOS
     $ionicScrollDelegate.resize()
     return
-  return
+  $scope.toggleOwnerMsg = ->
+    $scope.regular_msg_flg = !$scope.regular_msg_flg
+    if $scope.regular_msg_flg is true
+      $scope.popupMessage = "Send as a regular chat message"
+    else
+      $scope.popupMessage = "Send as a notice to the group"
+    $scope.showingMsg = true
+    if $scope.timer?
+      $timeout.cancel($scope.timer)
+    $scope.timer = $timeout (->
+      $scope.showingMsg = false
+      return
+    ), 2000
 angular.module("hiin").directive "ngChatInput", ($timeout) ->
   restrict: "A"
   scope:

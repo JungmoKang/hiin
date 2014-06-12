@@ -52,7 +52,3 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
         ,(status) ->
           alert 'err'
     return
-	$scope.yes = ->
-		$state.go('list.createEvent')
-	$scope.no = ->
-		$state.go('list.events')
