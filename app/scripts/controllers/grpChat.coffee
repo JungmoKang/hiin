@@ -15,7 +15,8 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     $scope.messages = JSON.parse(messages)
   else
     $scope.messages = messages
-
+  $scope.data = {}
+  $scope.data.message = ""
   #초기에 키보드가 표시되는 것을 방지하기 위한 플래그
   window.addEventListener "native.keyboardshow", (e) ->
     console.log "Keyboard height is: " + e.keyboardHeight
@@ -58,6 +59,8 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     $ionicScrollDelegate.scrollBottom()
     return
   $scope.sendMessage =->
+    if $scope.data.message == ""
+      return    
     socket.emit "groupMessage",{
       message: $scope.data.message
       }
@@ -76,7 +79,6 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     $scope.data.keyboardHeight = 0  if isIOS
     $ionicScrollDelegate.resize()
     return
-  $scope.data = {}
   return
 angular.module("hiin").directive "ngChatInput", ($timeout) ->
   restrict: "A"

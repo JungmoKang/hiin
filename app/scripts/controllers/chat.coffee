@@ -17,6 +17,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   socket.emit "getUserInfo",{
       targetId: $stateParams.userId
     }
+  $scope.data.message = ""
   #초기에 키보드가 표시되는 것을 방지하기 위한 플래그
   window.addEventListener "native.keyboardshow", (e) ->
     console.log "Keyboard height is: " + e.keyboardHeight
@@ -58,7 +59,9 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     $ionicScrollDelegate.scrollBottom()
 
   $scope.sendMessage =->
-  	socket.emit "message",{
+  	if $scope.data.message == ""
+      return
+    socket.emit "message",{
   		targetId: $stateParams.userId
   		message: $scope.data.message
   	}

@@ -1678,3 +1678,9 @@
 2014-06-11 10:25:09.147 Hiin[20449:70b] list currentEventUserList
 2014-06-11 10:25:09.147 Hiin[20449:70b] []
 2014-06-11 10:25:15.365 Hiin[20449:70b] profile myInfo
+2014-06-12 21:30:16.322 Hiin[15359:70b] Multi-tasking -> Device: YES, App: YES
+2014-06-12 21:30:16.354 Hiin[15359:70b] Unlimited access to network resources
+2014-06-12 21:30:16.615 Hiin[15359:70b] [CDVTimer][keyboard] 0.079989ms
+2014-06-12 21:30:16.615 Hiin[15359:70b] [CDVTimer][TotalPluginStartup] 0.554979ms
+2014-06-12 21:30:16.820 Hiin[15359:70b] Resetting plugins due to page load.
+2014-06-12 21:30:17.376 Hiin[15359:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/2E726489-8018-435F-B0D1-38C128CFB6E6/Hiin.app/www/index.html#/

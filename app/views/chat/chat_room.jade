@@ -8,8 +8,8 @@ ion-view.messaging-view(title='{{roomName}}')
       .message: span {{ message.text }}
   .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }')
     .row
-      .col-75
+      .col-80
         input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
           on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()')
-      .col-25
+      .col-20
         button(ng-click='sendMessage()') SEND
