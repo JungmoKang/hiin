@@ -1731,3 +1731,143 @@
 2014-06-13 03:08:52.141 Hiin[41661:70b] Resetting plugins due to page load.
 2014-06-13 03:08:52.403 Hiin[41661:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/61BF4E71-E97C-4543-815C-BDBF0CFB510E/Hiin.app/www/index.html#/
 2014-06-13 03:08:54.389 Hiin[41661:70b] localstorage host = null
+2014-06-13 03:16:31.076 Hiin[41661:70b] http://ec2-54-86-232-223.compute-1.amazonaws.com:3000/login
+2014-06-13 03:17:10.467 Hiin[41661:70b] list myInfo
+2014-06-13 03:17:10.468 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:17:10.472 Hiin[41661:70b] list currentEvent
+2014-06-13 03:17:10.472 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:17:10.653 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:17:10.653 Hiin[41661:70b] []
+2014-06-13 03:17:11.310 Hiin[41661:70b] grpChat
+2014-06-13 03:17:11.325 Hiin[41661:70b] ready
+2014-06-13 03:17:12.525 Hiin[41661:70b] focusss
+2014-06-13 03:17:12.525 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:17:12.528 Hiin[41661:70b] Keyboard close
+2014-06-13 03:17:12.785 Hiin[41661:70b] inputUp
+2014-06-13 03:17:12.785 Hiin[41661:70b] inputDown
+2014-06-13 03:17:13.995 Hiin[41661:70b] focusss
+2014-06-13 03:17:13.995 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:17:14.193 Hiin[41661:70b] inputUp
+2014-06-13 03:17:34.888 Hiin[41661:70b] Keyboard close
+2014-06-13 03:17:34.929 Hiin[41661:70b] inputDown
+2014-06-13 03:17:35.086 Hiin[41661:70b] list myInfo
+2014-06-13 03:17:35.087 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:17:35.087 Hiin[41661:70b] list currentEvent
+2014-06-13 03:17:35.087 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:17:35.373 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:17:35.373 Hiin[41661:70b] []
+2014-06-13 03:17:52.193 Hiin[41661:70b] profile myInfo
+2014-06-13 03:20:23.861 Hiin[41661:70b] list currentEvent
+2014-06-13 03:20:23.862 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:20:23.865 Hiin[41661:70b] list myInfo
+2014-06-13 03:20:23.865 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:20:24.042 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:20:24.043 Hiin[41661:70b] []
+2014-06-13 03:20:26.237 Hiin[41661:70b] profile myInfo
+2014-06-13 03:20:28.475 Hiin[41661:70b] list currentEvent
+2014-06-13 03:20:28.475 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:20:28.476 Hiin[41661:70b] list myInfo
+2014-06-13 03:20:28.476 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:20:28.657 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:20:28.657 Hiin[41661:70b] []
+2014-06-13 03:20:29.838 Hiin[41661:70b] profile myInfo
+2014-06-13 03:20:33.833 Hiin[41661:70b] list currentEvent
+2014-06-13 03:20:33.834 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:20:33.835 Hiin[41661:70b] list myInfo
+2014-06-13 03:20:33.835 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:20:34.016 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:20:34.016 Hiin[41661:70b] []
+2014-06-13 03:20:39.983 Hiin[41661:70b] list myInfo
+2014-06-13 03:20:39.983 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:20:39.983 Hiin[41661:70b] list currentEvent
+2014-06-13 03:20:39.983 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:20:40.164 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:20:40.165 Hiin[41661:70b] []
+2014-06-13 03:20:43.841 Hiin[41661:70b] list currentEvent
+2014-06-13 03:20:43.842 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:20:43.853 Hiin[41661:70b] list myInfo
+2014-06-13 03:20:43.853 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:20:44.025 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:20:44.025 Hiin[41661:70b] []
+2014-06-13 03:20:44.401 Hiin[41661:70b] grpChat
+2014-06-13 03:20:44.408 Hiin[41661:70b] ready
+2014-06-13 03:20:44.751 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:20:44.751 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:20:44.753 Hiin[41661:70b] Keyboard close
+2014-06-13 03:20:44.754 Hiin[41661:70b] Keyboard close
+2014-06-13 03:20:45.426 Hiin[41661:70b] list myInfo
+2014-06-13 03:20:45.427 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:20:45.430 Hiin[41661:70b] list currentEvent
+2014-06-13 03:20:45.430 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:20:45.613 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:20:45.614 Hiin[41661:70b] []
+2014-06-13 03:21:08.118 Hiin[41661:70b] list myInfo
+2014-06-13 03:21:08.119 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:21:08.120 Hiin[41661:70b] list currentEvent
+2014-06-13 03:21:08.121 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:21:08.302 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:21:08.302 Hiin[41661:70b] []
+2014-06-13 03:21:09.461 Hiin[41661:70b] grpChat
+2014-06-13 03:21:09.461 Hiin[41661:70b] ready
+2014-06-13 03:21:09.807 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:09.807 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:09.807 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:09.810 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:09.810 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:09.810 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:10.643 Hiin[41661:70b] list myInfo
+2014-06-13 03:21:10.644 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:21:10.644 Hiin[41661:70b] list currentEvent
+2014-06-13 03:21:10.644 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:21:10.826 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:21:10.827 Hiin[41661:70b] []
+2014-06-13 03:21:13.271 Hiin[41661:70b] list currentEvent
+2014-06-13 03:21:13.271 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:21:13.273 Hiin[41661:70b] list myInfo
+2014-06-13 03:21:13.273 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:21:13.453 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:21:13.453 Hiin[41661:70b] []
+2014-06-13 03:21:13.852 Hiin[41661:70b] grpChat
+2014-06-13 03:21:13.865 Hiin[41661:70b] ready
+2014-06-13 03:21:14.201 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:14.201 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:14.201 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:14.202 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:14.204 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:14.204 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:14.204 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:14.204 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:14.750 Hiin[41661:70b] list currentEvent
+2014-06-13 03:21:14.750 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:21:14.751 Hiin[41661:70b] list myInfo
+2014-06-13 03:21:14.751 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:21:14.932 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:21:14.932 Hiin[41661:70b] []
+2014-06-13 03:21:15.889 Hiin[41661:70b] list myInfo
+2014-06-13 03:21:15.894 Hiin[41661:70b] activity
+2014-06-13 03:21:15.894 Hiin[41661:70b] {"rank":1,"activity":[]}
+2014-06-13 03:21:16.943 Hiin[41661:70b] list myInfo
+2014-06-13 03:21:16.944 Hiin[41661:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"9939"}
+2014-06-13 03:21:16.948 Hiin[41661:70b] list currentEvent
+2014-06-13 03:21:16.948 Hiin[41661:70b] socket emit current event user list
+2014-06-13 03:21:17.129 Hiin[41661:70b] list currentEventUserList
+2014-06-13 03:21:17.129 Hiin[41661:70b] []
+2014-06-13 03:21:19.195 Hiin[41661:70b] grpChat
+2014-06-13 03:21:19.201 Hiin[41661:70b] ready
+2014-06-13 03:21:19.545 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:19.546 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:19.546 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:19.546 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:19.546 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:19.548 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:19.549 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:19.549 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:19.549 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:19.549 Hiin[41661:70b] Keyboard close
+2014-06-13 03:21:20.052 Hiin[41661:70b] focusss
+2014-06-13 03:21:20.052 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:20.053 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:20.053 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:20.053 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:20.054 Hiin[41661:70b] Keyboard height is: 216
+2014-06-13 03:21:20.279 Hiin[41661:70b] inputUp

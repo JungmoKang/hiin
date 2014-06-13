@@ -7,6 +7,9 @@
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
+    <feature name="StatusBar">
+        <param name="android-package" onload="true" value="org.apache.cordova.statusbar.StatusBar" />
+    </feature>
     <name>Hiin</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -21,7 +24,13 @@
         <param name="onload" value="true" />
         <param name="ios-package" onload="true" value="IonicKeyboard" />
     </feature>
-    <feature name="StatusBar">
-        <param name="android-package" onload="true" value="org.apache.cordova.statusbar.StatusBar" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <feature name="FacebookConnectPlugin">
+        <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
     </feature>
+    <access origin="https://m.facebook.com" />
+    <access origin="https://graph.facebook.com" />
+    <access origin="https://api.facebook.com" />
+    <access origin="https://*.fbcdn.net" />
+    <access origin="https://*.akamaihd.net" />
 </widget>

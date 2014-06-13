@@ -18,8 +18,11 @@
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/assets/www/plugins \
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/assets/www/plugins/com.ionic.keyboard \
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/assets/www/plugins/org.apache.cordova.device \
+/Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/assets/www/plugins/org.apache.cordova.statusbar \
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/assets/www/plugins/com.ionic.keyboard/www \
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/assets/www/plugins/com.ionic.keyboard/www/keyboard.js \
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/assets/www/plugins/org.apache.cordova.device/www \
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
+/Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/assets/www/plugins/org.apache.cordova.statusbar/www \
+/Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/assets/www/plugins/org.apache.cordova.statusbar/www/statusbar.js \
 /Users/moya/Programs/hiin-client/hiin_ionic/platforms/android/ant-build/AndroidManifest.xml \

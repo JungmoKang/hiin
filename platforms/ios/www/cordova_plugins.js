@@ -34,6 +34,13 @@ module.exports = [
         "clobbers": [
             "window.StatusBar"
         ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.facebookconnect/www/phonegap/plugin/facebookConnectPlugin/facebookConnectPlugin.js",
+        "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
+        "clobbers": [
+            "window.facebookConnectPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -42,7 +49,8 @@ module.exports.metadata =
     "com.ionic.keyboard": "0.0.1",
     "org.apache.cordova.console": "0.2.8",
     "org.apache.cordova.device": "0.2.9",
-    "org.apache.cordova.statusbar": "0.1.7-dev"
+    "org.apache.cordova.statusbar": "0.1.7-dev",
+    "com.phonegap.plugins.facebookconnect": "0.5.1"
 }
 // BOTTOM OF METADATA
 });
