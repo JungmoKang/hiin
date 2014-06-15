@@ -41,7 +41,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       $scope.modalInstance.close()
     $location.url('/list/userlists/'+user._id)
   $scope.sayHi = (user) ->
-    if user.status == '0'
+    if user.status is '0' or user.status is '2'
       console.log 'sayhi'
       setTimeout () -> 
         socket.emit "hi" , {
@@ -86,15 +86,18 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       $scope.modalInstance = null
       return
     $scope.modalInstance = modalInstance
+#accept : 3, request:1, pending:2, else :0
 angular.module("hiin").directive "ngHiBtn", ($window)->
   link: (scope, element, attrs) ->
     console.log attrs.histatus
-    if attrs.histatus is '0' or attrs.histatus is '2'
+    if attrs.histatus is '0'
       console.log('btn status = hi')
+      element.addClass 'btn-front'
+    else if attrs.histatus is '2'
+      element.addClass 'btn-Hi'
       element.addClass 'btn-front'
     else
       console.log ('btn Status = in')
-      element.removeClass 'btnHi'
       element.addClass 'btn-back'
       console.log element 
 angular.module("hiin").directive "ngInBtn", ($window)->
@@ -105,7 +108,6 @@ angular.module("hiin").directive "ngInBtn", ($window)->
       element.addClass 'btn-back'
     else
       console.log ('btn Status = in')
-      element.removeClass 'btnHi'
       element.addClass 'btn-front'
       console.log element
 angular.module("hiin").directive "ngFlipBtn", ($window)->

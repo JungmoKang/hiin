@@ -7,12 +7,43 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   #init
   partnerId = $stateParams.userId
   thisEvent = window.localStorage['thisEvent']
+  $scope.myId = window.localStorage['myId']
   messageKey = thisEvent + '_' + partnerId
+  #기본적으로 개인 메세지 창은 나가기 개념이 없음. 즉, 대화가 로컬에 없으면 처음 대화하므로 상대방 대화를 모두 긁어옴
   messages = window.localStorage[messageKey] || []
   if messages.length > 0
     $scope.messages = JSON.parse(messages)
+    socket.emit 'loadMsgs', {
+                              code: thisEvent
+                              partner: partnerId
+                              type: "personal"
+                              range: "unread"
+    }
   else
-    $scope.messages = messages
+    socket.emit 'loadMsgs', { 
+                              code: thisEvent
+                              partner: partnerId
+                              type: "personal"
+                              range: "all"
+    }
+  
+  $scope.pullLoadMsg =->
+    socket.emit 'loadMsgs', {
+                              code: thisEvent
+                              partner: partnerId
+                              type: "personal"
+                              range: "all"
+    }
+
+
+  socket.on 'loadMsgs', (data)->
+    data.message.forEach (item)->
+      if item.sender is $scope.myId
+        item.sender_name = 'me'
+    if data.type is 'personal' and data.range is 'all'
+      $scope.messages = data.message
+      window.localStorage[messageKey] = JSON.stringify($scope.messages)
+
   #상대방의 정보 습득
   socket.emit "getUserInfo",{
       targetId: $stateParams.userId
@@ -45,17 +76,16 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     $scope.opponent = data
     $scope.partner = data.firstName
     $scope.roomName = "CHAT WITH " + data.firstName
+
   socket.on "message", (data) ->
+    console.log 'ms'
+    console.log data
     if data.status < 0
       return
-    if data.from isnt $stateParams.userId
+    if data.sender isnt $stateParams.userId
       return
-    $scope.messages.push
-      user: data.fromName
-      text: data.message
-      thumbnailUrl: data.thumbnailUrl
-      regTime: data.regTime
-      _id: data._id
+    #read function here later
+    $scope.messages.push data
     window.localStorage[messageKey] = JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
 
@@ -68,9 +98,9 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   	}
     #내 사진은 표시 안
   	$scope.messages.push
-        user: 'me'
-        text: $scope.data.message
-    $scope.data.message = "";
+        sender_name: 'me' 
+        content: $scope.data.message
+    $scope.data.message = ""
     window.localStorage[messageKey] = JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
   return

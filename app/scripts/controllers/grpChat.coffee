@@ -45,20 +45,9 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
 
   socket.on "groupMessage", (data) ->
     console.log "grp chat,groupMessage"
-    whosMessage = ""
-    if $scope.myId == data._id
-      whosMessage = 'me'
-    else
-      whosMessage = data.fromName
-    $scope.messages.push
-      user: whosMessage
-      text: data.message
-      thumbnailUrl: data.thumbnailUrl
-      regTime: data.regTime
-      _id: data._id
-    socket.emit "read",{
-      msgId: data.msgId
-      }
+    if $scope.myId == data.sender
+      data.sender_name = 'me'
+    $scope.messages.push data
     window.localStorage[messageKey] = JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
     return
@@ -136,7 +125,6 @@ angular.module("hiin").directive "ngChatInput", ($timeout) ->
     return
 angular.module("hiin").directive "ngChatBalloon", ($window)->
   link: (scope, element, attrs) ->
-    console.log 'directive'
     console.log attrs.user
     if attrs.user == 'me'
       element.addClass 'chat-balloon-me'
