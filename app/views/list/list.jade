@@ -18,13 +18,13 @@ ion-view(title='{{eventName}}')
               button.btn-Hi(ng-click="sayHi(user)" ng-Hi-Btn = 'ng-hi-btn' hiStatus = '{{user.status}}') HI 
               button.btn-In(ng-click="chatRoom(user)" ng-In-Btn = 'ng-in-btn' hiStatus = '{{user.status}}') IN 
         .list_separatebar
-.bar.bar-footer.list_footer
-  .btn-group
-    button.btn.btn-default.btn_activity(ng-click='activity()') 
-      span ACTIVITY
-  .btn-group
-    button.btn.btn-default.btn_group_chat(ng-click='groupChat()')
-      span GROUP CHAT
-  .btn-group
-    button.btn.btn-default.btn_info(ng-click='info()')
-      span INFO
+  .bar.bar-footer.list_footer
+    .btn-group
+      button.btn.btn-default.btn_activity(ng-click='activity()') 
+        span ACTIVITY
+    .btn-group
+      button.btn.btn-default.btn_group_chat(ng-click='groupChat()')
+        span GROUP CHAT
+    .btn-group
+      button.btn.btn-default.btn_info(ng-click='info()')
+        span INFO

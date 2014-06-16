@@ -48,12 +48,17 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
         }, 100000
       return
   socket.on "hi", (data) ->
-      $scope.sendHi = data.fromName
-      $scope.modalInstance = $modal.open(
-        templateUrl: "views/list/hi_modal.html"
-        scope: $scope
-      )
-
+    $scope.sendHi = data.fromName
+    modalInstance = $modal.open(
+      templateUrl: "views/list/hi_modal.html"
+      scope: $scope
+    )
+    modalInstance.result.then ((selectedItem) ->
+      return
+    ), ->
+      $scope.modalInstance = null
+      return
+    $scope.modalInstance = modalInstance
   socket.on "hiMe", (data) ->
       socket.emit "currentEventUserList"
 

@@ -1871,3 +1871,308 @@
 2014-06-13 03:21:20.053 Hiin[41661:70b] Keyboard height is: 216
 2014-06-13 03:21:20.054 Hiin[41661:70b] Keyboard height is: 216
 2014-06-13 03:21:20.279 Hiin[41661:70b] inputUp
+2014-06-15 21:59:03.770 Hiin[59786:70b] Multi-tasking -> Device: YES, App: YES
+2014-06-15 21:59:03.803 Hiin[59786:70b] Unlimited access to network resources
+2014-06-15 21:59:03.987 Hiin[59786:70b] [CDVTimer][statusbar] 45.466006ms
+2014-06-15 21:59:03.988 Hiin[59786:70b] Init FacebookConnect Session
+2014-06-15 21:59:03.988 Hiin[59786:70b] [CDVTimer][facebookconnectplugin] 0.609040ms
+2014-06-15 21:59:03.988 Hiin[59786:70b] [CDVTimer][keyboard] 0.078976ms
+2014-06-15 21:59:03.989 Hiin[59786:70b] [CDVTimer][TotalPluginStartup] 47.156036ms
+2014-06-15 21:59:04.221 Hiin[59786:70b] Resetting plugins due to page load.
+2014-06-15 21:59:05.167 Hiin[59786:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/ACA7C803-4C7E-4DAB-ABD6-949DA0A345B1/Hiin.app/www/index.html#/
+2014-06-15 21:59:06.403 Hiin[59786:70b] localstorage host = null
+2014-06-15 22:34:22.127 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:22.139 Hiin[59786:70b] THREAD WARNING: ['Console'] took '11.872070' ms. Plugin should use a background thread.
+2014-06-15 22:34:22.143 Hiin[59786:70b] 0
+2014-06-15 22:34:22.143 Hiin[59786:70b] hi
+2014-06-15 22:34:37.446 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:37.459 Hiin[59786:70b] 0
+2014-06-15 22:34:37.459 Hiin[59786:70b] hi
+2014-06-15 22:34:39.943 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:39.945 Hiin[59786:70b] 0
+2014-06-15 22:34:39.946 Hiin[59786:70b] hi
+2014-06-15 22:34:41.372 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:41.374 Hiin[59786:70b] 0
+2014-06-15 22:34:41.374 Hiin[59786:70b] hi
+2014-06-15 22:34:42.056 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:42.057 Hiin[59786:70b] 0
+2014-06-15 22:34:42.057 Hiin[59786:70b] hi
+2014-06-15 22:34:42.395 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:42.396 Hiin[59786:70b] 0
+2014-06-15 22:34:42.396 Hiin[59786:70b] hi
+2014-06-15 22:34:42.690 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:42.693 Hiin[59786:70b] 0
+2014-06-15 22:34:42.693 Hiin[59786:70b] hi
+2014-06-15 22:34:44.477 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:44.478 Hiin[59786:70b] 0
+2014-06-15 22:34:44.479 Hiin[59786:70b] hi
+2014-06-15 22:34:45.151 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:45.152 Hiin[59786:70b] 0
+2014-06-15 22:34:45.152 Hiin[59786:70b] hi
+2014-06-15 22:34:45.546 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:45.547 Hiin[59786:70b] 0
+2014-06-15 22:34:45.548 Hiin[59786:70b] hi
+2014-06-15 22:34:45.952 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:45.954 Hiin[59786:70b] 0
+2014-06-15 22:34:45.954 Hiin[59786:70b] hi
+2014-06-15 22:34:46.275 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:46.285 Hiin[59786:70b] 0
+2014-06-15 22:34:46.286 Hiin[59786:70b] hi
+2014-06-15 22:34:52.386 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:52.387 Hiin[59786:70b] 0
+2014-06-15 22:34:52.387 Hiin[59786:70b] hi
+2014-06-15 22:34:52.768 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:52.770 Hiin[59786:70b] 0
+2014-06-15 22:34:52.770 Hiin[59786:70b] hi
+2014-06-15 22:34:53.059 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:53.061 Hiin[59786:70b] 0
+2014-06-15 22:34:53.061 Hiin[59786:70b] hi
+2014-06-15 22:34:53.434 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:53.437 Hiin[59786:70b] 0
+2014-06-15 22:34:53.437 Hiin[59786:70b] hi
+2014-06-15 22:34:53.705 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:53.713 Hiin[59786:70b] 0
+2014-06-15 22:34:53.714 Hiin[59786:70b] hi
+2014-06-15 22:34:54.017 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:54.019 Hiin[59786:70b] 0
+2014-06-15 22:34:54.019 Hiin[59786:70b] hi
+2014-06-15 22:34:54.771 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:54.773 Hiin[59786:70b] 0
+2014-06-15 22:34:54.774 Hiin[59786:70b] hi
+2014-06-15 22:34:55.301 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:55.303 Hiin[59786:70b] 0
+2014-06-15 22:34:55.303 Hiin[59786:70b] hi
+2014-06-15 22:34:55.613 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:55.614 Hiin[59786:70b] 0
+2014-06-15 22:34:55.614 Hiin[59786:70b] hi
+2014-06-15 22:34:56.031 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:56.033 Hiin[59786:70b] 0
+2014-06-15 22:34:56.033 Hiin[59786:70b] hi
+2014-06-15 22:34:56.345 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:56.347 Hiin[59786:70b] 0
+2014-06-15 22:34:56.348 Hiin[59786:70b] hi
+2014-06-15 22:34:56.673 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:56.675 Hiin[59786:70b] 0
+2014-06-15 22:34:56.675 Hiin[59786:70b] hi
+2014-06-15 22:34:57.108 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:57.110 Hiin[59786:70b] 0
+2014-06-15 22:34:57.110 Hiin[59786:70b] hi
+2014-06-15 22:34:57.659 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:34:57.664 Hiin[59786:70b] 0
+2014-06-15 22:34:57.665 Hiin[59786:70b] hi
+2014-06-15 22:36:41.004 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:36:41.005 Hiin[59786:70b] 0
+2014-06-15 22:36:41.005 Hiin[59786:70b] hi
+2014-06-15 22:36:42.216 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:36:42.220 Hiin[59786:70b] 0
+2014-06-15 22:36:42.221 Hiin[59786:70b] hi
+2014-06-15 22:44:30.520 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:44:30.524 Hiin[59786:70b] 0
+2014-06-15 22:44:30.524 Hiin[59786:70b] hi
+2014-06-15 22:44:32.194 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:44:32.196 Hiin[59786:70b] 0
+2014-06-15 22:44:32.197 Hiin[59786:70b] hi
+2014-06-15 22:44:32.542 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:44:32.544 Hiin[59786:70b] 0
+2014-06-15 22:44:32.544 Hiin[59786:70b] hi
+2014-06-15 22:44:32.743 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:44:32.745 Hiin[59786:70b] 0
+2014-06-15 22:44:32.745 Hiin[59786:70b] hi
+2014-06-15 22:44:32.940 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:44:32.947 Hiin[59786:70b] 0
+2014-06-15 22:44:32.947 Hiin[59786:70b] hi
+2014-06-15 22:44:33.286 Hiin[59786:70b] http://localhost:3000/login
+2014-06-15 22:44:33.287 Hiin[59786:70b] 0
+2014-06-15 22:44:33.288 Hiin[59786:70b] hi
+2014-06-15 22:46:56.841 Hiin[62253:70b] Multi-tasking -> Device: YES, App: YES
+2014-06-15 22:46:56.852 Hiin[62253:70b] Unlimited access to network resources
+2014-06-15 22:46:56.885 Hiin[62253:70b] [CDVTimer][statusbar] 10.201991ms
+2014-06-15 22:46:56.885 Hiin[62253:70b] Init FacebookConnect Session
+2014-06-15 22:46:56.886 Hiin[62253:70b] [CDVTimer][facebookconnectplugin] 0.819981ms
+2014-06-15 22:46:56.887 Hiin[62253:70b] [CDVTimer][keyboard] 0.087023ms
+2014-06-15 22:46:56.887 Hiin[62253:70b] [CDVTimer][TotalPluginStartup] 12.535989ms
+2014-06-15 22:46:57.485 Hiin[62253:70b] Resetting plugins due to page load.
+2014-06-15 22:46:58.036 Hiin[62253:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/6AD75330-B8BB-4985-8D62-962701DC884C/Hiin.app/www/index.html#/
+2014-06-15 22:46:58.759 Hiin[62253:70b] localstorage host = null
+2014-06-15 22:47:06.156 Hiin[62253:70b] http://ec2-54-86-232-223.compute-1.amazonaws.com:3000/login
+2014-06-15 22:47:15.777 Hiin[62253:70b] 06/16/2014
+2014-06-15 22:47:30.279 Hiin[62253:70b] http://ec2-54-86-232-223.compute-1.amazonaws.com:3000/event
+2014-06-15 22:47:30.527 Hiin[62253:70b] $http.success
+2014-06-15 22:47:30.527 Hiin[62253:70b] {"status":"0","eventCode":"7069"}
+2014-06-15 22:47:31.909 Hiin[62253:70b] list currentEvent
+2014-06-15 22:47:31.909 Hiin[62253:70b] socket emit current event user list
+2014-06-15 22:47:31.909 Hiin[62253:70b] list myInfo
+2014-06-15 22:47:31.910 Hiin[62253:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"7069"}
+2014-06-15 22:47:32.163 Hiin[62253:70b] list currentEventUserList
+2014-06-15 22:47:32.163 Hiin[62253:70b] []
+2014-06-15 22:47:33.487 Hiin[62253:70b] grpChat
+2014-06-15 22:47:33.501 Hiin[62253:70b] ready
+2014-06-15 22:47:33.819 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:47:33.822 Hiin[62253:70b] Keyboard close
+2014-06-15 22:47:37.151 Hiin[62253:70b] focusss
+2014-06-15 22:47:37.151 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:47:37.334 Hiin[62253:70b] inputUp
+2014-06-15 22:47:38.507 Hiin[62253:70b] Keyboard close
+2014-06-15 22:47:38.584 Hiin[62253:70b] inputDown
+2014-06-15 22:47:40.634 Hiin[62253:70b] list currentEvent
+2014-06-15 22:47:40.634 Hiin[62253:70b] socket emit current event user list
+2014-06-15 22:47:40.638 Hiin[62253:70b] list myInfo
+2014-06-15 22:47:40.638 Hiin[62253:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"7069"}
+2014-06-15 22:47:40.879 Hiin[62253:70b] list currentEventUserList
+2014-06-15 22:47:40.880 Hiin[62253:70b] []
+2014-06-15 22:47:43.074 Hiin[62253:70b] list myInfo
+2014-06-15 22:47:43.075 Hiin[62253:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"7069"}
+2014-06-15 22:47:43.075 Hiin[62253:70b] list currentEvent
+2014-06-15 22:47:43.076 Hiin[62253:70b] socket emit current event user list
+2014-06-15 22:47:43.322 Hiin[62253:70b] list currentEventUserList
+2014-06-15 22:47:43.323 Hiin[62253:70b] []
+2014-06-15 22:47:43.761 Hiin[62253:70b] grpChat
+2014-06-15 22:47:43.776 Hiin[62253:70b] ready
+2014-06-15 22:47:44.082 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:47:44.083 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:47:44.085 Hiin[62253:70b] Keyboard close
+2014-06-15 22:47:44.085 Hiin[62253:70b] Keyboard close
+2014-06-15 22:47:50.515 Hiin[62253:70b] focusss
+2014-06-15 22:47:50.515 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:47:50.516 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:47:50.696 Hiin[62253:70b] inputUp
+2014-06-15 22:47:51.036 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.082 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.125 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.248 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.336 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.369 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.507 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.659 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.659 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.816 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.881 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.890 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:51.934 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:53.943 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:54.008 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:54.008 Hiin[62253:70b] entered
+2014-06-15 22:47:54.341 Hiin[62253:70b] grp chat,groupMessage
+2014-06-15 22:47:55.725 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:55.812 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:55.968 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:56.072 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:56.204 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:56.288 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:58.168 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:58.568 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:58.991 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:59.160 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:59.335 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:59.498 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:47:59.648 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:48:23.931 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:48:24.004 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:48:24.136 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:48:24.223 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:48:25.341 Hiin[62253:70b] Keyboard close
+2014-06-15 22:48:25.341 Hiin[62253:70b] Keyboard close
+2014-06-15 22:48:25.357 Hiin[62253:70b] inputDown
+2014-06-15 22:48:35.464 Hiin[62253:70b] focusss
+2014-06-15 22:48:35.464 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:48:35.465 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:48:35.692 Hiin[62253:70b] inputUp
+2014-06-15 22:48:36.886 Hiin[62253:70b] Keyboard close
+2014-06-15 22:48:36.886 Hiin[62253:70b] Keyboard close
+2014-06-15 22:48:37.152 Hiin[62253:70b] inputDown
+2014-06-15 22:48:57.743 Hiin[62253:70b] focusss
+2014-06-15 22:48:57.744 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:48:57.744 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:48:57.964 Hiin[62253:70b] inputUp
+2014-06-15 22:48:58.555 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:48:58.619 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:48:58.771 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:48:58.857 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:48:59.512 Hiin[62253:70b] Keyboard close
+2014-06-15 22:48:59.512 Hiin[62253:70b] Keyboard close
+2014-06-15 22:48:59.575 Hiin[62253:70b] inputDown
+2014-06-15 22:49:02.267 Hiin[62253:70b] focusss
+2014-06-15 22:49:02.267 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:49:02.268 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:49:02.411 Hiin[62253:70b] inputUp
+2014-06-15 22:49:03.763 Hiin[62253:70b] Keyboard close
+2014-06-15 22:49:03.763 Hiin[62253:70b] Keyboard close
+2014-06-15 22:49:03.773 Hiin[62253:70b] inputDown
+2014-06-15 22:49:06.142 Hiin[62253:70b] focusss
+2014-06-15 22:49:06.143 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:49:06.143 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:49:06.419 Hiin[62253:70b] inputUp
+2014-06-15 22:49:06.848 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:49:06.941 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:49:07.074 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:49:07.137 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:49:07.288 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:49:07.352 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:49:07.728 Hiin[62253:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-15 22:49:09.184 Hiin[62253:70b] Keyboard close
+2014-06-15 22:49:09.184 Hiin[62253:70b] Keyboard close
+2014-06-15 22:49:09.419 Hiin[62253:70b] inputDown
+2014-06-15 22:50:02.291 Hiin[62253:70b] list myInfo
+2014-06-15 22:50:02.291 Hiin[62253:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"7069"}
+2014-06-15 22:50:02.291 Hiin[62253:70b] list currentEvent
+2014-06-15 22:50:02.291 Hiin[62253:70b] socket emit current event user list
+2014-06-15 22:50:02.541 Hiin[62253:70b] list currentEventUserList
+2014-06-15 22:50:02.541 Hiin[62253:70b] []
+2014-06-15 22:50:03.032 Hiin[62253:70b] grpChat
+2014-06-15 22:50:03.043 Hiin[62253:70b] ready
+2014-06-15 22:50:03.343 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:50:03.344 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:50:03.344 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:50:03.346 Hiin[62253:70b] Keyboard close
+2014-06-15 22:50:03.347 Hiin[62253:70b] Keyboard close
+2014-06-15 22:50:03.347 Hiin[62253:70b] Keyboard close
+2014-06-15 22:50:18.605 Hiin[62253:70b] focusss
+2014-06-15 22:50:18.605 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:50:18.606 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:50:18.606 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:50:18.796 Hiin[62253:70b] inputUp
+2014-06-15 22:50:20.023 Hiin[62253:70b] Keyboard close
+2014-06-15 22:50:20.024 Hiin[62253:70b] Keyboard close
+2014-06-15 22:50:20.024 Hiin[62253:70b] Keyboard close
+2014-06-15 22:50:20.036 Hiin[62253:70b] inputDown
+2014-06-15 22:50:57.055 Hiin[62253:70b] list myInfo
+2014-06-15 22:50:57.055 Hiin[62253:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"7069"}
+2014-06-15 22:50:57.059 Hiin[62253:70b] list currentEvent
+2014-06-15 22:50:57.059 Hiin[62253:70b] socket emit current event user list
+2014-06-15 22:50:57.296 Hiin[62253:70b] list currentEventUserList
+2014-06-15 22:50:57.296 Hiin[62253:70b] []
+2014-06-15 22:53:15.744 Hiin[62253:70b] grpChat
+2014-06-15 22:53:15.776 Hiin[62253:70b] ready
+2014-06-15 22:53:18.444 Hiin[62253:70b] list myInfo
+2014-06-15 22:53:18.444 Hiin[62253:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"7069"}
+2014-06-15 22:53:18.445 Hiin[62253:70b] list currentEvent
+2014-06-15 22:53:18.445 Hiin[62253:70b] socket emit current event user list
+2014-06-15 22:53:18.682 Hiin[62253:70b] list currentEventUserList
+2014-06-15 22:53:18.683 Hiin[62253:70b] []
+2014-06-15 22:53:20.078 Hiin[62253:70b] grpChat
+2014-06-15 22:53:20.090 Hiin[62253:70b] ready
+2014-06-15 22:53:20.396 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:53:20.396 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:53:20.397 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:53:20.397 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:53:20.399 Hiin[62253:70b] Keyboard height is: 216
+2014-06-15 22:53:20.400 Hiin[62253:70b] Keyboard close
+2014-06-15 22:53:20.400 Hiin[62253:70b] Keyboard close
+2014-06-15 22:53:20.400 Hiin[62253:70b] Keyboard close
+2014-06-15 22:53:20.400 Hiin[62253:70b] Keyboard close
+2014-06-15 22:53:20.401 Hiin[62253:70b] Keyboard close
+2014-06-15 22:53:21.246 Hiin[62253:70b] list currentEvent
+2014-06-15 22:53:21.246 Hiin[62253:70b] socket emit current event user list
+2014-06-15 22:53:21.251 Hiin[62253:70b] list myInfo
+2014-06-15 22:53:21.251 Hiin[62253:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"7069"}
+2014-06-15 22:53:21.487 Hiin[62253:70b] list currentEventUserList
+2014-06-15 22:53:21.487 Hiin[62253:70b] []
+2014-06-15 22:53:22.322 Hiin[62253:70b] list myInfo
+2014-06-15 22:53:22.323 Hiin[62253:70b] activity
+2014-06-15 22:53:22.323 Hiin[62253:70b] {"rank":1,"activity":[]}
+2014-06-15 22:53:23.533 Hiin[62253:70b] list myInfo
+2014-06-15 22:53:23.534 Hiin[62253:70b] {"_id":"539127304004a10308060c52","email":"t1@test.com","firstName":"kang","lastName":"jungmo","gender":"1","birth":"undefined","job":"ffff","photoUrl":"undefined","thumbnailUrl":"undefined","enteredEvent":"7069"}
+2014-06-15 22:53:23.534 Hiin[62253:70b] list currentEvent
+2014-06-15 22:53:23.535 Hiin[62253:70b] socket emit current event user list
+2014-06-15 22:53:23.773 Hiin[62253:70b] list currentEventUserList
+2014-06-15 22:53:23.774 Hiin[62253:70b] []
