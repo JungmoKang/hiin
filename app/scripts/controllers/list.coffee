@@ -36,7 +36,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     console.log data
     socket.emit "currentEventUserList"
   $scope.chatRoom = (user) ->
-    console.log(user)
     if $scope.modalInstance? 
       $scope.modalInstance.close()
     $location.url('/list/userlists/'+user._id)
@@ -113,7 +112,11 @@ angular.module("hiin").directive "ngInBtn", ($window)->
 angular.module("hiin").directive "ngFlipBtn", ($window)->
   link: (scope, element, attrs) ->
     console.log attrs.histatus
-    if attrs.histatus is '0' or attrs.histatus is '2'
+    if attrs.histatus is '0' 
+      element.bind 'click', ()->
+        element.addClass 'btn-flip'
+        console.log('addclass')
+    else if attrs.histatus is '2'
       element.bind 'click', ()->
         element.addClass 'btn-flip'
         console.log('addclass')

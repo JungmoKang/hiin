@@ -1,5 +1,6 @@
 ion-view.messaging-view(title='{{roomName}}')
   ion-content(ng-style='{ bottom: (data.keyboardHeight + 40) + "px" }')
+    ion-refresher(pulling-text="Pull to refresh..." on-refresh='pullLoadMsg()')
     .message(ng-repeat='message in messages track by $index',
     	ng-chat-balloon = 'ng-chat-balloon',user='{{message.sender_name}}',msg='{{message.content}}')
       img.thumb_image.img-circle(src='{{imagePath}}{{message.thumbnailUrl}}', alt='')

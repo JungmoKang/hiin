@@ -10,16 +10,23 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   $scope.myId = window.localStorage['myId']
   messageKey = thisEvent + '_' + partnerId
   #기본적으로 개인 메세지 창은 나가기 개념이 없음. 즉, 대화가 로컬에 없으면 처음 대화하므로 상대방 대화를 모두 긁어옴
-  messages = window.localStorage[messageKey] || []
-  if messages.length > 0
-    $scope.messages = JSON.parse(messages)
+  if window.localStorage[messageKey]
+    $scope.messages =  JSON.parse(window.localStorage[messageKey])
+  else
+    $scope.messages = []
+
+  if $scope.messages.length > 0
+    console.log '----unread----'
+    console.log 'len:'+$scope.messages.length
     socket.emit 'loadMsgs', {
                               code: thisEvent
                               partner: partnerId
                               type: "personal"
                               range: "unread"
+                              lastMsgTime: $scope.messages[$scope.messages.length-1].created_at
     }
   else
+    console.log '---call all---'
     socket.emit 'loadMsgs', { 
                               code: thisEvent
                               partner: partnerId
@@ -28,21 +35,44 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     }
   
   $scope.pullLoadMsg =->
+    console.log '---pull load msg---'
     socket.emit 'loadMsgs', {
                               code: thisEvent
                               partner: partnerId
                               type: "personal"
-                              range: "all"
+                              range: "pastThirty"
+                              firstMsgTime: $scope.messages[0].created_at
     }
 
 
   socket.on 'loadMsgs', (data)->
-    data.message.forEach (item)->
-      if item.sender is $scope.myId
-        item.sender_name = 'me'
+    if data.message
+      data.message.forEach (item)->
+        if item.sender is $scope.myId
+          item.sender_name = 'me'
+        return
     if data.type is 'personal' and data.range is 'all'
+      console.log '---all---'
       $scope.messages = data.message
       window.localStorage[messageKey] = JSON.stringify($scope.messages)
+    else if data.type is 'personal' and data.range is 'unread'
+      console.log '---unread----'
+      console.log data
+      tempor = $scope.messages.concat data.message
+      console.log tempor
+      console.log 'tmper len:'+tempor.length
+      $scope.messages = tempor
+      window.localStorage[messageKey] = JSON.stringify($scope.messages)
+
+    else if data.type is 'personal' and data.range is 'pastThirty'
+      console.log '---else---'
+      tempor = data.message.concat $scope.messages
+      console.log tempor
+      console.log 'tmper len:'+tempor.length
+      $scope.messages = tempor
+      window.localStorage[messageKey] = JSON.stringify($scope.messages)
+      $scope.$broadcast('scroll.refreshComplete')
+
 
   #상대방의 정보 습득
   socket.emit "getUserInfo",{
@@ -68,6 +98,11 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
     socket.removeAllListeners()
+    temp = $scope.messages
+    len = temp.length
+    console.log 'mlen:'+len
+    if len > 30
+      window.localStorage[messageKey]=JSON.stringify(temp.slice(len-30,temp.length))
     return  
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
 
@@ -92,7 +127,9 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   $scope.sendMessage =->
   	if $scope.data.message == ""
       return
+    time = new Date()
     socket.emit "message",{
+      created_at: time
   		targetId: $stateParams.userId
   		message: $scope.data.message
   	}
@@ -100,6 +137,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   	$scope.messages.push
         sender_name: 'me' 
         content: $scope.data.message
+        created_at: time
     $scope.data.message = ""
     window.localStorage[messageKey] = JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
