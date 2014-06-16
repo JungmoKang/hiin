@@ -9,7 +9,11 @@ ion-view(title='{{eventName}}')
             span.helper
               .imgContainer
                 img.profile.thumb_image.img-circle(ng-src='{{imagePath}}{{user.thumbnailUrl}}')
-                img.firstBadge(ng-src='../images/nav/badge-1st.png' ng-show='user.rank==1')
+                img.rankingBadge(ng-src='../images/ranking/badge-1st44x62.png' ng-show='user.rank==1')
+                img.rankingBadge(ng-src='../images/ranking/badge-2nd44x62.png' ng-show='user.rank==2')
+                img.rankingBadge(ng-src='../images/ranking/badge-3rd44x62.png' ng-show='user.rank==3')
+                img.rankingBadge(ng-src='../images/ranking/badge-4th44x62.png' ng-show='user.rank==4')
+                img.rankingBadge(ng-src='../images/ranking/badge-5th44x62.png' ng-show='user.rank==5')
           .col-xs-5
             a.name(ng-click='ShowProfile(user)') {{user.lastName}} {{user.firstName}}
             .job {{user.job}}
