@@ -4,7 +4,7 @@ ion-view.messaging-view(title='{{roomName}}')
     .message(ng-repeat='message in messages track by $index',
     	ng-chat-balloon = 'ng-chat-balloon',user='{{message.sender_name}}',msg='{{message.content}}')
       img.thumb_image.img-circle(src='{{imagePath}}{{message.thumbnailUrl}}', alt='')
-      .name {{message.sender_name}}
+      .name {{message.sender_name}}{{message.created_at}}
       br
       .message: span {{ message.content }}
   .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }')

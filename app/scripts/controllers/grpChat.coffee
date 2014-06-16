@@ -52,14 +52,17 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     $ionicScrollDelegate.scrollBottom()
     return
   $scope.sendMessage =->
+    time = new Date()
     if $scope.data.message == ""
       return
     if $scope.regular_msg_flg is true
       socket.emit "groupMessage",{
+        created_at: time
         message: $scope.data.message
         }
     else
       socket.emit "notice",{
+        created_at: time
         message: $scope.data.message
         }
     $scope.data.message = ""

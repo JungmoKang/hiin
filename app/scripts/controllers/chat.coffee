@@ -66,7 +66,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
 
     else if data.type is 'personal' and data.range is 'pastThirty'
       console.log '---else---'
-      tempor = data.message.concat $scope.messages
+      tempor = data.message.reverse().concat $scope.messages
       console.log tempor
       console.log 'tmper len:'+tempor.length
       $scope.messages = tempor
