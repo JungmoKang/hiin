@@ -8,7 +8,7 @@ angular.module('services', [])
   // API_PORT를 상수로 정의. API_PORT는 나중에 dependency injection에서 쓰일 수 있음.
   .constant('API_PORT', 3000)
   // API_HOST를 상수로 정의.
-  //.constant('API_HOST', "http://192.168.0.26");
+//  .constant('API_HOST', "http://192.168.0.26");
   //.constant('API_HOST', "http://ec2-54-86-232-223.compute-1.amazonaws.com");
   //.constant('API_HOST', "http://sdent.kr");
   .constant('API_HOST', "http://localhost");
