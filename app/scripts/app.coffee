@@ -21,6 +21,16 @@ angular.module("hiin", [
     templateUrl: "views/login/login.html"
     controller: "LoginCtrl"
   )
+  .state("/signin",
+    url: "/signin"
+    templateUrl: "views/login/signin.html"
+    controller: "SignInCtrl"
+  )
+  .state("/organizerLogin",
+    url: "/organizerLogin"
+    templateUrl: "views/login/organizerLogin.html"
+    controller: "OrganizerLoginCtrl"
+  )
   .state("emailLogin",
     url: "/emailLogin"  
     templateUrl: "views/login/email_login.html"

@@ -1,0 +1,19 @@
+.signin_and_login
+  .error_panel(ng-show='showErrMsg')
+    .row
+      .col-90
+        p You have entered a wrong
+        p combo email and password.
+      .col-10
+        .btn_close(ng-click='CloseErroMsg()')
+  .formBox
+    .logo
+    a.back(ng-click='back()')
+    .signin_form
+      form(name='userForm' novalidate)
+        .row
+          input(type='email', placeholder='your email', ng-model="userInfo.email",requered)
+        .row
+          input(type='password', placeholder='password', ng-model="userInfo.password",requered)
+        .done
+          .btn_login(ng-click='Login()')

@@ -6,7 +6,7 @@ angular.module('hiin')
     	$window.localStorage.clear()
     $scope.facebookLogin = ->
     	alert('facebooklogin')
-    $scope.signUp = ->
-    	$location.url('/signUp')
-    $scope.emailLogin = ->
-      $location.url('/emailLogin')
+    $scope.signin = ->
+    	$location.url('/signin')
+    $scope.organizerLogin = ->
+      $location.url('/organizerLogin')

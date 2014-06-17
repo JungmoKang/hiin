@@ -1,0 +1,198 @@
+@import "global.less";
+
+.signin_and_login
+{
+  background-image:url(../images/login/bg-photo.jpg);
+  height: 100%;
+  .error_panel
+  {
+    position:absolute;
+    top:0px;
+    width:100%;
+    height:50px;
+    background-color:#f05a28;
+    z-index:100;
+    padding:5px;
+    .font_style_6;
+    color:white;
+    p
+    {
+      margin-bottom:5px;
+    }
+    .btn_close
+    {
+      background-image:url(../images/login/btn-x-24x24.png);
+      background-size:12px 12px;
+      background-repeat:no-repeat;
+      background-position: center center;
+      height: 12px;
+      width: 100%;
+      position:relative;
+      top:5px;
+    }
+  }
+  .formBox
+  {
+    position: relative;
+    top: 10%;
+    background-color: white;
+    width: 90%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3%;
+    padding:20px;
+    .back
+    {
+      position: relative;
+      top: -120px;
+      background-image:url(../images/nav/btn-back-100x38.png);
+      background-size:50px 19px;
+      float: left;
+      height: 19px;
+      width: 50px;
+    }
+    .logo
+    {
+      position: relative;
+      top: -60px;
+      background-image:url(../images/login/logo-150x150.png);
+      background-size: 75px 75px;
+      background-repeat:no-repeat;
+      background-position: center;
+      height: 75px;
+      width: 75px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 3px solid #444;
+      border-radius: 50%;
+    }
+    .signin_form
+    {
+      position:relative;
+      top:-60px;
+      form {
+        input.ng-invalid.ng-dirty {
+          border-radius: 5%;
+          background-color: #FA787E;
+          opacity: 0.5;
+        }
+        input.ng-valid.ng-dirty {
+        }
+        .row
+        {
+          width: 100%;
+          height: 50px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 10px;
+          .font_style_13;
+          input
+          {
+            border: 0px;
+            height:25px;
+            margin-top: 10px;
+          }
+          border-bottom: 1px solid #ccc;
+        }
+        .form-group-btm{
+          height:30%;
+          .btn_group
+          {
+            width:100px;
+            border-right: 1px solid #ccc;
+            .wrapper_photo{
+              width: 100%;
+              height: 60px;
+              position: relative;
+              float: left;
+              button{
+                position: absolute;
+                width: 100%;
+                height: 90px;
+                top: -10px;
+                right: 0;
+                left: 5px;
+                z-index: 1;
+                opacity: 0;
+              }
+              .image_upload_btn{
+                position: relative;
+                border-radius: 50%;
+                background-image:url(../images/login/btn-camera-120x120.png);
+                background-size: 60px 60px;
+                background-repeat:no-repeat;
+                background-position: center top;
+                height: 60px;
+                width: 60px;
+                left: 10px;
+              }
+            }
+            .add_photo{
+              .font_style_13;
+              color: #ccc;
+
+            }
+          }
+          .gender{
+            height:100%;
+            .row
+            {
+              height:100%;
+              border: 0px;
+            }
+            .checkbox()
+            {
+              background-size: 15px 15px;
+              background-repeat:no-repeat;
+              background-position: center center;
+              width:100%;
+              height:100%;
+              margin: auto auto;
+            }
+            .checked
+            {
+              .checkbox;
+              background-image:url(../images/login/btn-box-check120x120.png);
+            }
+            .unchecked
+            {
+              .checkbox;
+              background-image:url(../images/login/btn-box-120x120.png);
+            }
+            p {
+              position:relative;
+              top:30px;
+              text-align:center;
+            }
+          }
+        }
+      }
+      .done
+      {
+        position:relative;
+        top:10px;
+        border: 0px;
+        .btn()
+        {
+          background-repeat:no-repeat;
+          background-size: 75px 75px;
+          width: 75px;
+          height: 75px;
+          background-position: center;
+          margin: auto auto;
+        }
+        .btn_done
+        {
+          .btn;
+          background-image:url(../images/login/btn-done-150x150.png);
+        }
+        .btn_login
+        {
+          .btn;
+          background-image:url(../images/login/btn-login-150x150.png);
+        }
+      }
+    }
+  }
+}

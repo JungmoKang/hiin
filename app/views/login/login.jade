@@ -1,6 +1,10 @@
 ion-pane.login_page
   .loginLogo
   .login_btn_group
-    .btnlogin(ng-click='emailLogin()')
-    .btnfb
-
+    .btnfb(ng-click='facebookLogin()')
+    .btnSignup(ng-click='signin()')
+  .organizer
+    span.stc alrady have an account? 
+    span.login_link(ng-click='organizerLogin()') 
+      span(style="text-decoration: underline") LOGIN
+      span  HERE

@@ -1,0 +1,12 @@
+ion-pane.email_login_page
+  .email_login_formBox
+    .email_login_logo
+    .email_login_form
+      form(name='form')
+        .form-group
+          input.email_login_input(type='email', placeholder='your email', ng-model="userInfo.email",requered)
+          .emial_login_horizontal_line
+        .form-group
+          input.email_login_input(type='password', placeholder='password', ng-model="userInfo.password",requered)
+          .emial_login_horizontal_line
+  .email_login_btn(ng-click='signIn()',ng-disabled="form.$invalid")

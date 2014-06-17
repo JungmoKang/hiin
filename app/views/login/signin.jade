@@ -1,0 +1,33 @@
+.signin_and_login
+  .formBox
+    .logo
+    a.back(ng-click='back()')
+    .signin_form
+      form(name='userForm' novalidate)
+        .row
+          .col
+            input.half(type='firstName', placeholder='first name', ng-model="userInfo.firstName",requered)
+          .col
+            input.half(type='lastName', placeholder='Last name', ng-model="userInfo.lastName",requered)
+        .row
+          .col
+            input.full(type='occupation', placeholder='occupation', ng-model="userInfo.job",requered)
+        .row.form-group-btm
+          .col.col-33
+            .btn_group
+              .wrapper_photo
+                button(url='{{imageUploadUrl}}',accept="image/*,application/pdf",on-success="onSuccess(response)", upload_button)
+                img.image_upload_btn
+              .add_photo 
+                span add photo
+          .col.col-67
+            .gender
+              .row
+                .col
+                  div(ng-click="ToggleGender(1)",ng-class="userInfo.gender == '1' ? 'checked' : 'unchecked'")
+                    p female
+                .col
+                  div(ng-click="ToggleGender(2)",ng-class="userInfo.gender == '2' ? 'checked' : 'unchecked'")
+                    p male
+        .done
+          .btn_done(ng-click='SignUp(userForm.$valid)')
