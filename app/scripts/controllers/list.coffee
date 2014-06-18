@@ -1,11 +1,13 @@
 'use strict'
 
 angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $window, Util, socket, $modal, $state,$location,$ionicNavBarDelegate,$timeout) ->
+  #init
   $rootScope.selectedItem = 2
   ionic.DomUtil.ready ->
     $ionicNavBarDelegate.showBackButton(false)
   socket.emit "currentEvent"
   socket.emit "myInfo"
+  $scope.users = []
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
@@ -61,7 +63,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     $scope.modalInstance = modalInstance
   socket.on "hiMe", (data) ->
       socket.emit "currentEventUserList"
-
   socket.on "pendingHi", (data) ->
     console.log "list pedinghi"
     if data.status isnt "0"

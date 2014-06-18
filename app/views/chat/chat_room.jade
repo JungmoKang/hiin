@@ -1,12 +1,16 @@
 ion-view.messaging-view(title='{{roomName}}')
   ion-content(ng-style='{ bottom: (data.keyboardHeight + 40) + "px" }')
     ion-refresher(pulling-text="Pull to refresh..." on-refresh='pullLoadMsg()')
-    .message(ng-repeat='message in messages track by $index',
+    .message(id="{{$index}}",ng-repeat='message in messages track by $index',
     	ng-chat-balloon = 'ng-chat-balloon',user='{{message.sender_name}}',msg='{{message.content}}')
       img.thumb_image.img-circle(src='{{imagePath}}{{message.thumbnailUrl}}', alt='')
       .name {{message.sender_name}}
       br
       .message: span {{ message.content }}
+  .nobody_msg(ng-show='messages.length==0')
+    div.msg 
+      p.big NO MESSAGES YET
+      p.normal Introduce yourself?
   .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }')
     div(ng-hide="amIOwner")
       .row

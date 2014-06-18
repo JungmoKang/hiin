@@ -12,7 +12,17 @@ angular.module('hiin')
         $scope.showErrMsg = true
     $scope.back = ->
       $window.history.back()
+    $scope.GotoResetPassword = ->
+      $state.go('/resetPassword')
+    $scope.ResetPassword = ->
+      #reset
     $scope.CloseErroMsg = ->
       $scope.showErrMsg = false
+    $scope.CreateAndSignIn = ->
+      #signup and sign in
+    $scope.organizerLogin = ->
+      $state.go('list.organizerLogin')
+    $scope.SignIn = ->
+      #signin
     return
   return

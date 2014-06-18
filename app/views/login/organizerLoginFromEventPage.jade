@@ -1,0 +1,16 @@
+ion-view(title='EVENT')
+  ion-pane#organizer.has-header
+    form.signup_form
+      btn-facebook
+      .form
+        .title 
+          span SIGN IN 
+          span.italic with 
+          span YOUR EMAIL
+        .row
+          input(type='email', placeholder='email', ng-model="userInfo.email",requered)
+        .row
+          input(type='password', placeholder='password', ng-model="userInfo.password",requered)
+      input.btn_foot(value='SIGN IN',readonly,ng-click="SignIn()")
+    .reset_password(ng-click='GotoResetPassword()')
+      p Forgot your password?

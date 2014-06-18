@@ -6,15 +6,15 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
   #group chat init
   $scope.input_mode = false
   $scope.imagePath = Util.serverUrl() + "/"
-  $scope.myId = window.localStorage['myId']
-  thisEvent = window.localStorage['thisEvent']
+  if $window.localStorage?
+    thisEvent = $window.localStorage.getItem "thisEvent"
+    $scope.myId = $window.localStorage.getItem 'myId'
   messageKey = thisEvent + '_groupMessage'
   $scope.roomName = "GROUP CHAT"
-  messages = window.localStorage[messageKey] || []
-  if messages.length > 0
-    $scope.messages = JSON.parse(messages)
+  if $window.localStorage.getItem messageKey
+    $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
   else
-    $scope.messages = messages
+    $scope.messages = []
   $scope.data = {}
   $scope.data.message = ""
   $scope.amIOwner = false
@@ -48,7 +48,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     if $scope.myId == data.sender
       data.sender_name = 'me'
     $scope.messages.push data
-    window.localStorage[messageKey] = JSON.stringify($scope.messages)
+    $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
     return
   $scope.sendMessage =->

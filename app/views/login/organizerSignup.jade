@@ -1,0 +1,16 @@
+ion-view(title='EVENT')
+  ion-pane#organizer.has-header
+    form.signup_form
+      .title NEW ACCOUNT
+      .row
+        input(type='email', placeholder='your email', ng-model="userInfo.email",requered)
+      .row
+        input(type='password', placeholder='password', ng-model="userInfo.password",requered)
+      .row
+        input(type='password', placeholder='conform password', ng-model="userInfo.password",requered)
+      input.btn_foot(value='CREATE & SIGN IN',readonly,ng-click="CreateAndSignIn()")
+    .organizer_login_footer.signup
+      span.stc alrady have an account? 
+      span.login_link(ng-click='organizerLogin()') 
+        span(style="text-decoration: underline") LOGIN
+        span  HERE

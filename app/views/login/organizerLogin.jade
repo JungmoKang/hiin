@@ -15,5 +15,7 @@
           input(type='email', placeholder='your email', ng-model="userInfo.email",requered)
         .row
           input(type='password', placeholder='password', ng-model="userInfo.password",requered)
+        .reset_password(ng-click='GotoResetPassword()')
+          p Forgot your password?
         .done
           .btn_login(ng-click='Login()')

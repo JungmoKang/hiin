@@ -9,7 +9,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   if window.localStorage['thisEvent']?
     $scope.enteredEventsOrOwner = true
   #modal 작성
-  $ionicModal.fromTemplateUrl "views/event/attention.html", (($ionicModal) ->
+  $ionicModal.fromTemplateUrl "views/modal/create_event_attention.html", (($ionicModal) ->
     $scope.modal = $ionicModal
     return
   ),
@@ -33,19 +33,22 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
+    $scope.modal.hide()
     return  
   $scope.confirmCode = ->
     Util.ConfirmEvent($scope.formData )
     .then (data) ->
-      $state.go('list.userlists',null,{ 'reload': true})
+      $state.go('list.userlists')
     ,(status) ->
       alert "invalid event code"
   $scope.CreateEvent = ->
-    #이미 오거나이저등록을 했는지 확인이 필요함
+    #TODO: 이미 오거나이저등록을 했는지 확인이 필요함
+    #이미 등록을 했으면 바로 생성 페이지로 이동 안했으면 다이얼로그 표시
+    #$state.go('list.createEvent')
     $scope.modal.show()
   $scope.yes = ->
     $scope.modal.hide()
-    $state.go('list.createEvent')
+    $state.go('list.organizerSignUp')
   $scope.no = ->
     $scope.modal.hide()
   $scope.myEvent = (event) ->

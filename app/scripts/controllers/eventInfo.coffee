@@ -9,7 +9,7 @@ angular.module('hiin').controller 'eventInfoCtrl', ($scope,$rootScope,socket,$wi
     return  
   socket.on "currentEvent", (data) ->
     $scope.eventInfo = data
-    if window.localStorage['myId'] is data.author
+    if $window.localStorage.getItem 'myId' is data.author
     	$scope.isOwner = true
     	$scope.right_link = 'edit_link'
     return

@@ -6,15 +6,15 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
 
   #init
   partnerId = $stateParams.userId
-  thisEvent = window.localStorage['thisEvent']
-  $scope.myId = window.localStorage['myId']
+  if $window.localStorage?
+    thisEvent = $window.localStorage.getItem "thisEvent"
+    $scope.myId = $window.localStorage.getItem 'myId'
   messageKey = thisEvent + '_' + partnerId
   #기본적으로 개인 메세지 창은 나가기 개념이 없음. 즉, 대화가 로컬에 없으면 처음 대화하므로 상대방 대화를 모두 긁어옴
-  if window.localStorage[messageKey]
-    $scope.messages =  JSON.parse(window.localStorage[messageKey])
+  if $window.localStorage.getItem messageKey
+    $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
   else
     $scope.messages = []
-
   if $scope.messages.length > 0
     console.log '----unread----'
     console.log 'len:'+$scope.messages.length
@@ -54,7 +54,6 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     if data.type is 'personal' and data.range is 'all'
       console.log '---all---'
       $scope.messages = data.message
-      window.localStorage[messageKey] = JSON.stringify($scope.messages)
     else if data.type is 'personal' and data.range is 'unread'
       console.log '---unread----'
       console.log data
@@ -62,18 +61,14 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
       console.log tempor
       console.log 'tmper len:'+tempor.length
       $scope.messages = tempor
-      window.localStorage[messageKey] = JSON.stringify($scope.messages)
-
     else if data.type is 'personal' and data.range is 'pastThirty'
       console.log '---else---'
       tempor = data.message.reverse().concat $scope.messages
       console.log tempor
       console.log 'tmper len:'+tempor.length
       $scope.messages = tempor
-      window.localStorage[messageKey] = JSON.stringify($scope.messages)
       $scope.$broadcast('scroll.refreshComplete')
-
-
+    $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
   #상대방의 정보 습득
   socket.emit "getUserInfo",{
       targetId: $stateParams.userId
@@ -121,9 +116,8 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
       return
     #read function here later
     $scope.messages.push data
-    window.localStorage[messageKey] = JSON.stringify($scope.messages)
+    $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
-
   $scope.sendMessage =->
   	if $scope.data.message == ""
       return
@@ -139,7 +133,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
         content: $scope.data.message
         created_at: time
     $scope.data.message = ""
-    window.localStorage[messageKey] = JSON.stringify($scope.messages)
+    $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
   return
   $scope.inputUp = ->
@@ -156,17 +150,3 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     $ionicScrollDelegate.resize()
     return
   return
-###
-  w = angular.element($window)
-  $scope.getHeight = ->
-    w.height()
-  $scope.$watch $scope.getHeight, (newValue, oldValue) ->
-    $scope.windowHeight = newValue
-    $scope.style = ->
-      height: newValue + "px"
-    return
-  w.bind "resize", ->
-    $scope.$apply()
-    return
-###
-  

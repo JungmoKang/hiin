@@ -31,6 +31,12 @@ angular.module("hiin", [
     templateUrl: "views/login/organizerLogin.html"
     controller: "OrganizerLoginCtrl"
   )
+  .state("/resetPassword",
+    url: "/resetPassword"
+    templateUrl: "views/login/reset_password.html"
+    controller: "OrganizerLoginCtrl"
+  )
+  #↓삭제대상
   .state("emailLogin",
     url: "/emailLogin"  
     templateUrl: "views/login/email_login.html"
@@ -41,6 +47,7 @@ angular.module("hiin", [
     templateUrl: "views/login/signup.html"
     controller: "SignUpCtrl"
   ) 
+  #↑
   .state('list', 
     url: '/list'
     abstract: true
@@ -109,6 +116,20 @@ angular.module("hiin", [
       menuContent:
         templateUrl: "views/event/create_event.html"
         controller: "CreateEventCtrl"
+  )
+  .state("list.organizerSignUp",
+    url: "/organizerSignUp"
+    views:
+      menuContent:
+        templateUrl: "views/login/organizerSignUp.html"
+        controller: "OrganizerLoginCtrl"
+  )
+  .state("list.organizerLogin",
+    url: "/organizerLogin"
+    views:
+      menuContent:
+        templateUrl: "views/login/organizerLoginFromEventPage.html"
+        controller: "OrganizerLoginCtrl"
   )
   .state("list.termAndPolish",
     url: "/termAndPolish"
