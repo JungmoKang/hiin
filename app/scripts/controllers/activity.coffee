@@ -32,7 +32,7 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope,$location,
       console.log user
       $scope.user = user
       modalInstance = $modal.open(
-        templateUrl: "views/chat/user_card.html"
+        templateUrl: "views/dialog/user_card.html"
         scope: $scope
       )
       modalInstance.result.then ((selectedItem) ->

@@ -1,9 +1,7 @@
-.content
+#user_card
   img.thumb_image.img-circle(src='{{imagePath}}{{user.thumbnailUrl}}', alt='')
   .name {{user.firstName}} {{user.lastName}}
   .job {{user.job}}
-  i.glyphicon.glyphicon-envelope
-  a(href='{{user.email}}'){{user.email}}
   .hiin(ng-flip-btn = 'ng-flip-btn'  hiStatus = '{{user.status}}')
     button.btn-Hi(ng-click="sayHi(user)" ng-Hi-Btn = 'ng-hi-btn' hiStatus = '{{user.status}}') HI 
     button.btn-In(ng-click="chatRoom(user)" ng-In-Btn = 'ng-in-btn' hiStatus = '{{user.status}}') IN

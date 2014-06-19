@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http,socket,$log,$state,$ionicScrollDelegate, $ionicNavBarDelegate, $timeout,$ionicModal) ->
+angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http,socket,$log,$state,$ionicScrollDelegate, $ionicNavBarDelegate, $timeout,$ionicModal,$window) ->
   #init
   $rootScope.selectedItem = 3
   ionic.DomUtil.ready ->
@@ -8,13 +8,6 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   #오너인지도 확인해야함..
   if window.localStorage['thisEvent']?
     $scope.enteredEventsOrOwner = true
-  #modal 작성
-  $ionicModal.fromTemplateUrl "views/modal/create_event_attention.html", (($ionicModal) ->
-    $scope.modal = $ionicModal
-    return
-  ),
-    scope: $scope
-    animation: "slide-in-up"
   socket.emit "enteredEventList"
   socket.on "enteredEventList", (data) ->
     ###
@@ -25,9 +18,9 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     3. 이벤트
     ###
     $scope.thisEvent = new Array()
-    $scope.thisEvent.code = window.localStorage['thisEvent']
+    $scope.thisEvent.code = $window.localStorage.getItem 'thisEvent'
     $scope.myId = new Array()
-    $scope.myId.author = window.localStorage['myId']
+    $scope.myId.author = $window.localStorage.getItem 'myId'
     $scope.events = data
   #↑init
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
@@ -38,14 +31,22 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   $scope.confirmCode = ->
     Util.ConfirmEvent($scope.formData )
     .then (data) ->
-      $state.go('list.userlists')
+      #TODO 서버와 통신하는 동안 위의 모달을 표시해야 함..
+      $scope.message = 'loaded'
+      Util.ShowModal($scope,'create_or_loaded_event')
+      $timeout (->
+        $scope.modal.hide()
+        $state.go('list.userlists')
+        return
+      ), 3000
     ,(status) ->
-      alert "invalid event code"
+      console.log 'error'
+      Util.ShowModal($scope,'no_event')
   $scope.CreateEvent = ->
     #TODO: 이미 오거나이저등록을 했는지 확인이 필요함
     #이미 등록을 했으면 바로 생성 페이지로 이동 안했으면 다이얼로그 표시
-    #$state.go('list.createEvent')
-    $scope.modal.show()
+    $state.go('list.createEvent')
+    #Util.ShowModal($scope, 'create_event_attention')
   $scope.yes = ->
     $scope.modal.hide()
     $state.go('list.organizerSignUp')
@@ -62,4 +63,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     .then (data) ->
       $state.go('list.userlists')
     ,(status) ->
-      alert "invalid event code"
+      console.log 'error'
+      Util.ShowModal($scope,'no_event')
+  $scope.back = ->
+    $scope.modal.hide()

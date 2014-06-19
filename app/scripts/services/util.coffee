@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('services').factory 'Util', ($q, $http, $window,$location,$document, Host, Token) ->
+angular.module('services').factory 'Util', ($q, $http, $window,$location,$document, Host, Token,$ionicModal) ->
   serverUrl: ->
     "#{Host.getAPIHost()}:#{Host.getAPIPort()}"
   # 공통적으로 쓰이는 http request 만들어주는 함수
@@ -61,7 +61,15 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
       .error (error,status) ->
         deferred.reject status
     return deferred.promise
-
+  ShowModal : (scope, html_file) ->
+    console.log 'show modal'
+    $ionicModal.fromTemplateUrl "views/modal/" + html_file + ".html", (($ionicModal) ->
+      scope.modal = $ionicModal
+      scope.modal.show()
+      return
+    ),
+      scope: scope
+      animation: "slide-in-up"
   #'options' setting 객체를 만들어서 전달
   #loadingStart, loadingStop은 없으면 그냥 넘어감
   #duration은 ms단위임. 
