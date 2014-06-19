@@ -2176,3 +2176,201 @@
 2014-06-15 22:53:23.535 Hiin[62253:70b] socket emit current event user list
 2014-06-15 22:53:23.773 Hiin[62253:70b] list currentEventUserList
 2014-06-15 22:53:23.774 Hiin[62253:70b] []
+2014-06-18 17:34:57.505 Hiin[26097:70b] Multi-tasking -> Device: YES, App: YES
+2014-06-18 17:34:57.521 Hiin[26097:70b] Unlimited access to network resources
+2014-06-18 17:34:57.572 Hiin[26097:70b] [CDVTimer][statusbar] 20.128012ms
+2014-06-18 17:34:57.572 Hiin[26097:70b] Init FacebookConnect Session
+2014-06-18 17:34:57.573 Hiin[26097:70b] [CDVTimer][facebookconnectplugin] 0.810027ms
+2014-06-18 17:34:57.574 Hiin[26097:70b] [CDVTimer][keyboard] 0.084043ms
+2014-06-18 17:34:57.574 Hiin[26097:70b] [CDVTimer][TotalPluginStartup] 22.499025ms
+2014-06-18 17:34:58.384 Hiin[26097:70b] Resetting plugins due to page load.
+2014-06-18 17:34:58.844 Hiin[26097:70b] Finished load of: file:///Users/d429/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4E5B9DE8-4887-4863-AA9E-DB3C455537EC/Hiin.app/www/index.html#/
+2014-06-18 17:34:58.911 Hiin[26097:70b] transaction function finished
+2014-06-18 17:35:00.508 Hiin[26097:70b] localstorage host = null
+2014-06-18 17:35:15.886 Hiin[26097:70b] http://localhost:3000/login
+2014-06-18 17:35:20.419 Hiin[26097:70b] http://localhost:3000/enterEvent
+2014-06-18 17:35:20.711 Hiin[26097:70b] list myInfo
+2014-06-18 17:35:20.711 Hiin[26097:70b] {"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119"}
+2014-06-18 17:35:20.712 Hiin[26097:70b] list currentEvent
+2014-06-18 17:35:20.712 Hiin[26097:70b] socket emit current event user list
+2014-06-18 17:35:20.737 Hiin[26097:70b] list currentEventUserList
+2014-06-18 17:35:20.737 Hiin[26097:70b] [{"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119","rank":1,"status":"3"}]
+2014-06-18 17:35:20.738 Hiin[26097:70b] 3
+2014-06-18 17:35:20.738 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:20.739 Hiin[26097:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:35:20.739 Hiin[26097:70b] 3
+2014-06-18 17:35:20.740 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:20.740 Hiin[26097:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:35:20.741 Hiin[26097:70b] 3
+2014-06-18 17:35:20.741 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:26.915 Hiin[26097:70b] list myInfo
+2014-06-18 17:35:26.915 Hiin[26097:70b] activity
+2014-06-18 17:35:26.915 Hiin[26097:70b] {"rank":2,"activity":[{"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119","lastMsg":{"status":"0","sender":"537df9b77b51e9f52f362eca","sender_name":"daewon","reciever":"537dfd841909a5d930dfa108","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","content":"3","type":"personal","eventCode":"4119","created_at":"2014-06-16T17:32:54.409Z","_id":"539f2a46cbf5e4f65e5181a0","__v":0,"read":false},"lastSender":"me","status":"3"}]}
+2014-06-18 17:35:26.916 Hiin[26097:70b] false
+2014-06-18 17:35:26.917 Hiin[26097:70b] me
+2014-06-18 17:35:26.917 Hiin[26097:70b] me
+2014-06-18 17:35:29.772 Hiin[26097:70b] list currentEvent
+2014-06-18 17:35:29.772 Hiin[26097:70b] socket emit current event user list
+2014-06-18 17:35:29.772 Hiin[26097:70b] list myInfo
+2014-06-18 17:35:29.773 Hiin[26097:70b] {"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119"}
+2014-06-18 17:35:29.800 Hiin[26097:70b] list currentEventUserList
+2014-06-18 17:35:29.801 Hiin[26097:70b] [{"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119","rank":1,"status":"3"}]
+2014-06-18 17:35:29.801 Hiin[26097:70b] 3
+2014-06-18 17:35:29.801 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:29.802 Hiin[26097:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:35:29.802 Hiin[26097:70b] 3
+2014-06-18 17:35:29.802 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:29.802 Hiin[26097:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:35:29.803 Hiin[26097:70b] 3
+2014-06-18 17:35:29.803 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:30.891 Hiin[26097:70b] {"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119","rank":1,"status":"3"}
+2014-06-18 17:35:30.917 Hiin[26097:70b] chat
+2014-06-18 17:35:30.918 Hiin[26097:70b] {"userId":"537dfd841909a5d930dfa108"}
+2014-06-18 17:35:30.952 Hiin[26097:70b] chat,getUserInfo
+2014-06-18 17:35:37.634 Hiin[26097:70b] me
+2014-06-18 17:35:40.899 Hiin[26097:70b] list myInfo
+2014-06-18 17:35:40.899 Hiin[26097:70b] {"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119"}
+2014-06-18 17:35:40.900 Hiin[26097:70b] list currentEvent
+2014-06-18 17:35:40.900 Hiin[26097:70b] socket emit current event user list
+2014-06-18 17:35:40.921 Hiin[26097:70b] list currentEventUserList
+2014-06-18 17:35:40.921 Hiin[26097:70b] [{"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119","rank":1,"status":"3"}]
+2014-06-18 17:35:40.922 Hiin[26097:70b] 3
+2014-06-18 17:35:40.922 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:40.922 Hiin[26097:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:35:40.922 Hiin[26097:70b] 3
+2014-06-18 17:35:40.923 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:40.923 Hiin[26097:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:35:40.923 Hiin[26097:70b] 3
+2014-06-18 17:35:40.923 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:42.435 Hiin[26097:70b] {"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119","rank":1,"status":"3"}
+2014-06-18 17:35:42.435 Hiin[26097:70b] chat
+2014-06-18 17:35:42.435 Hiin[26097:70b] {"userId":"537dfd841909a5d930dfa108"}
+2014-06-18 17:35:42.436 Hiin[26097:70b] me
+2014-06-18 17:35:42.478 Hiin[26097:70b] chat,getUserInfo
+2014-06-18 17:35:47.366 Hiin[26097:70b] me
+2014-06-18 17:35:49.288 Hiin[26097:70b] list myInfo
+2014-06-18 17:35:49.288 Hiin[26097:70b] {"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119"}
+2014-06-18 17:35:49.289 Hiin[26097:70b] list currentEvent
+2014-06-18 17:35:49.289 Hiin[26097:70b] socket emit current event user list
+2014-06-18 17:35:49.310 Hiin[26097:70b] list currentEventUserList
+2014-06-18 17:35:49.311 Hiin[26097:70b] [{"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119","rank":1,"status":"3"}]
+2014-06-18 17:35:49.311 Hiin[26097:70b] 3
+2014-06-18 17:35:49.311 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:49.312 Hiin[26097:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:35:49.312 Hiin[26097:70b] 3
+2014-06-18 17:35:49.312 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:49.312 Hiin[26097:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:35:49.313 Hiin[26097:70b] 3
+2014-06-18 17:35:49.313 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:53.023 Hiin[26097:70b] list currentEvent
+2014-06-18 17:35:53.023 Hiin[26097:70b] socket emit current event user list
+2014-06-18 17:35:53.024 Hiin[26097:70b] list myInfo
+2014-06-18 17:35:53.024 Hiin[26097:70b] {"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119"}
+2014-06-18 17:35:53.049 Hiin[26097:70b] list currentEventUserList
+2014-06-18 17:35:53.050 Hiin[26097:70b] [{"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119","rank":1,"status":"3"}]
+2014-06-18 17:35:53.050 Hiin[26097:70b] 3
+2014-06-18 17:35:53.050 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:53.051 Hiin[26097:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:35:53.051 Hiin[26097:70b] 3
+2014-06-18 17:35:53.051 Hiin[26097:70b] btn Status = in
+2014-06-18 17:35:53.051 Hiin[26097:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:35:53.051 Hiin[26097:70b] 3
+2014-06-18 17:35:53.052 Hiin[26097:70b] btn Status = in
+2014-06-18 17:41:52.677 Hiin[26368:70b] Multi-tasking -> Device: YES, App: YES
+2014-06-18 17:41:52.688 Hiin[26368:70b] Unlimited access to network resources
+2014-06-18 17:41:52.721 Hiin[26368:70b] [CDVTimer][statusbar] 9.837985ms
+2014-06-18 17:41:52.721 Hiin[26368:70b] Init FacebookConnect Session
+2014-06-18 17:41:52.722 Hiin[26368:70b] [CDVTimer][facebookconnectplugin] 0.815034ms
+2014-06-18 17:41:52.722 Hiin[26368:70b] [CDVTimer][keyboard] 0.087023ms
+2014-06-18 17:41:52.723 Hiin[26368:70b] [CDVTimer][TotalPluginStartup] 12.397945ms
+2014-06-18 17:41:52.858 Hiin[26368:70b] Resetting plugins due to page load.
+2014-06-18 17:41:53.864 Hiin[26368:70b] Finished load of: file:///Users/d429/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4E5B9DE8-4887-4863-AA9E-DB3C455537EC/Hiin.app/www/index.html#/
+2014-06-18 17:41:55.463 Hiin[26368:70b] localstorage host = null
+2014-06-18 17:42:10.718 Hiin[26368:70b] http://localhost:3000/login
+2014-06-18 17:42:15.496 Hiin[26368:70b] http://localhost:3000/enterEvent
+2014-06-18 17:42:15.770 Hiin[26368:70b] list myInfo
+2014-06-18 17:42:15.770 Hiin[26368:70b] {"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119"}
+2014-06-18 17:42:15.770 Hiin[26368:70b] list currentEvent
+2014-06-18 17:42:15.771 Hiin[26368:70b] socket emit current event user list
+2014-06-18 17:42:15.793 Hiin[26368:70b] list currentEventUserList
+2014-06-18 17:42:15.794 Hiin[26368:70b] [{"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119","rank":2,"status":"3"}]
+2014-06-18 17:42:15.794 Hiin[26368:70b] 3
+2014-06-18 17:42:15.794 Hiin[26368:70b] btn Status = in
+2014-06-18 17:42:15.795 Hiin[26368:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:42:15.795 Hiin[26368:70b] 3
+2014-06-18 17:42:15.795 Hiin[26368:70b] btn Status = in
+2014-06-18 17:42:15.796 Hiin[26368:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:42:15.796 Hiin[26368:70b] 3
+2014-06-18 17:42:15.796 Hiin[26368:70b] btn Status = in
+2014-06-18 17:42:16.575 Hiin[26368:70b] {"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119","rank":2,"status":"3"}
+2014-06-18 17:42:16.597 Hiin[26368:70b] chat
+2014-06-18 17:42:16.598 Hiin[26368:70b] {"userId":"537df9b77b51e9f52f362eca"}
+2014-06-18 17:42:16.633 Hiin[26368:70b] chat,getUserInfo
+2014-06-18 17:42:20.015 Hiin[26368:70b] list myInfo
+2014-06-18 17:42:20.015 Hiin[26368:70b] {"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119"}
+2014-06-18 17:42:20.016 Hiin[26368:70b] list currentEvent
+2014-06-18 17:42:20.016 Hiin[26368:70b] socket emit current event user list
+2014-06-18 17:42:20.038 Hiin[26368:70b] list currentEventUserList
+2014-06-18 17:42:20.038 Hiin[26368:70b] [{"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119","rank":2,"status":"3"}]
+2014-06-18 17:42:20.038 Hiin[26368:70b] 3
+2014-06-18 17:42:20.039 Hiin[26368:70b] btn Status = in
+2014-06-18 17:42:20.039 Hiin[26368:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:42:20.039 Hiin[26368:70b] 3
+2014-06-18 17:42:20.039 Hiin[26368:70b] btn Status = in
+2014-06-18 17:42:20.039 Hiin[26368:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:42:20.040 Hiin[26368:70b] 3
+2014-06-18 17:42:20.040 Hiin[26368:70b] btn Status = in
+2014-06-18 17:42:56.074 Hiin[26368:70b] list myInfo
+2014-06-18 17:42:56.098 Hiin[26368:70b] activity
+2014-06-18 17:42:56.098 Hiin[26368:70b] {"rank":1,"activity":[{"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119","lastMsg":{"status":"0","sender":"537df9b77b51e9f52f362eca","sender_name":"daewon","reciever":"537dfd841909a5d930dfa108","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","content":"3","type":"personal","eventCode":"4119","created_at":"2014-06-16T17:32:54.409Z","_id":"539f2a46cbf5e4f65e5181a0","__v":0,"read":false},"lastSender":"you","status":"3"}]}
+2014-06-18 17:42:56.099 Hiin[26368:70b] false
+2014-06-18 17:42:56.099 Hiin[26368:70b] you
+2014-06-18 17:42:56.099 Hiin[26368:70b] you
+2014-06-18 17:43:02.371 Hiin[26368:70b] {"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119","lastMsg":{"status":"0","sender":"537df9b77b51e9f52f362eca","sender_name":"daewon","reciever":"537dfd841909a5d930dfa108","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","content":"3","type":"personal","eventCode":"4119","created_at":"2014-06-16T17:32:54.409Z","_id":"539f2a46cbf5e4f65e5181a0","__v":0,"read":false},"lastSender":"you","status":"3","$$hashKey":"016"}
+2014-06-18 17:43:02.390 Hiin[26368:70b] 3
+2014-06-18 17:43:02.391 Hiin[26368:70b] btn Status = in
+2014-06-18 17:43:02.391 Hiin[26368:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:43:02.391 Hiin[26368:70b] 3
+2014-06-18 17:43:02.391 Hiin[26368:70b] btn Status = in
+2014-06-18 17:43:02.391 Hiin[26368:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:43:02.392 Hiin[26368:70b] 3
+2014-06-18 17:43:02.392 Hiin[26368:70b] btn Status = in
+2014-06-18 17:43:02.640 Hiin[26368:70b] {"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119","lastMsg":{"status":"0","sender":"537df9b77b51e9f52f362eca","sender_name":"daewon","reciever":"537dfd841909a5d930dfa108","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","content":"3","type":"personal","eventCode":"4119","created_at":"2014-06-16T17:32:54.409Z","_id":"539f2a46cbf5e4f65e5181a0","__v":0,"read":false},"lastSender":"you","status":"3","$$hashKey":"016"}
+2014-06-18 17:43:02.641 Hiin[26368:70b] chat
+2014-06-18 17:43:02.641 Hiin[26368:70b] {"userId":"537df9b77b51e9f52f362eca"}
+2014-06-18 17:43:02.699 Hiin[26368:70b] chat,getUserInfo
+2014-06-18 17:43:06.150 Hiin[26368:70b] list myInfo
+2014-06-18 17:43:06.150 Hiin[26368:70b] activity
+2014-06-18 17:43:06.150 Hiin[26368:70b] {"rank":1,"activity":[{"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119","lastMsg":{"status":"0","sender":"537df9b77b51e9f52f362eca","sender_name":"daewon","reciever":"537dfd841909a5d930dfa108","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","content":"3","type":"personal","eventCode":"4119","created_at":"2014-06-16T17:32:54.409Z","_id":"539f2a46cbf5e4f65e5181a0","__v":0,"read":false},"lastSender":"you","status":"3"}]}
+2014-06-18 17:43:06.151 Hiin[26368:70b] false
+2014-06-18 17:43:06.151 Hiin[26368:70b] you
+2014-06-18 17:43:06.151 Hiin[26368:70b] you
+2014-06-18 17:43:06.500 Hiin[26368:70b] list myInfo
+2014-06-18 17:43:06.500 Hiin[26368:70b] {"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119"}
+2014-06-18 17:43:06.501 Hiin[26368:70b] list currentEvent
+2014-06-18 17:43:06.501 Hiin[26368:70b] socket emit current event user list
+2014-06-18 17:43:06.520 Hiin[26368:70b] list currentEventUserList
+2014-06-18 17:43:06.520 Hiin[26368:70b] [{"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119","rank":2,"status":"3"}]
+2014-06-18 17:43:06.521 Hiin[26368:70b] 3
+2014-06-18 17:43:06.521 Hiin[26368:70b] btn Status = in
+2014-06-18 17:43:06.521 Hiin[26368:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:43:06.521 Hiin[26368:70b] 3
+2014-06-18 17:43:06.521 Hiin[26368:70b] btn Status = in
+2014-06-18 17:43:06.522 Hiin[26368:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:43:06.522 Hiin[26368:70b] 3
+2014-06-18 17:43:06.522 Hiin[26368:70b] btn Status = in
+2014-06-18 17:43:10.438 Hiin[26368:70b] list currentEvent
+2014-06-18 17:43:10.438 Hiin[26368:70b] socket emit current event user list
+2014-06-18 17:43:10.438 Hiin[26368:70b] list myInfo
+2014-06-18 17:43:10.438 Hiin[26368:70b] {"_id":"537dfd841909a5d930dfa108","email":"kang@hiin.co","firstName":"kang","lastName":"jungmp","gender":"1","birth":"Sat May 03 2014 00:00:00 GMT+0900 (KST)","job":"dev","photoUrl":"profileImageOriginal/e643411aabfc7130_1400765825136.png","thumbnailUrl":"profileImageThumbnail/e643411aabfc7130_1400765825136_thumb.png","enteredEvent":"4119"}
+2014-06-18 17:43:10.459 Hiin[26368:70b] list currentEventUserList
+2014-06-18 17:43:10.459 Hiin[26368:70b] [{"_id":"537df9b77b51e9f52f362eca","email":"d429@hiin.co","firstName":"daewon","lastName":"kim","gender":"1","birth":"Sun May 18 2014 00:00:00 GMT+0900 (KST)","job":"dentistry","photoUrl":"profileImageOriginal/c1abe05205634f5e_1400764852327.png","thumbnailUrl":"profileImageThumbnail/c1abe05205634f5e_1400764852327_thumb.png","enteredEvent":"4119","rank":2,"status":"3"}]
+2014-06-18 17:43:10.459 Hiin[26368:70b] 3
+2014-06-18 17:43:10.460 Hiin[26368:70b] btn Status = in
+2014-06-18 17:43:10.460 Hiin[26368:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:43:10.460 Hiin[26368:70b] 3
+2014-06-18 17:43:10.460 Hiin[26368:70b] btn Status = in
+2014-06-18 17:43:10.460 Hiin[26368:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-06-18 17:43:10.461 Hiin[26368:70b] 3
+2014-06-18 17:43:10.461 Hiin[26368:70b] btn Status = in
+2014-06-18 17:43:12.608 Hiin[26368:70b] profile myInfo

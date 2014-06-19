@@ -1,3 +1,6 @@
 # view AndroidManifest.xml #generated:6
 -keep class com.example.Hiin.Hiin { <init>(...); }
 
+# view AndroidManifest.xml #generated:13
+-keep class com.facebook.LoginActivity { <init>(...); }
+

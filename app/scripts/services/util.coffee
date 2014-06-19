@@ -14,7 +14,6 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
     options.headers = {} unless options.headers?
     options.headers["Authorization"] = "#{Token.authToken()}"
     options.headers["Content-Type"] = 'application/x-www-form-urlencoded'
-
     opts = {}
     if method == "get" 
       opts = method:"get", url:"#{Host.getAPIHost()}:#{Host.getAPIPort()}/#{path}", params: param
@@ -30,12 +29,23 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
       .success (data) ->
         if data.status != "0"
           deferred.reject data.status
-          console.log data
       #TODO:나중에 코드로 바꿀꺼임 
         #if data is 'wrong password' or data is 'not exist email' or data is 'no entered event'
         #  deferred.reject data
         #  return
         $window.localStorage.setItem "auth_token", data.Token
+        deferred.resolve data
+      .error (error,status) ->
+        deferred.reject status
+    return deferred.promise
+  userStatus: () ->
+    deferred = $q.defer()
+    this.authReq('get','userStatus')
+      .success(data) ->
+        console.log '-suc-userstatus'
+        console.log data
+        if data.status != "0"
+          deferred.reject data.status
         deferred.resolve data
       .error (error,status) ->
         deferred.reject status

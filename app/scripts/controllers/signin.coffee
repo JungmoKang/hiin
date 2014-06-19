@@ -43,6 +43,8 @@ angular.module('hiin')
       if isValid == true
         $scope.makeId($scope.userInfo)
           .then (data) ->
+            console.log '---return make Id---'
+            $window.localStorage.setItem "auth_token", data.Token
             $scope.signIn()
           ,(status) ->
             alert 'err'
@@ -50,11 +52,13 @@ angular.module('hiin')
       else
         return $scope.showAlert()
     $scope.signIn = ->
-      Util.emailLogin($scope.userInfo)
-      .then (data) ->
-        $state.go('list.events')
-      , (status) ->
-        alert status
+      Util.userStatus()
+        .then (data) ->
+          console.log console.log '---return userStatus---'
+          console.log data
+          $state.go('list.events')
+        , (status) ->
+          alert status
       return
     $scope.open = ($event) ->
       $event.preventDefault()
