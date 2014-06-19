@@ -1,0 +1,140 @@
+@import "global.less";
+
+.modal_common()
+{
+	background-color: @color_3;
+	height:100%;
+	text-align:center;	
+}
+#event_loading_or_creating
+{
+	.modal_common;
+	.icon
+	{
+		height:60%;
+		.icon
+		{
+			padding-top: 40%;
+		  background-image:url(../images/inbetweenpages/loader.gif) ;
+		  background-size:45px 35px;
+		  background-repeat: no-repeat;
+	  	background-position: bottom;
+		  height: 45px;
+		}
+		.message
+		{
+			margin-top:10px;
+			.font_style_9;
+		}
+	}
+	.tips
+	{
+		.title
+		{
+			.font_style_2;
+			padding:20px;
+			width:130px;
+			text-align:center;
+			margin:auto auto;
+			border-top: 1px solid #ccc;
+		}
+		.desc
+		{
+			.font_style_6;
+			max-width:250px;
+			margin:auto auto;
+		}
+
+	}
+}
+#event_not_found
+{
+	.modal_common;
+	.icon
+	{
+		height:40%;
+		.icon
+		{
+			padding-top: 76%;
+		  background-image:url(../images/inbetweenpages/icn-brokenkey-90x90.png) ;
+		  background-size:45px 45px;
+		  background-repeat: no-repeat;
+	  	background-position: center;
+		  height: 45px;
+		}
+	}
+	.title
+	{
+		.font_style_3;
+		margin-bottom:10%;
+	}
+	.back
+	{
+		height:70px;
+		.btn_back
+		{
+			border:0px;
+			height:46px;
+		  width:46px;
+		  background: transparent;
+		  background-image:url(../images/creationpage/btn-publish90x90.png) ;
+		  background-size:45px 45px;
+		  background-repeat: no-repeat;
+	  	background-position: top;
+	  	margin:0 auto 5px;
+		}
+		p
+    {
+      position:relative;
+      .font_style_11;
+    }
+	}
+}
+#attention
+{
+	.modal_common;
+	.notice
+	{
+		position:relative;
+		top:70px;	
+		.font_style_3;
+	}
+	.icon
+	{
+		position:relative;
+		top:90px;	
+	  background-image:url(../images/creationpage/icn-notice46x42.png) ;
+	  background-size:23px 21px;
+	  background-repeat: no-repeat;
+  	background-position: center;
+	  height: 21px;
+	}
+	.attention
+	{
+		position:relative;
+		top:110px;	
+		.font_style_11;
+	}
+	.foot_link
+	{
+		.page_footer(150px,@color_3);
+		border-top: 1px solid @color_4;
+		.btn-group
+		{
+			border-right: 1px solid @color_4;
+			text-align:center;
+			.title
+			{
+				.font_style_10;
+				color: @color_1;
+			}
+			.desc
+			{
+				.font_style_11;
+			}
+		}
+		.btn-group:active {
+			background-color: @color_4;
+		}
+	}	
+}
