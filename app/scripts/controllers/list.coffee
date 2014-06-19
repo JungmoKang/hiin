@@ -15,15 +15,15 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   socket.on "currentEvent", (data) ->
     console.log "list currentEvent"
     $scope.eventName = data.name
-    window.localStorage['thisEvent'] = data.code
-    window.localStorage['eventOwner'] = data.author
+    $window.localStorage.setItem 'thisEvent', data.code
+    $window.localStorage.setItem 'eventOwner', data.author
     socket.emit "currentEventUserList"
     console.log "socket emit current event user list"
     return
   socket.on "myInfo", (data) ->
     console.log "list myInfo"
     console.log data
-    window.localStorage['myId'] = data._id
+    $window.localStorage.setItem 'myId', data._id
     #임시 방편.
     $ionicNavBarDelegate.showBackButton(false)
     return
@@ -82,15 +82,35 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     console.log user
     $scope.user = user
     modalInstance = $modal.open(
-      templateUrl: "views/chat/user_card.html"
+      templateUrl: "views/dialog/user_card.html"
       scope: $scope
     )
     modalInstance.result.then ((selectedItem) ->
+      $scope.modalInstance = null
       return
     ), ->
       $scope.modalInstance = null
       return
     $scope.modalInstance = modalInstance
+  $scope.ShowPrivacyFreeDialog = ->
+    #표시한 적이 있는가 없는가를 판단해서, 없을 경우 표시
+    if $window.localStorage.getItem 'flg_show_privacy_dialog'
+      return
+    modalInstance = $modal.open(
+      templateUrl: "views/dialog/privacy_free.html"
+      scope: $scope
+    )
+    modalInstance.result.then ((selectedItem) ->
+      $scope.modalInstance = null
+      return
+    ), ->
+      $scope.modalInstance = null
+      return
+    $scope.modalInstance = modalInstance
+    $window.localStorage.setItem 'flg_show_privacy_dialog', true
+  $scope.CloseDialog = ->
+    $scope.modalInstance.close()
+  $scope.ShowPrivacyFreeDialog()
 #accept : 3, request:1, pending:2, else :0
 angular.module("hiin").directive "ngHiBtn", ($window)->
   link: (scope, element, attrs) ->
