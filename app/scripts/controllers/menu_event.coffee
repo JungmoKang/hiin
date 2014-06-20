@@ -41,7 +41,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
         console.log 'error'
         $scope.modal.hide()
         Util.ShowModal($scope,'no_event')
-    ), 1000000
+    ), 1000
   $scope.CreateEvent = ->
     #TODO: 이미 오거나이저등록을 했는지 확인이 필요함
     #이미 등록을 했으면 바로 생성 페이지로 이동 안했으면 다이얼로그 표시

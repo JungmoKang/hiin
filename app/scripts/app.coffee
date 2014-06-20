@@ -21,17 +21,17 @@ angular.module("hiin", [
     templateUrl: "views/login/login.html"
     controller: "LoginCtrl"
   )
-  .state("/signin",
+  .state("signin",
     url: "/signin"
     templateUrl: "views/login/signin.html"
     controller: "SignInCtrl"
   )
-  .state("/organizerLogin",
+  .state("organizerLogin",
     url: "/organizerLogin"
     templateUrl: "views/login/organizerLogin.html"
     controller: "OrganizerLoginCtrl"
   )
-  .state("/resetPassword",
+  .state("resetPassword",
     url: "/resetPassword"
     templateUrl: "views/login/reset_password.html"
     controller: "OrganizerLoginCtrl"
