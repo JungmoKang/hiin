@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('services').factory 'Util', ($q, $http, $window,$location,$document, Host, Token,$ionicModal) ->
+angular.module('services').factory 'Util', ($q, $http, $window,$location,$document, Host, Token,$ionicModal,$timeout) ->
   serverUrl: ->
     "#{Host.getAPIHost()}:#{Host.getAPIPort()}"
   # 공통적으로 쓰이는 http request 만들어주는 함수
