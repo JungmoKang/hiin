@@ -40,8 +40,8 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
     return deferred.promise
   userStatus: () ->
     deferred = $q.defer()
-    this.authReq('get','userStatus')
-      .success(data) ->
+    this.authReq('get','userStatus','')
+      .success (data) ->
         console.log '-suc-userstatus'
         console.log data
         if data.status != "0"
