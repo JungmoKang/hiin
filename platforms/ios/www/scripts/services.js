@@ -9,9 +9,9 @@ angular.module('services', [])
   .constant('API_PORT', 3000)
   // API_HOST를 상수로 정의.
 //  .constant('API_HOST', "http://192.168.0.26");
-  .constant('API_HOST', "http://ec2-54-86-232-223.compute-1.amazonaws.com");
+  //.constant('API_HOST', "http://ec2-54-86-232-223.compute-1.amazonaws.com");
   //.constant('API_HOST', "http://sdent.kr");
-  //.constant('API_HOST', "http://localhost");
+  .constant('API_HOST', "http://localhost");
 
 (function() {
   angular.module('services').factory('Token', function($q, $http, $window, $location, Host) {
@@ -130,7 +130,7 @@ angular.module('services', [])
 
 (function() {
   'use strict';
-  angular.module('services').factory('Util', function($q, $http, $window, $location, $document, Host, Token) {
+  angular.module('services').factory('Util', function($q, $http, $window, $location, $document, Host, Token, $ionicModal, $timeout) {
     return {
       serverUrl: function() {
         return "" + (Host.getAPIHost()) + ":" + (Host.getAPIPort());
@@ -200,6 +200,16 @@ angular.module('services', [])
           return deferred.reject(status);
         });
         return deferred.promise;
+      },
+      ShowModal: function(scope, html_file) {
+        console.log('show modal');
+        return $ionicModal.fromTemplateUrl("views/modal/" + html_file + ".html", (function($ionicModal) {
+          scope.modal = $ionicModal;
+          scope.modal.show();
+        }), {
+          scope: scope,
+          animation: "slide-in-up"
+        });
       },
       resSocket: function(options) {
         var deferred, recieved, waiting;

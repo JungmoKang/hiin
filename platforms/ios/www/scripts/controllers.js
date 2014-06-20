@@ -31,7 +31,7 @@
       console.log(user);
       $scope.user = user;
       modalInstance = $modal.open({
-        templateUrl: "views/chat/user_card.html",
+        templateUrl: "views/dialog/user_card.html",
         scope: $scope
       });
       modalInstance.result.then((function(selectedItem) {}), function() {
@@ -105,23 +105,32 @@
 (function() {
   'use strict';
   angular.module("hiin").controller("chatCtrl", function($scope, $window, socket, Util, $stateParams, $ionicScrollDelegate, $timeout) {
-    var isIOS, messageKey, messages, partnerId, thisEvent;
+    var isIOS, messageKey, partnerId, thisEvent;
     console.log('chat');
     console.dir($stateParams);
     partnerId = $stateParams.userId;
-    thisEvent = window.localStorage['thisEvent'];
-    $scope.myId = window.localStorage['myId'];
+    if ($window.localStorage != null) {
+      thisEvent = $window.localStorage.getItem("thisEvent");
+      $scope.myId = $window.localStorage.getItem('myId');
+    }
     messageKey = thisEvent + '_' + partnerId;
-    messages = window.localStorage[messageKey] || [];
-    if (messages.length > 0) {
-      $scope.messages = JSON.parse(messages);
+    if ($window.localStorage.getItem(messageKey)) {
+      $scope.messages = JSON.parse($window.localStorage.getItem(messageKey));
+    } else {
+      $scope.messages = [];
+    }
+    if ($scope.messages.length > 0) {
+      console.log('----unread----');
+      console.log('len:' + $scope.messages.length);
       socket.emit('loadMsgs', {
         code: thisEvent,
         partner: partnerId,
         type: "personal",
-        range: "unread"
+        range: "unread",
+        lastMsgTime: $scope.messages[$scope.messages.length - 1].created_at
       });
     } else {
+      console.log('---call all---');
       socket.emit('loadMsgs', {
         code: thisEvent,
         partner: partnerId,
@@ -130,23 +139,43 @@
       });
     }
     $scope.pullLoadMsg = function() {
+      console.log('---pull load msg---');
       return socket.emit('loadMsgs', {
         code: thisEvent,
         partner: partnerId,
         type: "personal",
-        range: "all"
+        range: "pastThirty",
+        firstMsgTime: $scope.messages[0].created_at
       });
     };
     socket.on('loadMsgs', function(data) {
-      data.message.forEach(function(item) {
-        if (item.sender === $scope.myId) {
-          return item.sender_name = 'me';
-        }
-      });
-      if (data.type === 'personal' && data.range === 'all') {
-        $scope.messages = data.message;
-        return window.localStorage[messageKey] = JSON.stringify($scope.messages);
+      var tempor;
+      if (data.message) {
+        data.message.forEach(function(item) {
+          if (item.sender === $scope.myId) {
+            item.sender_name = 'me';
+          }
+        });
       }
+      if (data.type === 'personal' && data.range === 'all') {
+        console.log('---all---');
+        $scope.messages = data.message;
+      } else if (data.type === 'personal' && data.range === 'unread') {
+        console.log('---unread----');
+        console.log(data);
+        tempor = $scope.messages.concat(data.message);
+        console.log(tempor);
+        console.log('tmper len:' + tempor.length);
+        $scope.messages = tempor;
+      } else if (data.type === 'personal' && data.range === 'pastThirty') {
+        console.log('---else---');
+        tempor = data.message.reverse().concat($scope.messages);
+        console.log(tempor);
+        console.log('tmper len:' + tempor.length);
+        $scope.messages = tempor;
+        $scope.$broadcast('scroll.refreshComplete');
+      }
+      return $window.localStorage.setItem(messageKey, JSON.stringify($scope.messages));
     });
     socket.emit("getUserInfo", {
       targetId: $stateParams.userId
@@ -169,10 +198,17 @@
       }
     });
     $scope.$on("$destroy", function(event) {
+      var len, temp;
       if (window.cordova) {
         cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close();
       }
       socket.removeAllListeners();
+      temp = $scope.messages;
+      len = temp.length;
+      console.log('mlen:' + len);
+      if (len > 30) {
+        window.localStorage[messageKey] = JSON.stringify(temp.slice(len - 30, temp.length));
+      }
     });
     isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
     socket.on("getUserInfo", function(data) {
@@ -191,23 +227,27 @@
         return;
       }
       $scope.messages.push(data);
-      window.localStorage[messageKey] = JSON.stringify($scope.messages);
+      $window.localStorage.setItem(messageKey, JSON.stringify($scope.messages));
       return $ionicScrollDelegate.scrollBottom();
     });
     $scope.sendMessage = function() {
+      var time;
       if ($scope.data.message === "") {
         return;
       }
+      time = new Date();
       socket.emit("message", {
+        created_at: time,
         targetId: $stateParams.userId,
         message: $scope.data.message
       });
       $scope.messages.push({
         sender_name: 'me',
-        content: $scope.data.message
+        content: $scope.data.message,
+        created_at: time
       });
       $scope.data.message = "";
-      window.localStorage[messageKey] = JSON.stringify($scope.messages);
+      $window.localStorage.setItem(messageKey, JSON.stringify($scope.messages));
       return $ionicScrollDelegate.scrollBottom();
     };
     return;
@@ -229,21 +269,6 @@
     };
   });
 
-
-  /*
-    w = angular.element($window)
-    $scope.getHeight = ->
-      w.height()
-    $scope.$watch $scope.getHeight, (newValue, oldValue) ->
-      $scope.windowHeight = newValue
-      $scope.style = ->
-        height: newValue + "px"
-      return
-    w.bind "resize", ->
-      $scope.$apply()
-      return
-   */
-
 }).call(this);
 
 (function() {
@@ -263,6 +288,81 @@
   });
 
   return;
+
+}).call(this);
+
+(function() {
+  "use strict";
+  angular.module("hiin").controller("SignUpCtrl", function($modal, $sce, $q, $http, $scope, $window, Util, Host, socket, $state, $timeout) {
+    $scope.photoUrl = 'images/no_image.jpg';
+    $scope.imageUploadUrl = "" + (Host.getAPIHost()) + ":" + (Host.getAPIPort()) + "/profileImage";
+    $scope.onSuccess = function(response) {
+      var userInfo;
+      console.log("onSucess");
+      console.log(response);
+      if ($scope.userInfo != null) {
+        userInfo = $scope.userInfo;
+      } else {
+        userInfo = {};
+      }
+      userInfo.photoUrl = response.data.photoUrl;
+      userInfo.thumbnailUrl = response.data.thumbnailUrl;
+      $scope.photoUrl = Util.serverUrl() + "/" + response.data.photoUrl;
+      $scope.thumbnailUrl = Util.serverUrl() + "/" + response.data.thumbnailUrl;
+      $scope.userInfo = userInfo;
+      angular.element('img.image_upload_btn').attr("src", $scope.thumbnailUrl);
+    };
+    $scope.makeId = function(userInfo) {
+      var deferred;
+      console.log(userInfo);
+      deferred = $q.defer();
+      Util.makeReq('post', 'user', userInfo).success(function(data) {
+        if (data.status < "0") {
+          deferred.reject(data);
+        }
+        return deferred.resolve(data);
+      }).error(function(data, status) {
+        console.log(data);
+        return deferred.reject(status);
+      });
+      return deferred.promise;
+    };
+    $scope.signUp = function(isValid) {
+      console.log(isValid);
+      if (isValid === true) {
+        $scope.makeId($scope.userInfo).then(function(data) {
+          return $scope.signIn();
+        }, function(status) {
+          return alert('err');
+        });
+      } else {
+        return $scope.showAlert();
+      }
+    };
+    $scope.signIn = function() {
+      Util.emailLogin($scope.userInfo).then(function(data) {
+        return $state.go('list.events');
+      }, function(status) {
+        return alert(status);
+      });
+    };
+    $scope.open = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+      $scope.opened = true;
+    };
+    $scope.dateOptions = {
+      'year-format': "'yy'",
+      'starting-day': 1
+    };
+    return $scope.showAlert = function() {
+      var modalInstance;
+      return modalInstance = $modal.open({
+        templateUrl: "views/login/alert.html",
+        scope: $scope
+      });
+    };
+  });
 
 }).call(this);
 
@@ -341,7 +441,7 @@
     });
     socket.on("currentEvent", function(data) {
       $scope.eventInfo = data;
-      if (window.localStorage['myId'] === data.author) {
+      if ($window.localStorage.getItem('myId' === data.author)) {
         $scope.isOwner = true;
         $scope.right_link = 'edit_link';
       }
@@ -381,19 +481,20 @@
 (function() {
   'use strict';
   angular.module("hiin").controller("grpChatCtrl", function($scope, $window, socket, Util, $location, $ionicScrollDelegate, $timeout) {
-    var isIOS, messageKey, messages, thisEvent;
+    var isIOS, messageKey, thisEvent;
     console.log('grpChat');
     $scope.input_mode = false;
     $scope.imagePath = Util.serverUrl() + "/";
-    $scope.myId = window.localStorage['myId'];
-    thisEvent = window.localStorage['thisEvent'];
+    if ($window.localStorage != null) {
+      thisEvent = $window.localStorage.getItem("thisEvent");
+      $scope.myId = $window.localStorage.getItem('myId');
+    }
     messageKey = thisEvent + '_groupMessage';
     $scope.roomName = "GROUP CHAT";
-    messages = window.localStorage[messageKey] || [];
-    if (messages.length > 0) {
-      $scope.messages = JSON.parse(messages);
+    if ($window.localStorage.getItem(messageKey)) {
+      $scope.messages = JSON.parse($window.localStorage.getItem(messageKey));
     } else {
-      $scope.messages = messages;
+      $scope.messages = [];
     }
     $scope.data = {};
     $scope.data.message = "";
@@ -431,19 +532,23 @@
         data.sender_name = 'me';
       }
       $scope.messages.push(data);
-      window.localStorage[messageKey] = JSON.stringify($scope.messages);
+      $window.localStorage.setItem(messageKey, JSON.stringify($scope.messages));
       $ionicScrollDelegate.scrollBottom();
     });
     $scope.sendMessage = function() {
+      var time;
+      time = new Date();
       if ($scope.data.message === "") {
         return;
       }
       if ($scope.regular_msg_flg === true) {
         socket.emit("groupMessage", {
+          created_at: time,
           message: $scope.data.message
         });
       } else {
         socket.emit("notice", {
+          created_at: time,
           message: $scope.data.message
         });
       }
@@ -551,21 +656,22 @@
     });
     socket.emit("currentEvent");
     socket.emit("myInfo");
+    $scope.users = [];
     $scope.$on("$destroy", function(event) {
       socket.removeAllListeners();
     });
     socket.on("currentEvent", function(data) {
       console.log("list currentEvent");
       $scope.eventName = data.name;
-      window.localStorage['thisEvent'] = data.code;
-      window.localStorage['eventOwner'] = data.author;
+      $window.localStorage.setItem('thisEvent', data.code);
+      $window.localStorage.setItem('eventOwner', data.author);
       socket.emit("currentEventUserList");
       console.log("socket emit current event user list");
     });
     socket.on("myInfo", function(data) {
       console.log("list myInfo");
       console.log(data);
-      window.localStorage['myId'] = data._id;
+      $window.localStorage.setItem('myId', data._id);
       $ionicNavBarDelegate.showBackButton(false);
     });
     socket.on("currentEventUserList", function(data) {
@@ -580,7 +686,6 @@
       return socket.emit("currentEventUserList");
     });
     $scope.chatRoom = function(user) {
-      console.log(user);
       if ($scope.modalInstance != null) {
         $scope.modalInstance.close();
       }
@@ -597,11 +702,16 @@
       }
     };
     socket.on("hi", function(data) {
+      var modalInstance;
       $scope.sendHi = data.fromName;
-      return $scope.modalInstance = $modal.open({
+      modalInstance = $modal.open({
         templateUrl: "views/list/hi_modal.html",
         scope: $scope
       });
+      modalInstance.result.then((function(selectedItem) {}), function() {
+        $scope.modalInstance = null;
+      });
+      return $scope.modalInstance = modalInstance;
     });
     socket.on("hiMe", function(data) {
       return socket.emit("currentEventUserList");
@@ -626,19 +736,42 @@
       return $location.url('/list/eventInfo');
     };
     $scope.imagePath = Util.serverUrl() + "/";
-    return $scope.ShowProfile = function(user) {
+    $scope.ShowProfile = function(user) {
       var modalInstance;
       console.log(user);
       $scope.user = user;
       modalInstance = $modal.open({
-        templateUrl: "views/chat/user_card.html",
+        templateUrl: "views/dialog/user_card.html",
         scope: $scope
       });
-      modalInstance.result.then((function(selectedItem) {}), function() {
+      modalInstance.result.then((function(selectedItem) {
+        $scope.modalInstance = null;
+      }), function() {
         $scope.modalInstance = null;
       });
       return $scope.modalInstance = modalInstance;
     };
+    $scope.ShowPrivacyFreeDialog = function() {
+      var modalInstance;
+      if ($window.localStorage.getItem('flg_show_privacy_dialog')) {
+        return;
+      }
+      modalInstance = $modal.open({
+        templateUrl: "views/dialog/privacy_free.html",
+        scope: $scope
+      });
+      modalInstance.result.then((function(selectedItem) {
+        $scope.modalInstance = null;
+      }), function() {
+        $scope.modalInstance = null;
+      });
+      $scope.modalInstance = modalInstance;
+      return $window.localStorage.setItem('flg_show_privacy_dialog', true);
+    };
+    $scope.CloseDialog = function() {
+      return $scope.modalInstance.close();
+    };
+    return $scope.ShowPrivacyFreeDialog();
   });
 
   angular.module("hiin").directive("ngHiBtn", function($window) {
@@ -680,7 +813,12 @@
     return {
       link: function(scope, element, attrs) {
         console.log(attrs.histatus);
-        if (attrs.histatus === '0' || attrs.histatus === '2') {
+        if (attrs.histatus === '0') {
+          return element.bind('click', function() {
+            element.addClass('btn-flip');
+            return console.log('addclass');
+          });
+        } else if (attrs.histatus === '2') {
           return element.bind('click', function() {
             element.addClass('btn-flip');
             return console.log('addclass');
@@ -703,11 +841,11 @@
     $scope.facebookLogin = function() {
       return alert('facebooklogin');
     };
-    $scope.signUp = function() {
-      return $location.url('/signUp');
+    $scope.signin = function() {
+      return $location.url('/signin');
     };
-    return $scope.emailLogin = function() {
-      return $location.url('/emailLogin');
+    return $scope.organizerLogin = function() {
+      return $location.url('/organizerLogin');
     };
   });
 
@@ -715,7 +853,7 @@
 
 (function() {
   'use strict';
-  angular.module('hiin').controller('MenuCtrl', function($rootScope, $scope, Util, $window, socket, $state) {
+  angular.module('hiin').controller('MenuCtrl', function($rootScope, $scope, Util, $window, socket, $state, $modal) {
     $rootScope.selectedItem = 4;
     $scope.TermAndPolish = function() {
       $scope.slide = 'slide-left';
@@ -725,7 +863,22 @@
       $scope.slide = 'slide-left';
       return $state.go('report');
     };
-    return $scope.signOut = function() {
+    $scope.signOut = function() {
+      var modalInstance;
+      modalInstance = $modal.open({
+        templateUrl: "views/dialog/logout_notice.html",
+        scope: $scope
+      });
+      modalInstance.result.then((function(selectedItem) {
+        $scope.modalInstance = null;
+      }), function() {
+        return $scope.modalInstance = null;
+      });
+      return $scope.modalInstance = modalInstance;
+    };
+    $scope.okay = function() {
+      console.log('ok');
+      $scope.modalInstance.close();
       socket.emit("disconnect");
       return Util.authReq('get', 'logout', '').success(function(data) {
         if (data.status === "0") {
@@ -739,13 +892,17 @@
         return console.log("error");
       });
     };
+    return $scope.cancel = function() {
+      console.log('cancel');
+      return $scope.modalInstance.close();
+    };
   });
 
 }).call(this);
 
 (function() {
   'use strict';
-  angular.module('hiin').controller('MenuEventCtrl', function($rootScope, $scope, Util, $http, socket, $log, $state, $ionicScrollDelegate, $ionicNavBarDelegate, $timeout, $ionicModal) {
+  angular.module('hiin').controller('MenuEventCtrl', function($rootScope, $scope, Util, $http, socket, $log, $state, $ionicScrollDelegate, $ionicNavBarDelegate, $timeout, $ionicModal, $window) {
     $rootScope.selectedItem = 3;
     ionic.DomUtil.ready(function() {
       return $ionicNavBarDelegate.showBackButton(false);
@@ -753,12 +910,6 @@
     if (window.localStorage['thisEvent'] != null) {
       $scope.enteredEventsOrOwner = true;
     }
-    $ionicModal.fromTemplateUrl("views/event/attention.html", (function($ionicModal) {
-      $scope.modal = $ionicModal;
-    }), {
-      scope: $scope,
-      animation: "slide-in-up"
-    });
     socket.emit("enteredEventList");
     socket.on("enteredEventList", function(data) {
 
@@ -770,29 +921,39 @@
       3. 이벤트
        */
       $scope.thisEvent = new Array();
-      $scope.thisEvent.code = window.localStorage['thisEvent'];
+      $scope.thisEvent.code = $window.localStorage.getItem('thisEvent');
       $scope.myId = new Array();
-      $scope.myId.author = window.localStorage['myId'];
+      $scope.myId.author = $window.localStorage.getItem('myId');
       return $scope.events = data;
     });
     $scope.$on("$destroy", function(event) {
       socket.removeAllListeners();
+      if ($scope.modal != null) {
+        $scope.modal.hide();
+      }
     });
     $scope.confirmCode = function() {
-      return Util.ConfirmEvent($scope.formData).then(function(data) {
-        return $state.go('list.userlists', null, {
-          'reload': true
+      var promise;
+      promise = Util.ConfirmEvent($scope.formData);
+      $scope.message = 'loaded';
+      Util.ShowModal($scope, 'create_or_loaded_event');
+      return $timeout((function() {
+        return promise.then(function(data) {
+          $scope.modal.hide();
+          return $state.go('list.userlists');
+        }, function(status) {
+          console.log('error');
+          $scope.modal.hide();
+          return Util.ShowModal($scope, 'no_event');
         });
-      }, function(status) {
-        return alert("invalid event code");
-      });
+      }), 1000000);
     };
     $scope.CreateEvent = function() {
-      return $scope.modal.show();
+      return $state.go('list.createEvent');
     };
     $scope.yes = function() {
       $scope.modal.hide();
-      return $state.go('list.createEvent');
+      return $state.go('list.organizerSignUp');
     };
     $scope.no = function() {
       return $scope.modal.hide();
@@ -803,7 +964,7 @@
     $scope.pastEvent = function(event) {
       return event.code !== $scope.thisEvent.code && event.author !== $scope.myId.author;
     };
-    return $scope.GotoEvent = function(code) {
+    $scope.GotoEvent = function(code) {
       var confirmData;
       confirmData = {
         code: code
@@ -811,8 +972,12 @@
       return Util.ConfirmEvent(confirmData).then(function(data) {
         return $state.go('list.userlists');
       }, function(status) {
-        return alert("invalid event code");
+        console.log('error');
+        return Util.ShowModal($scope, 'no_event');
       });
+    };
+    return $scope.back = function() {
+      return $scope.modal.hide();
     };
   });
 
@@ -871,6 +1036,119 @@
 }).call(this);
 
 (function() {
+  'use strict';
+  angular.module('hiin').controller('OrganizerLoginCtrl', function(Util, $scope, $state, $window) {
+    $scope.Login = function() {
+      return Util.emailLogin($scope.userInfo).then(function(data) {
+        return $state.go('list.events');
+      }, function(status) {
+        console.log(status);
+        console.log('error');
+        return $scope.showErrMsg = true;
+      });
+    };
+    $scope.back = function() {
+      return $window.history.back();
+    };
+    $scope.GotoResetPassword = function() {
+      return $state.go('/resetPassword');
+    };
+    $scope.ResetPassword = function() {};
+    $scope.CloseErroMsg = function() {
+      return $scope.showErrMsg = false;
+    };
+    $scope.CreateAndSignIn = function() {};
+    $scope.organizerLogin = function() {
+      return $state.go('list.organizerLogin');
+    };
+    $scope.SignIn = function() {};
+  });
+
+  return;
+
+}).call(this);
+
+(function() {
+  'use strict';
+  angular.module('hiin').controller('SignInCtrl', function($modal, $sce, $q, $http, $scope, $window, Util, Host, socket, $state, $timeout) {
+    $scope.userInfo = {};
+    $scope.userInfo.gender = 1;
+    $scope.photoUrl = 'images/no_image.jpg';
+    $scope.imageUploadUrl = "" + (Host.getAPIHost()) + ":" + (Host.getAPIPort()) + "/profileImage";
+    $scope.ToggleGender = function(gender) {
+      return $scope.userInfo.gender = gender;
+    };
+    $scope.back = function() {
+      return $window.history.back();
+    };
+    $scope.onSuccess = function(response) {
+      var userInfo;
+      console.log("onSucess");
+      console.log(response);
+      if ($scope.userInfo != null) {
+        userInfo = $scope.userInfo;
+      } else {
+        userInfo = {};
+        userInfo.gender = 1;
+      }
+      userInfo.photoUrl = response.data.photoUrl;
+      userInfo.thumbnailUrl = response.data.thumbnailUrl;
+      $scope.photoUrl = Util.serverUrl() + "/" + response.data.photoUrl;
+      $scope.thumbnailUrl = Util.serverUrl() + "/" + response.data.thumbnailUrl;
+      $scope.userInfo = userInfo;
+      angular.element('img.image_upload_btn').attr("src", $scope.thumbnailUrl);
+    };
+    $scope.makeId = function(userInfo) {
+      var deferred;
+      console.log(userInfo);
+      deferred = $q.defer();
+      Util.makeReq('post', 'user', userInfo).success(function(data) {
+        if (data.status < "0") {
+          deferred.reject(data);
+        }
+        return deferred.resolve(data);
+      }).error(function(data, status) {
+        console.log(data);
+        return deferred.reject(status);
+      });
+      return deferred.promise;
+    };
+    $scope.SignUp = function(isValid) {
+      console.log(isValid);
+      if (isValid === true) {
+        $scope.makeId($scope.userInfo).then(function(data) {
+          return $scope.signIn();
+        }, function(status) {
+          return alert('err');
+        });
+      } else {
+        return $scope.showAlert();
+      }
+    };
+    $scope.signIn = function() {
+      Util.emailLogin($scope.userInfo).then(function(data) {
+        return $state.go('list.events');
+      }, function(status) {
+        return alert(status);
+      });
+    };
+    $scope.open = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+      $scope.opened = true;
+    };
+    return $scope.showAlert = function() {
+      var modalInstance;
+      return modalInstance = $modal.open({
+        templateUrl: "views/login/alert.html",
+        scope: $scope
+      });
+    };
+  });
+
+}).call(this);
+
+(function() {
   "use strict";
   angular.module("hiin").controller("SignUpCtrl", function($modal, $sce, $q, $http, $scope, $window, Util, Host, socket, $state, $timeout) {
     $scope.photoUrl = 'images/no_image.jpg';
@@ -919,6 +1197,9 @@
       }
     };
     $scope.signIn = function() {
+      if ($window.localStorage != null) {
+        $window.localStorage.clear();
+      }
       Util.emailLogin($scope.userInfo).then(function(data) {
         return $state.go('list.events');
       }, function(status) {

@@ -26,7 +26,8 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
-    $scope.modal.hide()
+    if $scope.modal?
+      $scope.modal.hide()
     return  
   $scope.confirmCode = ->
     promise = Util.ConfirmEvent($scope.formData )

@@ -5,6 +5,18 @@
       url: "/",
       templateUrl: "views/login/login.html",
       controller: "LoginCtrl"
+    }).state("/signin", {
+      url: "/signin",
+      templateUrl: "views/login/signin.html",
+      controller: "SignInCtrl"
+    }).state("/organizerLogin", {
+      url: "/organizerLogin",
+      templateUrl: "views/login/organizerLogin.html",
+      controller: "OrganizerLoginCtrl"
+    }).state("/resetPassword", {
+      url: "/resetPassword",
+      templateUrl: "views/login/reset_password.html",
+      controller: "OrganizerLoginCtrl"
     }).state("emailLogin", {
       url: "/emailLogin",
       templateUrl: "views/login/email_login.html",
@@ -88,6 +100,22 @@
         menuContent: {
           templateUrl: "views/event/create_event.html",
           controller: "CreateEventCtrl"
+        }
+      }
+    }).state("list.organizerSignUp", {
+      url: "/organizerSignUp",
+      views: {
+        menuContent: {
+          templateUrl: "views/login/organizerSignUp.html",
+          controller: "OrganizerLoginCtrl"
+        }
+      }
+    }).state("list.organizerLogin", {
+      url: "/organizerLogin",
+      views: {
+        menuContent: {
+          templateUrl: "views/login/organizerLoginFromEventPage.html",
+          controller: "OrganizerLoginCtrl"
         }
       }
     }).state("list.termAndPolish", {

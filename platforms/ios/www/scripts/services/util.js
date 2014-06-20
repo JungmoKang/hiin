@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('services').factory('Util', function($q, $http, $window, $location, $document, Host, Token) {
+  angular.module('services').factory('Util', function($q, $http, $window, $location, $document, Host, Token, $ionicModal, $timeout) {
     return {
       serverUrl: function() {
         return "" + (Host.getAPIHost()) + ":" + (Host.getAPIPort());
@@ -70,6 +70,16 @@
           return deferred.reject(status);
         });
         return deferred.promise;
+      },
+      ShowModal: function(scope, html_file) {
+        console.log('show modal');
+        return $ionicModal.fromTemplateUrl("views/modal/" + html_file + ".html", (function($ionicModal) {
+          scope.modal = $ionicModal;
+          scope.modal.show();
+        }), {
+          scope: scope,
+          animation: "slide-in-up"
+        });
       },
       resSocket: function(options) {
         var deferred, recieved, waiting;
