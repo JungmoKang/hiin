@@ -50,6 +50,18 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
       .error (error,status) ->
         deferred.reject status
     return deferred.promise
+  checkOrganizer: () ->
+    deferred = $q.defer()
+    this.authReq('get','checkOrganizer','')
+      .success (data) ->
+        console.log '-suc-check organizer'
+        console.log data
+        if data.status != "0"
+          deferred.reject data.status
+        deferred.resolve data
+      .error (error,status) ->
+        deferred.reject status
+    return deferred.promise
   ConfirmEvent: (formData) ->
     deferred = $q.defer()
     this.makeReq('post','enterEvent',formData )

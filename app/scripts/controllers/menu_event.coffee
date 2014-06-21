@@ -4,7 +4,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   #init
   $rootScope.selectedItem = 3
   ionic.DomUtil.ready ->
-    $ionicNavBarDelegate.showBackButton(false);
+    $ionicNavBarDelegate.showBackButton(false)
   #오너인지도 확인해야함..
   if window.localStorage['thisEvent']?
     $scope.enteredEventsOrOwner = true
@@ -45,8 +45,14 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   $scope.CreateEvent = ->
     #TODO: 이미 오거나이저등록을 했는지 확인이 필요함
     #이미 등록을 했으면 바로 생성 페이지로 이동 안했으면 다이얼로그 표시
-    $state.go('list.createEvent')
-    #Util.ShowModal($scope, 'create_event_attention')
+    Util.checkOrganizer()
+      .then (data) ->
+        console.log '---organizer state----'
+        $state.go('list.createEvent')
+      , (status) ->
+        console.log '-----user or error-----'
+        console.log status
+        Util.ShowModal($scope, 'create_event_attention')
   $scope.yes = ->
     $scope.modal.hide()
     $state.go('list.organizerSignUp')
