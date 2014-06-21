@@ -17,7 +17,6 @@
     "angular-socket-io": "~0.6.0",
     "angular-bootstrap": "~0.11.0",
     "angular-upload": "~1.0.10",
-    "angularLocalStorage": "~0.1.7",
-    "angular-ui-date": "latest"
+    "angularLocalStorage": "~0.1.7"
   }
 }

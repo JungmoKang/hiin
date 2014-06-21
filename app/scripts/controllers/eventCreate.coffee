@@ -1,43 +1,74 @@
 'use strict'
 
-angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util,Host,$q,$state) ->
-	#init
-	$scope.sDate = 
-    minDate: new Date()
-    onSelect: (dateText, inst) ->
-    	$scope.eDate.minDate = new Date(dateText)
-    	$scope.eventInfo.endDate = $scope.eventInfo.startDate
-    	console.log dateText
-  $scope.eDate = 
-  	minDate: new Date()
+angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util,Host,$q,$state,$filter) ->
+  #init
+  ###
+  	$scope.sDate = 
+      minDate: new Date()
+      onSelect: (dateText, inst) ->
+      	$scope.eDate.minDate = new Date(dateText)
+      	$scope.eventInfo.endDate = $scope.eventInfo.startDate
+      	console.log dateText
+    $scope.eDate = 
+    	minDate: new Date()
+  ###
+  $scope.InputStartDate = ->
+    console.log 'input start date'
+    if $window.localStorage.getItem "isPhoneGap"
+      options =
+        date: new Date()
+        mode: "datetime"
+      datePicker.show options, (date) ->
+        $scope.eventInfo.startDate = date
+        $scope.eventInfo.endDate = date
+        $scope.eventInfo.endDate.setTime($scope.eventInfo.endDate.getTime() + (2*60*60*1000))
+        $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a')
+        $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a')
+        $scope.$apply()
+        return
+    else
+      $scope.eventInfo.startDate = new Date()
+      $scope.eventInfo.endDate = new Date()
+      $scope.eventInfo.endDate.setTime($scope.eventInfo.endDate.getTime() + (2*60*60*1000))
+      $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a')
+      $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a')    
+  $scope.InputEndDate = ->
+    console.log 'input end date'
+    if typeof $scope.eventInfo.startDate == 'undefined' || !$scope.eventInfo.startDate? 
+      return 
+    if $window.localStorage.getItem "isPhoneGap"
+      options =
+        date: new Date()
+        mode: "datetime"
+      datePicker.show options, (date) ->
+        $scope.eventInfo.endDate = date
+        $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a')
+        $scope.$apply()
+        return 
+    else
+      $scope.eventInfo.endDate = new Date()
+      $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a')    
   $scope.eventInfo = {}
-  $scope.startTime = "00:00"
-  $scope.endTime = "00:00"
-
-	$scope.CreateEvent = (eventInfo) ->
-		deferred = $q.defer()
-		Util.makeReq('post','event',eventInfo)
-			.success (data) ->
-				if data.status >= '0'
-					console.log "$http.success"
-					deferred.resolve data
-				else
-					deferred.reject data
-			.error (error, status) ->
+  $scope.CreateEvent = (eventInfo) ->
+  	deferred = $q.defer()
+  	Util.makeReq('post','event',eventInfo)
+  		.success (data) ->
+  			if data.status >= '0'
+  				console.log "$http.success"
+  				deferred.resolve data
+  			else
+  				deferred.reject data
+  		.error (error, status) ->
         console.log "$http.error"
         deferred.reject status
     return deferred.promise
-	#confirm event
-	$scope.pubish = ->
-		if $scope.eventInfo isnt null
-			if typeof $scope.eventInfo.startDate == 'undefined' || !$scope.eventInfo.startDate? 
-				alert 'input start date'
-				return 
-			$scope.eventInfo.startDate.setHours($scope.startTime.split(":")[0])
-			$scope.eventInfo.startDate.setMinutes($scope.startTime.split(":")[1])
-			$scope.eventInfo.endDate.setHours($scope.endTime.split(":")[0])
-			$scope.eventInfo.endDate.setMinutes($scope.endTime.split(":")[1])
-			$scope.CreateEvent($scope.eventInfo)
+  #confirm event
+  $scope.pubish = ->
+  	if $scope.eventInfo isnt null
+  		if typeof $scope.eventInfo.startDate == 'undefined' || !$scope.eventInfo.startDate? 
+  			alert 'input start date'
+  			return 
+  		$scope.CreateEvent($scope.eventInfo)
         .then (data) ->
           console.log data
           $scope.eventCode = data.eventCode

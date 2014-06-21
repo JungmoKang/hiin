@@ -36,10 +36,10 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.phonegap.plugins.facebookconnect/www/phonegap/plugin/facebookConnectPlugin/facebookConnectPlugin.js",
-        "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
+        "file": "plugins/com.plugin.datepicker/www/ios/DatePicker.js",
+        "id": "com.plugin.datepicker.DatePicker",
         "clobbers": [
-            "window.facebookConnectPlugin"
+            "datePicker"
         ]
     }
 ];
@@ -50,7 +50,7 @@ module.exports.metadata =
     "org.apache.cordova.console": "0.2.8",
     "org.apache.cordova.device": "0.2.9",
     "org.apache.cordova.statusbar": "0.1.7-dev",
-    "com.phonegap.plugins.facebookconnect": "0.5.1"
+    "com.plugin.datepicker": "0.3.0"
 }
 // BOTTOM OF METADATA
 });

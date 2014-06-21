@@ -178,9 +178,23 @@ angular.module('services', [])
         this.makeReq('post', 'login', userInfo).success(function(data) {
           if (data.status !== "0") {
             deferred.reject(data.status);
-            console.log(data);
           }
           $window.localStorage.setItem("auth_token", data.Token);
+          return deferred.resolve(data);
+        }).error(function(error, status) {
+          return deferred.reject(status);
+        });
+        return deferred.promise;
+      },
+      userStatus: function() {
+        var deferred;
+        deferred = $q.defer();
+        this.authReq('get', 'userStatus', '').success(function(data) {
+          console.log('-suc-userstatus');
+          console.log(data);
+          if (data.status !== "0") {
+            deferred.reject(data.status);
+          }
           return deferred.resolve(data);
         }).error(function(error, status) {
           return deferred.reject(status);
@@ -278,20 +292,20 @@ angular.module('services', [])
 
 (function() {
   "use strict";
-  angular.module("hiin", ["ionic", "hiin.controllers", "ngRoute", "services", "filters", "btford.socket-io", "ui.bootstrap", "lr.upload", "ui.date"]).config(function($stateProvider, $urlRouterProvider) {
+  angular.module("hiin", ["ionic", "hiin.controllers", "ngRoute", "services", "filters", "btford.socket-io", "ui.bootstrap", "lr.upload"]).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state("/", {
       url: "/",
       templateUrl: "views/login/login.html",
       controller: "LoginCtrl"
-    }).state("/signin", {
+    }).state("signin", {
       url: "/signin",
       templateUrl: "views/login/signin.html",
       controller: "SignInCtrl"
-    }).state("/organizerLogin", {
+    }).state("organizerLogin", {
       url: "/organizerLogin",
       templateUrl: "views/login/organizerLogin.html",
       controller: "OrganizerLoginCtrl"
-    }).state("/resetPassword", {
+    }).state("resetPassword", {
       url: "/resetPassword",
       templateUrl: "views/login/reset_password.html",
       controller: "OrganizerLoginCtrl"
@@ -801,21 +815,61 @@ angular.module('services', [])
 
 (function() {
   'use strict';
-  angular.module('hiin').controller('CreateEventCtrl', function($scope, $window, $modal, Util, Host, $q, $state) {
-    $scope.sDate = {
-      minDate: new Date(),
-      onSelect: function(dateText, inst) {
-        $scope.eDate.minDate = new Date(dateText);
-        $scope.eventInfo.endDate = $scope.eventInfo.startDate;
-        return console.log(dateText);
+  angular.module('hiin').controller('CreateEventCtrl', function($scope, $window, $modal, Util, Host, $q, $state, $filter) {
+
+    /*
+    	$scope.sDate = 
+        minDate: new Date()
+        onSelect: (dateText, inst) ->
+        	$scope.eDate.minDate = new Date(dateText)
+        	$scope.eventInfo.endDate = $scope.eventInfo.startDate
+        	console.log dateText
+      $scope.eDate = 
+      	minDate: new Date()
+     */
+    $scope.InputStartDate = function() {
+      var options;
+      console.log('input start date');
+      if ($window.localStorage.getItem("isPhoneGap")) {
+        options = {
+          date: new Date(),
+          mode: "datetime"
+        };
+        return datePicker.show(options, function(date) {
+          $scope.eventInfo.startDate = date;
+          $scope.eventInfo.endDate = date;
+          $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a');
+          $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
+          $scope.$apply();
+        });
+      } else {
+        $scope.eventInfo.startDate = new Date();
+        $scope.eventInfo.endDate = new Date();
+        $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a');
+        $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
+        return $scope.$apply();
       }
     };
-    $scope.eDate = {
-      minDate: new Date()
+    $scope.InputEndDate = function() {
+      var options;
+      console.log('input end date');
+      if ($window.localStorage.getItem("isPhoneGap")) {
+        options = {
+          date: new Date(),
+          mode: "datetime"
+        };
+        return datePicker.show(options, function(date) {
+          $scope.eventInfo.endDate = date;
+          $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
+          $scope.apply();
+        });
+      } else {
+        $scope.eventInfo.endDate = new Date();
+        $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
+        return $scope.$apply();
+      }
     };
     $scope.eventInfo = {};
-    $scope.startTime = "00:00";
-    $scope.endTime = "00:00";
     $scope.CreateEvent = function(eventInfo) {
       var deferred;
       deferred = $q.defer();
@@ -838,10 +892,6 @@ angular.module('services', [])
           alert('input start date');
           return;
         }
-        $scope.eventInfo.startDate.setHours($scope.startTime.split(":")[0]);
-        $scope.eventInfo.startDate.setMinutes($scope.startTime.split(":")[1]);
-        $scope.eventInfo.endDate.setHours($scope.endTime.split(":")[0]);
-        $scope.eventInfo.endDate.setMinutes($scope.endTime.split(":")[1]);
         $scope.CreateEvent($scope.eventInfo).then(function(data) {
           var modalInstance;
           console.log(data);
@@ -1267,18 +1317,21 @@ angular.module('services', [])
 
 (function() {
   'use strict';
-  angular.module('hiin').controller('LoginCtrl', function($scope, $window, $location) {
+  angular.module('hiin').controller('LoginCtrl', function($scope, $window, $state) {
     if ($window.localStorage != null) {
       $window.localStorage.clear();
+    }
+    if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
+      $window.localStorage.setItem("isPhoneGap", "1");
     }
     $scope.facebookLogin = function() {
       return alert('facebooklogin');
     };
     $scope.signin = function() {
-      return $location.url('/signin');
+      return $state.go('signin');
     };
     return $scope.organizerLogin = function() {
-      return $location.url('/organizerLogin');
+      return $state.go('organizerLogin');
     };
   });
 
@@ -1379,7 +1432,7 @@ angular.module('services', [])
           $scope.modal.hide();
           return Util.ShowModal($scope, 'no_event');
         });
-      }), 1000000);
+      }), 1000);
     };
     $scope.CreateEvent = function() {
       return $state.go('list.createEvent');
@@ -1550,6 +1603,8 @@ angular.module('services', [])
       console.log(isValid);
       if (isValid === true) {
         $scope.makeId($scope.userInfo).then(function(data) {
+          console.log('---return make Id---');
+          $window.localStorage.setItem("auth_token", data.Token);
           return $scope.signIn();
         }, function(status) {
           return alert('err');
@@ -1559,7 +1614,9 @@ angular.module('services', [])
       }
     };
     $scope.signIn = function() {
-      Util.emailLogin($scope.userInfo).then(function(data) {
+      Util.userStatus().then(function(data) {
+        console.log(console.log('---return userStatus---'));
+        console.log(data);
         return $state.go('list.events');
       }, function(status) {
         return alert(status);

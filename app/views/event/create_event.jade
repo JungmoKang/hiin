@@ -3,30 +3,25 @@ ion-view(title='CREATE EVENT')
     form(name='createEventForm')
       .form-group
         .row
-          input(type='text', placeholder='EVENT TITLE', ng-model="eventInfo.name",required)
+          input#title(type='text', placeholder='EVENT TITLE', ng-model="eventInfo.name",required)
+        .line
+          .list_separatebar
+        .row
+          .col(ng-click='InputStartDate()')
+            input#start_date(type='text', placeholder='START DATE',ng-model='startDate',readOnly,required)
+        .row
+          .col(ng-click='InputEndDate()')
+            input#end_date(type='text', placeholder='END DATE',ng-model="endDate",readOnly,required)
         .line
           .list_separatebar
         .row
           .col
-            input(ui-date='sDate', placeholder='START DATE',ng-model="eventInfo.startDate",required,readOnly)
-          .col
-            input.time(type='time', ng-model='startTime',required)
-        .row
-          .col
-            input(ui-date='eDate', placeholder='END DATE',ng-model="eventInfo.endDate",
-              required,readOnly)
-          .col
-            input.time(type='time', ng-model='endTime',required)
-        .line
-          .list_separatebar
-        .row
-          .col
-            input(type='text', placeholder='LOCATION', ng-model="eventInfo.place")
+            input#location(type='text', placeholder='LOCATION', ng-model="eventInfo.place")
         .line
           .list_separatebar
         .row.notes
           .col
-            textarea(placeholder='NOTES', ng-model="eventInfo.desc")
+            textarea#notes(placeholder='NOTES', ng-model="eventInfo.desc")
         .publish
           button.btn_publish(ng-click='pubish()',ng-disabled="createEventForm.$invalid") 
             span PUBLISH

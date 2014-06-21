@@ -1179,6 +1179,10 @@ body {
   padding: 0px;
 }
 
+.col {
+  padding: 0px;
+}
+
 .organizer_login_footer {
   position: absolute;
   bottom: 10px;
@@ -1391,7 +1395,7 @@ f .btn-front {
   position: relative;
   top: 50%;
   width: 100%;
-  height: 45px;
+  height: 46px;
   background: transparent;
   background-image: url('../images/inbetweenpages/icn-no90x90.png');
   background-size: 45px 45px;
@@ -1418,7 +1422,7 @@ f .btn-front {
 
 .login_page .loginLogo {
   position: relative;
-  top: 70px;
+  top: 90px;
   background-image: url(../images/login/logo-150x150.png);
   background-size: 75px 75px;
   background-repeat: no-repeat;
@@ -2140,7 +2144,7 @@ f .btn-front {
 
 .signin_and_login .formBox {
   position: relative;
-  top: 10%;
+  top: 12%;
   background-color: white;
   width: 90%;
   height: 70%;
@@ -2226,19 +2230,22 @@ f .btn-front {
   border: 0px;
   height: 25px;
   margin-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: #cccccc;
 }
 
 .signin_and_login .formBox .signin_form form .form-group-btm {
   height: 30%;
+  margin-top: 10px;
 }
 
 .signin_and_login .formBox .signin_form form .form-group-btm .grp_photo {
-  width: 100px;
+  width: 100%;
   border-right: 1px solid #ccc;
 }
 
 .signin_and_login .formBox .signin_form form .form-group-btm .grp_photo .wrapper_photo {
-  width: 100%;
   height: 60px;
   position: relative;
   float: left;
@@ -2246,8 +2253,8 @@ f .btn-front {
 
 .signin_and_login .formBox .signin_form form .form-group-btm .grp_photo .wrapper_photo button {
   position: absolute;
-  width: 100%;
   height: 90px;
+  width: 100%;
   top: -10px;
   right: 0;
   left: 5px;
@@ -2256,7 +2263,6 @@ f .btn-front {
 }
 
 .signin_and_login .formBox .signin_form form .form-group-btm .grp_photo .wrapper_photo .image_upload_btn {
-  position: relative;
   border-radius: 50%;
   background-image: url(../images/login/btn-camera-120x120.png);
   background-size: 60px 60px;
@@ -2264,22 +2270,23 @@ f .btn-front {
   background-position: center top;
   height: 60px;
   width: 60px;
-  left: 10px;
 }
 
 .signin_and_login .formBox .signin_form form .form-group-btm .grp_photo .add_photo {
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   color: #cccccc;
-  color: #ccc;
+  position: relative;
+  left: -7px;
+  top: 5px;
 }
 
 .signin_and_login .formBox .signin_form form .form-group-btm .gender {
-  height: 100%;
+  position: relative;
+  top: 10px;
 }
 
 .signin_and_login .formBox .signin_form form .form-group-btm .gender .row {
-  height: 100%;
   border: 0px;
 }
 

@@ -12,7 +12,6 @@ angular.module("hiin", [
   "btford.socket-io"
   "ui.bootstrap"
   "lr.upload"
-  "ui.date"
 ])
 .config ($stateProvider, $urlRouterProvider) ->
   $stateProvider
