@@ -562,3 +562,11 @@ Jun 21 22:20:54 KangJungmo-no-MacBook-Pro.local Hiin[896] <Error>: CGContextRest
 2014-06-21 22:21:09.717 Hiin[896:70b] socket emit current event user list
 2014-06-21 22:21:09.764 Hiin[896:70b] list currentEventUserList
 2014-06-21 22:21:09.764 Hiin[896:70b] []
+2014-06-21 22:59:53.024 Hiin[896:70b] list currentEvent
+2014-06-21 22:59:53.025 Hiin[896:70b] socket emit current event user list
+2014-06-21 22:59:53.025 Hiin[896:70b] list myInfo
+2014-06-21 22:59:53.025 Hiin[896:70b] {"_id":"539086ae618f164cba9f94d1","email":"t1@test.com","firstName":"jungmo","lastName":"kang","gender":"1","birth":"undefined","job":"none","photoUrl":"profileImageOriginal/5c6ae7f4963db6d7_1401980180700.png","thumbnailUrl":"profileImageThumbnail/5c6ae7f4963db6d7_1401980180700_thumb.png","enteredEvent":"5828"}
+2014-06-21 22:59:53.050 Hiin[896:70b] list currentEventUserList
+2014-06-21 22:59:53.050 Hiin[896:70b] []
+2014-06-21 22:59:53.096 Hiin[896:70b] list currentEventUserList
+2014-06-21 22:59:53.096 Hiin[896:70b] []
