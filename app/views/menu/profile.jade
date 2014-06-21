@@ -9,13 +9,13 @@ ion-view(title='PROFILE')
     .desc
       .form-group
         .row
-          .col-xs-12
+          .col
             .item.name {{userInfo.firstName}} {{userInfo.lastName}}
         .row
-          .col-xs-12
+          .col
             .item {{userInfo.gender | gender}}
         .row
-          .col-xs-12
+          .col
             .item {{userInfo.job}}
   #profile_foot.btn-group.btn-group-justified
     .btn-group(ng-click='edit()') 

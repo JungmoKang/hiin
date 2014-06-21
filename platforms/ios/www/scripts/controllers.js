@@ -368,7 +368,7 @@
 
 (function() {
   'use strict';
-  angular.module('hiin').controller('CreateEventCtrl', function($scope, $window, $modal, Util, Host, $q, $state, $filter) {
+  angular.module('hiin').controller('CreateEventCtrl', function($scope, $window, $modal, Util, Host, $q, $state, $filter, $timeout) {
 
     /*
     	$scope.sDate = 
@@ -389,8 +389,9 @@
           mode: "datetime"
         };
         return datePicker.show(options, function(date) {
-          $scope.eventInfo.startDate = date;
-          $scope.eventInfo.endDate = date;
+          $scope.eventInfo.startDate = new Date(date);
+          $scope.eventInfo.endDate = new Date(date);
+          $scope.eventInfo.endDate.setTime($scope.eventInfo.endDate.getTime() + (2 * 60 * 60 * 1000));
           $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a');
           $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
           $scope.$apply();
@@ -398,28 +399,30 @@
       } else {
         $scope.eventInfo.startDate = new Date();
         $scope.eventInfo.endDate = new Date();
+        $scope.eventInfo.endDate.setTime($scope.eventInfo.endDate.getTime() + (2 * 60 * 60 * 1000));
         $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a');
-        $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
-        return $scope.$apply();
+        return $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
       }
     };
     $scope.InputEndDate = function() {
       var options;
       console.log('input end date');
+      if (typeof $scope.eventInfo.startDate === 'undefined' || ($scope.eventInfo.startDate == null)) {
+        return;
+      }
       if ($window.localStorage.getItem("isPhoneGap")) {
         options = {
           date: new Date(),
           mode: "datetime"
         };
         return datePicker.show(options, function(date) {
-          $scope.eventInfo.endDate = date;
+          $scope.eventInfo.endDate = new Date(date);
           $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
-          $scope.apply();
+          $scope.$apply();
         });
       } else {
         $scope.eventInfo.endDate = new Date();
-        $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
-        return $scope.$apply();
+        return $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
       }
     };
     $scope.eventInfo = {};
@@ -440,27 +443,36 @@
       return deferred.promise;
     };
     return $scope.pubish = function() {
+      var promise;
       if ($scope.eventInfo !== null) {
         if (typeof $scope.eventInfo.startDate === 'undefined' || ($scope.eventInfo.startDate == null)) {
           alert('input start date');
           return;
         }
-        $scope.CreateEvent($scope.eventInfo).then(function(data) {
-          var modalInstance;
-          console.log(data);
-          $scope.eventCode = data.eventCode;
-          modalInstance = $modal.open({
-            templateUrl: "views/event/passcode_dialog.html",
-            scope: $scope
+        promise = $scope.CreateEvent($scope.eventInfo);
+        $scope.message = 'created';
+        Util.ShowModal($scope, 'create_or_loaded_event');
+        $timeout((function() {
+          return promise.then(function(data) {
+            var modalInstance;
+            console.log(data);
+            $scope.modal.hide();
+            $scope.eventCode = data.eventCode;
+            modalInstance = $modal.open({
+              templateUrl: "views/event/passcode_dialog.html",
+              scope: $scope
+            });
+            return modalInstance.result.then(function() {
+              return console.log('test');
+            }, function() {
+              return $state.go('list.userlists');
+            });
+          }, function(status) {
+            console.log('error');
+            $scope.modal.hide();
+            return alert('err');
           });
-          return modalInstance.result.then(function() {
-            return console.log('불가');
-          }, function() {
-            return $state.go('list.userlists');
-          });
-        }, function(status) {
-          return alert('err');
-        });
+        }), 1000);
       }
     };
   });
@@ -469,15 +481,16 @@
 
 (function() {
   'use strict';
-  angular.module('hiin').controller('eventInfoCtrl', function($scope, $rootScope, socket, $window, Util, $modal) {
-    $scope.slide = '';
+  angular.module('hiin').controller('eventInfoCtrl', function($scope, $rootScope, socket, $window, Util, $modal, $filter) {
     socket.emit("currentEvent");
     $scope.$on("$destroy", function(event) {
       socket.removeAllListeners();
     });
     socket.on("currentEvent", function(data) {
       $scope.eventInfo = data;
-      if ($window.localStorage.getItem('myId' === data.author)) {
+      $scope.startDate = $filter('date')(new Date($scope.eventInfo.startDate), 'MMM d, y h:mm a');
+      $scope.endDate = $filter('date')(new Date($scope.eventInfo.endDate), 'MMM d, y h:mm a');
+      if (($window.localStorage.getItem('myId')) === data.author) {
         $scope.isOwner = true;
         $scope.right_link = 'edit_link';
       }
@@ -492,7 +505,7 @@
         return $window.history.back();
       }
     };
-    return $scope.ToEditMode = function() {
+    $scope.ToEditMode = function() {
       if ($scope.editMode === true) {
         return Util.makeReq('post', 'editEvent', $scope.eventInfo).success(function(data) {
           if (data.status >= '0') {
@@ -508,6 +521,42 @@
       } else {
         $scope.editMode = true;
         return $scope.right_link = 'save_link';
+      }
+    };
+    $scope.InputStartDate = function() {
+      var options;
+      console.log('input start date');
+      if ($window.localStorage.getItem("isPhoneGap")) {
+        options = {
+          date: new Date($scope.eventInfo.startDate),
+          mode: "datetime"
+        };
+        return datePicker.show(options, function(date) {
+          $scope.eventInfo.startDate = date;
+          $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a');
+          $scope.$apply();
+        });
+      } else {
+        $scope.eventInfo.startDate = new Date($scope.eventInfo.startDate);
+        return $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a');
+      }
+    };
+    return $scope.InputEndDate = function() {
+      var options;
+      console.log('input end date');
+      if ($window.localStorage.getItem("isPhoneGap")) {
+        options = {
+          date: new Date($scope.eventInfo.endDate),
+          mode: "datetime"
+        };
+        return datePicker.show(options, function(date) {
+          $scope.eventInfo.endDate = date;
+          $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
+          $scope.$apply();
+        });
+      } else {
+        $scope.eventInfo.endDate = new Date($scope.eventInfo.endDate);
+        return $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
       }
     };
   });

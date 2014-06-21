@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util,Host,$q,$state,$filter) ->
+angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util,Host,$q,$state,$filter,$timeout) ->
   #init
   ###
   	$scope.sDate = 
@@ -19,8 +19,8 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
         date: new Date()
         mode: "datetime"
       datePicker.show options, (date) ->
-        $scope.eventInfo.startDate = date
-        $scope.eventInfo.endDate = date
+        $scope.eventInfo.startDate = new Date(date)
+        $scope.eventInfo.endDate = new Date(date)
         $scope.eventInfo.endDate.setTime($scope.eventInfo.endDate.getTime() + (2*60*60*1000))
         $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a')
         $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a')
@@ -41,7 +41,7 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
         date: new Date()
         mode: "datetime"
       datePicker.show options, (date) ->
-        $scope.eventInfo.endDate = date
+        $scope.eventInfo.endDate = new Date(date)
         $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a')
         $scope.$apply()
         return 
@@ -64,22 +64,29 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
     return deferred.promise
   #confirm event
   $scope.pubish = ->
-  	if $scope.eventInfo isnt null
-  		if typeof $scope.eventInfo.startDate == 'undefined' || !$scope.eventInfo.startDate? 
-  			alert 'input start date'
-  			return 
-  		$scope.CreateEvent($scope.eventInfo)
-        .then (data) ->
+    if $scope.eventInfo isnt null
+      if typeof $scope.eventInfo.startDate == 'undefined' || !$scope.eventInfo.startDate? 
+        alert 'input start date'
+        return 
+      promise = $scope.CreateEvent($scope.eventInfo)
+      $scope.message = 'created'
+      Util.ShowModal($scope,'create_or_loaded_event')
+      $timeout (->
+        promise.then (data) ->
           console.log data
+          $scope.modal.hide()
           $scope.eventCode = data.eventCode
           modalInstance = $modal.open(
             templateUrl: "views/event/passcode_dialog.html"
             scope: $scope
             )
           modalInstance.result.then  ->
-            console.log '불가'
+            console.log 'test'
           , ->
             $state.go('list.userlists')
         ,(status) ->
+          console.log 'error'
+          $scope.modal.hide()
           alert 'err'
+), 1000
     return
