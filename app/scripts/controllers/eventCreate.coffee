@@ -51,7 +51,7 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
   $scope.eventInfo = {}
   $scope.CreateEvent = (eventInfo) ->
   	deferred = $q.defer()
-  	Util.makeReq('post','event',eventInfo)
+  	Util.authReq('post','event',eventInfo)
   		.success (data) ->
   			if data.status >= '0'
   				console.log "$http.success"
