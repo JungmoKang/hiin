@@ -30,12 +30,7 @@ angular.module('hiin')
         return
       $scope.MakeId($scope.userInfo)
         .then (data) ->
-          Util.emailLogin($scope.userInfo)
-            .then (data) ->
-              console.log data
-              $state.go('list.createEvent')
-            ,(status) ->
-              alert 'err'        
+          $state.go('list.createEvent')
         ,(status) ->
           alert 'err'
       #signup and sign in
