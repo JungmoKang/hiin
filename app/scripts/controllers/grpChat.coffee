@@ -15,6 +15,53 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
   else
     $scope.messages = []
+  if $scope.messages.length > 0
+    console.log '----unread----'
+    console.log 'len:'+$scope.messages.length
+    socket.emit 'loadMsgs', {
+                              code: thisEvent
+                              type: "group"
+                              range: "unread"
+                              lastMsgTime: $scope.messages[$scope.messages.length-1].created_at
+    }
+  else
+    console.log '---first entered---'
+    #first enter msg isert
+  
+  $scope.pullLoadMsg =->
+    console.log '---pull load msg---'
+    socket.emit 'loadMsgs', {
+                              code: thisEvent
+                              type: "group"
+                              range: "pastThirty"
+    }
+
+
+  socket.on 'loadMsgs', (data)->
+    if data.message
+      data.message.forEach (item)->
+        if item.sender is $scope.myId
+          item.sender_name = 'me'
+        return
+    if data.type is 'group' and data.range is 'all'
+      console.log '---all---'
+      $scope.messages = data.message
+    else if data.type is 'group' and data.range is 'unread'
+      console.log '---unread----'
+      console.log data
+      tempor = $scope.messages.concat data.message
+      console.log tempor
+      console.log 'tmper len:'+tempor.length
+      $scope.messages = tempor
+    else if data.type is 'group' and data.range is 'pastThirty'
+      console.log '---else---'
+      tempor = data.message.reverse().concat $scope.messages
+      console.log tempor
+      console.log 'tmper len:'+tempor.length
+      $scope.messages = tempor
+      $scope.$broadcast('scroll.refreshComplete')
+    $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
+
   $scope.data = {}
   $scope.data.message = ""
   $scope.amIOwner = false
@@ -40,6 +87,11 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
     socket.removeAllListeners()
+    temp = $scope.messages
+    len = temp.length
+    console.log 'mlen:'+len
+    if len > 30
+      window.localStorage[messageKey]=JSON.stringify(temp.slice(len-30,temp.length))
     return  
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
 
