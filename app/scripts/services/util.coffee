@@ -64,7 +64,7 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
     return deferred.promise
   ConfirmEvent: (formData) ->
     deferred = $q.defer()
-    this.makeReq('post','enterEvent',formData )
+    this.authReq('post','enterEvent',formData)
       .success (data) ->
         if data.status < 0
           deferred.reject data.status

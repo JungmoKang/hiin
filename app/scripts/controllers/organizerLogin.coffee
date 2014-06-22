@@ -10,19 +10,14 @@ angular.module('hiin')
         console.log status
         console.log 'error'
         $scope.showErrMsg = true
+        $scope.errorMsg = '<p> You have entered a wrong <p> combo email and password.'
     $scope.back = ->
       $window.history.back()
     $scope.GotoResetPassword = ->
       $state.go('resetPassword')
-    $scope.ResetPassword = ->
-      #reset
     $scope.CloseErroMsg = ->
       $scope.showErrMsg = false
-    $scope.CreateAndSignIn = ->
-      #signup and sign in
     $scope.organizerLogin = ->
       $state.go('list.organizerLogin')
-    $scope.SignIn = ->
-      #signin
     return
   return

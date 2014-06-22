@@ -1,11 +1,8 @@
 "use strict"
-
 # Ionic Starter App
-
 # angular.module is a global place for creating, registering and retrieving Angular modules
 angular.module("hiin", [
   "ionic"
-  "hiin.controllers"
   "ngRoute"
   "services"
   "filters"
@@ -27,7 +24,7 @@ angular.module("hiin", [
   )
   .state("organizerLogin",
     url: "/organizerLogin"
-    templateUrl: "views/login/organizerLogin.html"
+    templateUrl: "views/login/organizer_login.html"
     controller: "OrganizerLoginCtrl"
   )
   .state("resetPassword",
@@ -120,15 +117,15 @@ angular.module("hiin", [
     url: "/organizerSignUp"
     views:
       menuContent:
-        templateUrl: "views/login/organizerSignUp.html"
-        controller: "OrganizerLoginCtrl"
+        templateUrl: "views/login/organizer_signUp.html"
+        controller: "OrganizerSignCtrl"
   )
   .state("list.organizerLogin",
     url: "/organizerLogin"
     views:
       menuContent:
         templateUrl: "views/login/organizerLoginFromEventPage.html"
-        controller: "OrganizerLoginCtrl"
+        controller: "OrganizerSignCtrl"
   )
   .state("list.termAndPolish",
     url: "/termAndPolish"
