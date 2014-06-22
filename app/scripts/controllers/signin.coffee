@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('hiin')
-  .controller 'SignInCtrl', ($modal,$sce,$q,$http,$scope, $window, Util, Host,socket,$state,$timeout) ->  
+  .controller 'SignInCtrl', ($modal,$sce,$q,$http,$scope, $window, Util, Host,$state,$timeout) ->  
     #init
     $scope.userInfo = {}
     $scope.userInfo.gender = 1
