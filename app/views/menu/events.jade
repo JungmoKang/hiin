@@ -9,7 +9,7 @@ ion-view(title='EVENTS')
           span.btn_go(style="vertical-align:middle")
         .key
       div.or OR
-      input.btn_create_event(value="CREATE EVENT",readonly,ng-click="CreateEvent()")
+      input.btn_create_event(placeholder="CREATE EVENT",readonly,ng-click="CreateEvent()")
   ion-content#menu_events(ng-show="enteredEventsOrOwner")
     .event.current_event
       .title Current event

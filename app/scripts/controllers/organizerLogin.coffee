@@ -13,7 +13,7 @@ angular.module('hiin')
     $scope.back = ->
       $window.history.back()
     $scope.GotoResetPassword = ->
-      $state.go('/resetPassword')
+      $state.go('resetPassword')
     $scope.ResetPassword = ->
       #reset
     $scope.CloseErroMsg = ->

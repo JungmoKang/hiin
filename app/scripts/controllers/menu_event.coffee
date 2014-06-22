@@ -48,10 +48,10 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     Util.checkOrganizer()
       .then (data) ->
         console.log '---organizer state----'
-        if data.status is 0
+        if data.status = 0
           # 오거나이저
           $state.go('list.createEvent')
-        else if data.status is 1
+        else if data.status = 1
           # 가입시켜야함
           Util.ShowModal($scope, 'create_event_attention')
         else
@@ -59,7 +59,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
       , (status) ->
         console.log '-----user or error-----'
         console.log status
-        alert "error" 
+        alert "error"
   $scope.yes = ->
     $scope.modal.hide()
     $state.go('list.organizerSignUp')

@@ -27,7 +27,7 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
   	deferred = $q.defer()
   	this.makeReq('post','login', userInfo )
       .success (data) ->
-        if data.status != "0"
+        if data.status < 0
           deferred.reject data.status
       #TODO:나중에 코드로 바꿀꺼임 
         #if data is 'wrong password' or data is 'not exist email' or data is 'no entered event'
@@ -44,7 +44,7 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
       .success (data) ->
         console.log '-suc-userstatus'
         console.log data
-        if data.status != "0"
+        if data.status < 0
           deferred.reject data.status
         deferred.resolve data
       .error (error,status) ->
@@ -56,7 +56,7 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
       .success (data) ->
         console.log '-suc-check organizer'
         console.log data
-        if data.status != "0"
+        if data.status < 0
           deferred.reject data.status
         deferred.resolve data
       .error (error,status) ->
@@ -66,7 +66,7 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
     deferred = $q.defer()
     this.makeReq('post','enterEvent',formData )
       .success (data) ->
-        if data.status < "0"
+        if data.status < 0
           deferred.reject data.status
           console.log data
         deferred.resolve data
