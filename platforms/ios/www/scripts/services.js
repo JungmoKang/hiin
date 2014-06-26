@@ -9,9 +9,9 @@ angular.module('services', [])
   .constant('API_PORT', 3000)
   // API_HOST를 상수로 정의.
 //  .constant('API_HOST', "http://192.168.0.26");
-  //.constant('API_HOST', "http://ec2-54-86-232-223.compute-1.amazonaws.com");
+  .constant('API_HOST', "http://ec2-54-86-232-223.compute-1.amazonaws.com");
   //.constant('API_HOST', "http://sdent.kr");
-  .constant('API_HOST', "http://localhost");
+  //.constant('API_HOST', "http://localhost");
 
 (function() {
   angular.module('services').factory('Token', function($q, $http, $window, $location, Host) {
@@ -117,9 +117,11 @@ angular.module('services', [])
 }).call(this);
 
 (function() {
-  angular.module('services').factory('socket', function(socketFactory, Host) {
+  angular.module('services').factory('socket', function(socketFactory, Host, $window) {
     var myIoSocket, mySocket;
-    myIoSocket = io.connect("" + (Host.getAPIHost()) + ":" + (Host.getAPIPort()) + "/hiin");
+    myIoSocket = io.connect("" + (Host.getAPIHost()) + ":" + (Host.getAPIPort()) + "/hiin", {
+      query: "token=" + $window.localStorage.getItem("auth_token")
+    });
     mySocket = socketFactory({
       ioSocket: myIoSocket
     });
@@ -176,7 +178,7 @@ angular.module('services', [])
         var deferred;
         deferred = $q.defer();
         this.makeReq('post', 'login', userInfo).success(function(data) {
-          if (data.status !== "0") {
+          if (data.status < 0) {
             deferred.reject(data.status);
           }
           $window.localStorage.setItem("auth_token", data.Token);
@@ -192,7 +194,22 @@ angular.module('services', [])
         this.authReq('get', 'userStatus', '').success(function(data) {
           console.log('-suc-userstatus');
           console.log(data);
-          if (data.status !== "0") {
+          if (data.status < 0) {
+            deferred.reject(data.status);
+          }
+          return deferred.resolve(data);
+        }).error(function(error, status) {
+          return deferred.reject(status);
+        });
+        return deferred.promise;
+      },
+      checkOrganizer: function() {
+        var deferred;
+        deferred = $q.defer();
+        this.authReq('get', 'checkOrganizer', '').success(function(data) {
+          console.log('-suc-check organizer');
+          console.log(data);
+          if (data.status < 0) {
             deferred.reject(data.status);
           }
           return deferred.resolve(data);
@@ -204,8 +221,8 @@ angular.module('services', [])
       ConfirmEvent: function(formData) {
         var deferred;
         deferred = $q.defer();
-        this.makeReq('post', 'enterEvent', formData).success(function(data) {
-          if (data.status < "0") {
+        this.authReq('post', 'enterEvent', formData).success(function(data) {
+          if (data.status < 0) {
             deferred.reject(data.status);
             console.log(data);
           }

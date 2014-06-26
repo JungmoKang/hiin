@@ -1,6 +1,6 @@
 (function() {
   "use strict";
-  angular.module("hiin", ["ionic", "hiin.controllers", "ngRoute", "services", "filters", "btford.socket-io", "ui.bootstrap", "lr.upload"]).config(function($stateProvider, $urlRouterProvider) {
+  angular.module("hiin", ["ionic", "ngRoute", "services", "filters", "btford.socket-io", "ui.bootstrap", "lr.upload"]).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state("/", {
       url: "/",
       templateUrl: "views/login/login.html",
@@ -11,7 +11,7 @@
       controller: "SignInCtrl"
     }).state("organizerLogin", {
       url: "/organizerLogin",
-      templateUrl: "views/login/organizerLogin.html",
+      templateUrl: "views/login/organizer_login.html",
       controller: "OrganizerLoginCtrl"
     }).state("resetPassword", {
       url: "/resetPassword",
@@ -106,8 +106,8 @@
       url: "/organizerSignUp",
       views: {
         menuContent: {
-          templateUrl: "views/login/organizerSignUp.html",
-          controller: "OrganizerLoginCtrl"
+          templateUrl: "views/login/organizer_signUp.html",
+          controller: "OrganizerSignCtrl"
         }
       }
     }).state("list.organizerLogin", {
@@ -115,7 +115,7 @@
       views: {
         menuContent: {
           templateUrl: "views/login/organizerLoginFromEventPage.html",
-          controller: "OrganizerLoginCtrl"
+          controller: "OrganizerSignCtrl"
         }
       }
     }).state("list.termAndPolish", {

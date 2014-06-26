@@ -9,9 +9,9 @@ angular.module('services', [])
   .constant('API_PORT', 3000)
   // API_HOST를 상수로 정의.
 //  .constant('API_HOST', "http://192.168.0.26");
-  //.constant('API_HOST', "http://ec2-54-86-232-223.compute-1.amazonaws.com");
+  .constant('API_HOST', "http://ec2-54-86-232-223.compute-1.amazonaws.com");
   //.constant('API_HOST', "http://sdent.kr");
-  .constant('API_HOST', "http://localhost");
+  //.constant('API_HOST', "http://localhost");
 
 (function() {
   angular.module('services').factory('Token', function($q, $http, $window, $location, Host) {
@@ -117,9 +117,11 @@ angular.module('services', [])
 }).call(this);
 
 (function() {
-  angular.module('services').factory('socket', function(socketFactory, Host) {
+  angular.module('services').factory('socket', function(socketFactory, Host, $window) {
     var myIoSocket, mySocket;
-    myIoSocket = io.connect("" + (Host.getAPIHost()) + ":" + (Host.getAPIPort()) + "/hiin");
+    myIoSocket = io.connect("" + (Host.getAPIHost()) + ":" + (Host.getAPIPort()) + "/hiin", {
+      query: "token=" + $window.localStorage.getItem("auth_token")
+    });
     mySocket = socketFactory({
       ioSocket: myIoSocket
     });
@@ -176,7 +178,7 @@ angular.module('services', [])
         var deferred;
         deferred = $q.defer();
         this.makeReq('post', 'login', userInfo).success(function(data) {
-          if (data.status !== "0") {
+          if (data.status < 0) {
             deferred.reject(data.status);
           }
           $window.localStorage.setItem("auth_token", data.Token);
@@ -192,7 +194,22 @@ angular.module('services', [])
         this.authReq('get', 'userStatus', '').success(function(data) {
           console.log('-suc-userstatus');
           console.log(data);
-          if (data.status !== "0") {
+          if (data.status < 0) {
+            deferred.reject(data.status);
+          }
+          return deferred.resolve(data);
+        }).error(function(error, status) {
+          return deferred.reject(status);
+        });
+        return deferred.promise;
+      },
+      checkOrganizer: function() {
+        var deferred;
+        deferred = $q.defer();
+        this.authReq('get', 'checkOrganizer', '').success(function(data) {
+          console.log('-suc-check organizer');
+          console.log(data);
+          if (data.status < 0) {
             deferred.reject(data.status);
           }
           return deferred.resolve(data);
@@ -204,8 +221,8 @@ angular.module('services', [])
       ConfirmEvent: function(formData) {
         var deferred;
         deferred = $q.defer();
-        this.makeReq('post', 'enterEvent', formData).success(function(data) {
-          if (data.status < "0") {
+        this.authReq('post', 'enterEvent', formData).success(function(data) {
+          if (data.status < 0) {
             deferred.reject(data.status);
             console.log(data);
           }
@@ -292,7 +309,7 @@ angular.module('services', [])
 
 (function() {
   "use strict";
-  angular.module("hiin", ["ionic", "hiin.controllers", "ngRoute", "services", "filters", "btford.socket-io", "ui.bootstrap", "lr.upload"]).config(function($stateProvider, $urlRouterProvider) {
+  angular.module("hiin", ["ionic", "ngRoute", "services", "filters", "btford.socket-io", "ui.bootstrap", "lr.upload"]).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state("/", {
       url: "/",
       templateUrl: "views/login/login.html",
@@ -303,7 +320,7 @@ angular.module('services', [])
       controller: "SignInCtrl"
     }).state("organizerLogin", {
       url: "/organizerLogin",
-      templateUrl: "views/login/organizerLogin.html",
+      templateUrl: "views/login/organizer_login.html",
       controller: "OrganizerLoginCtrl"
     }).state("resetPassword", {
       url: "/resetPassword",
@@ -398,8 +415,8 @@ angular.module('services', [])
       url: "/organizerSignUp",
       views: {
         menuContent: {
-          templateUrl: "views/login/organizerSignUp.html",
-          controller: "OrganizerLoginCtrl"
+          templateUrl: "views/login/organizer_signUp.html",
+          controller: "OrganizerSignCtrl"
         }
       }
     }).state("list.organizerLogin", {
@@ -407,7 +424,7 @@ angular.module('services', [])
       views: {
         menuContent: {
           templateUrl: "views/login/organizerLoginFromEventPage.html",
-          controller: "OrganizerLoginCtrl"
+          controller: "OrganizerSignCtrl"
         }
       }
     }).state("list.termAndPolish", {
@@ -720,101 +737,6 @@ angular.module('services', [])
 
 (function() {
   'use strict';
-  angular.module('hiin').controller('EmailLoginCtrl', function(Util, $scope, $state) {
-    $scope.signIn = function() {
-      return Util.emailLogin($scope.userInfo).then(function(data) {
-        return $state.go('list.events');
-      }, function(status) {
-        console.log(status);
-        console.log('hi');
-        if (status === '-2') {
-          return $state.go('signUp');
-        }
-      });
-    };
-  });
-
-  return;
-
-}).call(this);
-
-(function() {
-  "use strict";
-  angular.module("hiin").controller("SignUpCtrl", function($modal, $sce, $q, $http, $scope, $window, Util, Host, socket, $state, $timeout) {
-    $scope.photoUrl = 'images/no_image.jpg';
-    $scope.imageUploadUrl = "" + (Host.getAPIHost()) + ":" + (Host.getAPIPort()) + "/profileImage";
-    $scope.onSuccess = function(response) {
-      var userInfo;
-      console.log("onSucess");
-      console.log(response);
-      if ($scope.userInfo != null) {
-        userInfo = $scope.userInfo;
-      } else {
-        userInfo = {};
-      }
-      userInfo.photoUrl = response.data.photoUrl;
-      userInfo.thumbnailUrl = response.data.thumbnailUrl;
-      $scope.photoUrl = Util.serverUrl() + "/" + response.data.photoUrl;
-      $scope.thumbnailUrl = Util.serverUrl() + "/" + response.data.thumbnailUrl;
-      $scope.userInfo = userInfo;
-      angular.element('img.image_upload_btn').attr("src", $scope.thumbnailUrl);
-    };
-    $scope.makeId = function(userInfo) {
-      var deferred;
-      console.log(userInfo);
-      deferred = $q.defer();
-      Util.makeReq('post', 'user', userInfo).success(function(data) {
-        if (data.status < "0") {
-          deferred.reject(data);
-        }
-        return deferred.resolve(data);
-      }).error(function(data, status) {
-        console.log(data);
-        return deferred.reject(status);
-      });
-      return deferred.promise;
-    };
-    $scope.signUp = function(isValid) {
-      console.log(isValid);
-      if (isValid === true) {
-        $scope.makeId($scope.userInfo).then(function(data) {
-          return $scope.signIn();
-        }, function(status) {
-          return alert('err');
-        });
-      } else {
-        return $scope.showAlert();
-      }
-    };
-    $scope.signIn = function() {
-      Util.emailLogin($scope.userInfo).then(function(data) {
-        return $state.go('list.events');
-      }, function(status) {
-        return alert(status);
-      });
-    };
-    $scope.open = function($event) {
-      $event.preventDefault();
-      $event.stopPropagation();
-      $scope.opened = true;
-    };
-    $scope.dateOptions = {
-      'year-format': "'yy'",
-      'starting-day': 1
-    };
-    return $scope.showAlert = function() {
-      var modalInstance;
-      return modalInstance = $modal.open({
-        templateUrl: "views/login/alert.html",
-        scope: $scope
-      });
-    };
-  });
-
-}).call(this);
-
-(function() {
-  'use strict';
   angular.module('hiin').controller('CreateEventCtrl', function($scope, $window, $modal, Util, Host, $q, $state, $filter, $timeout) {
 
     /*
@@ -876,7 +798,7 @@ angular.module('services', [])
     $scope.CreateEvent = function(eventInfo) {
       var deferred;
       deferred = $q.defer();
-      Util.makeReq('post', 'event', eventInfo).success(function(data) {
+      Util.authReq('post', 'event', eventInfo).success(function(data) {
         if (data.status >= '0') {
           console.log("$http.success");
           return deferred.resolve(data);
@@ -1028,6 +950,55 @@ angular.module('services', [])
     } else {
       $scope.messages = [];
     }
+    if ($scope.messages.length > 0) {
+      console.log('----unread----');
+      console.log('len:' + $scope.messages.length);
+      socket.emit('loadMsgs', {
+        code: thisEvent,
+        type: "group",
+        range: "unread",
+        lastMsgTime: $scope.messages[$scope.messages.length - 1].created_at
+      });
+    } else {
+      console.log('---first entered---');
+    }
+    $scope.pullLoadMsg = function() {
+      console.log('---pull load msg---');
+      return socket.emit('loadMsgs', {
+        code: thisEvent,
+        type: "group",
+        range: "pastThirty"
+      });
+    };
+    socket.on('loadMsgs', function(data) {
+      var tempor;
+      if (data.message) {
+        data.message.forEach(function(item) {
+          if (item.sender === $scope.myId) {
+            item.sender_name = 'me';
+          }
+        });
+      }
+      if (data.type === 'group' && data.range === 'all') {
+        console.log('---all---');
+        $scope.messages = data.message;
+      } else if (data.type === 'group' && data.range === 'unread') {
+        console.log('---unread----');
+        console.log(data);
+        tempor = $scope.messages.concat(data.message);
+        console.log(tempor);
+        console.log('tmper len:' + tempor.length);
+        $scope.messages = tempor;
+      } else if (data.type === 'group' && data.range === 'pastThirty') {
+        console.log('---else---');
+        tempor = data.message.reverse().concat($scope.messages);
+        console.log(tempor);
+        console.log('tmper len:' + tempor.length);
+        $scope.messages = tempor;
+        $scope.$broadcast('scroll.refreshComplete');
+      }
+      return $window.localStorage.setItem(messageKey, JSON.stringify($scope.messages));
+    });
     $scope.data = {};
     $scope.data.message = "";
     $scope.amIOwner = false;
@@ -1052,10 +1023,17 @@ angular.module('services', [])
       }
     });
     $scope.$on("$destroy", function(event) {
+      var len, temp;
       if (window.cordova) {
         cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close();
       }
       socket.removeAllListeners();
+      temp = $scope.messages;
+      len = temp.length;
+      console.log('mlen:' + len);
+      if (len > 30) {
+        window.localStorage[messageKey] = JSON.stringify(temp.slice(len - 30, temp.length));
+      }
     });
     isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
     socket.on("groupMessage", function(data) {
@@ -1073,13 +1051,13 @@ angular.module('services', [])
       if ($scope.data.message === "") {
         return;
       }
-      if ($scope.regular_msg_flg === true) {
-        socket.emit("groupMessage", {
+      if ($scope.amIOwner === true && $scope.regular_msg_flg === false) {
+        socket.emit("notice", {
           created_at: time,
           message: $scope.data.message
         });
       } else {
-        socket.emit("notice", {
+        socket.emit("groupMessage", {
           created_at: time,
           message: $scope.data.message
         });
@@ -1484,7 +1462,20 @@ angular.module('services', [])
       }), 1000);
     };
     $scope.CreateEvent = function() {
-      return $state.go('list.createEvent');
+      return Util.checkOrganizer().then(function(data) {
+        console.log('---organizer state----');
+        if (data.status === "0") {
+          return $state.go('list.createEvent');
+        } else if (data.status === "1") {
+          return Util.ShowModal($scope, 'create_event_attention');
+        } else {
+          return alert("error:status->" + data.status);
+        }
+      }, function(status) {
+        console.log('-----user or error-----');
+        console.log(status);
+        return alert("error");
+      });
     };
     $scope.yes = function() {
       $scope.modal.hide();
@@ -1579,24 +1570,22 @@ angular.module('services', [])
       }, function(status) {
         console.log(status);
         console.log('error');
-        return $scope.showErrMsg = true;
+        $scope.showErrMsg = true;
+        return $scope.errorMsg = '<p> You have entered a wrong <p> combo email and password.';
       });
     };
     $scope.back = function() {
       return $window.history.back();
     };
     $scope.GotoResetPassword = function() {
-      return $state.go('/resetPassword');
+      return $state.go('resetPassword');
     };
-    $scope.ResetPassword = function() {};
     $scope.CloseErroMsg = function() {
       return $scope.showErrMsg = false;
     };
-    $scope.CreateAndSignIn = function() {};
     $scope.organizerLogin = function() {
       return $state.go('list.organizerLogin');
     };
-    $scope.SignIn = function() {};
   });
 
   return;
@@ -1605,7 +1594,51 @@ angular.module('services', [])
 
 (function() {
   'use strict';
-  angular.module('hiin').controller('SignInCtrl', function($modal, $sce, $q, $http, $scope, $window, Util, Host, socket, $state, $timeout) {
+  angular.module('hiin').controller('OrganizerSignCtrl', function(Util, $scope, $state, $window, $q) {
+    $scope.userInfo = {};
+    $scope.userInfo.email = '';
+    $scope.userInfo.password = '';
+    $scope.errorMsg = '<p> You have entered a wrong <p> combo email and password.';
+    $scope.back = function() {
+      return $window.history.back();
+    };
+    $scope.CloseErroMsg = function() {
+      return $scope.showErrMsg = false;
+    };
+    $scope.MakeId = function(userInfo) {
+      var deferred;
+      deferred = $q.defer();
+      Util.authReq('post', 'organizerSignUp', userInfo).success(function(data) {
+        if (data.status < 0) {
+          deferred.reject(data);
+        }
+        return deferred.resolve(data);
+      }).error(function(data, status) {
+        console.log(data);
+        return deferred.reject(status);
+      });
+      return deferred.promise;
+    };
+    $scope.CreateAndSignIn = function() {
+      if ($scope.userInfo.email === '' || ($scope.userInfo.password !== $scope.repeat_password)) {
+        $scope.showErrMsg = true;
+        return;
+      }
+      return $scope.MakeId($scope.userInfo).then(function(data) {
+        return $state.go('list.createEvent');
+      }, function(status) {
+        return alert('err');
+      });
+    };
+  });
+
+  return;
+
+}).call(this);
+
+(function() {
+  'use strict';
+  angular.module('hiin').controller('SignInCtrl', function($modal, $sce, $q, $http, $scope, $window, Util, Host, $state, $timeout) {
     $scope.userInfo = {};
     $scope.userInfo.gender = 1;
     $scope.photoUrl = 'images/no_image.jpg';
@@ -1760,30 +1793,6 @@ angular.module('services', [])
         templateUrl: "views/login/alert.html",
         scope: $scope
       });
-    };
-  });
-
-}).call(this);
-
-(function() {
-  "use strict";
-  angular.module("hiin.controllers", []).controller("IntroCtrl", function($scope, $state, $ionicSlideBoxDelegate) {
-    $scope.startApp = function() {
-      $state.go("main");
-    };
-    $scope.next = function() {
-      $ionicSlideBoxDelegate.next();
-    };
-    $scope.previous = function() {
-      $ionicSlideBoxDelegate.previous();
-    };
-    $scope.slideChanged = function(index) {
-      $scope.slideIndex = index;
-    };
-  }).controller("MainCtrl", function($scope, $state) {
-    console.log("MainCtrl");
-    $scope.toIntro = function() {
-      $state.go("intro");
     };
   });
 

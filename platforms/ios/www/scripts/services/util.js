@@ -46,7 +46,7 @@
         var deferred;
         deferred = $q.defer();
         this.makeReq('post', 'login', userInfo).success(function(data) {
-          if (data.status !== "0") {
+          if (data.status < 0) {
             deferred.reject(data.status);
           }
           $window.localStorage.setItem("auth_token", data.Token);
@@ -62,7 +62,22 @@
         this.authReq('get', 'userStatus', '').success(function(data) {
           console.log('-suc-userstatus');
           console.log(data);
-          if (data.status !== "0") {
+          if (data.status < 0) {
+            deferred.reject(data.status);
+          }
+          return deferred.resolve(data);
+        }).error(function(error, status) {
+          return deferred.reject(status);
+        });
+        return deferred.promise;
+      },
+      checkOrganizer: function() {
+        var deferred;
+        deferred = $q.defer();
+        this.authReq('get', 'checkOrganizer', '').success(function(data) {
+          console.log('-suc-check organizer');
+          console.log(data);
+          if (data.status < 0) {
             deferred.reject(data.status);
           }
           return deferred.resolve(data);
@@ -74,8 +89,8 @@
       ConfirmEvent: function(formData) {
         var deferred;
         deferred = $q.defer();
-        this.makeReq('post', 'enterEvent', formData).success(function(data) {
-          if (data.status < "0") {
+        this.authReq('post', 'enterEvent', formData).success(function(data) {
+          if (data.status < 0) {
             deferred.reject(data.status);
             console.log(data);
           }
