@@ -12,8 +12,17 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
     return
+  $scope.back = ->
+    $scope.modal.hide()
+    $window.history.back()
   socket.on "currentEvent", (data) ->
     console.log "list currentEvent"
+    if data is null 
+      $scope.message = '<p> You have not entered an event. 
+      <p> Please go back 
+      <p> and 
+      <p>type passcode to join an event.'
+      Util.ShowModal($scope,'no_event')
     $scope.eventName = data.name
     $window.localStorage.setItem 'thisEvent', data.code
     $window.localStorage.setItem 'eventOwner', data.author

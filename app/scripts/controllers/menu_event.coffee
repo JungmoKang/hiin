@@ -40,6 +40,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
       ,(status) ->
         console.log 'error'
         $scope.modal.hide()
+        $scope.message = 'EVENT NOT FOUND'
         Util.ShowModal($scope,'no_event')
     ), 1000
   $scope.CreateEvent = ->
