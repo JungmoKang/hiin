@@ -19,8 +19,8 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     console.log "list currentEvent"
     if data is null 
       $scope.message = '<p> You have not entered an event. 
-      <p> Please go back 
-      <p> and 
+      <p>Please go back 
+      <p>and 
       <p>type passcode to join an event.'
       Util.ShowModal($scope,'no_event')
     $scope.eventName = data.name

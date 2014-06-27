@@ -135,7 +135,6 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     $scope.data.message = ""
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
-  return
   $scope.inputUp = ->
     console.log 'inputUp'
     $scope.data.keyboardHeight = 216  if isIOS
