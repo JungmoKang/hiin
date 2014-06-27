@@ -10,7 +10,7 @@ angular.module('hiin').controller 'eventInfoCtrl', ($scope,$rootScope,socket,$wi
     $scope.eventInfo = data
     $scope.startDate = $filter('date')(new Date($scope.eventInfo.startDate), 'MMM d, y h:mm a')
     $scope.endDate  = $filter('date')(new Date($scope.eventInfo.endDate), 'MMM d, y h:mm a')
-    if ($window.localStorage.getItem 'myId') is data.author
+    if (JSON.parse($window.localStorage.getItem 'myInfo').id) is data.author
     	$scope.isOwner = true
     	$scope.right_link = 'edit_link'
     return

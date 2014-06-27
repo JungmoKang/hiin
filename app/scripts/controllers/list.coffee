@@ -32,7 +32,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   socket.on "myInfo", (data) ->
     console.log "list myInfo"
     console.log data
-    $window.localStorage.setItem 'myId', data._id
+    $window.localStorage.setItem 'myInfo', JSON.stringify(data)
     #임시 방편.
     $ionicNavBarDelegate.showBackButton(false)
     return

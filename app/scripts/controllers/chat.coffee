@@ -3,12 +3,12 @@
 angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$stateParams,$ionicScrollDelegate,$timeout) ->
   console.log('chat')
   console.dir($stateParams)
-
   #init
   partnerId = $stateParams.userId
+  $scope.imagePath = Util.serverUrl() + "/"
   if $window.localStorage?
     thisEvent = $window.localStorage.getItem "thisEvent"
-    $scope.myId = $window.localStorage.getItem 'myId'
+    $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
   messageKey = thisEvent + '_' + partnerId
   #기본적으로 개인 메세지 창은 나가기 개념이 없음. 즉, 대화가 로컬에 없으면 처음 대화하므로 상대방 대화를 모두 긁어옴
   if $window.localStorage.getItem messageKey
@@ -48,7 +48,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   socket.on 'loadMsgs', (data)->
     if data.message
       data.message.forEach (item)->
-        if item.sender is $scope.myId
+        if item.sender is $scope.myInfo.id
           item.sender_name = 'me'
         return
     if data.type is 'personal' and data.range is 'all'
@@ -100,13 +100,11 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
       window.localStorage[messageKey]=JSON.stringify(temp.slice(len-30,temp.length))
     return  
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
-
   socket.on "getUserInfo", (data) ->
     console.log "chat,getUserInfo"
     $scope.opponent = data
     $scope.partner = data.firstName
     $scope.roomName = "CHAT WITH " + data.firstName
-
   socket.on "message", (data) ->
     console.log 'ms'
     console.log data
@@ -129,9 +127,10 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   	}
     #내 사진은 표시 안
   	$scope.messages.push
-        sender_name: 'me' 
-        content: $scope.data.message
-        created_at: time
+      sender_name: 'me' 
+      content: $scope.data.message
+      created_at: time
+      thumbnailUrl: $scope.myInfo.thumbnailUrl
     $scope.data.message = ""
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
