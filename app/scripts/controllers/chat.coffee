@@ -48,7 +48,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   socket.on 'loadMsgs', (data)->
     if data.message
       data.message.forEach (item)->
-        if item.sender is $scope.myInfo.id
+        if item.sender is $scope.myInfo._id
           item.sender_name = 'me'
         return
     if data.type is 'personal' and data.range is 'all'
