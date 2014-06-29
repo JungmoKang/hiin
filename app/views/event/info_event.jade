@@ -1,6 +1,8 @@
 ion-view(title='INFO')
   ion-nav-buttons(side='right')
     button.edit_link(ng-click='ToEditMode()', ng-show="isOwner", ng-class="right_link")
+  ion-nav-buttons(side='left')
+    button.etc_link(ng-click='Cancel()', ng-show="right_link == 'save_link'")
   ion-pane
     .event_info_code
       .passcode 
@@ -25,7 +27,7 @@ ion-view(title='INFO')
           .col
             input.place(type='text', placeholder='LOCATION', ng-model="eventInfo.place",ng-readonly="!editMode")
         .list_separatebar
-        .row
+        .row.row_note
           .col
             .title
               p NOTES

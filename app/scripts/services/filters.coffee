@@ -2,4 +2,4 @@
 
 angular.module("filters", []).filter "gender", ->
   (input) ->
-    (if input == '1' then "Male" else "Female")
+    (if input == '1' then "Female" else "Male")

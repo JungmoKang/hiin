@@ -1,0 +1,35 @@
+ion-content.has-header#menu_profile
+  .header
+    img.img-circle.profile_pic(src='{{imagePath}}{{userInfo.photoUrl}}')
+    .btn_edit
+      button(url='{{imageUploadUrl}}',accept="image/*,application/pdf",on-success="onSuccess(response)", upload_button)
+  .list_separatebar
+  .desc
+    .form-group
+      .row.row_title
+        .col
+          p FIRST NAME
+        .col
+          p LAST NAME
+      .row
+        .col
+          input.name_input(ng-model="userInfo.firstName")
+        .col
+          input.name_input(ng-model="userInfo.lastName")
+      .row.row_title
+        .col
+          p SEX
+      .row
+        .col
+          p.gender {{userInfo.gender | gender}}
+      .row.row_title
+        .col
+          p JOB TITLE
+      .row
+        .col
+          input(ng-model='userInfo.job')
+#profile_foot.btn-group.btn-group-justified
+  .btn-group(ng-click='cancel()') 
+    .title CANCEL
+  .btn-group(ng-click='done()')
+    .title DONE

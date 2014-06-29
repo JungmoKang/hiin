@@ -6,26 +6,30 @@ angular.module('hiin').controller 'ProfileCtrl', ($rootScope,$scope, Util, Host,
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
     return  
+  $scope.imageUploadUrl = "#{Host.getAPIHost()}:#{Host.getAPIPort()}/profileImage"
   $scope.imagePath = Util.serverUrl()+'/'
-  $scope.gender2 = (event) ->
-    return event.code isnt $scope.thisEvent.code && event.author isnt $scope.myId.author
-  $scope.isNotEdit = true
+  $scope.isEditMode = false
   $scope.btn_edit_or_confirm = 'edit'
   socket.emit "myInfo"
   socket.on "myInfo", (data) ->
     console.log "profile myInfo"
     $scope.userInfo = data
-  $scope.editProfile = ->
-    # TODO:캔슬 기능
-    if $scope.isNotEdit is true
-      $scope.isNotEdit = false
-      $scope.btn_edit_or_confirm = 'confirm'
-    else
-      Util.authReq('post','editUser', $scope.userInfo)
-        .success (data) ->
-          console.log data
-        .error (data, status) ->
-          console.log data
+  $scope.edit = ->
+    $scope.isEditMode = !$scope.isEditMode
+  $scope.cancel = ->
+    $scope.isEditMode = false
+  $scope.done = ->
+    $scope.isEditMode = false
+    Util.authReq('post','editUser', $scope.userInfo)
+      .success (data) ->
+        console.log data
+      .error (data, status) ->
+        console.log data
+  $scope.onSuccess = (response) ->
+    console.log "onSucess"
+    $scope.userInfo.photoUrl = response.data.photoUrl
+    $scope.userInfo.thumbnailUrl = response.data.thumbnailUrl
+    return
 angular.module("hiin").directive "ngGender", ($window)->
   link: (scope, element, attrs) ->
     console.log attrs.ngGender

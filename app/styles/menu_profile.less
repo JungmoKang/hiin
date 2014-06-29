@@ -3,7 +3,7 @@
 #menu_profile
 {
   .menu_contents;
-  background-color: white;
+  background-color:@color_4;
   .header
   {
     .profile_pic
@@ -24,18 +24,64 @@
       position:relative;
       top:-80px;
       left:68px;
+      button{
+        position: absolute;
+        height: 90px;
+        width:100%;
+        top: -10px;
+        right: 0;
+        left: 5px;
+        z-index: 1;
+        opacity: 0;
+      }
     }
   }
   .row
   {
-    margin:0;
+    padding: 0 0 0 20px;
+    height:25px;
+    input
+    {
+      padding:0;
+      height:20px;
+      border:0;
+      background-color:white;
+      .font_style_6;
+      border-radius:2px;
+      width:95%;
+    }
+    .gender
+    {
+     .font_style_6;
+    }
   }
-  .item
+  .row + .row
   {
-    height:50px;
-    .font_style_6;
-    text-align:center;
+    margin-top:0px;
+  }
+  .show
+  {
     padding-top:20px;
+    padding-bottom:20px;
+  }
+  .row_title
+  {
+    height:20px;
+    p
+    {
+      .font_style_0;
+      color:@color_5;
+    }
+  }
+  .col
+  {
+    text-align:left;
+  }
+  
+  .it
+  { 
+    .font_style_6; 
+    text-align:center;
     width:100%;
   }
   .name
@@ -45,11 +91,12 @@
 }
 #profile_foot
 {
-  .page_footer(90px,@color_3);
-  border-top: 1px solid @color_4;
+  .page_footer(90px,@color_4);
+  border-top: 1px solid @color_5;
   .btn-group
   {
     text-align:center;
+    border-right: 1px solid @color_5;
     .icon
     {
       background-image:url(../images/profilepage/btn-edit-100x100.png) ;

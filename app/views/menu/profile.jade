@@ -1,23 +1,5 @@
 ion-view(title='PROFILE')
   ion-nav-buttons(side='left')
     button.button.button-icon.icon#list_header_button(menu-toggle='left')
-  ion-content.has-header#menu_profile
-    .header
-      img.img-circle.profile_pic(src='{{imagePath}}{{userInfo.photoUrl}}')
-      .btn_edit(ng-click="PicEdit()")
-    .list_separatebar
-    .desc
-      .form-group
-        .row
-          .col
-            .item.name {{userInfo.firstName}} {{userInfo.lastName}}
-        .row
-          .col
-            .item {{userInfo.gender | gender}}
-        .row
-          .col
-            .item {{userInfo.job}}
-  #profile_foot.btn-group.btn-group-justified
-    .btn-group(ng-click='edit()') 
-      .icon
-      .title EDIT
+  div(ng-include="'views/menu/profile_show.html'",ng-show='!isEditMode')
+  div(ng-include="'views/menu/profile_edit.html'",ng-show='isEditMode')    

@@ -1,0 +1,19 @@
+ion-content.has-header#menu_profile
+  .header
+    img.img-circle.profile_pic(src='{{imagePath}}{{userInfo.photoUrl}}')
+  .list_separatebar
+  .desc
+    .form-group
+      .row.show
+        .col
+          .it.name {{userInfo.firstName}} {{userInfo.lastName}}
+      .row.show
+        .col
+          .it {{userInfo.gender | gender}}
+      .row.show
+        .col
+          .it {{userInfo.job}}
+#profile_foot.btn-group.btn-group-justified
+  .btn-group(ng-click='edit()') 
+    .icon
+    .title EDIT
