@@ -20,7 +20,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     $scope.thisEvent = new Array()
     $scope.thisEvent.code = $window.localStorage.getItem 'thisEvent'
     $scope.myId = new Array()
-    $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo').id
+    $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
     $scope.events = data
   #↑init
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
