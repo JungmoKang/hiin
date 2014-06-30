@@ -109,9 +109,10 @@
     console.log('chat');
     console.dir($stateParams);
     partnerId = $stateParams.userId;
+    $scope.imagePath = Util.serverUrl() + "/";
     if ($window.localStorage != null) {
       thisEvent = $window.localStorage.getItem("thisEvent");
-      $scope.myId = $window.localStorage.getItem('myId');
+      $scope.myInfo = JSON.parse($window.localStorage.getItem('myInfo'));
     }
     messageKey = thisEvent + '_' + partnerId;
     if ($window.localStorage.getItem(messageKey)) {
@@ -152,7 +153,7 @@
       var tempor;
       if (data.message) {
         data.message.forEach(function(item) {
-          if (item.sender === $scope.myId) {
+          if (item.sender === $scope.myInfo.id) {
             item.sender_name = 'me';
           }
         });
@@ -244,13 +245,13 @@
       $scope.messages.push({
         sender_name: 'me',
         content: $scope.data.message,
-        created_at: time
+        created_at: time,
+        thumbnailUrl: $scope.myInfo.thumbnailUrl
       });
       $scope.data.message = "";
       $window.localStorage.setItem(messageKey, JSON.stringify($scope.messages));
       return $ionicScrollDelegate.scrollBottom();
     };
-    return;
     $scope.inputUp = function() {
       console.log('inputUp');
       if (isIOS) {
@@ -386,46 +387,46 @@
 
 (function() {
   'use strict';
-  angular.module('hiin').controller('eventInfoCtrl', function($scope, $rootScope, socket, $window, Util, $modal, $filter) {
+  angular.module('hiin').controller('eventInfoCtrl', function($scope, $rootScope, socket, $window, Util, $modal, $filter, $ionicNavBarDelegate) {
     socket.emit("currentEvent");
     $scope.$on("$destroy", function(event) {
       socket.removeAllListeners();
     });
     socket.on("currentEvent", function(data) {
       $scope.eventInfo = data;
-      $scope.startDate = $filter('date')(new Date($scope.eventInfo.startDate), 'MMM d, y h:mm a');
-      $scope.endDate = $filter('date')(new Date($scope.eventInfo.endDate), 'MMM d, y h:mm a');
-      if (($window.localStorage.getItem('myId')) === data.author) {
+      $scope.startDate = $filter('date')(new Date($scope.eventInfo.startDate), 'MMM d, h:mm a');
+      $scope.endDate = $filter('date')(new Date($scope.eventInfo.endDate), 'MMM d, h:mm a');
+      if ((JSON.parse($window.localStorage.getItem('myInfo'))._id) === data.author) {
         $scope.isOwner = true;
         $scope.right_link = 'edit_link';
       }
     });
-    $rootScope.back = function() {
-      if ($scope.editMode === true) {
-        $scope.editMode = false;
-        socket.emit("currentEvent");
-        return $scope.right_link = '';
-      } else {
-        $scope.slide = 'slide-right';
-        return $window.history.back();
-      }
+    $rootScope.Cancel = function() {
+      $scope.editMode = false;
+      socket.emit("currentEvent");
+      $scope.right_link = '';
+      return $ionicNavBarDelegate.showBackButton(true);
     };
     $scope.ToEditMode = function() {
       if ($scope.editMode === true) {
-        return Util.makeReq('post', 'editEvent', $scope.eventInfo).success(function(data) {
+        Util.authReq('post', 'editEvent', $scope.eventInfo).success(function(data) {
           if (data.status >= '0') {
             console.log("$http.success");
-            return socket.emit("currentEvent");
+            socket.emit("currentEvent");
           } else {
-            return console.log(data);
+
           }
+          return console.log(data);
         }).error(function(error, status) {
           console.log("$http.error");
           return alert('status');
         });
+        $scope.right_link = 'edit_link';
+        return $ionicNavBarDelegate.showBackButton(true);
       } else {
         $scope.editMode = true;
-        return $scope.right_link = 'save_link';
+        $scope.right_link = 'save_link';
+        return $ionicNavBarDelegate.showBackButton(false);
       }
     };
     $scope.InputStartDate = function() {
@@ -438,12 +439,12 @@
         };
         return datePicker.show(options, function(date) {
           $scope.eventInfo.startDate = date;
-          $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a');
+          $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, h:mm a');
           $scope.$apply();
         });
       } else {
         $scope.eventInfo.startDate = new Date($scope.eventInfo.startDate);
-        return $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a');
+        return $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, h:mm a');
       }
     };
     return $scope.InputEndDate = function() {
@@ -456,12 +457,12 @@
         };
         return datePicker.show(options, function(date) {
           $scope.eventInfo.endDate = date;
-          $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
+          $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, h:mm a');
           $scope.$apply();
         });
       } else {
         $scope.eventInfo.endDate = new Date($scope.eventInfo.endDate);
-        return $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a');
+        return $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, h:mm a');
       }
     };
   });
@@ -706,8 +707,16 @@
     $scope.$on("$destroy", function(event) {
       socket.removeAllListeners();
     });
+    $scope.back = function() {
+      $scope.modal.hide();
+      return $window.history.back();
+    };
     socket.on("currentEvent", function(data) {
       console.log("list currentEvent");
+      if (data === null) {
+        $scope.message = '<p> You have not entered an event. <p>Please go back <p>and <p>type passcode to join an event.';
+        Util.ShowModal($scope, 'no_event');
+      }
       $scope.eventName = data.name;
       $window.localStorage.setItem('thisEvent', data.code);
       $window.localStorage.setItem('eventOwner', data.author);
@@ -717,7 +726,7 @@
     socket.on("myInfo", function(data) {
       console.log("list myInfo");
       console.log(data);
-      $window.localStorage.setItem('myId', data._id);
+      $window.localStorage.setItem('myInfo', JSON.stringify(data));
       $ionicNavBarDelegate.showBackButton(false);
     });
     socket.on("currentEventUserList", function(data) {
@@ -888,7 +897,16 @@
       $window.localStorage.setItem("isPhoneGap", "1");
     }
     $scope.facebookLogin = function() {
-      return alert('facebooklogin');
+      var appId;
+      if (!window.cordova) {
+        appId = prompt("Enter FB Application ID", "");
+        facebookConnectPlugin.browserInit(appId);
+      }
+      facebookConnectPlugin.login(["email"], (function(response) {
+        alert(JSON.stringify(response));
+      }), function(response) {
+        alert(JSON.stringify(response));
+      });
     };
     $scope.signin = function() {
       return $state.go('signin');
@@ -972,7 +990,7 @@
       $scope.thisEvent = new Array();
       $scope.thisEvent.code = $window.localStorage.getItem('thisEvent');
       $scope.myId = new Array();
-      $scope.myId.author = $window.localStorage.getItem('myId');
+      $scope.myId.author = JSON.parse($window.localStorage.getItem('myInfo'))._id;
       return $scope.events = data;
     });
     $scope.$on("$destroy", function(event) {
@@ -993,6 +1011,7 @@
         }, function(status) {
           console.log('error');
           $scope.modal.hide();
+          $scope.message = 'EVENT NOT FOUND';
           return Util.ShowModal($scope, 'no_event');
         });
       }), 1000);
@@ -1052,28 +1071,33 @@
     $scope.$on("$destroy", function(event) {
       socket.removeAllListeners();
     });
+    $scope.imageUploadUrl = "" + (Host.getAPIHost()) + ":" + (Host.getAPIPort()) + "/profileImage";
     $scope.imagePath = Util.serverUrl() + '/';
-    $scope.gender2 = function(event) {
-      return event.code !== $scope.thisEvent.code && event.author !== $scope.myId.author;
-    };
-    $scope.isNotEdit = true;
+    $scope.isEditMode = false;
     $scope.btn_edit_or_confirm = 'edit';
     socket.emit("myInfo");
     socket.on("myInfo", function(data) {
       console.log("profile myInfo");
       return $scope.userInfo = data;
     });
-    return $scope.editProfile = function() {
-      if ($scope.isNotEdit === true) {
-        $scope.isNotEdit = false;
-        return $scope.btn_edit_or_confirm = 'confirm';
-      } else {
-        return Util.authReq('post', 'editUser', $scope.userInfo).success(function(data) {
-          return console.log(data);
-        }).error(function(data, status) {
-          return console.log(data);
-        });
-      }
+    $scope.edit = function() {
+      return $scope.isEditMode = !$scope.isEditMode;
+    };
+    $scope.cancel = function() {
+      return $scope.isEditMode = false;
+    };
+    $scope.done = function() {
+      $scope.isEditMode = false;
+      return Util.authReq('post', 'editUser', $scope.userInfo).success(function(data) {
+        return console.log(data);
+      }).error(function(data, status) {
+        return console.log(data);
+      });
+    };
+    return $scope.onSuccess = function(response) {
+      console.log("onSucess");
+      $scope.userInfo.photoUrl = response.data.photoUrl;
+      $scope.userInfo.thumbnailUrl = response.data.thumbnailUrl;
     };
   });
 
