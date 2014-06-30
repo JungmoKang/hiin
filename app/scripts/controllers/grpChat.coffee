@@ -178,10 +178,3 @@ angular.module("hiin").directive "ngChatInput", ($timeout) ->
             return
       return
     return
-angular.module("hiin").directive "ngChatBalloon", ($window)->
-  link: (scope, element, attrs) ->
-    console.log attrs.user
-    if attrs.user == 'me'
-      element.addClass 'chat-balloon-me'
-    else
-      element.addClass 'chat-balloon-you'
