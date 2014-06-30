@@ -2,13 +2,13 @@
 
 angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,$location,$ionicScrollDelegate,$timeout) ->
   console.log 'grpChat'
-
   #group chat init
   $scope.input_mode = false
   $scope.imagePath = Util.serverUrl() + "/"
   if $window.localStorage?
     thisEvent = $window.localStorage.getItem "thisEvent"
-    $scope.myId = $window.localStorage.getItem 'myId'
+    $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
+    console.log $scope.myInfo
   messageKey = thisEvent + '_groupMessage'
   $scope.roomName = "GROUP CHAT"
   if $window.localStorage.getItem messageKey
@@ -40,7 +40,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
   socket.on 'loadMsgs', (data)->
     if data.message
       data.message.forEach (item)->
-        if item.sender is $scope.myId
+        if item.sender is $scope.myInfo._id
           item.sender_name = 'me'
         return
     if data.type is 'group' and data.range is 'all'
@@ -54,7 +54,9 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
       console.log 'tmper len:'+tempor.length
       $scope.messages = tempor
     else if data.type is 'group' and data.range is 'pastThirty'
-      console.log '---else---'
+      console.log '---pastthirty---'
+      console.log data.message 
+      console.log 'length:'+data.message.length
       tempor = data.message.reverse().concat $scope.messages
       console.log tempor
       console.log 'tmper len:'+tempor.length
@@ -65,7 +67,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
   $scope.data = {}
   $scope.data.message = ""
   $scope.amIOwner = false
-  if window.localStorage['eventOwner'] == $scope.myId
+  if window.localStorage['eventOwner'] == $scope.myInfo._id
     $scope.amIOwner = true
     $scope.regular_msg_flg = false
   #초기에 키보드가 표시되는 것을 방지하기 위한 플래그
@@ -97,7 +99,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
 
   socket.on "groupMessage", (data) ->
     console.log "grp chat,groupMessage"
-    if $scope.myId == data.sender
+    if $scope.myInfo._id == data.sender
       data.sender_name = 'me'
     $scope.messages.push data
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
