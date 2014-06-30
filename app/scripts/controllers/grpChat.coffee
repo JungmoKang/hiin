@@ -34,6 +34,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
                               code: thisEvent
                               type: "group"
                               range: "pastThirty"
+                              firstMsgTime: $scope.messages[0].created_at
     }
 
 
