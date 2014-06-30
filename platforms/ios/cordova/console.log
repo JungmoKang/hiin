@@ -584,3 +584,50 @@ Jun 21 22:20:54 KangJungmo-no-MacBook-Pro.local Hiin[896] <Error>: CGContextRest
 2014-06-26 19:17:21.287 Hiin[21070:70b] [CDVTimer][TotalPluginStartup] 14.968991ms
 2014-06-26 19:17:21.449 Hiin[21070:70b] Resetting plugins due to page load.
 2014-06-26 19:17:21.819 Hiin[21070:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FFE37BE7-F68F-449D-B6FA-EB35770C1304/Hiin.app/www/index.html#/
+2014-06-29 22:31:41.256 Hiin[3742:70b] Multi-tasking -> Device: YES, App: YES
+2014-06-29 22:31:41.284 Hiin[3742:70b] Unlimited access to network resources
+2014-06-29 22:31:41.486 Hiin[3742:70b] [CDVTimer][statusbar] 57.744026ms
+2014-06-29 22:31:41.487 Hiin[3742:70b] CDVPlugin class FacebookConnectPlugin (pluginName: facebookconnectplugin) does not exist.
+2014-06-29 22:31:41.487 Hiin[3742:70b] [CDVTimer][facebookconnectplugin] 0.473022ms
+2014-06-29 22:31:41.488 Hiin[3742:70b] [CDVTimer][keyboard] 0.089049ms
+2014-06-29 22:31:41.488 Hiin[3742:70b] [CDVTimer][TotalPluginStartup] 59.666038ms
+2014-06-29 22:31:41.674 Hiin[3742:70b] Resetting plugins due to page load.
+2014-06-29 22:31:42.343 Hiin[3742:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/F5031A11-A629-4895-A6EA-4085591002B8/Hiin.app/www/index.html#/
+2014-06-29 22:34:08.190 Hiin[3742:70b] CDVPlugin class FacebookConnectPlugin (pluginName: FacebookConnectPlugin) does not exist.
+2014-06-29 22:34:08.191 Hiin[3742:70b] ERROR: Plugin 'FacebookConnectPlugin' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-06-29 22:34:08.191 Hiin[3742:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "FacebookConnectPlugin177105836",
+  "FacebookConnectPlugin",
+  "login",
+  [
+    "email"
+  ]
+]
+2014-06-29 22:34:09.607 Hiin[3742:70b] CDVPlugin class FacebookConnectPlugin (pluginName: FacebookConnectPlugin) does not exist.
+2014-06-29 22:34:09.607 Hiin[3742:70b] ERROR: Plugin 'FacebookConnectPlugin' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-06-29 22:34:09.607 Hiin[3742:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "FacebookConnectPlugin177105837",
+  "FacebookConnectPlugin",
+  "login",
+  [
+    "email"
+  ]
+]
+2014-06-29 22:34:10.079 Hiin[3742:70b] CDVPlugin class FacebookConnectPlugin (pluginName: FacebookConnectPlugin) does not exist.
+2014-06-29 22:34:10.079 Hiin[3742:70b] ERROR: Plugin 'FacebookConnectPlugin' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-06-29 22:34:10.080 Hiin[3742:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "FacebookConnectPlugin177105838",
+  "FacebookConnectPlugin",
+  "login",
+  [
+    "email"
+  ]
+]
+2014-06-29 22:48:12.765 Hiin[12095:70b] Multi-tasking -> Device: YES, App: YES
+2014-06-29 22:48:12.776 Hiin[12095:70b] Unlimited access to network resources
+2014-06-29 22:48:12.806 Hiin[12095:70b] [CDVTimer][statusbar] 9.082973ms
+2014-06-29 22:48:12.807 Hiin[12095:70b] [CDVTimer][keyboard] 0.101984ms
+2014-06-29 22:48:12.807 Hiin[12095:70b] [CDVTimer][TotalPluginStartup] 10.704994ms
+2014-06-29 22:48:12.976 Hiin[12095:70b] Resetting plugins due to page load.
+2014-06-29 22:48:13.632 Hiin[12095:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/F5031A11-A629-4895-A6EA-4085591002B8/Hiin.app/www/index.html#/
+2014-06-29 22:48:18.408 Hiin[12095:70b] localstorage host = null

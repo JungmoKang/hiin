@@ -68,6 +68,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
       console.log 'tmper len:'+tempor.length
       $scope.messages = tempor
       $scope.$broadcast('scroll.refreshComplete')
+    $scope.$apply()
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
   #상대방의 정보 습득
   socket.emit "getUserInfo",{
