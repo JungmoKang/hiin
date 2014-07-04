@@ -8,6 +8,16 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   socket.emit "currentEvent"
   socket.emit "myInfo"
   $scope.users = []
+  
+  #test
+  onResume = ->
+    console.log "On Resume"
+    return
+  onPause = ->
+    console.log "On Pause"
+    return
+  document.addEventListener "resume", onResume, false
+  document.addEventListener "pause", onPause, false
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()

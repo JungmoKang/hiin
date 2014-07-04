@@ -650,3 +650,55 @@ Jun 21 22:20:54 KangJungmo-no-MacBook-Pro.local Hiin[896] <Error>: CGContextRest
 2014-07-01 17:34:46.633 Hiin[44053:70b] Resetting plugins due to page load.
 2014-07-01 17:34:46.909 Hiin[44053:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/F5031A11-A629-4895-A6EA-4085591002B8/Hiin.app/www/index.html#/
 2014-07-01 17:34:50.264 Hiin[44053:2d07] FBSDKLog: System authorization failed:'The Facebook server could not fulfill this access request: remote_app_id does not match stored id '. This may be caused by a mismatch between the bundle identifier and your app configuration on the server at developers.facebook.com/apps.
+2014-07-04 14:25:46.884 Hiin[67940:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-04 14:25:46.926 Hiin[67940:70b] Unlimited access to network resources
+2014-07-04 14:25:47.299 Hiin[67940:70b] [CDVTimer][statusbar] 46.357036ms
+2014-07-04 14:25:47.300 Hiin[67940:70b] [CDVTimer][keyboard] 0.088036ms
+2014-07-04 14:25:47.301 Hiin[67940:70b] Init FacebookConnect Session
+2014-07-04 14:25:47.302 Hiin[67940:70b] [CDVTimer][facebookconnectplugin] 0.940979ms
+2014-07-04 14:25:47.303 Hiin[67940:70b] [CDVTimer][TotalPluginStartup] 49.576998ms
+2014-07-04 14:25:47.456 Hiin[67940:70b] Resetting plugins due to page load.
+2014-07-04 14:25:48.203 Hiin[67940:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/AB06C895-39DF-49DD-86CC-27DE9F1964B1/Hiin.app/www/index.html#/
+2014-07-04 14:25:48.293 Hiin[67940:70b] transaction function finished
+2014-07-04 14:34:07.664 Hiin[70073:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-04 14:34:07.671 Hiin[70073:70b] Unlimited access to network resources
+2014-07-04 14:34:07.692 Hiin[70073:70b] [CDVTimer][statusbar] 6.106973ms
+2014-07-04 14:34:07.692 Hiin[70073:70b] [CDVTimer][keyboard] 0.076950ms
+2014-07-04 14:34:07.693 Hiin[70073:70b] Init FacebookConnect Session
+2014-07-04 14:34:07.693 Hiin[70073:70b] [CDVTimer][facebookconnectplugin] 0.591993ms
+2014-07-04 14:34:07.694 Hiin[70073:70b] [CDVTimer][TotalPluginStartup] 7.932007ms
+2014-07-04 14:34:07.724 Hiin[70073:70b] Resetting plugins due to page load.
+2014-07-04 14:34:08.234 Hiin[70073:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/AB06C895-39DF-49DD-86CC-27DE9F1964B1/Hiin.app/www/index.html#/
+2014-07-04 14:34:24.225 Hiin[70073:70b] pause
+2014-07-04 14:34:27.329 Hiin[70073:70b] pause
+2014-07-04 14:37:03.253 Hiin[74034:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-04 14:37:03.266 Hiin[74034:70b] Unlimited access to network resources
+2014-07-04 14:37:03.298 Hiin[74034:70b] [CDVTimer][statusbar] 7.939994ms
+2014-07-04 14:37:03.299 Hiin[74034:70b] [CDVTimer][keyboard] 0.101984ms
+2014-07-04 14:37:03.299 Hiin[74034:70b] Init FacebookConnect Session
+2014-07-04 14:37:03.300 Hiin[74034:70b] [CDVTimer][facebookconnectplugin] 0.763059ms
+2014-07-04 14:37:03.300 Hiin[74034:70b] [CDVTimer][TotalPluginStartup] 10.129988ms
+2014-07-04 14:37:03.973 Hiin[74034:70b] Resetting plugins due to page load.
+2014-07-04 14:37:04.360 Hiin[74034:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/AB06C895-39DF-49DD-86CC-27DE9F1964B1/Hiin.app/www/index.html#/
+2014-07-04 14:37:04.571 Hiin[74034:70b] ready
+2014-07-04 17:09:46.214 Hiin[92104:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-04 17:09:46.221 Hiin[92104:70b] Unlimited access to network resources
+2014-07-04 17:09:46.245 Hiin[92104:70b] [CDVTimer][statusbar] 8.901000ms
+2014-07-04 17:09:46.246 Hiin[92104:70b] [CDVTimer][keyboard] 0.096977ms
+2014-07-04 17:09:46.246 Hiin[92104:70b] Init FacebookConnect Session
+2014-07-04 17:09:46.247 Hiin[92104:70b] [CDVTimer][facebookconnectplugin] 0.672996ms
+2014-07-04 17:09:46.247 Hiin[92104:70b] [CDVTimer][TotalPluginStartup] 11.035025ms
+2014-07-04 17:09:46.320 Hiin[92104:70b] Resetting plugins due to page load.
+2014-07-04 17:09:46.909 Hiin[92104:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/AB06C895-39DF-49DD-86CC-27DE9F1964B1/Hiin.app/www/index.html#/
+2014-07-04 17:09:46.973 Hiin[92104:70b] transaction function finished
+2014-07-04 17:09:46.973 Hiin[92104:70b] ready
+2014-07-04 17:09:50.818 Hiin[92104:70b] pause
+2014-07-04 17:11:44.373 Hiin[96086:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-04 17:11:44.385 Hiin[96086:70b] Unlimited access to network resources
+2014-07-04 17:11:44.418 Hiin[96086:70b] [CDVTimer][statusbar] 7.798016ms
+2014-07-04 17:11:44.418 Hiin[96086:70b] [CDVTimer][keyboard] 0.102043ms
+2014-07-04 17:11:44.419 Hiin[96086:70b] Init FacebookConnect Session
+2014-07-04 17:11:44.420 Hiin[96086:70b] [CDVTimer][facebookconnectplugin] 1.061976ms
+2014-07-04 17:11:44.420 Hiin[96086:70b] [CDVTimer][TotalPluginStartup] 10.757983ms
+2014-07-04 17:11:45.110 Hiin[96086:70b] Resetting plugins due to page load.
+2014-07-04 17:11:45.429 Hiin[96086:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/AB06C895-39DF-49DD-86CC-27DE9F1964B1/Hiin.app/www/index.html#/
