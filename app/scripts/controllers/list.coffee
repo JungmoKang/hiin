@@ -12,9 +12,11 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   #test
   onResume = ->
     console.log "On Resume"
+    socket.reconnect()
     return
   onPause = ->
     console.log "On Pause"
+    socket.disconnect()
     return
   document.addEventListener "resume", onResume, false
   document.addEventListener "pause", onPause, false

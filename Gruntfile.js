@@ -277,7 +277,13 @@ module.exports = function (grunt) {
       // Copies remaining files to places other tasks can use
       copy: {
           dist: {
-              files: [{
+              files: [
+              {
+                  expand: true,
+                  cwd: "<%= yeoman.app %>/",
+                  src: "scripts/services/facebookConnectPlugin.js",
+                  dest: ".tmp"
+              }, {
                   expand: true,
                   cwd: '.tmp',
                   src: '**',
@@ -435,6 +441,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'concat',
       'autoprefixer',
+      'copy:dist',
       'connect:livereload',
       'watch'
     ]);

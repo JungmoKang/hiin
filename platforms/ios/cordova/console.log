@@ -702,3 +702,13 @@ Jun 21 22:20:54 KangJungmo-no-MacBook-Pro.local Hiin[896] <Error>: CGContextRest
 2014-07-04 17:11:44.420 Hiin[96086:70b] [CDVTimer][TotalPluginStartup] 10.757983ms
 2014-07-04 17:11:45.110 Hiin[96086:70b] Resetting plugins due to page load.
 2014-07-04 17:11:45.429 Hiin[96086:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/AB06C895-39DF-49DD-86CC-27DE9F1964B1/Hiin.app/www/index.html#/
+2014-07-04 17:47:32.933 Hiin[2507:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-04 17:47:32.946 Hiin[2507:70b] Unlimited access to network resources
+2014-07-04 17:47:32.985 Hiin[2507:70b] [CDVTimer][statusbar] 11.744022ms
+2014-07-04 17:47:32.986 Hiin[2507:70b] [CDVTimer][keyboard] 0.099003ms
+2014-07-04 17:47:32.986 Hiin[2507:70b] Init FacebookConnect Session
+2014-07-04 17:47:32.987 Hiin[2507:70b] [CDVTimer][facebookconnectplugin] 0.692010ms
+2014-07-04 17:47:32.988 Hiin[2507:70b] [CDVTimer][TotalPluginStartup] 14.095008ms
+2014-07-04 17:47:33.866 Hiin[2507:70b] Resetting plugins due to page load.
+2014-07-04 17:47:34.279 Hiin[2507:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/AB06C895-39DF-49DD-86CC-27DE9F1964B1/Hiin.app/www/index.html#/
+2014-07-04 17:47:34.402 Hiin[2507:70b] transaction function finished
