@@ -129,7 +129,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
       $ionicScrollDelegate.scrollBottom true
       return
     ), 300
-    return
+    returr
   $scope.inputDown = ->
     console.log 'inputDown'
     $scope.data.keyboardHeight = 0  if isIOS

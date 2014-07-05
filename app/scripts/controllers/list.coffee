@@ -5,8 +5,33 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   $rootScope.selectedItem = 2
   ionic.DomUtil.ready ->
     $ionicNavBarDelegate.showBackButton(false)
+  if $window.localStorage?
+    thisEvent = $window.localStorage.getItem "thisEvent"
+    $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
+    console.log $scope.myInfo
+  messageKey = thisEvent + '_groupMessage'
+  if $window.localStorage.getItem messageKey
+    $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
+  else
+    $scope.messages = []
+  if $scope.messages.length > 0
+    console.log '----unread----'
+    console.log 'len:'+$scope.messages.length
+    socket.emit 'unReadCountGroup', {
+                              code: thisEvent
+                              type: "group"
+                              range: "unread"
+                              lastMsgTime: $scope.messages[$scope.messages.length-1].created_at
+    }
+  else
+    socket.emit 'unReadCountGroup', {
+                              code: thisEvent
+                              type: "group"
+                              range: "all"
+    } 
   socket.emit "currentEvent"
   socket.emit "myInfo"
+  socket.emit "unReadCount"
   $scope.users = []
   
   #test
@@ -47,6 +72,16 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     $window.localStorage.setItem 'myInfo', JSON.stringify(data)
     #임시 방편.
     $ionicNavBarDelegate.showBackButton(false)
+    return
+  socket.on "unReadCount", (data) ->
+    console.log '--unread count---'
+    console.log data
+    $scope.unreadActivity = data.count
+    return
+  socket.on "unReadCountGroup", (data) ->
+    console.log '--unread count---'
+    console.log data
+    $scope.unreadGroup = data.count
     return
   socket.on "currentEventUserList", (data) ->
     console.log "list currentEventUserList"
