@@ -106,6 +106,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
         }, 100000
       return
   socket.on "hi", (data) ->
+    console.log 'on hi'
     $scope.sendHi = data.fromName
     modalInstance = $modal.open(
       templateUrl: "views/list/hi_modal.html"
@@ -117,9 +118,12 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       $scope.modalInstance = null
       return
     $scope.modalInstance = modalInstance
+    socket.emit "currentEventUserList"
   socket.on "hiMe", (data) ->
-      socket.emit "currentEventUserList"
+    console.log 'on hiMe'
+    socket.emit "currentEventUserList"
   socket.on "pendingHi", (data) ->
+    console.log 'on pendinghi'
     console.log "list pedinghi"
     if data.status isnt "0"
       console.log('error':data.status)
@@ -174,10 +178,7 @@ angular.module("hiin").directive "ngHiBtn", ($window)->
     if attrs.histatus is '0'
       console.log('btn status = hi')
       element.addClass 'btn-front'
-    else if attrs.histatus is '2'
-      element.addClass 'btn-Hi'
-      element.addClass 'btn-front'
-    else
+    else if attrs.histatus is '1'
       console.log ('btn Status = in')
       element.addClass 'btn-back'
       console.log element 

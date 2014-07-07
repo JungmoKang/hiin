@@ -133,28 +133,28 @@
   width: 40px;
   height: 40px;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 20px;
-  z-index:20
+  z-index:20;
+  -webkit-backface-visibility : hidden;
+  color: white;
 }
 .btn-Hi {
   .btn-circle;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #3D65E6;
-  border: 1px solid;
-  border-color: #FFBC00;
-  color: white;
-  -webkit-backface-visibility : hidden;
+  background-color: @color_1;
+  border: 0px solid;
+}
+.btn-Hied {
+  .btn-Hi;
+  border: 2px solid;
+  border-color: @color_2;
 }
 .btn-In {
   .btn-circle;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #FFBC00;
-  border: 1px solid;
-  border-color: #FFBC00;
-  color: white;
-  -webkit-backface-visibility : hidden;
+  background-color: @color_2;
+  border: 0px solid;
 }
 
 .btn-back{
