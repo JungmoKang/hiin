@@ -47,6 +47,8 @@
 		D09AEE5E5298457599E839F1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9F27CA42F34C34BFCE569E /* FacebookSDK.framework */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		E779AE7E4E1E4293A442EA7F /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD04F4660BA44F909FB11CB0 /* CDVDevice.m */; };
+		2E9F006EDD8E4A81985521D8 /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F313649C194527A1643773 /* AppDelegate+notification.m */; };
+		0352F7350572434E92571647 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8945A4886643D7ABA4C0EF /* PushPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +134,10 @@
 		FBB32ECAFC704C699168BD9E /* CDVStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = org.apache.cordova.statusbar/CDVStatusBar.m; sourceTree = "<group>"; };
 		FD04F4660BA44F909FB11CB0 /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
 		FF170BD301004A4E8C6E8375 /* IonicKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IonicKeyboard.m; path = com.ionic.keyboard/IonicKeyboard.m; sourceTree = "<group>"; };
+		B5F313649C194527A1643773 /* AppDelegate+notification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		FD8945A4886643D7ABA4C0EF /* PushPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PushPlugin.m"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		D506FE3073894611B0742E3B /* AppDelegate+notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+notification.h"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		0E0E2DB77DAC44A28DD1B917 /* PushPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PushPlugin.h"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +280,10 @@
 				0B5BA7BD0282470EA24D56F3 /* DatePicker.h */,
 				EAFCE71D106E467D848253DE /* FacebookConnectPlugin.m */,
 				17340B27F2134AAD847D03E7 /* FacebookConnectPlugin.h */,
+				B5F313649C194527A1643773 /* AppDelegate+notification.m */,
+				FD8945A4886643D7ABA4C0EF /* PushPlugin.m */,
+				D506FE3073894611B0742E3B /* AppDelegate+notification.h */,
+				0E0E2DB77DAC44A28DD1B917 /* PushPlugin.h */,
 			);
 			name = Plugins;
 			path = Hiin/Plugins;
@@ -481,6 +491,8 @@
 				A11BA7BF52FB487EA4465401 /* CDVStatusBar.m in Sources */,
 				ACF9B6464A404F13BAF7CFAA /* DatePicker.m in Sources */,
 				AA6E363A11BF4D009063BC63 /* FacebookConnectPlugin.m in Sources */,
+				2E9F006EDD8E4A81985521D8 /* AppDelegate+notification.m in Sources */,
+				0352F7350572434E92571647 /* PushPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

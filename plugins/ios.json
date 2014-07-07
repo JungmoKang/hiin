@@ -67,6 +67,10 @@
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PushPlugin\"><param name=\"ios-package\" value=\"PushPlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -148,6 +152,9 @@
         "com.phonegap.plugins.facebookconnect": {
             "APP_ID": "684817121572800",
             "APP_NAME": "Hiin",
+            "PACKAGE_NAME": "com.hiin.app"
+        },
+        "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "com.hiin.app"
         }
     },
