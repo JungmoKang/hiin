@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('services').factory 'Util', ($q, $http, $window,$location,$document, Host, Token,$ionicModal,$timeout) ->
+angular.module('services').factory 'Util', ($q, $http, $window,$location,$document, Host, Token,$ionicModal,$timeout,$state) ->
   serverUrl: ->
     "#{Host.getAPIHost()}:#{Host.getAPIPort()}"
   # 공통적으로 쓰이는 http request 만들어주는 함수
@@ -82,6 +82,9 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
     ),
       scope: scope
       animation: "slide-in-up"
+  ClearLocalStorage : () ->
+    if $window.localStorage?
+      $window.localStorage.clear()
   #'options' setting 객체를 만들어서 전달
   #loadingStart, loadingStop은 없으면 그냥 넘어감
   #duration은 ms단위임. 

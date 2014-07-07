@@ -44,6 +44,7 @@ angular.module('hiin')
         $scope.makeId($scope.userInfo)
           .then (data) ->
             console.log '---return make Id---'
+            Util.ClearLocalStorage()
             $window.localStorage.setItem "auth_token", data.Token
             $scope.signIn()
           ,(status) ->

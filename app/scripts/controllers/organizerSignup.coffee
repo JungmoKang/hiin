@@ -33,6 +33,5 @@ angular.module('hiin')
           $state.go('list.createEvent')
         ,(status) ->
           alert 'err'
-      #signup and sign in
     return
   return
