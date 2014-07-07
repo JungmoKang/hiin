@@ -29,6 +29,7 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
           console.log 'logout'
           if $window.localStorage?
             $window.localStorage.clear()
+          socket.disconnect()
           $state.go('/')
       .error (error, status) ->
         console.log "error"
