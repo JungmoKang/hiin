@@ -43,6 +43,7 @@ angular.module('hiin').controller 'LoginCtrl', ($scope,$window,$state,Util,$q,$t
 				.then (response) ->
 					$state.go('list.events')
 				,(response) ->
+					Util.ClearLocalStorage()
 					alert 'error'
 	FacebookLogin = ->
 		deferred = $q.defer()

@@ -8,7 +8,18 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   #오너인지도 확인해야함..
   if window.localStorage['thisEvent']?
     $scope.enteredEventsOrOwner = true
+  else
+    Util.checkOrganizer()
+      .then (data) ->
+        console.log '---organizer state----'
+        if data.status == "0"
+          $scope.enteredEventsOrOwner = true
+      , (status) ->
+        console.log '-----user or error-----'
+        console.log status
+        alert "error"    
   socket.emit "enteredEventList"
+  socket.emit "myInfo"
   socket.on "enteredEventList", (data) ->
     ###
     리스트 작성
@@ -19,9 +30,14 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     ###
     $scope.thisEvent = new Array()
     $scope.thisEvent.code = $window.localStorage.getItem 'thisEvent'
+    $scope.events = data
+  socket.on "myInfo", (data) ->
+    console.log "list myInfo"
+    console.log data
+    $window.localStorage.setItem 'myInfo', JSON.stringify(data)
     $scope.myId = new Array()
     $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
-    $scope.events = data
+    return
   #↑init
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
@@ -51,6 +67,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
         console.log '---organizer state----'
         if data.status == "0"
           # 오거나이저
+          $window.localStorage.setItem 'flg_show_privacy_dialog', true
           $state.go('list.createEvent')
         else if data.status == "1"
           # 가입시켜야함

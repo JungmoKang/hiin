@@ -712,3 +712,347 @@ Jun 21 22:20:54 KangJungmo-no-MacBook-Pro.local Hiin[896] <Error>: CGContextRest
 2014-07-04 17:47:33.866 Hiin[2507:70b] Resetting plugins due to page load.
 2014-07-04 17:47:34.279 Hiin[2507:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/AB06C895-39DF-49DD-86CC-27DE9F1964B1/Hiin.app/www/index.html#/
 2014-07-04 17:47:34.402 Hiin[2507:70b] transaction function finished
+2014-07-08 10:02:38.198 Hiin[19270:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 10:02:38.249 Hiin[19270:70b] Unlimited access to network resources
+2014-07-08 10:02:38.545 Hiin[19270:70b] [CDVTimer][statusbar] 60.697019ms
+2014-07-08 10:02:38.546 Hiin[19270:70b] [CDVTimer][keyboard] 0.120997ms
+2014-07-08 10:02:38.546 Hiin[19270:70b] Init FacebookConnect Session
+2014-07-08 10:02:38.547 Hiin[19270:70b] [CDVTimer][facebookconnectplugin] 0.869989ms
+2014-07-08 10:02:38.548 Hiin[19270:70b] [CDVTimer][TotalPluginStartup] 63.186049ms
+2014-07-08 10:02:38.561 Hiin[19270:70b] active
+2014-07-08 10:02:38.637 Hiin[19270:70b] Resetting plugins due to page load.
+2014-07-08 10:02:39.365 Hiin[19270:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/AB06C895-39DF-49DD-86CC-27DE9F1964B1/Hiin.app/www/index.html#/
+2014-07-08 10:21:55.511 Hiin[24461:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 10:21:55.530 Hiin[24461:70b] Unlimited access to network resources
+2014-07-08 10:21:55.558 Hiin[24461:70b] [CDVTimer][statusbar] 6.814003ms
+2014-07-08 10:21:55.559 Hiin[24461:70b] [CDVTimer][keyboard] 0.091016ms
+2014-07-08 10:21:55.560 Hiin[24461:70b] Init FacebookConnect Session
+2014-07-08 10:21:55.561 Hiin[24461:70b] [CDVTimer][facebookconnectplugin] 0.971019ms
+2014-07-08 10:21:55.562 Hiin[24461:70b] [CDVTimer][TotalPluginStartup] 10.092974ms
+2014-07-08 10:21:55.566 Hiin[24461:70b] active
+2014-07-08 10:21:56.085 Hiin[24461:70b] Resetting plugins due to page load.
+2014-07-08 10:21:56.383 Hiin[24461:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/AB06C895-39DF-49DD-86CC-27DE9F1964B1/Hiin.app/www/index.html#/
+2014-07-08 10:22:05.770 Hiin[24461:70b] http://ec2-54-86-232-223.compute-1.amazonaws.com:3000/login
+2014-07-08 10:22:08.549 Hiin[24461:70b] -suc-check organizer
+2014-07-08 10:22:08.549 Hiin[24461:70b] {"status":"0","organizer":"organizer"}
+2014-07-08 10:22:08.549 Hiin[24461:70b] ---organizer state----
+2014-07-08 10:22:11.024 Hiin[24461:70b] input start date
+Jul  8 10:22:11 JungmoKang-no-MacBook-Pro.local Hiin[24461] <Error>: CGContextSetFillColorWithColor: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul  8 10:22:11 JungmoKang-no-MacBook-Pro.local Hiin[24461] <Error>: CGContextSetStrokeColorWithColor: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul  8 10:22:11 JungmoKang-no-MacBook-Pro.local Hiin[24461] <Error>: CGContextSaveGState: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul  8 10:22:11 JungmoKang-no-MacBook-Pro.local Hiin[24461] <Error>: CGContextSetFlatness: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul  8 10:22:11 JungmoKang-no-MacBook-Pro.local Hiin[24461] <Error>: CGContextAddPath: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul  8 10:22:11 JungmoKang-no-MacBook-Pro.local Hiin[24461] <Error>: CGContextDrawPath: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul  8 10:22:11 JungmoKang-no-MacBook-Pro.local Hiin[24461] <Error>: CGContextRestoreGState: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+2014-07-08 10:22:11.061 Hiin[24461:70b] THREAD WARNING: ['DatePicker'] took '36.137695' ms. Plugin should use a background thread.
+2014-07-08 10:22:16.356 Hiin[24461:70b] show modal
+2014-07-08 10:22:16.545 Hiin[24461:70b] $http.success
+2014-07-08 10:22:17.354 Hiin[24461:70b] {"status":"0","eventCode":"6384"}
+2014-07-08 10:22:18.460 Hiin[24461:70b] null
+2014-07-08 10:22:18.644 Hiin[24461:70b] list myInfo
+2014-07-08 10:22:18.644 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:22:18.645 Hiin[24461:70b] list currentEvent
+2014-07-08 10:22:18.645 Hiin[24461:70b] socket emit current event user list
+2014-07-08 10:22:18.649 Hiin[24461:70b] --unread count---
+2014-07-08 10:22:18.650 Hiin[24461:70b] {"count":0}
+2014-07-08 10:22:18.650 Hiin[24461:70b] --unread count---
+2014-07-08 10:22:18.650 Hiin[24461:70b] {"count":0}
+2014-07-08 10:22:18.828 Hiin[24461:70b] list currentEventUserList
+2014-07-08 10:22:18.828 Hiin[24461:70b] []
+2014-07-08 10:22:21.333 Hiin[24461:70b] grpChat
+2014-07-08 10:22:21.333 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:22:21.334 Hiin[24461:70b] ---first entered---
+2014-07-08 10:22:21.355 Hiin[24461:70b] ready
+2014-07-08 10:22:21.658 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:22:21.660 Hiin[24461:70b] Keyboard close
+2014-07-08 10:22:22.787 Hiin[24461:70b] focusss
+2014-07-08 10:22:22.788 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:22:22.989 Hiin[24461:70b] inputUp
+2014-07-08 10:22:23.774 Hiin[24461:70b] Keyboard close
+2014-07-08 10:22:23.821 Hiin[24461:70b] inputDown
+2014-07-08 10:22:24.787 Hiin[24461:70b] focusss
+2014-07-08 10:22:24.787 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:22:24.991 Hiin[24461:70b] inputUp
+2014-07-08 10:22:25.550 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:25.647 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:26.092 Hiin[24461:70b] Keyboard close
+2014-07-08 10:22:26.125 Hiin[24461:70b] inputDown
+2014-07-08 10:22:26.313 Hiin[24461:70b] grp chat,groupMessage
+2014-07-08 10:22:27.424 Hiin[24461:70b] focusss
+2014-07-08 10:22:27.425 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:22:27.654 Hiin[24461:70b] inputUp
+2014-07-08 10:22:28.115 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:28.204 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:28.211 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:28.331 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:28.419 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:28.427 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:28.442 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:28.721 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:28.722 Hiin[24461:70b] entered
+2014-07-08 10:22:28.915 Hiin[24461:70b] grp chat,groupMessage
+2014-07-08 10:22:29.538 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:29.580 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:29.642 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:29.739 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:29.762 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:29.875 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:30.115 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:22:30.115 Hiin[24461:70b] entered
+2014-07-08 10:22:30.309 Hiin[24461:70b] grp chat,groupMessage
+2014-07-08 10:22:31.247 Hiin[24461:70b] mlen:3
+2014-07-08 10:22:31.248 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:22:31.248 Hiin[24461:70b] ----unread----
+2014-07-08 10:22:31.248 Hiin[24461:70b] len:3
+2014-07-08 10:22:31.249 Hiin[24461:70b] Keyboard close
+2014-07-08 10:22:31.274 Hiin[24461:70b] inputDown
+2014-07-08 10:22:31.547 Hiin[24461:70b] list myInfo
+2014-07-08 10:22:31.547 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:22:31.547 Hiin[24461:70b] list currentEvent
+2014-07-08 10:22:31.548 Hiin[24461:70b] socket emit current event user list
+2014-07-08 10:22:31.548 Hiin[24461:70b] --unread count---
+2014-07-08 10:22:31.548 Hiin[24461:70b] {"count":0}
+2014-07-08 10:22:31.548 Hiin[24461:70b] --unread count---
+2014-07-08 10:22:31.549 Hiin[24461:70b] {"count":0}
+2014-07-08 10:22:31.799 Hiin[24461:70b] list currentEventUserList
+2014-07-08 10:22:31.799 Hiin[24461:70b] []
+2014-07-08 10:22:35.823 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:22:35.823 Hiin[24461:70b] ----unread----
+2014-07-08 10:22:35.824 Hiin[24461:70b] len:3
+2014-07-08 10:22:36.007 Hiin[24461:70b] list myInfo
+2014-07-08 10:22:36.007 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:22:36.007 Hiin[24461:70b] --unread count---
+2014-07-08 10:22:36.007 Hiin[24461:70b] {"count":0}
+2014-07-08 10:22:36.009 Hiin[24461:70b] list currentEvent
+2014-07-08 10:22:36.009 Hiin[24461:70b] socket emit current event user list
+2014-07-08 10:22:36.010 Hiin[24461:70b] --unread count---
+2014-07-08 10:22:36.010 Hiin[24461:70b] {"count":0}
+2014-07-08 10:22:36.193 Hiin[24461:70b] list currentEventUserList
+2014-07-08 10:22:36.194 Hiin[24461:70b] []
+2014-07-08 10:22:38.347 Hiin[24461:70b] On Pause
+2014-07-08 10:22:38.347 Hiin[24461:70b] On Pause
+2014-07-08 10:22:38.348 Hiin[24461:70b] On Pause
+2014-07-08 10:25:36.855 Hiin[24461:70b] active
+2014-07-08 10:25:36.889 Hiin[24461:70b] On Resume
+2014-07-08 10:25:38.371 Hiin[24461:70b] grpChat
+2014-07-08 10:25:38.372 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:38.372 Hiin[24461:70b] ----unread----
+2014-07-08 10:25:38.372 Hiin[24461:70b] len:3
+2014-07-08 10:25:38.380 Hiin[24461:70b] ready
+2014-07-08 10:25:38.612 Hiin[24461:70b] ---unread----
+2014-07-08 10:25:38.612 Hiin[24461:70b] {"message":[],"type":"group","range":"unread"}
+2014-07-08 10:25:38.612 Hiin[24461:70b] [{"__v":0,"status":"0","sender":"53a6c30e65b82dfd67e2b44e","sender_name":"me","reciever":"group","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","content":"gf","type":"group","eventCode":"6384","created_at":"2014-07-08T01:21:50.354Z","read":false,"_id":"53bb47ae7b3a45117e9a74fb"},{"__v":0,"status":"0","sender":"53a6c30e65b82dfd67e2b44e","sender_name":"me","reciever":"group","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","content":"Gdfgsdf","type":"group","eventCode":"6384","created_at":"2014-07-08T01:21:52.960Z","read":false,"_id":"53bb47b07b3a45117e9a74fc"},{"__v":0,"status":"0","sender":"53a6c30e65b82dfd67e2b44e","sender_name":"me","reciever":"group","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","content":"Gsdfgs","type":"group","eventCode":"6384","created_at":"2014-07-08T01:21:54.354Z","read":false,"_id":"53bb47b27b3a45117e9a74fd"}]
+2014-07-08 10:25:38.613 Hiin[24461:70b] tmper len:3
+2014-07-08 10:25:38.681 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:25:38.681 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:25:38.684 Hiin[24461:70b] Keyboard close
+2014-07-08 10:25:38.684 Hiin[24461:70b] Keyboard close
+2014-07-08 10:25:39.910 Hiin[24461:70b] mlen:3
+2014-07-08 10:25:39.911 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:39.911 Hiin[24461:70b] ----unread----
+2014-07-08 10:25:39.911 Hiin[24461:70b] len:3
+2014-07-08 10:25:40.093 Hiin[24461:70b] --unread count---
+2014-07-08 10:25:40.094 Hiin[24461:70b] {"count":0}
+2014-07-08 10:25:40.098 Hiin[24461:70b] list myInfo
+2014-07-08 10:25:40.098 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:40.098 Hiin[24461:70b] list currentEvent
+2014-07-08 10:25:40.098 Hiin[24461:70b] socket emit current event user list
+2014-07-08 10:25:40.100 Hiin[24461:70b] --unread count---
+2014-07-08 10:25:40.101 Hiin[24461:70b] {"count":0}
+2014-07-08 10:25:40.279 Hiin[24461:70b] list currentEventUserList
+2014-07-08 10:25:40.279 Hiin[24461:70b] []
+2014-07-08 10:25:41.195 Hiin[24461:70b] grpChat
+2014-07-08 10:25:41.195 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:41.196 Hiin[24461:70b] ----unread----
+2014-07-08 10:25:41.196 Hiin[24461:70b] len:3
+2014-07-08 10:25:41.203 Hiin[24461:70b] ready
+2014-07-08 10:25:41.452 Hiin[24461:70b] ---unread----
+2014-07-08 10:25:41.452 Hiin[24461:70b] {"message":[],"type":"group","range":"unread"}
+2014-07-08 10:25:41.452 Hiin[24461:70b] [{"__v":0,"status":"0","sender":"53a6c30e65b82dfd67e2b44e","sender_name":"me","reciever":"group","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","content":"gf","type":"group","eventCode":"6384","created_at":"2014-07-08T01:21:50.354Z","read":false,"_id":"53bb47ae7b3a45117e9a74fb"},{"__v":0,"status":"0","sender":"53a6c30e65b82dfd67e2b44e","sender_name":"me","reciever":"group","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","content":"Gdfgsdf","type":"group","eventCode":"6384","created_at":"2014-07-08T01:21:52.960Z","read":false,"_id":"53bb47b07b3a45117e9a74fc"},{"__v":0,"status":"0","sender":"53a6c30e65b82dfd67e2b44e","sender_name":"me","reciever":"group","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","content":"Gsdfgs","type":"group","eventCode":"6384","created_at":"2014-07-08T01:21:54.354Z","read":false,"_id":"53bb47b27b3a45117e9a74fd"}]
+2014-07-08 10:25:41.452 Hiin[24461:70b] tmper len:3
+2014-07-08 10:25:41.514 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:25:41.514 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:25:41.515 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:25:41.517 Hiin[24461:70b] Keyboard close
+2014-07-08 10:25:41.518 Hiin[24461:70b] Keyboard close
+2014-07-08 10:25:41.518 Hiin[24461:70b] Keyboard close
+2014-07-08 10:25:42.271 Hiin[24461:70b] mlen:3
+2014-07-08 10:25:42.271 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:42.272 Hiin[24461:70b] ----unread----
+2014-07-08 10:25:42.272 Hiin[24461:70b] len:3
+2014-07-08 10:25:42.454 Hiin[24461:70b] list myInfo
+2014-07-08 10:25:42.454 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:42.458 Hiin[24461:70b] list currentEvent
+2014-07-08 10:25:42.459 Hiin[24461:70b] socket emit current event user list
+2014-07-08 10:25:42.459 Hiin[24461:70b] --unread count---
+2014-07-08 10:25:42.459 Hiin[24461:70b] {"count":0}
+2014-07-08 10:25:42.459 Hiin[24461:70b] --unread count---
+2014-07-08 10:25:42.460 Hiin[24461:70b] {"count":0}
+2014-07-08 10:25:42.639 Hiin[24461:70b] list currentEventUserList
+2014-07-08 10:25:42.640 Hiin[24461:70b] []
+2014-07-08 10:25:44.204 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:44.204 Hiin[24461:70b] ----unread----
+2014-07-08 10:25:44.205 Hiin[24461:70b] len:3
+2014-07-08 10:25:44.388 Hiin[24461:70b] list myInfo
+2014-07-08 10:25:44.388 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:44.391 Hiin[24461:70b] --unread count---
+2014-07-08 10:25:44.391 Hiin[24461:70b] {"count":0}
+2014-07-08 10:25:44.392 Hiin[24461:70b] list currentEvent
+2014-07-08 10:25:44.392 Hiin[24461:70b] socket emit current event user list
+2014-07-08 10:25:44.392 Hiin[24461:70b] --unread count---
+2014-07-08 10:25:44.392 Hiin[24461:70b] {"count":0}
+2014-07-08 10:25:44.573 Hiin[24461:70b] list currentEventUserList
+2014-07-08 10:25:44.574 Hiin[24461:70b] []
+2014-07-08 10:25:45.218 Hiin[24461:70b] grpChat
+2014-07-08 10:25:45.219 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:45.219 Hiin[24461:70b] ----unread----
+2014-07-08 10:25:45.219 Hiin[24461:70b] len:3
+2014-07-08 10:25:45.226 Hiin[24461:70b] ready
+2014-07-08 10:25:45.402 Hiin[24461:70b] ---unread----
+2014-07-08 10:25:45.402 Hiin[24461:70b] {"message":[],"type":"group","range":"unread"}
+2014-07-08 10:25:45.402 Hiin[24461:70b] [{"__v":0,"status":"0","sender":"53a6c30e65b82dfd67e2b44e","sender_name":"me","reciever":"group","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","content":"gf","type":"group","eventCode":"6384","created_at":"2014-07-08T01:21:50.354Z","read":false,"_id":"53bb47ae7b3a45117e9a74fb"},{"__v":0,"status":"0","sender":"53a6c30e65b82dfd67e2b44e","sender_name":"me","reciever":"group","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","content":"Gdfgsdf","type":"group","eventCode":"6384","created_at":"2014-07-08T01:21:52.960Z","read":false,"_id":"53bb47b07b3a45117e9a74fc"},{"__v":0,"status":"0","sender":"53a6c30e65b82dfd67e2b44e","sender_name":"me","reciever":"group","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","content":"Gsdfgs","type":"group","eventCode":"6384","created_at":"2014-07-08T01:21:54.354Z","read":false,"_id":"53bb47b27b3a45117e9a74fd"}]
+2014-07-08 10:25:45.403 Hiin[24461:70b] tmper len:3
+2014-07-08 10:25:45.541 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:25:45.541 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:25:45.542 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:25:45.542 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:25:45.544 Hiin[24461:70b] Keyboard close
+2014-07-08 10:25:45.544 Hiin[24461:70b] Keyboard close
+2014-07-08 10:25:45.544 Hiin[24461:70b] Keyboard close
+2014-07-08 10:25:45.544 Hiin[24461:70b] Keyboard close
+2014-07-08 10:25:46.375 Hiin[24461:70b] mlen:3
+2014-07-08 10:25:46.376 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:46.376 Hiin[24461:70b] ----unread----
+2014-07-08 10:25:46.376 Hiin[24461:70b] len:3
+2014-07-08 10:25:46.558 Hiin[24461:70b] --unread count---
+2014-07-08 10:25:46.558 Hiin[24461:70b] {"count":0}
+2014-07-08 10:25:46.560 Hiin[24461:70b] list myInfo
+2014-07-08 10:25:46.560 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:46.560 Hiin[24461:70b] list currentEvent
+2014-07-08 10:25:46.561 Hiin[24461:70b] socket emit current event user list
+2014-07-08 10:25:46.561 Hiin[24461:70b] --unread count---
+2014-07-08 10:25:46.561 Hiin[24461:70b] {"count":0}
+2014-07-08 10:25:46.741 Hiin[24461:70b] list currentEventUserList
+2014-07-08 10:25:46.741 Hiin[24461:70b] []
+2014-07-08 10:25:50.260 Hiin[24461:70b] On Pause
+2014-07-08 10:25:50.261 Hiin[24461:70b] On Pause
+2014-07-08 10:25:50.261 Hiin[24461:70b] On Pause
+2014-07-08 10:25:50.262 Hiin[24461:70b] On Pause
+2014-07-08 10:25:50.262 Hiin[24461:70b] On Pause
+2014-07-08 10:25:50.262 Hiin[24461:70b] On Pause
+2014-07-08 10:25:50.263 Hiin[24461:70b] On Pause
+2014-07-08 10:25:55.909 Hiin[24461:70b] active
+2014-07-08 10:25:55.956 Hiin[24461:70b] On Resume
+2014-07-08 10:25:57.055 Hiin[24461:70b] grpChat
+2014-07-08 10:25:57.056 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:57.056 Hiin[24461:70b] ----unread----
+2014-07-08 10:25:57.056 Hiin[24461:70b] len:3
+2014-07-08 10:25:57.068 Hiin[24461:70b] ready
+2014-07-08 10:25:58.108 Hiin[24461:70b] mlen:3
+2014-07-08 10:25:58.109 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:25:58.109 Hiin[24461:70b] ----unread----
+2014-07-08 10:25:58.109 Hiin[24461:70b] len:3
+2014-07-08 10:26:00.383 Hiin[24461:70b] grpChat
+2014-07-08 10:26:00.383 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:26:00.384 Hiin[24461:70b] ----unread----
+2014-07-08 10:26:00.384 Hiin[24461:70b] len:3
+2014-07-08 10:26:00.390 Hiin[24461:70b] ready
+2014-07-08 10:26:00.710 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:00.710 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:00.711 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:00.711 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:00.711 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:00.713 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:00.713 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:00.713 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:00.713 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:00.713 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:00.714 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:00.714 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:01.225 Hiin[24461:70b] mlen:3
+2014-07-08 10:26:01.226 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:26:01.226 Hiin[24461:70b] ----unread----
+2014-07-08 10:26:01.226 Hiin[24461:70b] len:3
+2014-07-08 10:26:03.800 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:26:03.800 Hiin[24461:70b] ----unread----
+2014-07-08 10:26:03.800 Hiin[24461:70b] len:3
+2014-07-08 10:26:22.468 Hiin[24461:70b] grpChat
+2014-07-08 10:26:22.470 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:26:22.470 Hiin[24461:70b] ----unread----
+2014-07-08 10:26:22.470 Hiin[24461:70b] len:3
+2014-07-08 10:26:22.497 Hiin[24461:70b] ready
+2014-07-08 10:26:30.737 Hiin[24461:70b] mlen:3
+2014-07-08 10:26:30.737 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:26:30.738 Hiin[24461:70b] ----unread----
+2014-07-08 10:26:30.738 Hiin[24461:70b] len:3
+2014-07-08 10:26:52.967 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:26:52.967 Hiin[24461:70b] ----unread----
+2014-07-08 10:26:52.967 Hiin[24461:70b] len:3
+2014-07-08 10:26:54.760 Hiin[24461:70b] grpChat
+2014-07-08 10:26:54.761 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:26:54.762 Hiin[24461:70b] ----unread----
+2014-07-08 10:26:54.762 Hiin[24461:70b] len:3
+2014-07-08 10:26:54.783 Hiin[24461:70b] ready
+2014-07-08 10:26:55.068 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:55.069 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:55.069 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:55.069 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:55.069 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:55.069 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:55.070 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:55.072 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:55.072 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:55.073 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:55.073 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:55.073 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:55.073 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:55.073 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:55.073 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:55.073 Hiin[24461:70b] Keyboard close
+2014-07-08 10:26:59.280 Hiin[24461:70b] focusss
+2014-07-08 10:26:59.280 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:59.281 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:59.281 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:59.281 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:59.281 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:59.282 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:59.282 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:59.282 Hiin[24461:70b] Keyboard height is: 216
+2014-07-08 10:26:59.479 Hiin[24461:70b] inputUp
+2014-07-08 10:27:00.124 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:27:00.159 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:27:00.214 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:27:00.302 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:27:00.312 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:27:00.359 Hiin[24461:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-08 10:27:01.949 Hiin[24461:70b] Keyboard close
+2014-07-08 10:27:01.949 Hiin[24461:70b] Keyboard close
+2014-07-08 10:27:01.949 Hiin[24461:70b] Keyboard close
+2014-07-08 10:27:01.949 Hiin[24461:70b] Keyboard close
+2014-07-08 10:27:01.949 Hiin[24461:70b] Keyboard close
+2014-07-08 10:27:01.949 Hiin[24461:70b] Keyboard close
+2014-07-08 10:27:01.950 Hiin[24461:70b] Keyboard close
+2014-07-08 10:27:01.950 Hiin[24461:70b] Keyboard close
+2014-07-08 10:27:02.002 Hiin[24461:70b] inputDown
+2014-07-08 10:27:04.833 Hiin[24461:70b] mlen:3
+2014-07-08 10:27:04.834 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:27:04.834 Hiin[24461:70b] ----unread----
+2014-07-08 10:27:04.834 Hiin[24461:70b] len:3
+2014-07-08 10:29:27.467 Hiin[24461:70b] grpChat
+2014-07-08 10:29:27.467 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:29:27.468 Hiin[24461:70b] ----unread----
+2014-07-08 10:29:27.468 Hiin[24461:70b] len:3
+2014-07-08 10:29:27.495 Hiin[24461:70b] ready
+2014-07-08 10:29:28.572 Hiin[24461:70b] mlen:3
+2014-07-08 10:29:28.573 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:29:28.575 Hiin[24461:70b] ----unread----
+2014-07-08 10:29:28.576 Hiin[24461:70b] len:3
+2014-07-08 10:29:29.850 Hiin[24461:70b] grpChat
+2014-07-08 10:29:29.850 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:29:29.850 Hiin[24461:70b] ----unread----
+2014-07-08 10:29:29.851 Hiin[24461:70b] len:3
+2014-07-08 10:29:29.873 Hiin[24461:70b] ready
+2014-07-08 10:29:30.905 Hiin[24461:70b] mlen:3
+2014-07-08 10:29:30.905 Hiin[24461:70b] {"_id":"53a6c30e65b82dfd67e2b44e","firstName":"Jungmoq","lastName":"Kang","gender":"1","job":"Noneadd","photoUrl":"profileImageOriginal/e96a6aeda9ddfb05_1403437834573.png","thumbnailUrl":"profileImageThumbnail/e96a6aeda9ddfb05_1403437834573_thumb.png","organizer":"organizer","email":"jungmo.kang@hiin.co","enteredEvent":"6384","birth":"undefined"}
+2014-07-08 10:29:30.906 Hiin[24461:70b] ----unread----
+2014-07-08 10:29:30.906 Hiin[24461:70b] len:3

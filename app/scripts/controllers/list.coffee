@@ -33,7 +33,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   socket.emit "myInfo"
   socket.emit "unReadCount"
   $scope.users = []
-  
   #test
   onResume = ->
     console.log "On Resume"
@@ -70,8 +69,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     console.log "list myInfo"
     console.log data
     $window.localStorage.setItem 'myInfo', JSON.stringify(data)
-    #임시 방편.
-    $ionicNavBarDelegate.showBackButton(false)
     return
   socket.on "unReadCount", (data) ->
     console.log '--unread count---'
@@ -87,8 +84,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     console.log "list currentEventUserList"
     $scope.users = data
     console.log data
-    #임시 방편.
-    $ionicNavBarDelegate.showBackButton(false)
   socket.on "userListChange", (data) ->
     console.log 'userListChange'
     console.log data
