@@ -3,6 +3,10 @@
 angular.module('hiin').controller 'LoginCtrl', ($scope,$window,$state,Util,$q,$timeout) ->
 	if window.cordova
 		$window.localStorage.setItem "isPhoneGap", "1"
+	disconnect_flg = $window.localStorage.getItem "socket_disconnect"
+	if disconnect_flg is '1'
+		$window.localStorage.removeItem 'socket_disconnect'
+		window.location.href = unescape(window.location.pathname)
 	CheckToken = (token) ->
 		deferred = $q.defer()
 		sendData = {}

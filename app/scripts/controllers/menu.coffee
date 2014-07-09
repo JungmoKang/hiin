@@ -33,7 +33,6 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
             $window.localStorage.clear()
           socket.disconnect()
           $window.localStorage.setItem "socket_disconnect", '1'
-          window.location.href = unescape(window.location.pathname)
           $state.go('/')
       .error (error, status) ->
         console.log "error"

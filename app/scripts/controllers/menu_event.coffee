@@ -6,8 +6,10 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   ionic.DomUtil.ready ->
     $ionicNavBarDelegate.showBackButton(false)
   #오너인지도 확인해야함..
+  $scope.thisEvent = new Array()
   if window.localStorage['thisEvent']?
     $scope.enteredEventsOrOwner = true
+    $scope.thisEvent.code = JSON.parse($window.localStorage.getItem 'thisEvent').code
   else
     Util.checkOrganizer()
       .then (data) ->
@@ -18,16 +20,14 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
         console.log '-----user or error-----'
         console.log status
         alert "error"    
-  socket.emit "enteredEventList"
   myinfo = $window.localStorage.getItem "myInfo"
   if !myinfo?
     socket.emit "myInfo"
   else
     $scope.myId = new Array()
-    $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id    
+    $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
+    socket.emit "enteredEventList"
   socket.on "enteredEventList", (data) ->
-    $scope.thisEvent = new Array()
-    $scope.thisEvent.code = JSON.parse($window.localStorage.getItem 'thisEvent').code
     $scope.events = data
   socket.on "myInfo", (data) ->
     console.log "list myInfo"
@@ -35,6 +35,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     $window.localStorage.setItem 'myInfo', JSON.stringify(data)
     $scope.myId = new Array()
     $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
+    socket.emit "enteredEventList"
     return
   #↑init
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
