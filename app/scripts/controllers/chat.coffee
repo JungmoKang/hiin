@@ -7,7 +7,8 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   partnerId = $stateParams.userId
   $scope.imagePath = Util.serverUrl() + "/"
   if $window.localStorage?
-    thisEvent = $window.localStorage.getItem "thisEvent"
+    eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
+    thisEvent = eventInfo.code
     $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
   messageKey = thisEvent + '_' + partnerId
   #기본적으로 개인 메세지 창은 나가기 개념이 없음. 즉, 대화가 로컬에 없으면 처음 대화하므로 상대방 대화를 모두 긁어옴

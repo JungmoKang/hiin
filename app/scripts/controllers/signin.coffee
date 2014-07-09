@@ -26,26 +26,15 @@ angular.module('hiin')
       $scope.userInfo = userInfo
       angular.element('img.image_upload_btn').attr("src", $scope.thumbnailUrl)
       return
-    $scope.makeId = (userInfo) ->
-      console.log userInfo
-      deferred = $q.defer()
-      Util.makeReq('post','user', userInfo)
-        .success (data) ->
-          if data.status < "0"
-            deferred.reject data
-          deferred.resolve data
-        .error (data, status) ->
-          console.log data
-          deferred.reject status
-      return deferred.promise
     $scope.SignUp = (isValid) ->
       console.log isValid
       if isValid == true
-        $scope.makeId($scope.userInfo)
+        Util.MakeId($scope.userInfo)
           .then (data) ->
             console.log '---return make Id---'
             Util.ClearLocalStorage()
             $window.localStorage.setItem "auth_token", data.Token
+            $window.localStorage.setItem "id_type", 'normal'
             $scope.signIn()
           ,(status) ->
             alert 'err'

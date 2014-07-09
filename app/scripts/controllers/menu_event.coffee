@@ -19,17 +19,15 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
         console.log status
         alert "error"    
   socket.emit "enteredEventList"
-  socket.emit "myInfo"
+  myinfo = $window.localStorage.getItem "myInfo"
+  if !myinfo?
+    socket.emit "myInfo"
+  else
+    $scope.myId = new Array()
+    $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id    
   socket.on "enteredEventList", (data) ->
-    ###
-    리스트 작성
-    우선순위
-    1. 현재 이벤트
-    2. 내가 생성한 이벤트
-    3. 이벤트
-    ###
     $scope.thisEvent = new Array()
-    $scope.thisEvent.code = $window.localStorage.getItem 'thisEvent'
+    $scope.thisEvent.code = JSON.parse($window.localStorage.getItem 'thisEvent').code
     $scope.events = data
   socket.on "myInfo", (data) ->
     console.log "list myInfo"
@@ -80,7 +78,17 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
         alert "error"
   $scope.yes = ->
     $scope.modal.hide()
-    $state.go('list.organizerSignUp')
+    id_type = $window.localStorage.getItem "id_type"
+    if id_type is "facebook"
+      Util.authReq('get','organizerFbSignUp','')
+        .success (data) ->
+          console.log data
+          if data.status is '0'
+            $scope.CreateEvent()
+        .error (data, status) ->
+          console.log data
+    else
+      $state.go('list.organizerSignUp')
   $scope.no = ->
     $scope.modal.hide()
   $scope.myEvent = (event) ->
@@ -91,10 +99,10 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     confirmData =
       code: code
     Util.ConfirmEvent(confirmData)
-    .then (data) ->
-      $state.go('list.userlists')
-    ,(status) ->
-      console.log 'error'
-      Util.ShowModal($scope,'no_event')
+      .then (data) ->
+        $state.go('list.userlists')
+      ,(status) ->
+        console.log 'error'
+        Util.ShowModal($scope,'no_event')
   $scope.back = ->
     $scope.modal.hide()

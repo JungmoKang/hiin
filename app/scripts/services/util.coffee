@@ -23,6 +23,18 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
     opts = angular.extend opts, options
 
     $http opts
+  MakeId: (userInfo) ->
+    console.log userInfo
+    deferred = $q.defer()
+    this.makeReq('post','user', userInfo)
+      .success (data) ->
+        if data.status < "0"
+          deferred.reject data
+        deferred.resolve data
+      .error (data, status) ->
+        console.log data
+        deferred.reject status
+    return deferred.promise
   emailLogin: (userInfo) ->
   	deferred = $q.defer()
   	this.makeReq('post','login', userInfo )
@@ -69,6 +81,7 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
         if data.status < 0
           deferred.reject data.status
           console.log data
+        $window.localStorage.setItem 'thisEvent', JSON.stringify(data.event)
         deferred.resolve data
       .error (error,status) ->
         deferred.reject status

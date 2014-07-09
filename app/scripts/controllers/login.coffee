@@ -35,10 +35,11 @@ angular.module('hiin').controller 'LoginCtrl', ($scope,$window,$state,Util,$q,$t
 		return deferred.promise
 	if $window.localStorage?
 		token = $window.localStorage.getItem "auth_token"
-		eventCode = $window.localStorage.getItem "thisEvent"
-		if token? and eventCode?
+		eventInfo = $window.localStorage.getItem "thisEvent"
+		if token? and eventInfo?
 			CheckToken(token)
 				.then (response) ->
+					eventCode = JSON.parse(eventInfo).code
 					CheckEvent(eventCode)
 				.then (response) ->
 					$state.go('list.events')
@@ -58,12 +59,18 @@ angular.module('hiin').controller 'LoginCtrl', ($scope,$window,$state,Util,$q,$t
 			deferred.reject response
 			return
 		return deferred.promise
-	test = ->
+	LoginWithFacebook = (sendData) ->
 		deferred = $q.defer()
-		$timeout (->
-		  deferred.resolve 'ok'
-		), 3000
-		return deferred.promise
+		Util.makeReq('post','loginWithFacebook', sendData)
+			.success (response) ->
+				if response.status is '0'
+					deferred.resolve response
+				else
+					deferred.reject response
+				return
+			.error (response, status) ->
+	        	deferred.reject response
+	    return deferred.promise
 	$scope.facebookLogin = ->
 		unless window.cordova
 			appId = prompt("Enter FB Application ID", "")
@@ -74,15 +81,11 @@ angular.module('hiin').controller 'LoginCtrl', ($scope,$window,$state,Util,$q,$t
 				console.log accessToken
 				sendData = {}
 				sendData.accessToken = accessToken
-				test()
-				###
-				Util.makeReq('post','loginWithFacebook', sendData)
-					.success (data) ->
-						alert 'success'
-			        .error (data, status) ->
-			        	alert 'error'
-			    ###	
+				LoginWithFacebook(sendData)
 			.then (response) ->
+				Util.ClearLocalStorage()
+				$window.localStorage.setItem "auth_token", response.Token
+				$window.localStorage.setItem "id_type", 'facebook'
 				$state.go('list.events')
 			,(response) ->
 				alert 'error'

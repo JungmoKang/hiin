@@ -1,7 +1,9 @@
 'use strict'
 
-angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,socket,$state,$modal) ->
+angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,socket,$state,$modal,$ionicNavBarDelegate) ->
   $rootScope.selectedItem = 4
+  ionic.DomUtil.ready ->
+    $ionicNavBarDelegate.showBackButton(false)
   $scope.TermAndPolish = ->
     $scope.slide = 'slide-left'
     $state.go('termAndPolish')
@@ -30,7 +32,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
           if $window.localStorage?
             $window.localStorage.clear()
           socket.disconnect()
-          socket = null
+          $window.localStorage.setItem "socket_disconnect", '1'
+          window.location.href = unescape(window.location.pathname)
           $state.go('/')
       .error (error, status) ->
         console.log "error"

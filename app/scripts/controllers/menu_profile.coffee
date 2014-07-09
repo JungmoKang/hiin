@@ -1,11 +1,13 @@
 'use strict'
 
-angular.module('hiin').controller 'ProfileCtrl', ($rootScope,$scope, Util, Host, socket,upload) ->
+angular.module('hiin').controller 'ProfileCtrl', ($rootScope,$scope, Util, Host, socket,upload,$ionicNavBarDelegate) ->
   $rootScope.selectedItem = 1
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
-    return  
+    return
+  ionic.DomUtil.ready ->
+    $ionicNavBarDelegate.showBackButton(false)
   $scope.imageUploadUrl = "#{Host.getAPIHost()}:#{Host.getAPIPort()}/profileImage"
   $scope.imagePath = Util.serverUrl()+'/'
   $scope.isEditMode = false

@@ -6,9 +6,30 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   ionic.DomUtil.ready ->
     $ionicNavBarDelegate.showBackButton(false)
   if $window.localStorage?
-    thisEvent = $window.localStorage.getItem "thisEvent"
-    $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
-    console.log $scope.myInfo
+    eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
+    if eventInfo?
+      thisEvent = eventInfo.code
+      $scope.eventName = eventInfo.name
+    else
+      $scope.message = '<p> You have not entered an event. 
+      <p>Please go back 
+      <p>and 
+      <p>type passcode to join an event.'
+      Util.ShowModal($scope,'no_event')
+      return
+    console.log 'list this event is ' + thisEvent
+  $scope.back = ->
+    $scope.modal.hide()
+    $window.history.back()
+  ###
+  if !thisEvent? 
+    $scope.message = '<p> You have not entered an event. 
+    <p>Please go back 
+    <p>and 
+    <p>type passcode to join an event.'
+    Util.ShowModal($scope,'no_event')
+    return
+  ###
   messageKey = thisEvent + '_groupMessage'
   if $window.localStorage.getItem messageKey
     $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
@@ -28,8 +49,25 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
                               code: thisEvent
                               type: "group"
                               range: "all"
-    } 
-  socket.emit "currentEvent"
+    }
+  $scope.ShowPrivacyFreeDialog = ->
+    #표시한 적이 있는가 없는가를 판단해서, 없을 경우 표시
+    if $window.localStorage.getItem 'flg_show_privacy_dialog'
+      return
+    modalInstance = $modal.open(
+      templateUrl: "views/dialog/privacy_free.html"
+      scope: $scope
+    )
+    modalInstance.result.then ((selectedItem) ->
+      $scope.modalInstance = null
+      return
+    ), ->
+      $scope.modalInstance = null
+      return
+    $scope.modalInstance = modalInstance
+    $window.localStorage.setItem 'flg_show_privacy_dialog', true
+  $scope.ShowPrivacyFreeDialog()
+  socket.emit "currentEventUserList"
   socket.emit "myInfo"
   socket.emit "unReadCount"
   $scope.users = []
@@ -47,23 +85,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
-    return
-  $scope.back = ->
-    $scope.modal.hide()
-    $window.history.back()
-  socket.on "currentEvent", (data) ->
-    console.log "list currentEvent"
-    if data is null 
-      $scope.message = '<p> You have not entered an event. 
-      <p>Please go back 
-      <p>and 
-      <p>type passcode to join an event.'
-      Util.ShowModal($scope,'no_event')
-    $scope.eventName = data.name
-    $window.localStorage.setItem 'thisEvent', data.code
-    $window.localStorage.setItem 'eventOwner', data.author
-    socket.emit "currentEventUserList"
-    console.log "socket emit current event user list"
     return
   socket.on "myInfo", (data) ->
     console.log "list myInfo"
@@ -147,25 +168,8 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       $scope.modalInstance = null
       return
     $scope.modalInstance = modalInstance
-  $scope.ShowPrivacyFreeDialog = ->
-    #표시한 적이 있는가 없는가를 판단해서, 없을 경우 표시
-    if $window.localStorage.getItem 'flg_show_privacy_dialog'
-      return
-    modalInstance = $modal.open(
-      templateUrl: "views/dialog/privacy_free.html"
-      scope: $scope
-    )
-    modalInstance.result.then ((selectedItem) ->
-      $scope.modalInstance = null
-      return
-    ), ->
-      $scope.modalInstance = null
-      return
-    $scope.modalInstance = modalInstance
-    $window.localStorage.setItem 'flg_show_privacy_dialog', true
   $scope.CloseDialog = ->
     $scope.modalInstance.close()
-  $scope.ShowPrivacyFreeDialog()
 #accept : 3, request:1, pending:2, else :0
 angular.module("hiin").directive "ngHiBtn", ($window)->
   link: (scope, element, attrs) ->

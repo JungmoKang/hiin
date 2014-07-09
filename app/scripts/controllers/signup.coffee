@@ -18,22 +18,10 @@ angular.module("hiin").controller "SignUpCtrl", ($modal,$sce,$q,$http,$scope, $w
     $scope.userInfo = userInfo
     angular.element('img.image_upload_btn').attr("src", $scope.thumbnailUrl)
     return
-  $scope.makeId = (userInfo) ->
-    console.log userInfo
-    deferred = $q.defer()
-    Util.makeReq('post','user', userInfo)
-      .success (data) ->
-        if data.status < "0"
-          deferred.reject data
-        deferred.resolve data
-      .error (data, status) ->
-        console.log data
-        deferred.reject status
-    return deferred.promise
   $scope.signUp = (isValid) ->
     console.log isValid
     if isValid == true
-      $scope.makeId($scope.userInfo)
+      Util.MakeId($scope.userInfo)
         .then (data) ->
           $scope.signIn()
         ,(status) ->

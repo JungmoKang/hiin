@@ -33,5 +33,8 @@ angular.module('hiin')
           $state.go('list.createEvent')
         ,(status) ->
           alert 'err'
+      return
+    $scope.organizerLogin = ->
+      $state.go('list.organizerLogin')
     return
   return

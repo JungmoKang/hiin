@@ -17,7 +17,5 @@ angular.module('hiin')
       $state.go('resetPassword')
     $scope.CloseErroMsg = ->
       $scope.showErrMsg = false
-    $scope.organizerLogin = ->
-      $state.go('list.organizerLogin')
     return
   return

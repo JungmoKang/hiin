@@ -5,10 +5,17 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
   #group chat init
   $scope.input_mode = false
   $scope.imagePath = Util.serverUrl() + "/"
+  $scope.data = {}
+  $scope.data.message = ""
+  $scope.amIOwner = false
   if $window.localStorage?
-    thisEvent = $window.localStorage.getItem "thisEvent"
+    eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
+    thisEvent = eventInfo.code
     $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
     console.log $scope.myInfo
+    if eventInfo.author == $scope.myInfo._id
+      $scope.amIOwner = true
+      $scope.regular_msg_flg = false
   messageKey = thisEvent + '_groupMessage'
   $scope.roomName = "GROUP CHAT"
   if $window.localStorage.getItem messageKey
@@ -64,13 +71,6 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
       $scope.messages = tempor
       $scope.$broadcast('scroll.refreshComplete')
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
-
-  $scope.data = {}
-  $scope.data.message = ""
-  $scope.amIOwner = false
-  if window.localStorage['eventOwner'] == $scope.myInfo._id
-    $scope.amIOwner = true
-    $scope.regular_msg_flg = false
   #초기에 키보드가 표시되는 것을 방지하기 위한 플래그
   window.addEventListener "native.keyboardshow", (e) ->
     console.log "Keyboard height is: " + e.keyboardHeight

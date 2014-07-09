@@ -1,19 +1,17 @@
 'use strict'
 
 angular.module('hiin').controller 'eventInfoCtrl', ($scope,$rootScope,socket,$window,Util,$modal,$filter,$ionicNavBarDelegate) ->
-  socket.emit "currentEvent"
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
-    return  
-  socket.on "currentEvent", (data) ->
-    $scope.eventInfo = data
-    $scope.startDate = $filter('date')(new Date($scope.eventInfo.startDate), 'MMM d, h:mm a')
-    $scope.endDate  = $filter('date')(new Date($scope.eventInfo.endDate), 'MMM d, h:mm a')
-    if (JSON.parse($window.localStorage.getItem 'myInfo')._id) is data.author
-    	$scope.isOwner = true
-    	$scope.right_link = 'edit_link'
     return
+  $scope.eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
+  $scope.startDate = $filter('date')(new Date($scope.eventInfo.startDate), 'MMM d, h:mm a')
+  $scope.endDate  = $filter('date')(new Date($scope.eventInfo.endDate), 'MMM d, h:mm a')
+  if (JSON.parse($window.localStorage.getItem 'myInfo')._id) is $scope.eventInfo.author
+  	$scope.isOwner = true
+  	$scope.right_link = 'edit_link'
+  return
   $rootScope.Cancel = ->
     $scope.editMode = false
     socket.emit "currentEvent"
