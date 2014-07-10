@@ -30,8 +30,6 @@ angular.module("hiin").controller "SignUpCtrl", ($modal,$sce,$q,$http,$scope, $w
     else
       return $scope.showAlert()
   $scope.signIn = ->
-    if $window.localStorage?
-      $window.localStorage.clear()
     Util.emailLogin($scope.userInfo)
     .then (data) ->
       $state.go('list.events')

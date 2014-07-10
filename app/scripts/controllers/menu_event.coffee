@@ -5,11 +5,11 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   $rootScope.selectedItem = 3
   ionic.DomUtil.ready ->
     $ionicNavBarDelegate.showBackButton(false)
-  #오너인지도 확인해야함..
   $scope.thisEvent = new Array()
-  if window.localStorage['thisEvent']?
+  event = $window.localStorage.getItem 'thisEvent'
+  if event?
     $scope.enteredEventsOrOwner = true
-    $scope.thisEvent.code = JSON.parse($window.localStorage.getItem 'thisEvent').code
+    $scope.thisEvent.code = JSON.parse(event).code
   else
     Util.checkOrganizer()
       .then (data) ->
@@ -37,6 +37,18 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
     socket.emit "enteredEventList"
     return
+  $rootScope.onResume = ->
+    console.log "On Resume"
+    socket.emit "resume"
+    return
+  $rootScope.onPause = ->
+    console.log "On Pause"
+    socket.disconnect()
+    return
+  if typeof $rootScope.AddFlagPauseHandler  == 'undefined' || $rootScope.AddFlagPauseHandler is false
+    document.addEventListener "resume", $rootScope.onResume, false
+    document.addEventListener "pause", $rootScope.onPause, false
+    $rootScope.AddFlagPauseHandler = true
   #↑init
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
@@ -92,6 +104,8 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
       $state.go('list.organizerSignUp')
   $scope.no = ->
     $scope.modal.hide()
+  $scope.current = (event) ->
+    return event.code is $scope.thisEvent.code
   $scope.myEvent = (event) ->
     return event.code isnt $scope.thisEvent.code && event.author == $scope.myId.author
   $scope.pastEvent = (event) ->

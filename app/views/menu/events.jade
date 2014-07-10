@@ -14,7 +14,7 @@ ion-view(title='EVENTS')
     .event.current_event
       .title Current event
       ion-list
-        ion-item.event_item(ng-repeat='event in events | filter:thisEvent',ng-click='GotoEvent(event.code)')
+        ion-item.event_item(ng-repeat='event in events | filter:current',ng-click='GotoEvent(event.code)')
           .list_separatebar
           .event_name {{event.name}}
           .event_code PASSCODE: {{event.code}}

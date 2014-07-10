@@ -11,6 +11,10 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       thisEvent = eventInfo.code
       $scope.eventName = eventInfo.name
     else
+      $scope.back = ->
+        console.log 'back'
+        $scope.modal.hide()
+        $window.history.back()
       $scope.message = '<p> You have not entered an event. 
       <p>Please go back 
       <p>and 
@@ -18,18 +22,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       Util.ShowModal($scope,'no_event')
       return
     console.log 'list this event is ' + thisEvent
-  $scope.back = ->
-    $scope.modal.hide()
-    $window.history.back()
-  ###
-  if !thisEvent? 
-    $scope.message = '<p> You have not entered an event. 
-    <p>Please go back 
-    <p>and 
-    <p>type passcode to join an event.'
-    Util.ShowModal($scope,'no_event')
-    return
-  ###
   messageKey = thisEvent + '_groupMessage'
   if $window.localStorage.getItem messageKey
     $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
@@ -71,17 +63,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   socket.emit "myInfo"
   socket.emit "unReadCount"
   $scope.users = []
-  #test
-  onResume = ->
-    console.log "On Resume"
-    socket.reconnect()
-    return
-  onPause = ->
-    console.log "On Pause"
-    socket.disconnect()
-    return
-  document.addEventListener "resume", onResume, false
-  document.addEventListener "pause", onPause, false
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeAllListeners()
@@ -151,7 +132,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     $location.url('/list/groupChat')
   $scope.info = ->
     $location.url('/list/eventInfo')
-  #for test
   $scope.imagePath = Util.serverUrl() + "/"
   #프로필 표시 나중에 util에 넣어서 다른 화면에서도 쓸 수 있게 해야함
   $scope.ShowProfile = (user) ->

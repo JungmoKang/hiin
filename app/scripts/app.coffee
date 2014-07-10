@@ -117,7 +117,7 @@ angular.module("hiin", [
     url: "/organizerSignUp"
     views:
       menuContent:
-        templateUrl: "views/login/organizer_signUp.html"
+        templateUrl: "views/login/organizer_signup.html"
         controller: "OrganizerSignCtrl"
   )
   .state("list.organizerLogin",
@@ -149,9 +149,7 @@ angular.module("hiin", [
       $.param data
     $httpProvider.defaults.withCredentials = true
 
-angular.module("hiin").run ($window,  Migration) ->
+angular.module("hiin").run ($window,  Migration,　$rootScope) ->
   # prepare database 
   $window.localDb = $window.openDatabase "hiin", "1.0", "hiin DB", 1000000
   Migration.apply $window.localDb
-  return
-

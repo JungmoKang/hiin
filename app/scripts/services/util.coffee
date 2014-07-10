@@ -34,6 +34,7 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
       .error (data, status) ->
         console.log data
         deferred.reject status
+    this.ClearLocalStorage()
     return deferred.promise
   emailLogin: (userInfo) ->
   	deferred = $q.defer()
@@ -46,9 +47,11 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
         #  deferred.reject data
         #  return
         $window.localStorage.setItem "auth_token", data.Token
+        $window.localStorage.setItem "id_type", 'normal'
         deferred.resolve data
       .error (error,status) ->
         deferred.reject status
+    this.ClearLocalStorage()
     return deferred.promise
   userStatus: () ->
     deferred = $q.defer()
@@ -98,6 +101,9 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
   ClearLocalStorage : () ->
     if $window.localStorage?
       $window.localStorage.clear()
+    if window.cordova
+      $window.localStorage.setItem "isPhoneGap", "1"
+    return
   #'options' setting 객체를 만들어서 전달
   #loadingStart, loadingStop은 없으면 그냥 넘어감
   #duration은 ms단위임. 

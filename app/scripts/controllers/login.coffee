@@ -1,8 +1,6 @@
 'use strict'
 
-angular.module('hiin').controller 'LoginCtrl', ($scope,$window,$state,Util,$q,$timeout) ->
-	if window.cordova
-		$window.localStorage.setItem "isPhoneGap", "1"
+angular.module('hiin').controller 'LoginCtrl', ($rootScope, $scope,$window,$state,Util,$q,$timeout) ->
 	disconnect_flg = $window.localStorage.getItem "socket_disconnect"
 	if disconnect_flg is '1'
 		$window.localStorage.removeItem 'socket_disconnect'
@@ -46,10 +44,10 @@ angular.module('hiin').controller 'LoginCtrl', ($scope,$window,$state,Util,$q,$t
 					eventCode = JSON.parse(eventInfo).code
 					CheckEvent(eventCode)
 				.then (response) ->
-					$state.go('list.events')
+					#$state.go('list.events')
+					console.log 'goto events'
 				,(response) ->
 					Util.ClearLocalStorage()
-					alert 'error'
 	FacebookLogin = ->
 		deferred = $q.defer()
 		facebookConnectPlugin.login ["email"], ((response) ->
@@ -77,8 +75,8 @@ angular.module('hiin').controller 'LoginCtrl', ($scope,$window,$state,Util,$q,$t
 	    return deferred.promise
 	$scope.facebookLogin = ->
 		unless window.cordova
-			appId = prompt("Enter FB Application ID", "")
-			facebookConnectPlugin.browserInit appId
+			#appId = prompt("Enter FB Application ID", "")
+			facebookConnectPlugin.browserInit '684817121572800'
 		FacebookLogin()
 			.then (response) ->
 				accessToken = response.authResponse.accessToken
