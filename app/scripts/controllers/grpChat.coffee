@@ -16,6 +16,14 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     if eventInfo.author == $scope.myInfo._id
       $scope.amIOwner = true
       $scope.regular_msg_flg = false
+      socket.emit "currentEventUserList"
+      socket.on "currentEventUserList", (data) ->
+        console.log "list currentEventUserList"
+        $scope.userNum = data.length + 1
+        console.log data
+      socket.on "userListChange", (data) ->
+        console.log 'userListChange'
+        $scope.userNum = data.message.usersNumber
   messageKey = thisEvent + '_groupMessage'
   $scope.roomName = "GROUP CHAT"
   if $window.localStorage.getItem messageKey
@@ -97,7 +105,6 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
       window.localStorage[messageKey]=JSON.stringify(temp.slice(len-30,temp.length))
     return  
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
-
   socket.on "groupMessage", (data) ->
     console.log "grp chat,groupMessage"
     if $scope.myInfo._id == data.sender

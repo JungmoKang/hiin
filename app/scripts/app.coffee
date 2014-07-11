@@ -32,18 +32,6 @@ angular.module("hiin", [
     templateUrl: "views/login/reset_password.html"
     controller: "OrganizerLoginCtrl"
   )
-  #↓삭제대상
-  .state("emailLogin",
-    url: "/emailLogin"  
-    templateUrl: "views/login/email_login.html"
-    controller: "EmailLoginCtrl"
-  )
-  .state("signUp",
-    url: "/signUp"
-    templateUrl: "views/login/signup.html"
-    controller: "SignUpCtrl"
-  ) 
-  #↑
   .state('list', 
     url: '/list'
     abstract: true

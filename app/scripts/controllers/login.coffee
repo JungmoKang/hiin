@@ -1,6 +1,7 @@
 'use strict'
 
 angular.module('hiin').controller 'LoginCtrl', ($rootScope, $scope,$window,$state,Util,$q,$timeout) ->
+	#test
 	disconnect_flg = $window.localStorage.getItem "socket_disconnect"
 	if disconnect_flg is '1'
 		$window.localStorage.removeItem 'socket_disconnect'
@@ -83,6 +84,7 @@ angular.module('hiin').controller 'LoginCtrl', ($rootScope, $scope,$window,$stat
 				console.log accessToken
 				sendData = {}
 				sendData.accessToken = accessToken
+				sendData.device = Util.GetDevice()
 				LoginWithFacebook(sendData)
 			.then (response) ->
 				Util.ClearLocalStorage()
