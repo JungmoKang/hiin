@@ -18,8 +18,8 @@
         <param name="onload" value="true" />
     </feature>
     <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
-    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.4.0">
+    <cdv:plugin name="com.phonegap.plugins.facebookconnect" version="0.4.0">
         <param name="APP_ID" value="684817121572800" />
         <param name="APP_NAME" value="Hiin" />
-    </gap:plugin>
+    </cdv:plugin>
 </widget>
