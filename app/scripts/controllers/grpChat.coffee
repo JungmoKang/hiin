@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,$location,$ionicScrollDelegate,$timeout) ->
+angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, socket, Util,$location,$ionicScrollDelegate,$timeout) ->
   console.log 'grpChat'
   #group chat init
   $scope.input_mode = false
@@ -14,7 +14,8 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     console.log $scope.myInfo
     if eventInfo.author == $scope.myInfo._id
       $scope.amIOwner = true
-      $scope.regular_msg_flg = false
+      if !$rootScope.regular_msg_flg?
+        $rootScope.regular_msg_flg = false
       socket.emit "currentEventUserList"
       socket.on "currentEventUserList", (data) ->
         console.log "list currentEventUserList"
@@ -126,7 +127,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     time = new Date()
     if $scope.data.message == ""
       return
-    if $scope.amIOwner is true and $scope.regular_msg_flg is false
+    if $root.amIOwner is true and $rootScope.regular_msg_flg is false
       socket.emit "notice",{
         created_at: time
         message: $scope.data.message
@@ -152,8 +153,8 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     $ionicScrollDelegate.resize()
     return
   $scope.toggleOwnerMsg = ->
-    $scope.regular_msg_flg = !$scope.regular_msg_flg
-    if $scope.regular_msg_flg is true
+    $rootScope.regular_msg_flg = !$rootScope.regular_msg_flg
+    if $rootScope.regular_msg_flg is true
       $scope.popupMessage = "Send as a regular chat message"
     else
       $scope.popupMessage = "Send as a notice to the group"
