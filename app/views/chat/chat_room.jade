@@ -1,4 +1,4 @@
-ion-view.messaging-view(title='{{roomName}}')
+ion-view.messaging-view(title='{{roomName}}',ontouchstart='return false;')
   ion-content(ng-style='{ bottom: (data.keyboardHeight + 40) + "px" }')
     ion-refresher(pulling-text="Pull to refresh..." on-refresh='pullLoadMsg()')
     .message(id="{{$index}}",ng-repeat='message in messages track by $index',
@@ -11,15 +11,15 @@ ion-view.messaging-view(title='{{roomName}}')
     div.msg 
       p.big NO MESSAGES YET
       p.normal Introduce yourself?
-  .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }')
-    div(ng-hide="amIOwner")
+  .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }',ontouchstart='console.log("input touch")')
+    div(ng-if="!amIOwner")
       .row
         .col-80
           input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
             on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()')
         .col-20
           button.send(ng-click='sendMessage()') SEND
-    div(ng-show="amIOwner")
+    div(ng-if="amIOwner")
       .row
         .col.col-70
           input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
