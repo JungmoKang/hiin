@@ -40,8 +40,12 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     }
   else
     console.log '---first entered---'
-    #first enter msg isert
-  
+    socket.emit 'loadMsgs', {
+                              code: thisEvent
+                              type: "group"
+                              range: "blank"
+    }
+
   $scope.pullLoadMsg =->
     console.log '---pull load msg---'
     socket.emit 'loadMsgs', {
@@ -61,6 +65,12 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
     if data.type is 'group' and data.range is 'all'
       console.log '---all---'
       $scope.messages = data.message
+    else if data.type is 'group' and data.range is 'blank'
+      console.log '---blank----'
+      console.log data
+      tempor = $scope.messages.concat data.message
+      console.log tempor
+      console.log 'tmper len:'+tempor.length
     else if data.type is 'group' and data.range is 'unread'
       console.log '---unread----'
       console.log data
