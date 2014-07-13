@@ -84,7 +84,7 @@ angular.module('hiin').controller 'LoginCtrl', ($rootScope, $scope,$window,$stat
 				console.log accessToken
 				sendData = {}
 				sendData.accessToken = accessToken
-				sendData.device = Util.GetDevice()
+				sendData.device = $rootScope.deviceType
 				userInfo.deviceToken = $rootScope.deviceToken
 				LoginWithFacebook(sendData)
 			.then (response) ->

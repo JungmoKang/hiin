@@ -26,7 +26,7 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
   MakeId: (userInfo) ->
     console.log userInfo
     deferred = $q.defer()
-    userInfo.device = this.GetDevice()
+    userInfo.device = $rootScope.deviceType
     userInfo.deviceToken = $rootScope.deviceToken
     this.makeReq('post','user', userInfo)
       .success (data) ->
@@ -40,7 +40,7 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
     return deferred.promise
   emailLogin: (userInfo) ->
     deferred = $q.defer()
-    userInfo.device = this.GetDevice()
+    userInfo.device = $rootScope.deviceType
     userInfo.deviceToken = $rootScope.deviceToken
     console.log userInfo
     this.makeReq('post','login', userInfo )
@@ -109,17 +109,6 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
     if window.cordova
       $window.localStorage.setItem "isPhoneGap", "1"
     return
-  GetDevice: () ->
-    deviceType = ''
-    if typeof device  is 'undefined' or device is null
-      console.log 'device type is web'
-      return 'web' 
-    platform = device.platform
-    console.log 'device type is ' + platform
-    if platform is 'android' or platform is 'Android'
-      return 'android'
-    else
-      return 'ios'
   #'options' setting 객체를 만들어서 전달
   #loadingStart, loadingStop은 없으면 그냥 넘어감
   #duration은 ms단위임. 
