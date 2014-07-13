@@ -5,7 +5,6 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   console.dir($stateParams)
   #init
   partnerId = $stateParams.userId
-  $scope.imagePath = Util.serverUrl() + "/"
   if $window.localStorage?
     eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
     thisEvent = eventInfo.code

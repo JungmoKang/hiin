@@ -150,37 +150,3 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     $scope.modalInstance = modalInstance
   $scope.CloseDialog = ->
     $scope.modalInstance.close()
-#accept : 3, request:1, pending:2, else :0
-angular.module("hiin").directive "ngHiBtn", ($window)->
-  link: (scope, element, attrs) ->
-    console.log attrs.histatus
-    if attrs.histatus is '0'
-      console.log('btn status = hi')
-      element.addClass 'btn-front'
-    else if attrs.histatus is '1'
-      console.log ('btn Status = in')
-      element.addClass 'btn-back'
-      console.log element 
-angular.module("hiin").directive "ngInBtn", ($window)->
-  link: (scope, element, attrs) ->
-    console.log attrs.histatus
-    if attrs.histatus is '0' or attrs.histatus is '2' 
-      console.log('btn status = hi')
-      element.addClass 'btn-back'
-    else
-      console.log ('btn Status = in')
-      element.addClass 'btn-front'
-      console.log element
-angular.module("hiin").directive "ngFlipBtn", ($window)->
-  link: (scope, element, attrs) ->
-    console.log attrs.histatus
-    if attrs.histatus is '0' 
-      element.bind 'click', ()->
-        element.addClass 'btn-flip'
-        console.log('addclass')
-    else if attrs.histatus is '2'
-      element.bind 'click', ()->
-        element.addClass 'btn-flip'
-        console.log('addclass')
-    else
-      console.log ('btn Status = in')

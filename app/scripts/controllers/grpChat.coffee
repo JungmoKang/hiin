@@ -4,7 +4,6 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
   console.log 'grpChat'
   #group chat init
   $scope.input_mode = false
-  $scope.imagePath = Util.serverUrl() + "/"
   $scope.data = {}
   $scope.data.message = ""
   $scope.amIOwner = false
@@ -155,36 +154,3 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $window, socket, Util,
       $scope.showingMsg = false
       return
     ), 2000
-angular.module("hiin").directive "ngChatInput", ($timeout) ->
-  restrict: "A"
-  scope:
-    returnClose: "="
-    onReturn: "&"
-    onFocus: "&"
-    onBlur: "&"
-  link: (scope, element, attr) ->
-    element.bind "focus", (e) ->
-      console.log 'focusss'
-      if scope.onFocus
-        window.scroll(0,0)
-        $timeout -> 
-          scope.onFocus()
-          return
-      return
-    element.bind "blur", (e) ->
-      if scope.onBlur
-        $timeout ->
-          scope.onBlur()
-          return
-      return
-    element.bind "keydown", (e) ->
-      console.log e
-      if e.which is 13
-        console.log 'entered'
-        element[0].blur()  if scope.returnClose
-        if scope.onReturn
-          $timeout ->
-            scope.onReturn()
-            return
-      return
-    return

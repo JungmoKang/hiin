@@ -3,7 +3,7 @@ ion-view(title='ACTIVITY')
     #userActivityInfo
       .name {{myInfo.firstName}} {{myInfo.lastName}} 
       .job {{myInfo.job}}
-      img.thumb_image_big.img-circle(ng-src='{{imagePath}}{{myInfo.photoUrl}}')
+      img.thumb_image_big.img-circle(ng-profile-image = 'ng-profile-image',source='{{myInfo.photoUrl}}')
       .rank_group
         .rank RANK No.{{rank}}&nbsp;
         .icon_i(ng-click='showRank()')
@@ -14,7 +14,7 @@ ion-view(title='ACTIVITY')
           .dot(ng-dot='ng-dot' read='{{activity.lastMsg.read}}')
           .pic
             span.helper
-             img.thumb_image.img-circle(ng-src='{{imagePath}}{{activity.thumbnailUrl}}')
+             img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{activity.thumbnailUrl}}')
           .content
             .first_line
               .display_you(ng-display-you = 'ng-display-you' sender='{{activity.lastSender}}') You

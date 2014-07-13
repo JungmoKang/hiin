@@ -1,5 +1,5 @@
 ion-view(title='PROFILE')
   ion-nav-buttons(side='left')
     button.button.button-icon.icon#list_header_button(menu-toggle='left')
-  div(ng-include="'views/menu/profile_show.html'",ng-show='!isEditMode')
-  div(ng-include="'views/menu/profile_edit.html'",ng-show='isEditMode')    
+  div(ng-include="'views/menu/profile_show.html'",ng-if='!isEditMode')
+  div(ng-include="'views/menu/profile_edit.html'",ng-if='isEditMode')    

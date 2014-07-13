@@ -9,13 +9,13 @@ angular.module('hiin').controller 'ProfileCtrl', ($rootScope,$scope, Util, Host,
   ionic.DomUtil.ready ->
     $ionicNavBarDelegate.showBackButton(false)
   $scope.imageUploadUrl = "#{Host.getAPIHost()}:#{Host.getAPIPort()}/profileImage"
-  $scope.imagePath = Util.serverUrl()+'/'
   $scope.isEditMode = false
   $scope.btn_edit_or_confirm = 'edit'
   socket.emit "myInfo"
   socket.on "myInfo", (data) ->
     console.log "profile myInfo"
     $scope.userInfo = data
+    $scope.$apply()
   $scope.edit = ->
     $scope.isEditMode = !$scope.isEditMode
   $scope.cancel = ->
@@ -31,16 +31,4 @@ angular.module('hiin').controller 'ProfileCtrl', ($rootScope,$scope, Util, Host,
     console.log "onSucess"
     $scope.userInfo.photoUrl = response.data.photoUrl
     $scope.userInfo.thumbnailUrl = response.data.thumbnailUrl
-    return
-angular.module("hiin").directive "ngGender", ($window)->
-  link: (scope, element, attrs) ->
-    console.log attrs.ngGender
-    console.log 'attrs'
-    console.dir attrs
-    console.log attrs.gender
-    if attrs.gender == '0'
-      console.log('gender 0')
-      scope.gender = 'women'
-    else if attrs.gender == '1'
-      console.log('gender 1')
-      scope.gender = 'men'                                                                                                                      
+    return                                                                                                                 

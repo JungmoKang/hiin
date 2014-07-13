@@ -1,5 +1,5 @@
 #user_card
-  img.thumb_image.img-circle(src='{{imagePath}}{{user.thumbnailUrl}}', alt='')
+  img.thumb_image.img-circle(src='{{user.thumbnailUrl}}', alt='')
   .name {{user.firstName}} {{user.lastName}}
   .job {{user.job}}
   .hiin(ng-flip-btn = 'ng-flip-btn'  hiStatus = '{{user.status}}')

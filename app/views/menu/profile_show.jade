@@ -1,6 +1,6 @@
 ion-content.has-header#menu_profile
   .header
-    img.img-circle.profile_pic(src='{{imagePath}}{{userInfo.photoUrl}}')
+    img.img-circle.profile_pic(ng-profile-image = 'ng-profile-image',source='{{userInfo.photoUrl}}',src='')
     .btn_edit
       button(url='{{imageUploadUrl}}',accept="image/*,application/pdf",on-success="onSuccess(response)", upload_button)
   .list_separatebar

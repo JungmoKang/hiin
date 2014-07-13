@@ -10,7 +10,6 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope,$location,
     socket.on "myInfo", (data) ->
       console.log "list myInfo"
       $scope.myInfo = data
-      $scope.imagePath = Util.serverUrl()+'/'
       return
 
     socket.on "activity", (data)->
@@ -67,20 +66,3 @@ angular.module('hiin').filter 'convertMsg', () ->
 angular.module('hiin').filter 'fromNow', () ->
   return (time) -> 
     moment(time).fromNow()
-
-
-angular.module("hiin").directive "ngDisplayYou", ($window)->
-  link: (scope, element, attrs) ->
-    console.log attrs.sender
-    if attrs.sender == 'me'
-        element.show()
-    else
-        element.hide()
-
-angular.module("hiin").directive "ngDot", ($window)->
-  link: (scope, element, attrs) ->
-    console.log attrs.read
-    if (attrs.read == true)
-       element.hide() 
-    else
-       element.show()
