@@ -23,8 +23,6 @@ head
     script(src='bower_components/angular-ui-router/release/angular-ui-router.js')
     script(src='bower_components/ionic/release/js/ionic.js')
     script(src='bower_components/ionic/release/js/ionic-angular.js')
-
-
     script(src='bower_components/bootstrap/dist/js/bootstrap.js')
     script(src='bower_components/socket.io-client/dist/socket.io.js')
     script(src='bower_components/angular-socket-io/socket.js')
@@ -38,48 +36,3 @@ head
     script(src="scripts/services.js")
     script(src="scripts/services/facebookConnectPlugin.js")
     script(src='cordova.js')
-    script.
-        function tokenHandler(result){
-          console.log('deviceToken:' + result);
-        }
-        function errorHandler(err){
-          console.log('error:' + err);
-        }
-        function successHandler(result){
-          console.log('result:'+result);
-        }
-        /**
-         * onNotificationAPN
-         *
-         * @param event
-         *
-         * 디바이스로 푸시 메세지를 받을 때 호출되는 콜백함수 window.plugins.pushNotification.register 옵션 설정에서 ecb의 이름에 매칭된다.
-         */
-        function onNotificationAPN (event){
-          // 푸시 메세지에 alert 값이 있을 경우
-          if (event.alert){
-            navigator.notification.alert(event.alert);
-          }
-
-          // 푸시 메세지에 sound 값이 있을 경우
-          if (event.sound){
-            var snd = new Media(event.sound);
-            snd.play();
-          }
-
-          // 푸시 메세지에 bage 값이 있을 경우
-          if (event.badge){
-            window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
-          }
-        }
-        // 디바이스가 ready가 될때 실행될 수 있도록 이벤트 리스너에 등록한다.
-        document.addEventListener("deviceready", function(){
-          console.log('DeviceReady');
-          // PushPlugin을 설치했다면 window.plugins.pushNotification.register를 이용해서 iOS 푸시 서비스를 등록한다.
-          window.plugins.pushNotification.register(tokenHandler, errorHandler, {
-            "badge":"true", // 뱃지 기능을 사용한다.
-            "sound":"true", // 사운드를 사용한다.
-            "alert":"true", // alert를 사용한다.
-            "ecb": "onNotificationAPN" // 디바이스로 푸시가 오면 onNotificationAPN 함수를 실행할 수 있도록 ecb(event callback)에 등록한다.
-          });
-        });

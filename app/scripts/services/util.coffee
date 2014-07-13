@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('services').factory 'Util', ($q, $http, $window,$location,$document, Host, Token,$ionicModal,$timeout,$state) ->
+angular.module('services').factory 'Util', ($q, $http, $window,$location,$document, Host, Token,$ionicModal,$timeout,$state,$rootScope) ->
   serverUrl: ->
     "#{Host.getAPIHost()}:#{Host.getAPIPort()}"
   # 공통적으로 쓰이는 http request 만들어주는 함수
@@ -27,6 +27,7 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
     console.log userInfo
     deferred = $q.defer()
     userInfo.device = this.GetDevice()
+    userInfo.deviceToken = $rootScope.deviceToken
     this.makeReq('post','user', userInfo)
       .success (data) ->
         if data.status < "0"
@@ -40,6 +41,8 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
   emailLogin: (userInfo) ->
     deferred = $q.defer()
     userInfo.device = this.GetDevice()
+    userInfo.deviceToken = $rootScope.deviceToken
+    console.log userInfo
     this.makeReq('post','login', userInfo )
       .success (data) ->
         if data.status < 0

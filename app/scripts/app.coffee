@@ -141,3 +141,34 @@ angular.module("hiin").run ($window,  Migration,　$rootScope) ->
   # prepare database 
   $window.localDb = $window.openDatabase "hiin", "1.0", "hiin DB", 1000000
   Migration.apply $window.localDb
+  tokenHandler = (result) ->
+    console.log "deviceToken:" + result
+    $rootScope.deviceToken = result
+    console.log "rootscope device token" + $rootScope.deviceToken
+    return
+  errorHandler = (err) ->
+    console.log "error:" + err
+    return
+  successHandler = (result) ->
+    console.log "result:" + result
+    return
+  onNotificationAPN = (event) ->
+    # 푸시 메세지에 alert 값이 있을 경우
+    navigator.notification.alert event.alert  if event.alert
+    # 푸시 메세지에 sound 값이 있을 경우
+    if event.sound
+      snd = new Media(event.sound)
+      snd.play()
+    # 푸시 메세지에 bage 값이 있을 경우
+    window.plugins.pushNotification.setApplicationIconBadgeNumber successHandler, errorHandler, event.badge  if event.badge
+    return
+  # 디바이스가 ready가 될때 실행될 수 있도록 이벤트 리스너에 등록한다.
+  document.addEventListener "deviceready", ->
+    console.log "DeviceReady"
+    # PushPlugin을 설치했다면 window.plugins.pushNotification.register를 이용해서 iOS 푸시 서비스를 등록한다.
+    window.plugins.pushNotification.register tokenHandler, errorHandler,
+      badge: "true" # 뱃지 기능을 사용한다.
+      sound: "true" # 사운드를 사용한다.
+      alert: "true" # alert를 사용한다.
+      ecb: "onNotificationAPN" # 디바이스로 푸시가 오면 onNotificationAPN 함수를 실행할 수 있도록 ecb(event callback)에 등록한다.
+    return
