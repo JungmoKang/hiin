@@ -11,12 +11,12 @@ angular.module('hiin').controller 'eventInfoCtrl', ($scope,$rootScope,socket,$wi
   if (JSON.parse($window.localStorage.getItem 'myInfo')._id) is $scope.eventInfo.author
   	$scope.isOwner = true
   	$scope.right_link = 'edit_link'
-  return
   $rootScope.Cancel = ->
     $scope.editMode = false
     socket.emit "currentEvent"
-    $scope.right_link = ''
+    $scope.right_link = 'edit_link'
     $ionicNavBarDelegate.showBackButton(true)
+    return
   $scope.ToEditMode = ->
     if $scope.editMode is true
       Util.authReq('post','editEvent',$scope.eventInfo )
@@ -35,6 +35,11 @@ angular.module('hiin').controller 'eventInfoCtrl', ($scope,$rootScope,socket,$wi
       $scope.editMode = true
       $scope.right_link = 'save_link'
       $ionicNavBarDelegate.showBackButton(false)
+  socket.on "currentEvent", (data) ->
+    console.log "currentEvent"
+    console.log data
+    $window.localStorage.setItem 'thisEvent', JSON.stringify(data)
+    return
   $scope.InputStartDate = ->
     console.log 'input start date'
     if $window.localStorage.getItem "isPhoneGap"
