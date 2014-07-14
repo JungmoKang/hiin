@@ -2223,3 +2223,25 @@ Terminating in response to SpringBoard's termination.
 2014-07-14 14:05:58.982 Hiin[78735:70b] active
 2014-07-14 14:05:59.025 Hiin[78735:70b] Resetting plugins due to page load.
 2014-07-14 14:06:00.034 Hiin[78735:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-14 22:27:36.630 Hiin[87453:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-14 22:27:36.639 Hiin[87453:70b] Unlimited access to network resources
+2014-07-14 22:27:36.677 Hiin[87453:70b] [CDVTimer][statusbar] 17.058969ms
+2014-07-14 22:27:36.678 Hiin[87453:70b] [CDVTimer][keyboard] 0.097990ms
+2014-07-14 22:27:36.678 Hiin[87453:70b] Init FacebookConnect Session
+2014-07-14 22:27:36.681 Hiin[87453:70b] [CDVTimer][facebookconnectplugin] 2.480030ms
+2014-07-14 22:27:36.681 Hiin[87453:70b] [CDVTimer][TotalPluginStartup] 20.845056ms
+2014-07-14 22:27:36.685 Hiin[87453:70b] active
+2014-07-14 22:27:36.881 Hiin[87453:70b] Resetting plugins due to page load.
+2014-07-14 22:27:37.520 Hiin[87453:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-14 22:29:16.032 Hiin[89466:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-14 22:29:16.043 Hiin[89466:70b] Unlimited access to network resources
+2014-07-14 22:29:16.085 Hiin[89466:70b] [CDVTimer][statusbar] 13.346016ms
+2014-07-14 22:29:16.085 Hiin[89466:70b] [CDVTimer][keyboard] 0.114024ms
+2014-07-14 22:29:16.086 Hiin[89466:70b] Init FacebookConnect Session
+2014-07-14 22:29:16.089 Hiin[89466:70b] [CDVTimer][facebookconnectplugin] 2.870023ms
+2014-07-14 22:29:16.089 Hiin[89466:70b] [CDVTimer][TotalPluginStartup] 18.034995ms
+2014-07-14 22:29:16.094 Hiin[89466:70b] active
+2014-07-14 22:29:16.173 Hiin[89466:70b] Resetting plugins due to page load.
+2014-07-14 22:29:16.507 Hiin[89466:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-14 22:29:54.925 Hiin[89466:70b] active
+2014-07-14 22:30:02.056 Hiin[89466:70b] THREAD WARNING: ['Keyboard'] took '42.076172' ms. Plugin should use a background thread.
