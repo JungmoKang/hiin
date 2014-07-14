@@ -69,9 +69,11 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, s
     else if data.type is 'group' and data.range is 'blank'
       console.log '---blank----'
       console.log data
+      console.log '--tmper--'
       tempor = $scope.messages.concat data.message
       console.log tempor
       console.log 'tmper len:'+tempor.length
+      $scope.messages = tempor
     else if data.type is 'group' and data.range is 'unread'
       console.log '---unread----'
       console.log data
