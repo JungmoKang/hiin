@@ -129,7 +129,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, s
     time = new Date()
     if $scope.data.message == ""
       return
-    if $root.amIOwner is true and $rootScope.regular_msg_flg is false
+    if $rootScope.amIOwner is true and $rootScope.regular_msg_flg is false
       socket.emit "notice",{
         created_at: time
         message: $scope.data.message
