@@ -2032,3 +2032,77 @@ Terminating in response to SpringBoard's termination.
 2014-07-13 18:42:37.886 Hiin[30959:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
 2014-07-13 18:42:37.948 Hiin[30959:70b] DeviceReady
 2014-07-13 18:42:37.949 Hiin[30959:70b] error: - remote notifications are not supported in the simulator
+2014-07-14 11:35:37.663 Hiin[37988:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-14 11:35:37.705 Hiin[37988:70b] Unlimited access to network resources
+2014-07-14 11:35:38.003 Hiin[37988:70b] [CDVTimer][statusbar] 127.633989ms
+2014-07-14 11:35:38.003 Hiin[37988:70b] [CDVTimer][keyboard] 0.090003ms
+2014-07-14 11:35:38.004 Hiin[37988:70b] Init FacebookConnect Session
+2014-07-14 11:35:38.010 Hiin[37988:70b] [CDVTimer][facebookconnectplugin] 6.908000ms
+2014-07-14 11:35:38.011 Hiin[37988:70b] [CDVTimer][TotalPluginStartup] 135.888994ms
+2014-07-14 11:35:38.023 Hiin[37988:70b] active
+2014-07-14 11:35:38.183 Hiin[37988:70b] Resetting plugins due to page load.
+2014-07-14 11:35:38.849 Hiin[37988:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-14 11:39:20.895 Hiin[37988:70b] active
+2014-07-14 11:40:13.200 Hiin[41945:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-14 11:40:13.212 Hiin[41945:70b] Unlimited access to network resources
+2014-07-14 11:40:13.245 Hiin[41945:70b] [CDVTimer][statusbar] 7.561028ms
+2014-07-14 11:40:13.245 Hiin[41945:70b] [CDVTimer][keyboard] 0.095963ms
+2014-07-14 11:40:13.246 Hiin[41945:70b] Init FacebookConnect Session
+2014-07-14 11:40:13.248 Hiin[41945:70b] [CDVTimer][facebookconnectplugin] 2.488971ms
+2014-07-14 11:40:13.249 Hiin[41945:70b] [CDVTimer][TotalPluginStartup] 11.400998ms
+2014-07-14 11:40:13.253 Hiin[41945:70b] active
+2014-07-14 11:40:13.295 Hiin[41945:70b] Resetting plugins due to page load.
+2014-07-14 11:40:14.029 Hiin[41945:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-14 11:58:43.068 Hiin[41945:70b] active
+2014-07-14 12:02:48.981 Hiin[44005:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-14 12:02:48.990 Hiin[44005:70b] Unlimited access to network resources
+2014-07-14 12:02:49.021 Hiin[44005:70b] [CDVTimer][statusbar] 10.167003ms
+2014-07-14 12:02:49.022 Hiin[44005:70b] [CDVTimer][keyboard] 0.106990ms
+2014-07-14 12:02:49.022 Hiin[44005:70b] Init FacebookConnect Session
+2014-07-14 12:02:49.025 Hiin[44005:70b] [CDVTimer][facebookconnectplugin] 2.863944ms
+2014-07-14 12:02:49.026 Hiin[44005:70b] [CDVTimer][TotalPluginStartup] 14.838040ms
+2014-07-14 12:02:49.031 Hiin[44005:70b] active
+2014-07-14 12:02:49.637 Hiin[44005:70b] Resetting plugins due to page load.
+2014-07-14 12:02:50.044 Hiin[44005:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-14 12:03:19.546 Hiin[46015:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-14 12:03:19.554 Hiin[46015:70b] Unlimited access to network resources
+2014-07-14 12:03:19.594 Hiin[46015:70b] [CDVTimer][statusbar] 19.038022ms
+2014-07-14 12:03:19.595 Hiin[46015:70b] [CDVTimer][keyboard] 0.120997ms
+2014-07-14 12:03:19.596 Hiin[46015:70b] Init FacebookConnect Session
+2014-07-14 12:03:19.599 Hiin[46015:70b] [CDVTimer][facebookconnectplugin] 3.189027ms
+2014-07-14 12:03:19.600 Hiin[46015:70b] [CDVTimer][TotalPluginStartup] 24.432003ms
+2014-07-14 12:03:19.604 Hiin[46015:70b] active
+2014-07-14 12:03:19.751 Hiin[46015:70b] Resetting plugins due to page load.
+2014-07-14 12:03:20.077 Hiin[46015:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-14 12:07:50.650 Hiin[51006:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-14 12:07:50.660 Hiin[51006:70b] Unlimited access to network resources
+2014-07-14 12:07:50.690 Hiin[51006:70b] [CDVTimer][statusbar] 7.678986ms
+2014-07-14 12:07:50.691 Hiin[51006:70b] [CDVTimer][keyboard] 0.101030ms
+2014-07-14 12:07:50.691 Hiin[51006:70b] Init FacebookConnect Session
+2014-07-14 12:07:50.694 Hiin[51006:70b] [CDVTimer][facebookconnectplugin] 2.991974ms
+2014-07-14 12:07:50.695 Hiin[51006:70b] [CDVTimer][TotalPluginStartup] 12.175024ms
+2014-07-14 12:07:50.699 Hiin[51006:70b] active
+2014-07-14 12:07:50.741 Hiin[51006:70b] Resetting plugins due to page load.
+2014-07-14 12:07:51.475 Hiin[51006:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-14 12:09:15.735 Hiin[51006:70b] active
+2014-07-14 12:22:05.071 Hiin[54190:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-14 12:22:05.083 Hiin[54190:70b] Unlimited access to network resources
+2014-07-14 12:22:05.114 Hiin[54190:70b] [CDVTimer][statusbar] 8.626997ms
+2014-07-14 12:22:05.115 Hiin[54190:70b] [CDVTimer][keyboard] 0.096977ms
+2014-07-14 12:22:05.115 Hiin[54190:70b] Init FacebookConnect Session
+2014-07-14 12:22:05.118 Hiin[54190:70b] [CDVTimer][facebookconnectplugin] 2.885997ms
+2014-07-14 12:22:05.119 Hiin[54190:70b] [CDVTimer][TotalPluginStartup] 13.640046ms
+2014-07-14 12:22:05.124 Hiin[54190:70b] active
+2014-07-14 12:22:05.196 Hiin[54190:70b] Resetting plugins due to page load.
+2014-07-14 12:22:06.099 Hiin[54190:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-14 12:22:19.976 Hiin[54190:70b] active
+2014-07-14 12:34:02.580 Hiin[56276:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-14 12:34:02.586 Hiin[56276:70b] Unlimited access to network resources
+2014-07-14 12:34:02.610 Hiin[56276:70b] [CDVTimer][statusbar] 6.051004ms
+2014-07-14 12:34:02.611 Hiin[56276:70b] [CDVTimer][keyboard] 0.093997ms
+2014-07-14 12:34:02.612 Hiin[56276:70b] Init FacebookConnect Session
+2014-07-14 12:34:02.615 Hiin[56276:70b] [CDVTimer][facebookconnectplugin] 3.224015ms
+2014-07-14 12:34:02.616 Hiin[56276:70b] [CDVTimer][TotalPluginStartup] 11.213005ms
+2014-07-14 12:34:02.619 Hiin[56276:70b] active
+2014-07-14 12:34:02.724 Hiin[56276:70b] Resetting plugins due to page load.
+2014-07-14 12:34:03.596 Hiin[56276:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
