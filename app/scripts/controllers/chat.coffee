@@ -79,9 +79,8 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   #초기에 키보드가 표시되는 것을 방지하기 위한 플래그
   window.addEventListener "native.keyboardshow", (e) ->
     console.log "Keyboard height is: " + e.keyboardHeight
-    if $scope.input_mode isnt true
+    if document.activeElement.tagName is "BODY"
       cordova.plugins.Keyboard.close()
-      $scope.input_mode = true
     return
   window.addEventListener "native.keyboardhide", (e) ->
     console.log "Keyboard close"

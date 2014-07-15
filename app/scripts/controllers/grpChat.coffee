@@ -3,7 +3,6 @@
 angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, socket, Util,$location,$ionicScrollDelegate,$timeout) ->
   console.log 'grpChat'
   #group chat init
-  $scope.input_mode = false
   $scope.data = {}
   $scope.data.message = ""
   $scope.amIOwner = false
@@ -94,12 +93,11 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, s
   #초기에 키보드가 표시되는 것을 방지하기 위한 플래그
   window.addEventListener "native.keyboardshow", (e) ->
     console.log "Keyboard height is: " + e.keyboardHeight
-    if $scope.input_mode isnt true
+    if document.activeElement.tagName is "BODY"
       cordova.plugins.Keyboard.close()
     return
   window.addEventListener "native.keyboardhide", (e) ->
     console.log "Keyboard close"
-    $scope.input_mode = true
     return
   #채팅창에서만 키보드 헤더를 표시하지 않음
   ionic.DomUtil.ready ->

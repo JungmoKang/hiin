@@ -159,6 +159,25 @@ angular.module("hiin").run ($window,  Migration,　$rootScope) ->
       snd.play()
     pushNotification.setApplicationIconBadgeNumber successHandler, errorHandler, event.badge  if event.badge
     return
+  onNotification = (e) ->
+    switch e.event
+      when "registered"
+        console.log "regID = " + e.regid  if e.regid.length > 0
+      when "message"
+        # if this flag is set, this notification happened while we were in the foreground.
+        # you might want to play a sound to get the user's attention, throw up a dialog, etc.
+        if e.foreground
+          # on Android soundname is outside the payload. 
+          # On Amazon FireOS all custom attributes are contained within payload
+          soundfile = e.soundname or e.payload.sound
+          # if the notification contains a soundname, play it.
+          my_media = new Media("/android_asset/www/" + soundfile)
+          my_media.play()
+        else # otherwise we were launched because the user touched a notification in the notification tray.
+      when "error"
+        console.log "error"
+      else
+        console.log "unknown"
   document.addEventListener "deviceready", ->
     console.log "DeviceReady"
     $rootScope.deviceToken = ''
