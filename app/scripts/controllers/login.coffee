@@ -86,6 +86,7 @@ angular.module('hiin').controller 'LoginCtrl', ($rootScope, $scope,$window,$stat
 				sendData.accessToken = accessToken
 				sendData.device = $rootScope.deviceType
 				sendData.deviceToken = $rootScope.deviceToken
+				console.log sendData
 				LoginWithFacebook(sendData)
 			.then (response) ->
 				Util.ClearLocalStorage()

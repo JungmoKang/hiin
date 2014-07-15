@@ -141,6 +141,7 @@ angular.module("hiin").run ($window,  Migration,　$rootScope) ->
   # prepare database 
   $window.localDb = $window.openDatabase "hiin", "1.0", "hiin DB", 1000000
   Migration.apply $window.localDb
+  pushNotification = ''
   tokenHandler = (result) ->
     console.log "deviceToken:" + result
     $rootScope.deviceToken = result
@@ -180,6 +181,7 @@ angular.module("hiin").run ($window,  Migration,　$rootScope) ->
         console.log "unknown"
   document.addEventListener "deviceready", ->
     console.log "DeviceReady"
+    pushNotification = window.plugins.pushNotification
     $rootScope.deviceToken = ''
     if typeof device  is 'undefined' or device is null
       $rootScope.deviceType = 'web'

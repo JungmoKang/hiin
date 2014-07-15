@@ -2297,3 +2297,63 @@ Terminating in response to SpringBoard's termination.
 2014-07-15 17:18:47.180 Hiin[23017:70b] Resetting plugins due to page load.
 2014-07-15 17:18:48.499 Hiin[23017:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
 2014-07-15 17:19:09.079 Hiin[23017:70b] active
+2014-07-15 19:32:33.551 Hiin[27151:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-15 19:32:33.563 Hiin[27151:70b] Unlimited access to network resources
+2014-07-15 19:32:33.596 Hiin[27151:70b] [CDVTimer][statusbar] 12.125969ms
+2014-07-15 19:32:33.597 Hiin[27151:70b] [CDVTimer][keyboard] 0.088990ms
+2014-07-15 19:32:33.597 Hiin[27151:70b] Init FacebookConnect Session
+2014-07-15 19:32:33.599 Hiin[27151:70b] [CDVTimer][facebookconnectplugin] 2.261043ms
+2014-07-15 19:32:33.600 Hiin[27151:70b] [CDVTimer][TotalPluginStartup] 15.616000ms
+2014-07-15 19:32:33.603 Hiin[27151:70b] active
+2014-07-15 19:32:34.138 Hiin[27151:70b] Resetting plugins due to page load.
+2014-07-15 19:32:34.462 Hiin[27151:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-15 19:39:14.671 Hiin[31135:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-15 19:39:14.684 Hiin[31135:70b] Unlimited access to network resources
+2014-07-15 19:39:14.725 Hiin[31135:70b] [CDVTimer][statusbar] 19.014001ms
+2014-07-15 19:39:14.726 Hiin[31135:70b] [CDVTimer][keyboard] 0.078976ms
+2014-07-15 19:39:14.726 Hiin[31135:70b] Init FacebookConnect Session
+2014-07-15 19:39:14.728 Hiin[31135:70b] [CDVTimer][facebookconnectplugin] 2.122998ms
+2014-07-15 19:39:14.729 Hiin[31135:70b] [CDVTimer][TotalPluginStartup] 22.436023ms
+2014-07-15 19:39:14.735 Hiin[31135:70b] active
+2014-07-15 19:39:16.943 Hiin[31135:70b] Resetting plugins due to page load.
+2014-07-15 19:39:16.954 Hiin[31135:70b] active
+2014-07-15 19:39:17.312 Hiin[31135:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-15 19:39:17.446 Hiin[31135:70b] DeviceReady
+2014-07-15 19:39:17.446 Hiin[31135:70b] device type is ios
+2014-07-15 19:39:17.447 Hiin[31135:70b] error: - remote notifications are not supported in the simulator
+2014-07-15 19:39:17.988 Hiin[31135:70b] THREAD WARNING: ['FacebookConnectPlugin'] took '19.412109' ms. Plugin should use a background thread.
+2014-07-15 19:39:18.039 Hiin[31135:70b] CAAJu1mlEd8ABAFY9TRaP0K5IZAcRZBtkXUHvubpZBneJkSzfWWbbdczQJCZB7EvA1022XSuPMfM7Pqp84ZBcdLFgNZATsf1W1UUdrmgNZAMDZAzRTZCkYT3qP8ZBIwMAIfoGbnvhmvnmhhQNK6ZBkoV0OQFFzrSvGcrRKt0ZAC6xuDYORJ8h1XRDlJOJa9V3FTMET8QeuAbeHqc3qvEojZAkm2Ibe7nYrqHdESr1BbGxHMJVlUgZDZD
+2014-07-15 19:39:18.039 Hiin[31135:70b] {"accessToken":"CAAJu1mlEd8ABAFY9TRaP0K5IZAcRZBtkXUHvubpZBneJkSzfWWbbdczQJCZB7EvA1022XSuPMfM7Pqp84ZBcdLFgNZATsf1W1UUdrmgNZAMDZAzRTZCkYT3qP8ZBIwMAIfoGbnvhmvnmhhQNK6ZBkoV0OQFFzrSvGcrRKt0ZAC6xuDYORJ8h1XRDlJOJa9V3FTMET8QeuAbeHqc3qvEojZAkm2Ibe7nYrqHdESr1BbGxHMJVlUgZDZD","device":"ios","deviceToken":""}
+2014-07-15 19:39:18.039 Hiin[31135:70b] http://ec2-54-86-232-223.compute-1.amazonaws.com:3000/loginWithFacebook
+2014-07-15 19:39:19.021 Hiin[31135:70b] -suc-check organizer
+2014-07-15 19:39:19.021 Hiin[31135:70b] {"status":"0","organizer":"organizer"}
+2014-07-15 19:39:19.021 Hiin[31135:70b] ---organizer state----
+2014-07-15 19:39:19.418 Hiin[31135:70b] list myInfo
+2014-07-15 19:39:19.419 Hiin[31135:70b] {"loginType":"facebook","job":"none","_id":"53bf4131d0b53b8c40807373","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","organizer":"organizer","status":"on","gender":"male","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","email":"moya.kang@gmail.com","enteredEvent":"6494","firstName":"Jungmo"}
+2014-07-15 19:40:21.097 Hiin[31135:70b] list myInfo
+2014-07-15 19:40:21.098 Hiin[31135:70b] {"loginType":"facebook","job":"none","_id":"53bf4131d0b53b8c40807373","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","organizer":"organizer","status":"sleep","gender":"male","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","email":"moya.kang@gmail.com","enteredEvent":"6494","firstName":"Jungmo"}
+2014-07-15 19:40:44.343 Hiin[31135:70b] list myInfo
+2014-07-15 19:40:44.343 Hiin[31135:70b] {"loginType":"facebook","job":"none","_id":"53bf4131d0b53b8c40807373","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","organizer":"organizer","status":"sleep","gender":"male","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","email":"moya.kang@gmail.com","enteredEvent":"6494","firstName":"Jungmo"}
+2014-07-15 19:41:23.924 Hiin[31135:70b] On Pause
+2014-07-15 19:41:26.929 Hiin[35117:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-15 19:41:26.939 Hiin[35117:70b] Unlimited access to network resources
+2014-07-15 19:41:26.971 Hiin[35117:70b] [CDVTimer][statusbar] 10.087013ms
+2014-07-15 19:41:26.972 Hiin[35117:70b] [CDVTimer][keyboard] 0.102043ms
+2014-07-15 19:41:26.972 Hiin[35117:70b] Init FacebookConnect Session
+2014-07-15 19:41:26.975 Hiin[35117:70b] [CDVTimer][facebookconnectplugin] 2.791047ms
+2014-07-15 19:41:26.976 Hiin[35117:70b] [CDVTimer][TotalPluginStartup] 14.657021ms
+2014-07-15 19:41:26.981 Hiin[35117:70b] active
+2014-07-15 19:41:27.582 Hiin[35117:70b] Resetting plugins due to page load.
+2014-07-15 19:41:27.897 Hiin[35117:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-15 19:41:27.959 Hiin[35117:70b] transaction function finished
+2014-07-15 19:41:27.959 Hiin[35117:70b] DeviceReady
+2014-07-15 19:41:27.960 Hiin[35117:70b] device type is ios
+2014-07-15 19:41:27.961 Hiin[35117:70b] error: - remote notifications are not supported in the simulator
+2014-07-15 19:41:28.771 Hiin[35117:70b] CAAJu1mlEd8ABAFY9TRaP0K5IZAcRZBtkXUHvubpZBneJkSzfWWbbdczQJCZB7EvA1022XSuPMfM7Pqp84ZBcdLFgNZATsf1W1UUdrmgNZAMDZAzRTZCkYT3qP8ZBIwMAIfoGbnvhmvnmhhQNK6ZBkoV0OQFFzrSvGcrRKt0ZAC6xuDYORJ8h1XRDlJOJa9V3FTMET8QeuAbeHqc3qvEojZAkm2Ibe7nYrqHdESr1BbGxHMJVlUgZDZD
+2014-07-15 19:41:28.771 Hiin[35117:70b] {"accessToken":"CAAJu1mlEd8ABAFY9TRaP0K5IZAcRZBtkXUHvubpZBneJkSzfWWbbdczQJCZB7EvA1022XSuPMfM7Pqp84ZBcdLFgNZATsf1W1UUdrmgNZAMDZAzRTZCkYT3qP8ZBIwMAIfoGbnvhmvnmhhQNK6ZBkoV0OQFFzrSvGcrRKt0ZAC6xuDYORJ8h1XRDlJOJa9V3FTMET8QeuAbeHqc3qvEojZAkm2Ibe7nYrqHdESr1BbGxHMJVlUgZDZD","device":"ios","deviceToken":""}
+2014-07-15 19:41:28.772 Hiin[35117:70b] http://ec2-54-86-232-223.compute-1.amazonaws.com:3000/loginWithFacebook
+2014-07-15 19:41:29.794 Hiin[35117:70b] -suc-check organizer
+2014-07-15 19:41:29.794 Hiin[35117:70b] {"status":"0","organizer":"organizer"}
+2014-07-15 19:41:29.794 Hiin[35117:70b] ---organizer state----
+2014-07-15 19:41:30.191 Hiin[35117:70b] list myInfo
+2014-07-15 19:41:30.192 Hiin[35117:70b] {"loginType":"facebook","job":"none","_id":"53bf4131d0b53b8c40807373","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","organizer":"organizer","status":"sleep","gender":"male","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","email":"moya.kang@gmail.com","enteredEvent":"6494","firstName":"Jungmo"}
