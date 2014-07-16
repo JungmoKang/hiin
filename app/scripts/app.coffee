@@ -142,6 +142,7 @@ angular.module("hiin").run ($window,  Migration,　$rootScope) ->
   $window.localDb = $window.openDatabase "hiin", "1.0", "hiin DB", 1000000
   Migration.apply $window.localDb
   pushNotification = ''
+  $rootScope.deviceType = 'web'
   tokenHandler = (result) ->
     console.log "deviceToken:" + result
     $rootScope.deviceToken = result
