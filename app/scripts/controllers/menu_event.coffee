@@ -27,9 +27,11 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     $scope.myId = new Array()
     $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
     socket.emit "enteredEventList"
-  socket.on "enteredEventList", (data) ->
+  #socket events
+  enteredEventList = (data) ->
     $scope.events = data
-  socket.on "myInfo", (data) ->
+    return
+  myInfo = (data) ->
     console.log "list myInfo"
     console.log data
     $window.localStorage.setItem 'myInfo', JSON.stringify(data)
@@ -37,6 +39,24 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
     socket.emit "enteredEventList"
     return
+  socket.on "myInfo", myInfo
+  socket.on "enteredEventList", enteredEventList
+  # ↑
+  #socket events of all
+  # private chat
+  socket.on "message", (data) ->
+    console.log 'ms'
+    console.log data
+  # group chat
+  socket.on "groupMessage", (data) ->
+    console.log "grp chat,groupMessage"
+    console.log data
+    return
+  # hi
+  socket.on "hi", (data) ->
+    console.log 'on hi'
+    console.log data
+  #↑
   $rootScope.onResume = ->
     console.log "On Resume"
     socket.emit "resume"
@@ -52,7 +72,8 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   #↑init
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
-    socket.removeAllListeners()
+    socket.removeListener("enteredEventList",enteredEventList)
+    socket.removeListener("myInfo",myInfo)
     if $scope.modal?
       $scope.modal.hide()
     return  

@@ -16,13 +16,6 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, s
       if !$rootScope.regular_msg_flg?
         $rootScope.regular_msg_flg = false
       socket.emit "currentEventUserList"
-      socket.on "currentEventUserList", (data) ->
-        console.log "list currentEventUserList"
-        $scope.userNum = data.length + 1
-        console.log data
-      socket.on "userListChange", (data) ->
-        console.log 'userListChange'
-        $scope.userNum = data.message.usersNumber
   messageKey = thisEvent + '_groupMessage'
   $scope.roomName = "GROUP CHAT"
   if $window.localStorage.getItem messageKey
@@ -54,9 +47,25 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, s
                               range: "pastThirty"
                               firstMsgTime: $scope.messages[0].created_at
     }
-
-
-  socket.on 'loadMsgs', (data)->
+  # socket event ↓
+  currentEventUserList = (data) ->
+    console.log "list currentEventUserList"
+    $scope.userNum = data.length + 1
+    console.log data
+    return
+  userListChange = (data) ->
+    console.log 'userListChange'
+    $scope.userNum = data.message.usersNumber
+    return
+  groupMessage = (data) ->
+    console.log "grp chat,groupMessage"
+    if $scope.myInfo._id == data.sender
+      data.sender_name = 'me'
+    $scope.messages.push data
+    $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
+    $ionicScrollDelegate.scrollBottom()
+    return
+  loadMsgs = (data)->
     if data.message
       data.message.forEach (item)->
         if item.sender is $scope.myInfo._id
@@ -91,6 +100,12 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, s
       $scope.$broadcast('scroll.refreshComplete')
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
+    return
+  socket.on "currentEventUserList", currentEventUserList
+  socket.on "userListChange", userListChange
+  socket.on "groupMessage", groupMessage
+  socket.on 'loadMsgs', loadMsgs
+  # ↑
   window.addEventListener "native.keyboardshow", (e) ->
     console.log "Keyboard height is: " + e.keyboardHeight
     if document.activeElement.tagName is "BODY"
@@ -115,7 +130,10 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, s
   $scope.$on "$destroy", (event) ->
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
-    socket.removeAllListeners()
+    socket.removeListener("currentEventUserList", currentEventUserList)
+    socket.removeListener("userListChange", userListChange)
+    socket.removeListener("groupMessage", groupMessage)
+    socket.removeListener('loadMsgs', loadMsgs)
     temp = $scope.messages
     len = temp.length
     console.log 'mlen:'+len
@@ -123,14 +141,6 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, s
       window.localStorage[messageKey]=JSON.stringify(temp.slice(len-30,temp.length))
     return  
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
-  socket.on "groupMessage", (data) ->
-    console.log "grp chat,groupMessage"
-    if $scope.myInfo._id == data.sender
-      data.sender_name = 'me'
-    $scope.messages.push data
-    $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
-    $ionicScrollDelegate.scrollBottom()
-    return
   $scope.sendMessage =->
     time = new Date()
     if $scope.data.message == ""

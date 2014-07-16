@@ -2,16 +2,6 @@
 
 angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util,Host,$q,$state,$filter,$timeout) ->
   #init
-  ###
-  	$scope.sDate = 
-      minDate: new Date()
-      onSelect: (dateText, inst) ->
-      	$scope.eDate.minDate = new Date(dateText)
-      	$scope.eventInfo.endDate = $scope.eventInfo.startDate
-      	console.log dateText
-    $scope.eDate = 
-    	minDate: new Date()
-  ###
   $scope.InputStartDate = ->
     console.log 'input start date'
     if $window.localStorage.getItem "isPhoneGap"

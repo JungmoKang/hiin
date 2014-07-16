@@ -43,9 +43,8 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
                               range: "pastThirty"
                               firstMsgTime: $scope.messages[0].created_at
     }
-
-
-  socket.on 'loadMsgs', (data)->
+  # socket event ↓
+  loadMsgs = (data)->
     if data.message
       data.message.forEach (item)->
         if item.sender is $scope.myInfo._id
@@ -70,6 +69,29 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
       $scope.$broadcast('scroll.refreshComplete')
     $scope.$apply()
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
+    return
+  getUserInfo = (data) ->
+    console.log "chat,getUserInfo"
+    $scope.opponent = data
+    $scope.partner = data.firstName
+    $scope.roomName = "CHAT WITH " + data.firstName
+    return
+  message = (data) ->
+    console.log 'ms'
+    console.log data
+    if data.status < 0
+      return
+    if data.sender isnt $stateParams.userId
+      return
+    #read function here later
+    $scope.messages.push data
+    $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
+    $ionicScrollDelegate.scrollBottom()
+    return
+  socket.on 'loadMsgs', loadMsgs
+  socket.on "getUserInfo", getUserInfo
+  socket.on "message", message
+  # ↑
   #상대방의 정보 습득
   socket.emit "getUserInfo",{
       targetId: $stateParams.userId
@@ -100,7 +122,10 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   $scope.$on "$destroy", (event) ->
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
-    socket.removeAllListeners()
+    #등록된 이벤트 삭제
+    socket.removeListener("loadMsgs",loadMsgs)
+    socket.removeListener("getUserInfo",getUserInfo)
+    socket.removeListener("message",message)
     temp = $scope.messages
     len = temp.length
     console.log 'mlen:'+len
@@ -108,22 +133,6 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
       window.localStorage[messageKey]=JSON.stringify(temp.slice(len-30,temp.length))
     return  
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
-  socket.on "getUserInfo", (data) ->
-    console.log "chat,getUserInfo"
-    $scope.opponent = data
-    $scope.partner = data.firstName
-    $scope.roomName = "CHAT WITH " + data.firstName
-  socket.on "message", (data) ->
-    console.log 'ms'
-    console.log data
-    if data.status < 0
-      return
-    if data.sender isnt $stateParams.userId
-      return
-    #read function here later
-    $scope.messages.push data
-    $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
-    $ionicScrollDelegate.scrollBottom()
   $scope.sendMessage =->
   	if $scope.data.message == ""
       return

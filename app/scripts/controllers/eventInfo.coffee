@@ -3,7 +3,7 @@
 angular.module('hiin').controller 'eventInfoCtrl', ($scope,$rootScope,socket,$window,Util,$modal,$filter,$ionicNavBarDelegate) ->
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
-    socket.removeAllListeners()
+    socket.removeListener("currentEvent",currentEvent)
     return
   $scope.eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
   $scope.startDate = $filter('date')(new Date($scope.eventInfo.startDate), 'MMM d, h:mm a')
@@ -35,11 +35,14 @@ angular.module('hiin').controller 'eventInfoCtrl', ($scope,$rootScope,socket,$wi
       $scope.editMode = true
       $scope.right_link = 'save_link'
       $ionicNavBarDelegate.showBackButton(false)
-  socket.on "currentEvent", (data) ->
+  # socket event ↓
+  currentEvent = (data) ->
     console.log "currentEvent"
     console.log data
     $window.localStorage.setItem 'thisEvent', JSON.stringify(data)
     return
+  socket.on "currentEvent", currentEvent
+  # ↑
   $scope.InputStartDate = ->
     console.log 'input start date'
     if $window.localStorage.getItem "isPhoneGap"

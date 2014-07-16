@@ -4,29 +4,25 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope,$location,
     socket.emit "activity"
     #scope가 destroy될때, 등록한 이벤트를 모두 지움
     $scope.$on "$destroy", (event) ->
-      socket.removeAllListeners()
+      socket.removeListener("activity",activity)
       return
-    socket.emit "myInfo"
-    socket.on "myInfo", (data) ->
-      console.log "list myInfo"
-      $scope.myInfo = data
-      return
-
-    socket.on "activity", (data)->
+    $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
+    # socket event ↓
+    activity = (data)->
       $scope.rank = data.rank
       $scope.activitys = data.activity
       console.log "activity"
       console.log data
-
+      return
+    socket.on "activity", activity
+    # ↑
     $scope.showRank =->
       $scope.modalInstance = $modal.open(
         templateUrl: "views/list/rank_modal.html"
         scope: $scope
       )
-
     $scope.ok = -> 
         $scope.modalInstance.close()
-
     $scope.ShowProfile = (user) ->
       console.log user
       $scope.user = user
@@ -40,13 +36,11 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope,$location,
         $scope.modalInstance = null
         return
       $scope.modalInstance = modalInstance
-
     $scope.chatRoom = (user) ->
       console.log(user)
       if $scope.modalInstance? 
         $scope.modalInstance.close()
       $location.url('/list/userlists/'+user._id)
-
     $scope.sayHi = (user) ->
       if user.status == '0'
         console.log 'sayhi'
@@ -55,7 +49,6 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope,$location,
             targetId : user._id
           }, 100000
         return
-
 angular.module('hiin').filter 'convertMsg', () ->
   return (activity) -> 
     if activity.lastMsg.type == 'hi' 

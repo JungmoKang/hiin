@@ -65,44 +65,42 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   $scope.users = []
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
-    socket.removeAllListeners()
+    socket.removeListener("myInfo", myInfo)
+    socket.removeListener("unReadCount", unReadCount)
+    socket.removeListener("unReadCountGroup", unReadCountGroup)
+    socket.removeListener("currentEventUserList", currentEventUserList)
+    socket.removeListener("userListChange", userListChange)
+    socket.removeListener("hi", hi)
+    socket.removeListener("hiMe", hiMe)
+    socket.removeListener("pendingHi", pendingHi)
     return
-  socket.on "myInfo", (data) ->
+  # socket event ↓
+  myInfo = (data) ->
     console.log "list myInfo"
     console.log data
     $window.localStorage.setItem 'myInfo', JSON.stringify(data)
     return
-  socket.on "unReadCount", (data) ->
+  unReadCount = (data) ->
     console.log '--unread count---'
     console.log data
     $scope.unreadActivity = data.count
     return
-  socket.on "unReadCountGroup", (data) ->
+  unReadCountGroup = (data) ->
     console.log '--unread count---'
     console.log data
     $scope.unreadGroup = data.count
     return
-  socket.on "currentEventUserList", (data) ->
+  currentEventUserList = (data) ->
     console.log "list currentEventUserList"
     $scope.users = data
     console.log data
-  socket.on "userListChange", (data) ->
+    return
+  userListChange = (data) ->
     console.log 'userListChange'
     console.log data
     socket.emit "currentEventUserList"
-  $scope.chatRoom = (user) ->
-    if $scope.modalInstance? 
-      $scope.modalInstance.close()
-    $location.url('/list/userlists/'+user._id)
-  $scope.sayHi = (user) ->
-    if user.status is '0' or user.status is '2'
-      console.log 'sayhi'
-      setTimeout () -> 
-        socket.emit "hi" , {
-          targetId : user._id
-        }, 100000
-      return
-  socket.on "hi", (data) ->
+    return
+  hi = (data) ->
     console.log 'on hi'
     $scope.sendHi = data.fromName
     modalInstance = $modal.open(
@@ -116,16 +114,40 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       return
     $scope.modalInstance = modalInstance
     socket.emit "currentEventUserList"
-  socket.on "hiMe", (data) ->
+    return
+  hiMe = (data) ->
     console.log 'on hiMe'
     socket.emit "currentEventUserList"
-  socket.on "pendingHi", (data) ->
+    return
+  pendingHi = (data) ->
     console.log 'on pendinghi'
     console.log "list pedinghi"
     if data.status isnt "0"
       console.log('error':data.status)
       return
     socket.emit "currentEventUserList"
+    return
+  socket.on "myInfo", myInfo
+  socket.on "unReadCount", unReadCount
+  socket.on "unReadCountGroup", unReadCountGroup
+  socket.on "currentEventUserList", currentEventUserList
+  socket.on "userListChange", userListChange
+  socket.on "hi", hi
+  socket.on "hiMe", hiMe
+  socket.on "pendingHi", pendingHi
+  # ↑
+  $scope.chatRoom = (user) ->
+    if $scope.modalInstance? 
+      $scope.modalInstance.close()
+    $location.url('/list/userlists/'+user._id)
+  $scope.sayHi = (user) ->
+    if user.status is '0' or user.status is '2'
+      console.log 'sayhi'
+      setTimeout () -> 
+        socket.emit "hi" , {
+          targetId : user._id
+        }, 100000
+      return
   $scope.activity = ->
   	$location.url('/list/activity')
   $scope.groupChat = ->
