@@ -30,13 +30,15 @@ angular.module("hiin").directive "ngChatInput", ($timeout) ->
           return
       return
     element.bind "blur", (e) ->
+      console.log 'blur'
+      console.log document.activeElement.tagName
       if scope.onBlur
         $timeout ->
           scope.onBlur()
           return
       return
     element.bind "keydown", (e) ->
-      console.log e
+      console.log 'keydown'
       if e.which is 13
         console.log 'entered'
         element[0].blur()  if scope.returnClose

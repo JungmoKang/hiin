@@ -11,19 +11,19 @@ ion-view.messaging-view(title='{{roomName}}',ontouchstart='return false;')
     div.msg 
       p.big NO MESSAGES YET
       p.normal Introduce yourself?
-  .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }',ontouchstart='console.log("input touch")')
+  .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }')
     div(ng-if="!amIOwner")
       .row
         .col-80
           input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
-            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()')
+            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()' autocorrect="off")
         .col-20
           button.send(ng-click='sendMessage()') SEND
     div(ng-if="amIOwner")
       .row
         .col.col-70
           input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
-            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()')
+            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' onblur ='test()' on-blur='inputDown()' autocorrect="off")
         .col.col-10
           button.owner_msg_on(ng-click='toggleOwnerMsg()', ng-class="regular_msg_flg ? 'owner_msg_on' : 'owner_msg_off' ")
         .col.col-20

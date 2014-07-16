@@ -76,14 +76,22 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     }
   $scope.data = {}
   $scope.data.message = ""
-  #초기에 키보드가 표시되는 것을 방지하기 위한 플래그
   window.addEventListener "native.keyboardshow", (e) ->
     console.log "Keyboard height is: " + e.keyboardHeight
     if document.activeElement.tagName is "BODY"
       cordova.plugins.Keyboard.close()
+      return
+    window.scroll(0,0)
+    $scope.data.keyboardHeight = e.keyboardHeight
+    $timeout (->
+      $ionicScrollDelegate.scrollBottom true
+      return
+    ), 200
     return
   window.addEventListener "native.keyboardhide", (e) ->
     console.log "Keyboard close"
+    $scope.data.keyboardHeight = 0
+    $ionicScrollDelegate.resize()
     return
   #채팅창에서만 키보드 헤더를 표시하지 않음
   ionic.DomUtil.ready ->
@@ -136,15 +144,6 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     $ionicScrollDelegate.scrollBottom()
   $scope.inputUp = ->
     console.log 'inputUp'
-    $scope.data.keyboardHeight = 216  if isIOS
-    $timeout (->
-      $ionicScrollDelegate.scrollBottom true
-      return
-    ), 300
-    return
   $scope.inputDown = ->
     console.log 'inputDown'
-    $scope.data.keyboardHeight = 0  if isIOS
-    $ionicScrollDelegate.resize()
     return
-  return
