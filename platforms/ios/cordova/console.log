@@ -6707,3 +6707,507 @@ Jul 16 11:47:41 JungmoKang-no-MacBook-Pro.local Hiin[8537] <Error>: CGContextRes
 2014-07-16 16:09:08.575 Hiin[22778:70b] {"count":6}
 2014-07-16 16:09:08.737 Hiin[22778:70b] list currentEventUserList
 2014-07-16 16:09:08.738 Hiin[22778:70b] [{"_id":"53c361371cc0d0614f61e869","firstName":"aaaaa","lastName":"aaaaa","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"9540","rank":5},{"_id":"53c2390f1cc0d0614f61e840","firstName":"fsad","lastName":"fsad","gender":"1","job":"fsad","photoUrl":"profileImageOriginal/46ef62eb58acc4ab_1405237515954.png","thumbnailUrl":"profileImageThumbnail/46ef62eb58acc4ab_1405237515954_thumb.png","organizer":"organizer","status":"3","email":"t1@test.com","enteredEvent":"9540","loginType":"normal","birth":"undefined","device":"","deviceToken":"","rank":8},{"_id":"53c363601cc0d0614f61e86d","firstName":"fsda","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"9540","rank":3},{"_id":"53c353a41cc0d0614f61e858","firstName":"bbbbbb","lastName":"bbb","gender":"1","job":"bbb","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"9540","rank":2},{"_id":"53c34fdd1cc0d0614f61e853","firstName":"fsafasd","lastName":"fsafsdafas","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"9540","rank":4},{"_id":"53c35ffb1cc0d0614f61e863","firstName":"fsda","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","enteredEvent":"9540","status":"3","rank":1},{"_id":"53c354e71cc0d0614f61e85e","firstName":"fasdfsadfsd","lastName":"fsadfsadfsad","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"9540","rank":6},{"_id":"53c364a61cc0d0614f61e873","firstName":"gsdfgsdfgdfsg","lastName":"gdfsgdfsgdfsgdfs","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","enteredEvent":"9540","status":"1","rank":7}]
+2014-07-17 00:03:57.810 Hiin[29014:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-17 00:03:57.821 Hiin[29014:70b] Unlimited access to network resources
+2014-07-17 00:03:57.961 Hiin[29014:70b] [CDVTimer][statusbar] 18.013000ms
+2014-07-17 00:03:57.962 Hiin[29014:70b] [CDVTimer][keyboard] 0.097990ms
+2014-07-17 00:03:57.962 Hiin[29014:70b] Init FacebookConnect Session
+2014-07-17 00:03:57.965 Hiin[29014:70b] [CDVTimer][facebookconnectplugin] 3.084004ms
+2014-07-17 00:03:57.966 Hiin[29014:70b] [CDVTimer][TotalPluginStartup] 22.670984ms
+2014-07-17 00:03:57.970 Hiin[29014:70b] active
+2014-07-17 00:03:58.809 Hiin[29014:70b] Resetting plugins due to page load.
+2014-07-17 00:03:59.176 Hiin[29014:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-17 00:03:59.258 Hiin[29014:70b] DeviceReady
+2014-07-17 00:03:59.258 Hiin[29014:70b] device type is ios
+2014-07-17 00:03:59.259 Hiin[29014:70b] error: - remote notifications are not supported in the simulator
+2014-07-17 00:04:00.482 Hiin[29014:70b] CAAJu1mlEd8ABAFY9TRaP0K5IZAcRZBtkXUHvubpZBneJkSzfWWbbdczQJCZB7EvA1022XSuPMfM7Pqp84ZBcdLFgNZATsf1W1UUdrmgNZAMDZAzRTZCkYT3qP8ZBIwMAIfoGbnvhmvnmhhQNK6ZBkoV0OQFFzrSvGcrRKt0ZAC6xuDYORJ8h1XRDlJOJa9V3FTMET8QeuAbeHqc3qvEojZAkm2Ibe7nYrqHdESr1BbGxHMJVlUgZDZD
+2014-07-17 00:04:00.483 Hiin[29014:70b] {"accessToken":"CAAJu1mlEd8ABAFY9TRaP0K5IZAcRZBtkXUHvubpZBneJkSzfWWbbdczQJCZB7EvA1022XSuPMfM7Pqp84ZBcdLFgNZATsf1W1UUdrmgNZAMDZAzRTZCkYT3qP8ZBIwMAIfoGbnvhmvnmhhQNK6ZBkoV0OQFFzrSvGcrRKt0ZAC6xuDYORJ8h1XRDlJOJa9V3FTMET8QeuAbeHqc3qvEojZAkm2Ibe7nYrqHdESr1BbGxHMJVlUgZDZD","device":"ios","deviceToken":""}
+2014-07-17 00:04:00.483 Hiin[29014:70b] http://192.168.11.5:3000/loginWithFacebook
+2014-07-17 00:04:01.071 Hiin[29014:70b] -suc-check organizer
+2014-07-17 00:04:01.071 Hiin[29014:70b] {"status":"0","organizer":"organizer"}
+2014-07-17 00:04:01.072 Hiin[29014:70b] ---organizer state----
+2014-07-17 00:04:01.091 Hiin[29014:70b] list myInfo
+2014-07-17 00:04:01.091 Hiin[29014:70b] {"device":"ios","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"5811","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:04:03.919 Hiin[29014:70b] list this event is 1049
+2014-07-17 00:04:04.049 Hiin[29014:70b] list myInfo
+2014-07-17 00:04:04.049 Hiin[29014:70b] {"device":"ios","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"1049","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:04:04.049 Hiin[29014:70b] --unread count---
+2014-07-17 00:04:04.050 Hiin[29014:70b] {"count":21}
+2014-07-17 00:04:04.050 Hiin[29014:70b] --unread count---
+2014-07-17 00:04:04.050 Hiin[29014:70b] {"count":1}
+2014-07-17 00:04:04.050 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:04:04.051 Hiin[29014:70b] [{"device":"","deviceToken":"","_id":"53c6255f7ac5f9da5a140da9","firstName":"fdsa","lastName":"fdsa","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"1049","rank":2},{"_id":"53be6d9690b7e0bd013ece95","firstName":"Shxhxh","lastName":"Shdhsh","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","email":"shahshs@ajsnsn","enteredEvent":"1049","rank":3,"status":"1"}]
+2014-07-17 00:04:04.051 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:04:04.051 Hiin[29014:70b] 3
+2014-07-17 00:04:04.052 Hiin[29014:70b] btn Status = in
+2014-07-17 00:04:04.052 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:04:04.052 Hiin[29014:70b] 3
+2014-07-17 00:04:04.052 Hiin[29014:70b] btn Status = in
+2014-07-17 00:04:04.053 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:04:04.053 Hiin[29014:70b] 1
+2014-07-17 00:04:04.053 Hiin[29014:70b] btn Status = in
+2014-07-17 00:04:04.053 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:04:04.054 Hiin[29014:70b] 1
+2014-07-17 00:04:04.054 Hiin[29014:70b] btn Status = in
+2014-07-17 00:04:08.208 Hiin[29014:70b] -suc-check organizer
+2014-07-17 00:04:08.208 Hiin[29014:70b] {"status":"0","organizer":"organizer"}
+2014-07-17 00:04:08.208 Hiin[29014:70b] ---organizer state----
+2014-07-17 00:04:10.460 Hiin[29014:70b] input start date
+Jul 17 00:04:10 JungmoKang-no-MacBook-Pro.local Hiin[29014] <Error>: CGContextSetFillColorWithColor: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul 17 00:04:10 JungmoKang-no-MacBook-Pro.local Hiin[29014] <Error>: CGContextSetStrokeColorWithColor: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul 17 00:04:10 JungmoKang-no-MacBook-Pro.local Hiin[29014] <Error>: CGContextSaveGState: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul 17 00:04:10 JungmoKang-no-MacBook-Pro.local Hiin[29014] <Error>: CGContextSetFlatness: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul 17 00:04:10 JungmoKang-no-MacBook-Pro.local Hiin[29014] <Error>: CGContextAddPath: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul 17 00:04:10 JungmoKang-no-MacBook-Pro.local Hiin[29014] <Error>: CGContextDrawPath: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+Jul 17 00:04:10 JungmoKang-no-MacBook-Pro.local Hiin[29014] <Error>: CGContextRestoreGState: invalid context 0x0. This is a serious error. This application, or a library it uses, is using an invalid context  and is thereby contributing to an overall degradation of system stability and reliability. This notice is a courtesy: please fix this problem. It will become a fatal error in an upcoming update.
+2014-07-17 00:04:10.493 Hiin[29014:70b] THREAD WARNING: ['DatePicker'] took '33.246094' ms. Plugin should use a background thread.
+2014-07-17 00:04:12.164 Hiin[29014:70b] show modal
+2014-07-17 00:04:12.189 Hiin[29014:70b] $http.success
+2014-07-17 00:04:13.161 Hiin[29014:70b] {"status":"0","eventCode":"7492"}
+2014-07-17 00:04:22.710 Hiin[29014:70b] list this event is 7492
+2014-07-17 00:04:22.784 Hiin[29014:70b] list myInfo
+2014-07-17 00:04:22.784 Hiin[29014:70b] {"device":"ios","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"7492","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:04:22.785 Hiin[29014:70b] --unread count---
+2014-07-17 00:04:22.785 Hiin[29014:70b] {"count":0}
+2014-07-17 00:04:22.785 Hiin[29014:70b] --unread count---
+2014-07-17 00:04:22.785 Hiin[29014:70b] {"count":0}
+2014-07-17 00:04:22.793 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:04:22.793 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"7492","rank":1}]
+2014-07-17 00:04:22.793 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:04:22.794 Hiin[29014:70b] 0
+2014-07-17 00:04:22.794 Hiin[29014:70b] btn status = hi
+2014-07-17 00:04:22.794 Hiin[29014:70b] 0
+2014-07-17 00:04:22.794 Hiin[29014:70b] 0
+2014-07-17 00:04:22.794 Hiin[29014:70b] btn status = hi
+2014-07-17 00:04:24.685 Hiin[29014:70b] sayhi
+2014-07-17 00:04:24.685 Hiin[29014:70b] addclass
+2014-07-17 00:04:24.703 Hiin[29014:70b] on hiMe
+2014-07-17 00:04:24.725 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:04:24.726 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"7492","rank":2}]
+2014-07-17 00:04:24.726 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:04:24.727 Hiin[29014:70b] 1
+2014-07-17 00:04:24.727 Hiin[29014:70b] btn Status = in
+2014-07-17 00:04:24.728 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:04:24.728 Hiin[29014:70b] 1
+2014-07-17 00:04:24.729 Hiin[29014:70b] btn Status = in
+2014-07-17 00:04:24.729 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:04:24.729 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"7492","rank":2}]
+2014-07-17 00:09:27.670 Hiin[29014:70b] list myInfo
+2014-07-17 00:09:27.670 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"7492","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:09:38.458 Hiin[29014:70b] userListChange
+2014-07-17 00:09:38.459 Hiin[29014:70b] {"status":"0","message":{"usersNumber":2}}
+2014-07-17 00:09:38.489 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:09:38.489 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"1159","rank":1}]
+2014-07-17 00:09:38.489 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:09:38.490 Hiin[29014:70b] 0
+2014-07-17 00:09:38.490 Hiin[29014:70b] btn status = hi
+2014-07-17 00:09:38.490 Hiin[29014:70b] 0
+2014-07-17 00:09:38.490 Hiin[29014:70b] 0
+2014-07-17 00:09:38.491 Hiin[29014:70b] btn status = hi
+2014-07-17 00:09:39.618 Hiin[29014:70b] list myInfo
+2014-07-17 00:09:39.618 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"1159","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:09:39.624 Hiin[29014:70b] --unread count---
+2014-07-17 00:09:39.624 Hiin[29014:70b] {"count":0}
+2014-07-17 00:09:39.624 Hiin[29014:70b] --unread count---
+2014-07-17 00:09:39.625 Hiin[29014:70b] {"count":0}
+2014-07-17 00:09:39.630 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:09:39.630 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"1159","rank":1}]
+2014-07-17 00:09:41.680 Hiin[29014:70b] on hiMe
+2014-07-17 00:09:41.709 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:09:41.709 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"1159","rank":2}]
+2014-07-17 00:09:41.710 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:09:41.710 Hiin[29014:70b] 1
+2014-07-17 00:09:41.711 Hiin[29014:70b] btn Status = in
+2014-07-17 00:09:41.711 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:09:41.711 Hiin[29014:70b] 1
+2014-07-17 00:09:41.711 Hiin[29014:70b] btn Status = in
+2014-07-17 00:09:41.727 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:09:41.727 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"1159","rank":2}]
+2014-07-17 00:09:49.942 Hiin[29014:70b] on hi
+2014-07-17 00:09:49.943 Hiin[29014:70b] {"status":"1","from":"53c6838b740814da6e2d44a1","fromName":"ㄹㅇㅁ","regTime":"2014-07-16T15:09:49.935Z"}
+2014-07-17 00:09:49.943 Hiin[29014:70b] on hi
+2014-07-17 00:09:49.943 Hiin[29014:70b] {"status":"1","from":"53c6838b740814da6e2d44a1","fromName":"ㄹㅇㅁ","regTime":"2014-07-16T15:09:49.935Z"}
+2014-07-17 00:09:49.944 Hiin[29014:70b] on hi
+2014-07-17 00:09:50.026 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:09:50.026 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"1159","rank":1}]
+2014-07-17 00:09:50.026 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:09:50.027 Hiin[29014:70b] 3
+2014-07-17 00:09:50.027 Hiin[29014:70b] btn Status = in
+2014-07-17 00:09:50.027 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:09:50.027 Hiin[29014:70b] 3
+2014-07-17 00:09:50.027 Hiin[29014:70b] btn Status = in
+2014-07-17 00:09:50.027 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:09:50.028 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"1159","rank":1}]
+2014-07-17 00:10:10.776 Hiin[29014:70b] list myInfo
+2014-07-17 00:10:10.776 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"1159","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"sleep","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:10:10.778 Hiin[29014:70b] --unread count---
+2014-07-17 00:10:10.779 Hiin[29014:70b] {"count":0}
+2014-07-17 00:10:10.783 Hiin[29014:70b] --unread count---
+2014-07-17 00:10:10.783 Hiin[29014:70b] {"count":0}
+2014-07-17 00:10:10.783 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:10:10.784 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"1159","rank":1}]
+2014-07-17 00:10:27.476 Hiin[29014:70b] userListChange
+2014-07-17 00:10:27.476 Hiin[29014:70b] {"status":"0","message":{"usersNumber":2}}
+2014-07-17 00:10:27.494 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:10:27.494 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"0008","rank":1}]
+2014-07-17 00:10:27.495 Hiin[29014:70b] 0
+2014-07-17 00:10:27.495 Hiin[29014:70b] btn status = hi
+2014-07-17 00:10:30.402 Hiin[29014:70b] list myInfo
+2014-07-17 00:10:30.402 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"0008","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:10:30.404 Hiin[29014:70b] --unread count---
+2014-07-17 00:10:30.405 Hiin[29014:70b] {"count":0}
+2014-07-17 00:10:30.405 Hiin[29014:70b] --unread count---
+2014-07-17 00:10:30.405 Hiin[29014:70b] {"count":0}
+2014-07-17 00:10:30.406 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:10:30.407 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"0008","rank":1}]
+2014-07-17 00:10:32.963 Hiin[29014:70b] on hi
+2014-07-17 00:10:32.964 Hiin[29014:70b] {"status":"1","from":"53c6838b740814da6e2d44a1","fromName":"ㄹㅇㅁ","regTime":"2014-07-16T15:10:32.952Z"}
+2014-07-17 00:10:32.964 Hiin[29014:70b] on hi
+2014-07-17 00:10:32.964 Hiin[29014:70b] {"status":"1","from":"53c6838b740814da6e2d44a1","fromName":"ㄹㅇㅁ","regTime":"2014-07-16T15:10:32.952Z"}
+2014-07-17 00:10:32.965 Hiin[29014:70b] on hi
+2014-07-17 00:10:32.993 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:10:32.993 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"2","enteredEvent":"0008","rank":1}]
+2014-07-17 00:10:32.994 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:10:32.994 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"2","enteredEvent":"0008","rank":1}]
+2014-07-17 00:10:36.330 Hiin[29014:70b] on hiMe
+2014-07-17 00:10:36.341 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:10:36.341 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"0008","rank":1}]
+2014-07-17 00:10:36.346 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:10:36.346 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"0008","rank":1}]
+2014-07-17 00:10:43.760 Hiin[29014:70b] list myInfo
+2014-07-17 00:10:43.761 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"0008","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"sleep","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:10:43.766 Hiin[29014:70b] --unread count---
+2014-07-17 00:10:43.766 Hiin[29014:70b] {"count":0}
+2014-07-17 00:10:43.767 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:10:43.767 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"0008","rank":1}]
+2014-07-17 00:10:43.767 Hiin[29014:70b] --unread count---
+2014-07-17 00:10:43.768 Hiin[29014:70b] {"count":0}
+2014-07-17 00:11:05.681 Hiin[29014:70b] userListChange
+2014-07-17 00:11:05.681 Hiin[29014:70b] {"status":"0","message":{"usersNumber":2}}
+2014-07-17 00:11:05.694 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:05.695 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"8100","rank":1}]
+2014-07-17 00:11:05.695 Hiin[29014:70b] 0
+2014-07-17 00:11:05.695 Hiin[29014:70b] btn status = hi
+2014-07-17 00:11:06.857 Hiin[29014:70b] list myInfo
+2014-07-17 00:11:06.858 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"8100","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:11:06.860 Hiin[29014:70b] --unread count---
+2014-07-17 00:11:06.860 Hiin[29014:70b] {"count":0}
+2014-07-17 00:11:06.861 Hiin[29014:70b] --unread count---
+2014-07-17 00:11:06.861 Hiin[29014:70b] {"count":0}
+2014-07-17 00:11:06.862 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:06.862 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"8100","rank":1}]
+2014-07-17 00:11:08.529 Hiin[29014:70b] on hiMe
+2014-07-17 00:11:08.565 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:08.565 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"8100","rank":2}]
+2014-07-17 00:11:08.565 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:11:08.566 Hiin[29014:70b] 1
+2014-07-17 00:11:08.566 Hiin[29014:70b] btn Status = in
+2014-07-17 00:11:08.566 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:11:08.566 Hiin[29014:70b] 1
+2014-07-17 00:11:08.566 Hiin[29014:70b] btn Status = in
+2014-07-17 00:11:08.580 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:08.580 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"8100","rank":2}]
+2014-07-17 00:11:10.624 Hiin[29014:70b] on hi
+2014-07-17 00:11:10.624 Hiin[29014:70b] {"status":"1","from":"53c6838b740814da6e2d44a1","fromName":"ㄹㅇㅁ","regTime":"2014-07-16T15:11:10.607Z"}
+2014-07-17 00:11:10.624 Hiin[29014:70b] on hi
+2014-07-17 00:11:10.625 Hiin[29014:70b] {"status":"1","from":"53c6838b740814da6e2d44a1","fromName":"ㄹㅇㅁ","regTime":"2014-07-16T15:11:10.607Z"}
+2014-07-17 00:11:10.625 Hiin[29014:70b] on hi
+2014-07-17 00:11:10.673 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:10.673 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"8100","rank":1}]
+2014-07-17 00:11:10.674 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:11:10.674 Hiin[29014:70b] 3
+2014-07-17 00:11:10.675 Hiin[29014:70b] btn Status = in
+2014-07-17 00:11:10.675 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:11:10.676 Hiin[29014:70b] 3
+2014-07-17 00:11:10.676 Hiin[29014:70b] btn Status = in
+2014-07-17 00:11:10.697 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:10.698 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"8100","rank":1}]
+2014-07-17 00:11:28.296 Hiin[29014:70b] list myInfo
+2014-07-17 00:11:28.296 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"0568","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:11:28.299 Hiin[29014:70b] --unread count---
+2014-07-17 00:11:28.299 Hiin[29014:70b] {"count":0}
+2014-07-17 00:11:28.299 Hiin[29014:70b] --unread count---
+2014-07-17 00:11:28.299 Hiin[29014:70b] {"count":0}
+2014-07-17 00:11:28.310 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:28.311 Hiin[29014:70b] []
+2014-07-17 00:11:33.651 Hiin[29014:70b] userListChange
+2014-07-17 00:11:33.651 Hiin[29014:70b] {"status":"0","message":{"usersNumber":2}}
+2014-07-17 00:11:33.687 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:33.687 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"0568","rank":1}]
+2014-07-17 00:11:33.688 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:11:33.688 Hiin[29014:70b] 0
+2014-07-17 00:11:33.688 Hiin[29014:70b] btn status = hi
+2014-07-17 00:11:33.688 Hiin[29014:70b] 0
+2014-07-17 00:11:33.689 Hiin[29014:70b] 0
+2014-07-17 00:11:33.689 Hiin[29014:70b] btn status = hi
+2014-07-17 00:11:33.696 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:33.696 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"0568","rank":1}]
+2014-07-17 00:11:37.972 Hiin[29014:70b] on hiMe
+2014-07-17 00:11:37.999 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:38.000 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"0568","rank":2}]
+2014-07-17 00:11:38.000 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:11:38.000 Hiin[29014:70b] 1
+2014-07-17 00:11:38.001 Hiin[29014:70b] btn Status = in
+2014-07-17 00:11:38.001 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:11:38.001 Hiin[29014:70b] 1
+2014-07-17 00:11:38.002 Hiin[29014:70b] btn Status = in
+2014-07-17 00:11:38.004 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:38.004 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"0568","rank":2}]
+2014-07-17 00:11:40.855 Hiin[29014:70b] on hi
+2014-07-17 00:11:40.856 Hiin[29014:70b] {"status":"1","from":"53c6838b740814da6e2d44a1","fromName":"ㄹㅇㅁ","regTime":"2014-07-16T15:11:40.836Z"}
+2014-07-17 00:11:40.856 Hiin[29014:70b] on hi
+2014-07-17 00:11:40.856 Hiin[29014:70b] {"status":"1","from":"53c6838b740814da6e2d44a1","fromName":"ㄹㅇㅁ","regTime":"2014-07-16T15:11:40.836Z"}
+2014-07-17 00:11:40.857 Hiin[29014:70b] on hi
+2014-07-17 00:11:40.904 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:40.905 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"0568","rank":1}]
+2014-07-17 00:11:40.905 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:11:40.905 Hiin[29014:70b] 3
+2014-07-17 00:11:40.906 Hiin[29014:70b] btn Status = in
+2014-07-17 00:11:40.906 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:11:40.906 Hiin[29014:70b] 3
+2014-07-17 00:11:40.907 Hiin[29014:70b] btn Status = in
+2014-07-17 00:11:40.925 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:40.925 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"0568","rank":1}]
+2014-07-17 00:11:51.192 Hiin[29014:70b] list myInfo
+2014-07-17 00:11:51.192 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"0568","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"sleep","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:11:51.198 Hiin[29014:70b] --unread count---
+2014-07-17 00:11:51.198 Hiin[29014:70b] {"count":0}
+2014-07-17 00:11:51.198 Hiin[29014:70b] --unread count---
+2014-07-17 00:11:51.199 Hiin[29014:70b] {"count":0}
+2014-07-17 00:11:51.199 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:11:51.199 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"0568","rank":1}]
+2014-07-17 00:12:06.567 Hiin[29014:70b] userListChange
+2014-07-17 00:12:06.568 Hiin[29014:70b] {"status":"0","message":{"usersNumber":2}}
+2014-07-17 00:12:06.581 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:12:06.582 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"7294","rank":1}]
+2014-07-17 00:12:06.582 Hiin[29014:70b] 0
+2014-07-17 00:12:06.582 Hiin[29014:70b] btn status = hi
+2014-07-17 00:12:07.621 Hiin[29014:70b] list myInfo
+2014-07-17 00:12:07.621 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"7294","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:12:07.625 Hiin[29014:70b] --unread count---
+2014-07-17 00:12:07.625 Hiin[29014:70b] {"count":0}
+2014-07-17 00:12:07.626 Hiin[29014:70b] --unread count---
+2014-07-17 00:12:07.626 Hiin[29014:70b] {"count":0}
+2014-07-17 00:12:07.628 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:12:07.628 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"7294","rank":1}]
+2014-07-17 00:12:09.291 Hiin[29014:70b] on hiMe
+2014-07-17 00:12:09.344 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:12:09.344 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"7294","rank":2}]
+2014-07-17 00:12:09.345 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:12:09.345 Hiin[29014:70b] 1
+2014-07-17 00:12:09.345 Hiin[29014:70b] btn Status = in
+2014-07-17 00:12:09.346 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:12:09.346 Hiin[29014:70b] 1
+2014-07-17 00:12:09.346 Hiin[29014:70b] btn Status = in
+2014-07-17 00:12:09.347 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:12:09.347 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"7294","rank":2}]
+2014-07-17 00:12:12.065 Hiin[29014:70b] on hi
+2014-07-17 00:12:12.066 Hiin[29014:70b] {"status":"1","from":"53c6838b740814da6e2d44a1","fromName":"ㄹㅇㅁ","regTime":"2014-07-16T15:12:12.047Z"}
+2014-07-17 00:12:12.066 Hiin[29014:70b] on hi
+2014-07-17 00:12:12.066 Hiin[29014:70b] {"status":"1","from":"53c6838b740814da6e2d44a1","fromName":"ㄹㅇㅁ","regTime":"2014-07-16T15:12:12.047Z"}
+2014-07-17 00:12:12.066 Hiin[29014:70b] on hi
+2014-07-17 00:12:12.120 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:12:12.120 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"7294","rank":1}]
+2014-07-17 00:12:12.121 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:12:12.121 Hiin[29014:70b] 3
+2014-07-17 00:12:12.121 Hiin[29014:70b] btn Status = in
+2014-07-17 00:12:12.122 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:12:12.122 Hiin[29014:70b] 3
+2014-07-17 00:12:12.122 Hiin[29014:70b] btn Status = in
+2014-07-17 00:12:12.152 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:12:12.152 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"7294","rank":1}]
+2014-07-17 00:12:30.593 Hiin[29014:70b] list myInfo
+2014-07-17 00:12:30.593 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"7294","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:12:30.593 Hiin[29014:70b] --unread count---
+2014-07-17 00:12:30.594 Hiin[29014:70b] {"count":0}
+2014-07-17 00:12:30.596 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:12:30.597 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c6838b740814da6e2d44a1","firstName":"ㄹㅇㅁ","lastName":"ㄹㄴㅁㅇ","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"7294","rank":1}]
+2014-07-17 00:12:30.597 Hiin[29014:70b] --unread count---
+2014-07-17 00:12:30.597 Hiin[29014:70b] {"count":0}
+2014-07-17 00:12:53.816 Hiin[29014:70b] list myInfo
+2014-07-17 00:12:53.816 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"7294","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"sleep","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:13:01.974 Hiin[29014:70b] list myInfo
+2014-07-17 00:13:01.974 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"7839","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:13:02.007 Hiin[29014:70b] --unread count---
+2014-07-17 00:13:02.007 Hiin[29014:70b] {"count":0}
+2014-07-17 00:13:02.008 Hiin[29014:70b] --unread count---
+2014-07-17 00:13:02.008 Hiin[29014:70b] {"count":0}
+2014-07-17 00:13:02.008 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:02.009 Hiin[29014:70b] []
+2014-07-17 00:13:22.763 Hiin[29014:70b] list myInfo
+2014-07-17 00:13:22.764 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"7839","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:13:22.764 Hiin[29014:70b] --unread count---
+2014-07-17 00:13:22.765 Hiin[29014:70b] {"count":0}
+2014-07-17 00:13:22.765 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:22.765 Hiin[29014:70b] []
+2014-07-17 00:13:22.767 Hiin[29014:70b] --unread count---
+2014-07-17 00:13:22.767 Hiin[29014:70b] {"count":0}
+2014-07-17 00:13:32.078 Hiin[29014:70b] userListChange
+2014-07-17 00:13:32.079 Hiin[29014:70b] {"status":"0","message":{"usersNumber":2}}
+2014-07-17 00:13:32.108 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:32.108 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c69689e90c308f71b258b4","firstName":"fsad","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"7839","rank":1}]
+2014-07-17 00:13:32.108 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:13:32.108 Hiin[29014:70b] 0
+2014-07-17 00:13:32.108 Hiin[29014:70b] btn status = hi
+2014-07-17 00:13:32.108 Hiin[29014:70b] 0
+2014-07-17 00:13:32.109 Hiin[29014:70b] 0
+2014-07-17 00:13:32.109 Hiin[29014:70b] btn status = hi
+2014-07-17 00:13:32.115 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:32.115 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c69689e90c308f71b258b4","firstName":"fsad","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"7839","rank":1}]
+2014-07-17 00:13:35.584 Hiin[29014:70b] on hiMe
+2014-07-17 00:13:35.620 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:35.621 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c69689e90c308f71b258b4","firstName":"fsad","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"7839","rank":2}]
+2014-07-17 00:13:35.621 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:13:35.621 Hiin[29014:70b] 1
+2014-07-17 00:13:35.622 Hiin[29014:70b] btn Status = in
+2014-07-17 00:13:35.622 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:13:35.622 Hiin[29014:70b] 1
+2014-07-17 00:13:35.622 Hiin[29014:70b] btn Status = in
+2014-07-17 00:13:35.641 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:35.641 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c69689e90c308f71b258b4","firstName":"fsad","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"7839","rank":2}]
+2014-07-17 00:13:37.923 Hiin[29014:70b] on hi
+2014-07-17 00:13:37.923 Hiin[29014:70b] {"status":"1","from":"53c69689e90c308f71b258b4","fromName":"fsad","regTime":"2014-07-16T15:13:37.904Z"}
+2014-07-17 00:13:37.924 Hiin[29014:70b] on hi
+2014-07-17 00:13:37.924 Hiin[29014:70b] {"status":"1","from":"53c69689e90c308f71b258b4","fromName":"fsad","regTime":"2014-07-16T15:13:37.904Z"}
+2014-07-17 00:13:37.924 Hiin[29014:70b] on hi
+2014-07-17 00:13:37.998 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:37.998 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c69689e90c308f71b258b4","firstName":"fsad","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"7839","rank":1}]
+2014-07-17 00:13:37.999 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:13:37.999 Hiin[29014:70b] 3
+2014-07-17 00:13:37.999 Hiin[29014:70b] btn Status = in
+2014-07-17 00:13:38.000 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:13:38.000 Hiin[29014:70b] 3
+2014-07-17 00:13:38.000 Hiin[29014:70b] btn Status = in
+2014-07-17 00:13:38.014 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:38.015 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c69689e90c308f71b258b4","firstName":"fsad","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"7839","rank":1}]
+2014-07-17 00:13:43.138 Hiin[29014:70b] userListChange
+2014-07-17 00:13:43.139 Hiin[29014:70b] {"status":"0","message":{"usersNumber":2}}
+2014-07-17 00:13:43.143 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:43.143 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c682dca97515c36ecc3f1f","firstName":"fsadfsafads","lastName":"fdasfdsa","gender":"1","job":"fdsafsad","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","status":"3","email":"ttt@test.com","enteredEvent":"5785","rank":1}]
+2014-07-17 00:13:43.159 Hiin[29014:70b] list myInfo
+2014-07-17 00:13:43.159 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"5785","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:13:43.161 Hiin[29014:70b] --unread count---
+2014-07-17 00:13:43.161 Hiin[29014:70b] {"count":0}
+2014-07-17 00:13:43.162 Hiin[29014:70b] --unread count---
+2014-07-17 00:13:43.162 Hiin[29014:70b] {"count":0}
+2014-07-17 00:13:43.162 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:43.162 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c682dca97515c36ecc3f1f","firstName":"fsadfsafads","lastName":"fdasfdsa","gender":"1","job":"fdsafsad","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","status":"3","email":"ttt@test.com","enteredEvent":"5785","rank":1}]
+2014-07-17 00:13:50.639 Hiin[29014:70b] list myInfo
+2014-07-17 00:13:50.639 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"5785","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:13:50.646 Hiin[29014:70b] --unread count---
+2014-07-17 00:13:50.647 Hiin[29014:70b] {"count":0}
+2014-07-17 00:13:50.653 Hiin[29014:70b] --unread count---
+2014-07-17 00:13:50.653 Hiin[29014:70b] {"count":0}
+2014-07-17 00:13:50.657 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:50.657 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c682dca97515c36ecc3f1f","firstName":"fsadfsafads","lastName":"fdasfdsa","gender":"1","job":"fdsafsad","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","status":"3","email":"ttt@test.com","enteredEvent":"5785","rank":1}]
+2014-07-17 00:13:58.155 Hiin[29014:70b] userListChange
+2014-07-17 00:13:58.156 Hiin[29014:70b] {"status":"0","message":{"usersNumber":3}}
+2014-07-17 00:13:58.177 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:58.177 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c682dca97515c36ecc3f1f","firstName":"fsadfsafads","lastName":"fdasfdsa","gender":"1","job":"fdsafsad","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","status":"3","email":"ttt@test.com","enteredEvent":"5785","rank":1},{"device":"web","deviceToken":"","_id":"53c69689e90c308f71b258b4","firstName":"fsad","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"5785","rank":2}]
+2014-07-17 00:13:58.178 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:13:58.178 Hiin[29014:70b] 0
+2014-07-17 00:13:58.178 Hiin[29014:70b] btn status = hi
+2014-07-17 00:13:58.178 Hiin[29014:70b] 0
+2014-07-17 00:13:58.179 Hiin[29014:70b] 0
+2014-07-17 00:13:58.179 Hiin[29014:70b] btn status = hi
+2014-07-17 00:13:58.194 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:13:58.194 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c682dca97515c36ecc3f1f","firstName":"fsadfsafads","lastName":"fdasfdsa","gender":"1","job":"fdsafsad","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","status":"3","email":"ttt@test.com","enteredEvent":"5785","rank":1},{"device":"web","deviceToken":"","_id":"53c69689e90c308f71b258b4","firstName":"fsad","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"5785","rank":2}]
+2014-07-17 00:14:37.843 Hiin[29014:70b] on hiMe
+2014-07-17 00:14:37.883 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:14:37.883 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c682dca97515c36ecc3f1f","firstName":"fsadfsafads","lastName":"fdasfdsa","gender":"1","job":"fdsafsad","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","status":"3","email":"ttt@test.com","enteredEvent":"5785","rank":1},{"device":"web","deviceToken":"","_id":"53c69689e90c308f71b258b4","firstName":"fsad","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"5785","rank":3}]
+2014-07-17 00:14:37.884 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:14:37.884 Hiin[29014:70b] 1
+2014-07-17 00:14:37.884 Hiin[29014:70b] btn Status = in
+2014-07-17 00:14:37.885 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:14:37.885 Hiin[29014:70b] 1
+2014-07-17 00:14:37.885 Hiin[29014:70b] btn Status = in
+2014-07-17 00:14:37.902 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:14:37.902 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c682dca97515c36ecc3f1f","firstName":"fsadfsafads","lastName":"fdasfdsa","gender":"1","job":"fdsafsad","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","status":"3","email":"ttt@test.com","enteredEvent":"5785","rank":1},{"device":"web","deviceToken":"","_id":"53c69689e90c308f71b258b4","firstName":"fsad","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"5785","rank":3}]
+2014-07-17 00:28:21.821 Hiin[29014:70b] list myInfo
+2014-07-17 00:28:21.821 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"5785","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:28:21.851 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:21.851 Hiin[29014:70b] {"count":0}
+2014-07-17 00:28:21.851 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:28:21.852 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c682dca97515c36ecc3f1f","firstName":"fsadfsafads","lastName":"fdasfdsa","gender":"1","job":"fdsafsad","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","status":"3","email":"ttt@test.com","enteredEvent":"5785","rank":1},{"device":"web","deviceToken":"","_id":"53c69689e90c308f71b258b4","firstName":"fsad","lastName":"fsda","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"5785","rank":3}]
+2014-07-17 00:28:21.852 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:21.852 Hiin[29014:70b] {"count":0}
+2014-07-17 00:28:25.509 Hiin[29014:70b] userListChange
+2014-07-17 00:28:25.509 Hiin[29014:70b] {"status":"0","message":{"usersNumber":2}}
+2014-07-17 00:28:25.520 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:28:25.520 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c67ca30e41b2d76d1bc886","firstName":"fasfdsafsad","lastName":"fsdafsda","gender":"1","job":"fdsafdsa","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","status":"3","email":"t1@test.com","enteredEvent":"3529","rank":1}]
+2014-07-17 00:28:25.535 Hiin[29014:70b] list myInfo
+2014-07-17 00:28:25.535 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"3529","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:28:25.535 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:25.535 Hiin[29014:70b] {"count":0}
+2014-07-17 00:28:25.536 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:25.536 Hiin[29014:70b] {"count":1}
+2014-07-17 00:28:25.538 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:28:25.539 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c67ca30e41b2d76d1bc886","firstName":"fasfdsafsad","lastName":"fsdafsda","gender":"1","job":"fdsafdsa","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","status":"3","email":"t1@test.com","enteredEvent":"3529","rank":1}]
+2014-07-17 00:28:35.874 Hiin[29014:70b] list myInfo
+2014-07-17 00:28:35.874 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"3529","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:28:35.877 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:35.877 Hiin[29014:70b] {"count":0}
+2014-07-17 00:28:35.877 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:35.878 Hiin[29014:70b] {"count":1}
+2014-07-17 00:28:35.878 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:28:35.878 Hiin[29014:70b] [{"device":"web","deviceToken":"","_id":"53c67ca30e41b2d76d1bc886","firstName":"fasfdsafsad","lastName":"fsdafsda","gender":"1","job":"fdsafdsa","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","status":"3","email":"t1@test.com","enteredEvent":"3529","rank":1}]
+2014-07-17 00:28:40.059 Hiin[29014:70b] userListChange
+2014-07-17 00:28:40.060 Hiin[29014:70b] {"status":"0","message":{"usersNumber":1}}
+2014-07-17 00:28:40.069 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:28:40.070 Hiin[29014:70b] []
+2014-07-17 00:28:40.088 Hiin[29014:70b] list myInfo
+2014-07-17 00:28:40.088 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"1159","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:28:40.089 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:40.089 Hiin[29014:70b] {"count":0}
+2014-07-17 00:28:40.089 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:28:40.089 Hiin[29014:70b] []
+2014-07-17 00:28:40.090 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:40.090 Hiin[29014:70b] {"count":0}
+2014-07-17 00:28:49.992 Hiin[29014:70b] list myInfo
+2014-07-17 00:28:49.992 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"1159","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:28:49.993 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:49.994 Hiin[29014:70b] {"count":0}
+2014-07-17 00:28:49.996 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:28:49.996 Hiin[29014:70b] []
+2014-07-17 00:28:49.996 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:49.996 Hiin[29014:70b] {"count":0}
+2014-07-17 00:28:58.287 Hiin[29014:70b] list myInfo
+2014-07-17 00:28:58.287 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"9591","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:28:58.289 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:58.290 Hiin[29014:70b] {"count":0}
+2014-07-17 00:28:58.290 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:28:58.290 Hiin[29014:70b] []
+2014-07-17 00:28:58.290 Hiin[29014:70b] --unread count---
+2014-07-17 00:28:58.291 Hiin[29014:70b] {"count":0}
+2014-07-17 00:29:46.480 Hiin[29014:70b] list myInfo
+2014-07-17 00:29:46.480 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"9591","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:29:46.481 Hiin[29014:70b] --unread count---
+2014-07-17 00:29:46.481 Hiin[29014:70b] {"count":0}
+2014-07-17 00:29:46.481 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:29:46.482 Hiin[29014:70b] []
+2014-07-17 00:29:46.482 Hiin[29014:70b] --unread count---
+2014-07-17 00:29:46.482 Hiin[29014:70b] {"count":0}
+2014-07-17 00:29:52.037 Hiin[29014:70b] userListChange
+2014-07-17 00:29:52.037 Hiin[29014:70b] {"status":"0","message":{"usersNumber":3}}
+2014-07-17 00:29:52.074 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:29:52.074 Hiin[29014:70b] [{"device":"","deviceToken":"","_id":"53c6255f7ac5f9da5a140da9","firstName":"fdsa","lastName":"fdsa","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"1049","rank":2},{"_id":"53be6d9690b7e0bd013ece95","firstName":"Shxhxh","lastName":"Shdhsh","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","email":"shahshs@ajsnsn","enteredEvent":"1049","rank":3,"status":"1"}]
+2014-07-17 00:29:52.075 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:29:52.075 Hiin[29014:70b] 3
+2014-07-17 00:29:52.075 Hiin[29014:70b] btn Status = in
+2014-07-17 00:29:52.076 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:29:52.077 Hiin[29014:70b] 3
+2014-07-17 00:29:52.077 Hiin[29014:70b] btn Status = in
+2014-07-17 00:29:52.078 Hiin[29014:70b] ngProfileImage　attrs
+2014-07-17 00:29:52.078 Hiin[29014:70b] 1
+2014-07-17 00:29:52.079 Hiin[29014:70b] btn Status = in
+2014-07-17 00:29:52.079 Hiin[29014:70b] error JSON.stringify()ing argument: TypeError: JSON.stringify cannot serialize cyclic structures.
+2014-07-17 00:29:52.079 Hiin[29014:70b] 1
+2014-07-17 00:29:52.079 Hiin[29014:70b] btn Status = in
+2014-07-17 00:29:52.097 Hiin[29014:70b] list myInfo
+2014-07-17 00:29:52.098 Hiin[29014:70b] {"device":"web","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","enteredEvent":"1049","job":"none","_id":"53bd39d59dce099370777f9d","deviceToken":"","gender":"male","firstName":"Jungmo","email":"moya.kang@gmail.com","status":"on","organizer":"organizer","loginType":"facebook","lastName":"Kang","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651"}
+2014-07-17 00:29:52.145 Hiin[29014:70b] --unread count---
+2014-07-17 00:29:52.145 Hiin[29014:70b] {"count":21}
+2014-07-17 00:29:52.145 Hiin[29014:70b] --unread count---
+2014-07-17 00:29:52.146 Hiin[29014:70b] {"count":1}
+2014-07-17 00:29:52.146 Hiin[29014:70b] list currentEventUserList
+2014-07-17 00:29:52.146 Hiin[29014:70b] [{"device":"","deviceToken":"","_id":"53c6255f7ac5f9da5a140da9","firstName":"fdsa","lastName":"fdsa","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"1049","rank":2},{"_id":"53be6d9690b7e0bd013ece95","firstName":"Shxhxh","lastName":"Shdhsh","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","email":"shahshs@ajsnsn","enteredEvent":"1049","rank":3,"status":"1"}]

@@ -164,7 +164,9 @@ angular.module("hiin").run ($window,  Migration,　$rootScope) ->
   onNotification = (e) ->
     switch e.event
       when "registered"
-        console.log "regID = " + e.regid  if e.regid.length > 0
+        if e.regid.length > 0
+          console.log "regID = " + e.regid
+          $rootScope.deviceToken = e.regid
       when "message"
         # if this flag is set, this notification happened while we were in the foreground.
         # you might want to play a sound to get the user's attention, throw up a dialog, etc.
@@ -186,7 +188,7 @@ angular.module("hiin").run ($window,  Migration,　$rootScope) ->
     $rootScope.deviceToken = ''
     if typeof device  is 'undefined' or device is null
       $rootScope.deviceType = 'web'
-    else if device.platform is "android" or device.platform is "Android" or device.platform is "amazon-fireos"
+    else if device.platform is "android" or device.platform is "Android"
       console.log 'device type is android'
       $rootScope.deviceType = 'android'
       pushNotification.register successHandler, errorHandler,
