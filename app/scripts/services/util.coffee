@@ -19,9 +19,7 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
       opts = method:"get", url:"#{Host.getAPIHost()}:#{Host.getAPIPort()}/#{path}", params: param
     else
       opts = method:method, url:"#{Host.getAPIHost()}:#{Host.getAPIPort()}/#{path}", data: param
-
     opts = angular.extend opts, options
-
     $http opts
   MakeId: (userInfo) ->
     console.log userInfo
@@ -109,53 +107,3 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
     if window.cordova
       $window.localStorage.setItem "isPhoneGap", "1"
     return
-  #'options' setting 객체를 만들어서 전달
-  #loadingStart, loadingStop은 없으면 그냥 넘어감
-  #duration은 ms단위임. 
-  #만약 socket.on으로 들어오는 data를 reciece하고 싶다면
-  #onCallback내부에서 data로 받는 것을 할당한다.
-
-  #example) options ={
-  #         emit : 'ka'
-  #         emitData: {
-  #            hi: 'hi'
-  #        }
-  #       on: 'ka'
-  #       onCallback: (data)->
-  #         console.log 'calcalcal'
-  #       loadingStart: ()->
-  #         console.log 'loading now'
-  #       loadingstop: ()->
-  #         console.log 'loading stop'
-  #        duration: 3000
-  #        defaultDuration: 1000
-  # }
-
-  resSocket: (options)->
-    recieved = false
-    deferred = $q.defer()
-    socket.on options.on, (data)->
-      recieved = true
-      $timeout ( ->
-        options.onCallback(data)
-        $timeout.cancel waiting
-        if options.loadingstop
-          options.loadingstop()
-      ), options.defaultDuration
-      return
-    if options.loadingStart
-      options.loadingStart()
-    if options.emit 
-      socket.emit options.emit, options.emit
-    else
-      socket.emit options.emit
-
-    waiting = $timeout (->
-      if recieved is yes
-        deferred.resolve 'success'
-      else
-        deferred.reject 'fail'
-      return
-    ), options.duration 
-
-    return deferred.promise

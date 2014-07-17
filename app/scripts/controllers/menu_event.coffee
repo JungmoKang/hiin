@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http,socket,$log,$state,$ionicScrollDelegate, $ionicNavBarDelegate, $timeout,$ionicModal,$window) ->
+angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http,socket,SocketClass,$log,$state,$ionicScrollDelegate, $ionicNavBarDelegate, $timeout,$ionicModal,$window,$ionicLoading) ->
   #init
   $rootScope.selectedItem = 3
   ionic.DomUtil.ready ->
@@ -19,33 +19,52 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
       , (status) ->
         console.log '-----user or error-----'
         console.log status
-        alert "error"    
+        console.log "error"    
   myinfo = $window.localStorage.getItem "myInfo"
+  #socket 관련
+  MakeMyInfoOptionObj = () ->
+    socketMyInfo = new SocketClass.socketClass('myInfo',null,0,0)
+    socketMyInfo.onCallback = (data) ->
+      console.log "list myInfo"
+      console.log data
+      $window.localStorage.setItem 'myInfo', JSON.stringify(data)
+      $scope.myId = new Array()
+      $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
+      return
+    return socketMyInfo
+  MakeEventListObj = () ->
+    socketMyInfo = new SocketClass.socketClass('enteredEventList',null,0,0)
+    socketMyInfo.onCallback = (data) ->
+      $scope.events = data
+      return
+    return socketMyInfo  
+  SendEmitMyInfo = () ->
+    $ionicLoading.show template: "Loading..."
+    SocketClass.resSocket(MakeMyInfoOptionObj())
+      .then (data) ->
+        console.log 'socket got myInfo'
+        SocketClass.resSocket(MakeEventListObj())
+      .then (data) ->
+        console.log 'socket got event list'
+        $ionicLoading.hide()
+      , (status) ->
+        $ionicLoading.hide()
+        console.log "error"
   if !myinfo?
-    socket.emit "myInfo"
+    SendEmitMyInfo()
   else
+    $ionicLoading.show template: "Loading..."
     $scope.myId = new Array()
     $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
-    socket.emit "enteredEventList"
-  #socket events
-  enteredEventList = (data) ->
-    $scope.events = data
-    return
-  myInfo = (data) ->
-    console.log "list myInfo"
-    console.log data
-    $window.localStorage.setItem 'myInfo', JSON.stringify(data)
-    $scope.myId = new Array()
-    $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
-    socket.emit "enteredEventList"
-    return
-  socket.on "myInfo", myInfo
-  socket.on "enteredEventList", enteredEventList
+    SocketClass.resSocket(MakeEventListObj())
+      .then (data) ->
+        console.log 'socket got event list'
+        $ionicLoading.hide()
+      , (status) ->
+        $ionicLoading.hide()
+        console.log "error"              
   # ↑
-  #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
-    socket.removeListener("enteredEventList",enteredEventList)
-    socket.removeListener("myInfo",myInfo)
     if $scope.modal?
       $scope.modal.hide()
     return  

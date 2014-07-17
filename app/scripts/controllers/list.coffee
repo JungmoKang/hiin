@@ -60,12 +60,10 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     $window.localStorage.setItem 'flg_show_privacy_dialog', true
   $scope.ShowPrivacyFreeDialog()
   socket.emit "currentEventUserList"
-  socket.emit "myInfo"
   socket.emit "unReadCount"
   $scope.users = []
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
-    socket.removeListener("myInfo", myInfo)
     socket.removeListener("unReadCount", unReadCount)
     socket.removeListener("unReadCountGroup", unReadCountGroup)
     socket.removeListener("currentEventUserList", currentEventUserList)
@@ -75,11 +73,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     socket.removeListener("pendingHi", pendingHi)
     return
   # socket event ↓
-  myInfo = (data) ->
-    console.log "list myInfo"
-    console.log data
-    $window.localStorage.setItem 'myInfo', JSON.stringify(data)
-    return
   unReadCount = (data) ->
     console.log '--unread count---'
     console.log data
@@ -127,7 +120,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       return
     socket.emit "currentEventUserList"
     return
-  socket.on "myInfo", myInfo
   socket.on "unReadCount", unReadCount
   socket.on "unReadCountGroup", unReadCountGroup
   socket.on "currentEventUserList", currentEventUserList
