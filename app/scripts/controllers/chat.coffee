@@ -69,6 +69,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
       $scope.$broadcast('scroll.refreshComplete')
     $scope.$apply()
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
+    $ionicScrollDelegate.scrollBottom()
     return
   getUserInfo = (data) ->
     console.log "chat,getUserInfo"

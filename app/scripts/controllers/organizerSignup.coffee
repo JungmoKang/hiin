@@ -8,6 +8,7 @@ angular.module('hiin')
     $scope.userInfo.password = ''
     $scope.headerMsg = '<p> You have entered a wrong
       <p> combo email and password.'
+    $scope.msgHeaderClass = 'error_panel'
     #공통함수화 해야함
     $scope.back = ->
       $window.history.back()

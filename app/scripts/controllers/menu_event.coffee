@@ -42,34 +42,6 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   socket.on "myInfo", myInfo
   socket.on "enteredEventList", enteredEventList
   # ↑
-  #socket events of all
-  # private chat
-  socket.on "message", (data) ->
-    console.log 'ms'
-    console.log data
-  # group chat
-  socket.on "groupMessage", (data) ->
-    console.log "grp chat,groupMessage"
-    console.log data
-    return
-  # hi
-  socket.on "hi", (data) ->
-    console.log 'on hi'
-    console.log data
-  #↑
-  $rootScope.onResume = ->
-    console.log "On Resume"
-    socket.emit "resume"
-    return
-  $rootScope.onPause = ->
-    console.log "On Pause"
-    socket.disconnect()
-    return
-  if typeof $rootScope.AddFlagPauseHandler  == 'undefined' || $rootScope.AddFlagPauseHandler is false
-    document.addEventListener "resume", $rootScope.onResume, false
-    document.addEventListener "pause", $rootScope.onPause, false
-    $rootScope.AddFlagPauseHandler = true
-  #↑init
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeListener("enteredEventList",enteredEventList)
