@@ -1,0 +1,7 @@
+#msg_panel(ng-show='msgHeaderShow')
+  .row.header_space
+  .row
+    .col-90
+      div(ng-bind-html='headerMsg')
+    .col-10
+      .btn_close(ng-click='CloseHeaderMsg()')

@@ -9,13 +9,13 @@ angular.module('hiin')
       , (status) ->
         console.log status
         console.log 'error'
-        $scope.showErrMsg = true
-        $scope.errorMsg = '<p> You have entered a wrong <p> combo email and password.'
+        $scope.msgHeaderShow = true
+        $scope.headerMsg = '<p> You have entered a wrong <p> combo email and password.'
     $scope.back = ->
       $window.history.back()
     $scope.GotoResetPassword = ->
       $state.go('resetPassword')
     $scope.CloseErroMsg = ->
-      $scope.showErrMsg = false
+      $scope.msgHeaderShow = false
     return
   return

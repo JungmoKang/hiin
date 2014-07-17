@@ -3,8 +3,7 @@ ion-side-menus
     ion-nav-bar.bar-stable#black_header(ontouchstart='return false;')
       ion-nav-back-button.etc_link
     ion-nav-view(name='menuContent', animation='slide-left-right')
-    div 
-      | ddddddd
+    div(ng-include="'views/etc/msg_header.html'")
   ion-side-menu#menuleft(side='left')
     #header
       .logo

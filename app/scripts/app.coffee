@@ -85,7 +85,7 @@ angular.module("hiin", [
     views:
       menuContent:
         templateUrl: "views/menu/setting.html"
-        controller: "MenuCtrl"
+        controller: "MenuCtrlEtc"
   )
   .state("list.events",
     url: "/events"
@@ -120,14 +120,14 @@ angular.module("hiin", [
     views:
       menuContent:
         templateUrl: "views/menu/term_and_polish.html"
-        controller: "MenuCtrl"
+        controller: "MenuCtrlEtc"
   )
   .state("list.report",
     url: "/report"
     views:
       menuContent:
         templateUrl: "views/menu/report.html"
-        controller: "MenuCtrl"
+        controller: "MenuCtrlEtc"
   ) 
   $urlRouterProvider.otherwise "/"
   return

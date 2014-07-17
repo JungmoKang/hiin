@@ -6,13 +6,13 @@ angular.module('hiin')
     $scope.userInfo = {}
     $scope.userInfo.email = ''
     $scope.userInfo.password = ''
-    $scope.errorMsg = '<p> You have entered a wrong
+    $scope.headerMsg = '<p> You have entered a wrong
       <p> combo email and password.'
     #공통함수화 해야함
     $scope.back = ->
       $window.history.back()
-    $scope.CloseErroMsg = ->
-      $scope.showErrMsg = false
+    $scope.CloseHeaderMsg = ->
+      $scope.msgHeaderShow = false
     $scope.MakeId = (userInfo) ->
       deferred = $q.defer()
       Util.authReq('post','organizerSignUp', userInfo)
@@ -26,7 +26,7 @@ angular.module('hiin')
       return deferred.promise    
     $scope.CreateAndSignIn = ->
       if $scope.userInfo.email is '' or ($scope.userInfo.password != $scope.repeat_password)
-        $scope.showErrMsg = true
+        $scope.msgHeaderShow = true
         return
       $scope.MakeId($scope.userInfo)
         .then (data) ->

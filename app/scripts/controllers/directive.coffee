@@ -55,10 +55,9 @@ angular.module("hiin").directive "ngHiBtn", ()->
     if attrs.histatus is '0'
       console.log('btn status = hi')
       element.addClass 'btn-front'
-    else if attrs.histatus is '1'
+    else if attrs.histatus is '1' or attrs.histatus is '3' 
       console.log ('btn Status = in')
       element.addClass 'btn-back'
-      console.log element 
 angular.module("hiin").directive "ngInBtn", ()->
   link: (scope, element, attrs) ->
     console.log attrs.histatus
@@ -68,7 +67,6 @@ angular.module("hiin").directive "ngInBtn", ()->
     else
       console.log ('btn Status = in')
       element.addClass 'btn-front'
-      console.log element
 angular.module("hiin").directive "ngFlipBtn", ()->
   link: (scope, element, attrs) ->
     console.log attrs.histatus
