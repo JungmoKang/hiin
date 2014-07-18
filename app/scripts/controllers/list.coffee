@@ -46,7 +46,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   else
     $scope.users = []
   MakeCurrentEventUserListOptionObj = ->
-    socketMyInfo = new SocketClass.socketClass('currentEventUserList',null,500,true)
+    socketMyInfo = new SocketClass.socketClass('currentEventUserList',null,100,true)
     socketMyInfo.onCallback = (data) ->
       console.log "list currentEventUserList"
       $scope.users = data

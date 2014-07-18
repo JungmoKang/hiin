@@ -28,18 +28,37 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
       $scope.CloseHeaderMsg()
     ), 2000
     return
+  ShowProfile = () ->
+    $scope.CloseHeaderMsg()
+    modalInstance = $modal.open(
+      templateUrl: "views/dialog/user_card.html"
+      scope: $scope
+    )
+    modalInstance.result.then ((selectedItem) ->
+      $scope.modalInstance = null
+      return
+    ), ->
+      $scope.modalInstance = null
+      return
+    $scope.modalInstance = modalInstance    
   message = (data) ->
     console.log 'private message in menu'
     console.log data
     if typeof $state.params.userId != 'undefined' and state.params.userId == data.sender
       return
-    msg = '<p> ' + data.sender_name + ' sended:' + data.content + '<p> Click to move'
-    ShowHeader(msg)
-    $scope.headerClickAction = ->
-      $scope.CloseHeaderMsg()
-      history.pushState(null, null, '#/list/userlists')
-      $state.go 'list.single',
-        userId: data.sender
+    if data.status is '0'
+      msg = '<p> ' + data.sender_name + ' sended a message.' + '<p> Click to hi'
+      ShowHeader(msg)
+      $scope.user = data
+      $scope.headerClickAction = ShowProfile
+    else
+      msg = '<p> ' + data.sender_name + ' sended:' + data.content + '<p> Click to move'
+      ShowHeader(msg)
+      $scope.headerClickAction = ->
+        $scope.CloseHeaderMsg()
+        history.pushState(null, null, '#/list/userlists')
+        $state.go 'list.single',
+          userId: data.sender
   groupMessage = (data) ->
     console.log 'group message in menu'
     console.log data
@@ -58,20 +77,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
       return
     msg = '<p> ' + data.fromName + ' Say HI' + '<p> Click to show profile'
     ShowHeader(msg)
-    $scope.headerClickAction = ->
-      $scope.CloseHeaderMsg()
-      $scope.user = data
-      modalInstance = $modal.open(
-        templateUrl: "views/dialog/user_card.html"
-        scope: $scope
-      )
-      modalInstance.result.then ((selectedItem) ->
-        $scope.modalInstance = null
-        return
-      ), ->
-        $scope.modalInstance = null
-        return
-      $scope.modalInstance = modalInstance
+    $scope.user = data
+    $scope.headerClickAction = ShowProfile
   socket.on "message", message
   socket.on "groupMessage", groupMessage
   socket.on "hi", hi

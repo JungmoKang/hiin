@@ -35,11 +35,11 @@ angular.module('services').factory 'SocketClass', ($q, $window,$ionicModal,$time
     socket.on options.on, (data)->
       recieved = true
       options.onCallback(data)
-    #duration 시간 안에 응답이 오지 않을 경우, duration에 500ms를 더해서 기다림. 5번 기다려서 오지 않으면 에러
+    #duration 시간 안에 응답이 오지 않을 경우, duration에 300ms를 더해서 기다림. 5번 기다려서 오지 않으면 에러
     TimerFunc = ->
       if repeatCount < 4 and recieved is false
         repeatCount = repeatCount + 1
-        options.duration = options.duration + 500
+        options.duration = options.duration + 300
         console.log repeatCount
         console.log options.duration
         waiting = $timeout (->

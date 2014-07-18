@@ -1,8 +1,7 @@
 #user_card
-  img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{user.thumbnailUrl}}', alt='')
-  .name {{user.firstName}} {{user.lastName}}
-  .job {{user.job}}
-  .hiin(ng-flip-btn = 'ng-flip-btn'  hiStatus = '{{user.status}}')
-    button(ng-click="sayHi(user)",ng-Hi-Btn = 'ng-hi-btn',hiStatus = '{{user.status}}'
-      ,ng-class="user.status=='0'?'btn-Hi':'btn-Hied'",ng-if='user.status=="0" || user.status=="2"') HI 
-    button.btn-In(ng-click="chatRoom(user)", ng-In-Btn = 'ng-in-btn',hiStatus = '{{user.status}}') IN 
+	img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{user.thumbnailUrl}}', alt='')
+	.name {{user.firstName}} {{user.lastName}}
+	.job {{user.job}}
+	.hiin(ng-flip-btn = 'ng-flip-btn'  hiStatus = '{{user.status}}')
+		button(ng-click="sayHi(user)",ng-Hi-Btn = 'ng-hi-btn',hiStatus = '{{user.status}}' ,ng-class="user.status=='0'?'btn-Hi':'btn-Hied'") HI 
+		button.btn-In(ng-click="chatRoom(user)", ng-In-Btn = 'ng-in-btn',hiStatus = '{{user.status}}') IN 

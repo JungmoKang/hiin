@@ -1,21 +1,32 @@
 'use strict'
 
-angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope,$location, $window, Util, socket, $modal) ->
-    socket.emit "activity"
+angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope,$location, $window, Util, socket, SocketClass, $modal) ->
+    rankKey = 'activity_rank'
+    activityKey = 'activity_activity'
+    if $window.localStorage.getItem rankKey
+      $scope.rank = $window.localStorage.getItem rankKey
+    if $window.localStorage.getItem activityKey
+      $scope.activitys = $window.localStorage.getItem activityKey
+    MakeActivityOptionObj = ->
+      socketMyInfo = new SocketClass.socketClass('activity',null,500,true)
+      socketMyInfo.onCallback = (data) ->
+        $scope.rank = data.rank
+        $scope.activitys = data.activity
+        console.log "activity"
+        console.log data
+        return
+      return socketMyInfo
+    SocketClass.resSocket(MakeActivityOptionObj())
+      .then (data) ->
+        console.log 'socket got activity'
+      , (status) ->
+        console.log "error"
     #scope가 destroy될때, 등록한 이벤트를 모두 지움
     $scope.$on "$destroy", (event) ->
-      socket.removeListener("activity",activity)
+      $window.localStorage.setItem rankKey, $scope.rank 
+      $window.localStorage.setItem activityKey, $scope.activitys
       return
     $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
-    # socket event ↓
-    activity = (data)->
-      $scope.rank = data.rank
-      $scope.activitys = data.activity
-      console.log "activity"
-      console.log data
-      return
-    socket.on "activity", activity
-    # ↑
     $scope.showRank =->
       $scope.modalInstance = $modal.open(
         templateUrl: "views/list/rank_modal.html"
