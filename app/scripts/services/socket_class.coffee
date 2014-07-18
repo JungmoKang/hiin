@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('services').factory 'SocketClass', ($q, $window,$ionicModal,$timeout,$state,$rootScope,socket) ->
+angular.module('services').factory 'SocketClass', ($q, $window,$ionicModal,$timeout,$state,$rootScope,socket,$ionicLoading) ->
   #'options' setting 객체를 만들어서 전달
   #loadingStart, loadingStop은 없으면 그냥 넘어감
   #duration은 ms단위임. 
@@ -24,51 +24,58 @@ angular.module('services').factory 'SocketClass', ($q, $window,$ionicModal,$time
   # }
   resSocket: (options)->
     recieved = false
+    repeatCount = 0
     deferred = $q.defer()
-    socket.on options.on, (data)->
-      recieved = true
-      $timeout ( ->
-        options.onCallback(data)
-        $timeout.cancel waiting
-      ), options.defaultDuration
+    if options.showLoadingFlg
+      $ionicLoading.show template: "Loading..."
     if options.emitData 
       socket.emit options.emit, options.emitData
     else
       socket.emit options.emit
-    waiting = $timeout (->
-      if recieved is yes
+    socket.on options.on, (data)->
+      recieved = true
+      options.onCallback(data)
+    #duration 시간 안에 응답이 오지 않을 경우, duration에 500ms를 더해서 기다림. 5번 기다려서 오지 않으면 에러
+    TimerFunc = ->
+      if repeatCount < 4 and recieved is false
+        repeatCount = repeatCount + 1
+        options.duration = options.duration + 500
+        console.log repeatCount
+        console.log options.duration
+        waiting = $timeout (->
+          TimerFunc()
+        ), options.duration 
+        return
+      if recieved
         socket.removeListener(options.emit, options.onCallback)
         console.log 'socket suc'
+        $ionicLoading.hide()
         deferred.resolve 'success'
       else
         socket.removeListener(options.emit, options.onCallback)
         console.log 'error'
+        $ionicLoading.hide()
         deferred.reject 'fail'
+    waiting = $timeout (->
+      TimerFunc()
     ), options.duration 
     return deferred.promise
   ###
   parameter
   1.emitName (string) -> socket이름
   2.emitData (onject) -> 서버에 보내는 data 
-  3.showLoading (bool) -> Loding 표시
-  4.hideLoading (bool) -> 지
-  5.defaultDuration -> 응답을 기다리는 시간, 0를 설정할시 100
-  6.duration -> 리턴하는 시간 0를 설정할시 1000
-  주의!!!
-  1. defaultDuration > duration 이어야함
-  2. [3]에서 로딩을 표시한후, [4]의 하이드를 하지 않을 경우, 이어서 실행하는 함수에서 반드시 hide해줘야함
+  3.duration (int) -> 리턴하는 시간, 로딩표시가 on일 경우 디폴트로 1초, 아닐 경우 100ms
+  4.showLoadingFlg (bool) -> 로딩 표시
   ###
-  socketClass: (emitName,emitData,duration,defaultDuration) ->
+  socketClass: (emitName,emitData,duration,showLoadingFlg) ->
     class SocketOptions
-      _startFunc = ->
-        alert 'test'
-      _endFunc = null
-      constructor: (@emit,@emitData,@duration,@defaultDuration) ->
+      constructor: (@emit,@emitData,@duration,@showLoadingFlg) ->
         @on = @emit
         if @duration is 0
-          @duration = 100
-        if @defaultDuration is 0
-          @defaultDuration = 3000
+          if @showLoadingFlg
+            @duration = 1000
+          else
+            @duration = 100
       onCallback: (data) ->
         throw Error 'unimplemented method'
-    return new SocketOptions emitName,emitData,duration,defaultDuration
+    return new SocketOptions emitName,emitData,duration,showLoadingFlg

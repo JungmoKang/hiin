@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http,socket,SocketClass,$log,$state,$ionicScrollDelegate, $ionicNavBarDelegate, $timeout,$ionicModal,$window,$ionicLoading) ->
+angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http,socket,SocketClass,$log,$state,$ionicScrollDelegate, $ionicNavBarDelegate, $timeout,$ionicModal,$window) ->
   #init
   $rootScope.selectedItem = 3
   ionic.DomUtil.ready ->
@@ -23,7 +23,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   myinfo = $window.localStorage.getItem "myInfo"
   #socket 관련
   MakeMyInfoOptionObj = () ->
-    socketMyInfo = new SocketClass.socketClass('myInfo',null,0,0)
+    socketMyInfo = new SocketClass.socketClass('myInfo',null,0,true)
     socketMyInfo.onCallback = (data) ->
       console.log "list myInfo"
       console.log data
@@ -33,35 +33,29 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
       return
     return socketMyInfo
   MakeEventListObj = () ->
-    socketMyInfo = new SocketClass.socketClass('enteredEventList',null,0,0)
+    socketMyInfo = new SocketClass.socketClass('enteredEventList',null,0,true)
     socketMyInfo.onCallback = (data) ->
       $scope.events = data
       return
     return socketMyInfo  
   SendEmitMyInfo = () ->
-    $ionicLoading.show template: "Loading..."
     SocketClass.resSocket(MakeMyInfoOptionObj())
       .then (data) ->
         console.log 'socket got myInfo'
         SocketClass.resSocket(MakeEventListObj())
       .then (data) ->
         console.log 'socket got event list'
-        $ionicLoading.hide()
       , (status) ->
-        $ionicLoading.hide()
         console.log "error"
   if !myinfo?
     SendEmitMyInfo()
   else
-    $ionicLoading.show template: "Loading..."
     $scope.myId = new Array()
     $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
     SocketClass.resSocket(MakeEventListObj())
       .then (data) ->
         console.log 'socket got event list'
-        $ionicLoading.hide()
       , (status) ->
-        $ionicLoading.hide()
         console.log "error"              
   # ↑
   $scope.$on "$destroy", (event) ->

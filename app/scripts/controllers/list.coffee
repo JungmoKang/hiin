@@ -27,6 +27,8 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
   else
     $scope.messages = []
+  #socket 관련
+  #
   if $scope.messages.length > 0
     console.log '----unread----'
     console.log 'len:'+$scope.messages.length
