@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $window, Util, socket, $modal, $state,$location,$ionicNavBarDelegate,$timeout) ->
+angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $window, Util, socket, SocketClass,$modal, $state,$location,$ionicNavBarDelegate,$timeout) ->
   #init
   $rootScope.selectedItem = 2
   ionic.DomUtil.ready ->
@@ -22,28 +22,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       Util.ShowModal($scope,'no_event')
       return
     console.log 'list this event is ' + thisEvent
-  messageKey = thisEvent + '_groupMessage'
-  if $window.localStorage.getItem messageKey
-    $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
-  else
-    $scope.messages = []
-  #socket 관련
-  #
-  if $scope.messages.length > 0
-    console.log '----unread----'
-    console.log 'len:'+$scope.messages.length
-    socket.emit 'unReadCountGroup', {
-                              code: thisEvent
-                              type: "group"
-                              range: "unread"
-                              lastMsgTime: $scope.messages[$scope.messages.length-1].created_at
-    }
-  else
-    socket.emit 'unReadCountGroup', {
-                              code: thisEvent
-                              type: "group"
-                              range: "all"
-    }
   $scope.ShowPrivacyFreeDialog = ->
     #표시한 적이 있는가 없는가를 판단해서, 없을 경우 표시
     if $window.localStorage.getItem 'flg_show_privacy_dialog'
@@ -61,18 +39,38 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     $scope.modalInstance = modalInstance
     $window.localStorage.setItem 'flg_show_privacy_dialog', true
   $scope.ShowPrivacyFreeDialog()
-  socket.emit "currentEventUserList"
+  listKey = thisEvent + '_currentEventUserList'
+  tempList = $window.localStorage.getItem listKey
+  if tempList
+    $scope.users = JSON.parse(tempList)
+  else
+    $scope.users = []
+  MakeCurrentEventUserListOptionObj = ->
+    socketMyInfo = new SocketClass.socketClass('currentEventUserList',null,500,true)
+    socketMyInfo.onCallback = (data) ->
+      console.log "list currentEventUserList"
+      $scope.users = data
+      console.log data
+      return
+    return socketMyInfo
+  SendEmitCurrentEventUserList = ->
+    SocketClass.resSocket(MakeCurrentEventUserListOptionObj())
+      .then (data) ->
+        console.log 'socket got user list'
+      , (status) ->
+        console.log "error"
+    return
+  SendEmitCurrentEventUserList()
   socket.emit "unReadCount"
-  $scope.users = []
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeListener("unReadCount", unReadCount)
     socket.removeListener("unReadCountGroup", unReadCountGroup)
-    socket.removeListener("currentEventUserList", currentEventUserList)
     socket.removeListener("userListChange", userListChange)
     socket.removeListener("hi", hi)
     socket.removeListener("hiMe", hiMe)
     socket.removeListener("pendingHi", pendingHi)
+    $window.localStorage.setItem listKey, JSON.stringify($scope.users)
     return
   # socket event ↓
   unReadCount = (data) ->
@@ -85,15 +83,10 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     console.log data
     $scope.unreadGroup = data.count
     return
-  currentEventUserList = (data) ->
-    console.log "list currentEventUserList"
-    $scope.users = data
-    console.log data
-    return
   userListChange = (data) ->
     console.log 'userListChange'
     console.log data
-    socket.emit "currentEventUserList"
+    SendEmitCurrentEventUserList()
     return
   hi = (data) ->
     console.log 'on hi'
@@ -108,11 +101,11 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       $scope.modalInstance = null
       return
     $scope.modalInstance = modalInstance
-    socket.emit "currentEventUserList"
+    SendEmitCurrentEventUserList()
     return
   hiMe = (data) ->
     console.log 'on hiMe'
-    socket.emit "currentEventUserList"
+    SendEmitCurrentEventUserList()
     return
   pendingHi = (data) ->
     console.log 'on pendinghi'
@@ -120,11 +113,10 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     if data.status isnt "0"
       console.log('error':data.status)
       return
-    socket.emit "currentEventUserList"
+    SendEmitCurrentEventUserList()
     return
   socket.on "unReadCount", unReadCount
   socket.on "unReadCountGroup", unReadCountGroup
-  socket.on "currentEventUserList", currentEventUserList
   socket.on "userListChange", userListChange
   socket.on "hi", hi
   socket.on "hiMe", hiMe

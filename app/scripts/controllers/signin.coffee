@@ -5,6 +5,8 @@ angular.module('hiin')
     #init
     $scope.userInfo = {}
     $scope.userInfo.gender = 1
+    $scope.userInfo.photoUrl = ''
+    $scope.userInfo.thumbnailUrl = ''
     $scope.photoUrl = 'images/no_image.jpg'
     $scope.imageUploadUrl = "#{Host.getAPIHost()}:#{Host.getAPIPort()}/profileImage"
     $scope.ToggleGender = (gender) ->
@@ -28,6 +30,13 @@ angular.module('hiin')
       return
     $scope.SignUp = (isValid) ->
       console.log isValid
+      if $scope.userInfo.photoUrl is ""
+        if $scope.userInfo.gender is 1
+          $scope.userInfo.photoUrl = "profileImageOriginal/female.png"
+          $scope.userInfo.thumbnailUrl = "profileImageThumbnail/female.png"
+        else
+          $scope.userInfo.photoUrl = "profileImageOriginal/male.png"
+          $scope.userInfo.thumbnailUrl = "profileImageThumbnail/male.png"
       if isValid == true
         Util.MakeId($scope.userInfo)
           .then (data) ->

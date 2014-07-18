@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,socket,$state,$stateParams,$location,$ionicNavBarDelegate,$modal) ->
+angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,socket,$state,$stateParams,$location,$ionicNavBarDelegate,$modal,$timeout) ->
   console.log 'called menu Ctrl'
   $rootScope.onResume = ->
     console.log "On Resume"
@@ -19,14 +19,22 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   $scope.msgHeaderShow = false
   $scope.CloseHeaderMsg = ->
     $scope.msgHeaderShow = false
+  ShowHeader = (msg) ->
+    $scope.CloseHeaderMsg()
+    $scope.msgHeaderShow = true
+    $scope.headerMsg = msg
+    $scope.msgHeaderClass = 'private_msg_push'
+    $timeout (->
+      $scope.CloseHeaderMsg()
+    ), 2000
+    return
   message = (data) ->
     console.log 'private message in menu'
     console.log data
     if typeof $state.params.userId != 'undefined' and state.params.userId == data.sender
       return
-    $scope.msgHeaderShow = true
-    $scope.headerMsg = '<p> ' + data.sender_name + ' sended:' + data.content + '<p> Click to move'
-    $scope.msgHeaderClass = 'private_msg_push'
+    msg = '<p> ' + data.sender_name + ' sended:' + data.content + '<p> Click to move'
+    ShowHeader(msg)
     $scope.headerClickAction = ->
       $scope.CloseHeaderMsg()
       history.pushState(null, null, '#/list/userlists')
@@ -37,9 +45,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     console.log data
     if $state.current.name is 'list.groupChat'
       return
-    $scope.msgHeaderShow = true
-    $scope.headerMsg = '<p> GroupMessage: ' + data.content + '<p> Click to move'
-    $scope.msgHeaderClass = 'private_msg_push'
+    msg = '<p> GroupMessage: ' + data.content + '<p> Click to move'
+    ShowHeader(msg)
     $scope.headerClickAction = ->
       $scope.CloseHeaderMsg()
       history.pushState(null, null, '#/list/userlists')
@@ -49,9 +56,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     console.log data
     if $state.current.name is 'list.userlists'
       return
-    $scope.msgHeaderShow = true
-    $scope.headerMsg = '<p> ' + data.fromName + ' Say HI' + '<p> Click to show profile'
-    $scope.msgHeaderClass = 'private_msg_push'
+    msg = '<p> ' + data.fromName + ' Say HI' + '<p> Click to show profile'
+    ShowHeader(msg)
     $scope.headerClickAction = ->
       $scope.CloseHeaderMsg()
       $scope.user = data

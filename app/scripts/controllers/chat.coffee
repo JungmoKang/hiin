@@ -143,7 +143,6 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   		targetId: $stateParams.userId
   		message: $scope.data.message
   	}
-    #내 사진은 표시 안
   	$scope.messages.push
       sender_name: 'me' 
       content: $scope.data.message

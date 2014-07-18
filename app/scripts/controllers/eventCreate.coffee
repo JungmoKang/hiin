@@ -82,5 +82,5 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
           console.log 'error'
           $scope.modal.hide()
           alert 'err'
-), 1000
+      ), 1000
     return

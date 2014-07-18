@@ -7211,3 +7211,36 @@ Jul 17 00:04:10 JungmoKang-no-MacBook-Pro.local Hiin[29014] <Error>: CGContextRe
 2014-07-17 00:29:52.146 Hiin[29014:70b] {"count":1}
 2014-07-17 00:29:52.146 Hiin[29014:70b] list currentEventUserList
 2014-07-17 00:29:52.146 Hiin[29014:70b] [{"device":"","deviceToken":"","_id":"53c6255f7ac5f9da5a140da9","firstName":"fdsa","lastName":"fdsa","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"1049","rank":2},{"_id":"53be6d9690b7e0bd013ece95","firstName":"Shxhxh","lastName":"Shdhsh","gender":"1","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"organizer","email":"shahshs@ajsnsn","enteredEvent":"1049","rank":3,"status":"1"}]
+2014-07-18 16:46:14.159 Hiin[14318:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-18 16:46:14.197 Hiin[14318:70b] Unlimited access to network resources
+2014-07-18 16:46:14.412 Hiin[14318:70b] [CDVTimer][statusbar] 55.873036ms
+2014-07-18 16:46:14.412 Hiin[14318:70b] [CDVTimer][keyboard] 0.063002ms
+2014-07-18 16:46:14.413 Hiin[14318:70b] Init FacebookConnect Session
+2014-07-18 16:46:14.420 Hiin[14318:70b] [CDVTimer][facebookconnectplugin] 7.165015ms
+2014-07-18 16:46:14.420 Hiin[14318:70b] [CDVTimer][TotalPluginStartup] 64.529002ms
+2014-07-18 16:46:14.433 Hiin[14318:70b] active
+2014-07-18 16:46:14.487 Hiin[14318:70b] Resetting plugins due to page load.
+2014-07-18 16:46:15.235 Hiin[14318:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-18 16:46:15.339 Hiin[14318:70b] DeviceReady
+2014-07-18 16:46:15.340 Hiin[14318:70b] device type is ios
+2014-07-18 16:46:15.340 Hiin[14318:70b] error: - remote notifications are not supported in the simulator
+2014-07-18 16:46:34.805 Hiin[14318:70b] active
+2014-07-18 16:49:41.580 Hiin[16338:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-18 16:49:41.588 Hiin[16338:70b] Unlimited access to network resources
+2014-07-18 16:49:41.630 Hiin[16338:70b] [CDVTimer][statusbar] 15.594006ms
+2014-07-18 16:49:41.630 Hiin[16338:70b] [CDVTimer][keyboard] 0.100017ms
+2014-07-18 16:49:41.631 Hiin[16338:70b] Init FacebookConnect Session
+2014-07-18 16:49:41.634 Hiin[16338:70b] [CDVTimer][facebookconnectplugin] 3.077984ms
+2014-07-18 16:49:41.635 Hiin[16338:70b] [CDVTimer][TotalPluginStartup] 20.381033ms
+2014-07-18 16:49:41.640 Hiin[16338:70b] active
+2014-07-18 16:49:42.382 Hiin[16338:70b] Resetting plugins due to page load.
+2014-07-18 16:49:42.743 Hiin[16338:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-18 16:49:42.842 Hiin[16338:70b] transaction function finished
+2014-07-18 16:49:42.843 Hiin[16338:70b] DeviceReady
+2014-07-18 16:49:42.843 Hiin[16338:70b] device type is ios
+2014-07-18 16:49:42.846 Hiin[16338:70b] error: - remote notifications are not supported in the simulator
+2014-07-18 16:52:04.585 Hiin[16338:70b] DeviceReady
+2014-07-18 16:52:04.597 Hiin[16338:70b] THREAD WARNING: ['Console'] took '11.325928' ms. Plugin should use a background thread.
+2014-07-18 16:52:04.633 Hiin[16338:70b] device type is ios
+2014-07-18 16:52:04.633 Hiin[16338:70b] error: - remote notifications are not supported in the simulator
+2014-07-18 16:52:04.641 Hiin[16338:70b] transaction function finished

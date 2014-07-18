@@ -1,4 +1,8 @@
 @import "global.less";
+#firstmsgspace
+{
+  height:10px;
+}
 
 .chat-img()
 {
@@ -13,18 +17,23 @@
   position:relative;
   display:inline-block;
   padding:10px;
-  max-width:55%;
+  max-width:58%;
 }
 .msg_name()
 {
+  margin-top:7px;
   .font_style_11;
   color:@color_6;
 }
 .messaging-view {
-  background-color: @color_3;
+  background-color: @color_4;
   .scroll { 
       min-height:100%;
       padding:0px 0 50px;
+  }
+  .image
+  {
+    width:50px;
   }
   .nobody_msg
   {
@@ -60,6 +69,9 @@
     {
       overflow:hidden; padding:5px 5px 0;
       position:relative;
+      margin-top:6px;
+      left:5px;
+      top:-5px;
       span
       {
         .chat-balloon;
@@ -96,6 +108,7 @@
     {
       overflow:hidden; padding:0px 5px 5;
       position:relative;
+      margin-top:6px;
       span
       {
         .chat-balloon;

@@ -3,6 +3,7 @@ ion-view.messaging-view(title='{{roomName}}',ontouchstart='return false;')
     ion-refresher(pulling-text="Pull to refresh..." on-refresh='pullLoadMsg()')
     .message(id="{{$index}}",ng-repeat='message in messages track by $index',
       ng-class="message.sender_name == 'me' ? 'chat-balloon-me' : 'chat-balloon-you'")
+      .row#firstmsgspace(ng-if='$first')
       img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{message.thumbnailUrl}}', alt='')
       .name {{message.sender_name}}
       br
