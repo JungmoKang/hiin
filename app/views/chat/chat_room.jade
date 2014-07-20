@@ -1,4 +1,4 @@
-ion-view.messaging-view(title='{{roomName}}',ontouchstart='return false;')
+ion-view.messaging-view(title='{{roomName}}')
   ion-content(ng-style='{ bottom: (data.keyboardHeight + 40) + "px" }')
     ion-refresher(pulling-text="Pull to refresh..." on-refresh='pullLoadMsg()')
     .message(id="{{$index}}",ng-repeat='message in messages track by $index',
@@ -7,12 +7,15 @@ ion-view.messaging-view(title='{{roomName}}',ontouchstart='return false;')
       img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{message.thumbnailUrl}}', alt='')
       .name {{message.sender_name}}
       br
-      .message: span {{ message.content }}
+      .desc
+        .message
+          span.msg {{ message.content }}
+          span.time {{message.created_at | date : 'mediumTime' }}
   .nobody_msg(ng-show='messages.length==0')
     div.msg 
       p.big NO MESSAGES YET
       p.normal Introduce yourself?
-  .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }')
+  .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }',ontouchmove='return false;')
     div(ng-if="!amIOwner")
       .row
         .col-80
@@ -24,7 +27,7 @@ ion-view.messaging-view(title='{{roomName}}',ontouchstart='return false;')
       .row
         .col.col-70
           input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
-            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' onblur ='test()' on-blur='inputDown()' autocorrect="off")
+            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur ='inputDown()' autocorrect="off")
         .col.col-10
           button.owner_msg_on(ng-click='toggleOwnerMsg()', ng-class="regular_msg_flg ? 'owner_msg_on' : 'owner_msg_off' ")
         .col.col-20

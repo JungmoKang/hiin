@@ -75,8 +75,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIApplication *application = [UIApplication sharedApplication];
-    application.idleTimerDisabled = YES;
 }
 
 - (void)viewDidUnload

@@ -13,7 +13,7 @@
 {
   border-radius: 8px;
   background-color: white;
-  color: gray;
+  color: @color_6;
   position:relative;
   display:inline-block;
   padding:10px;
@@ -72,7 +72,7 @@
       margin-top:6px;
       left:5px;
       top:-5px;
-      span
+      .msg
       {
         .chat-balloon;
         border-top-right-radius: 0;
@@ -92,6 +92,13 @@
       .msg_name;
       float: right;
     }
+    .time
+    {
+      background-color:@color_5;
+      .font_style_0;
+      color:white;
+      float:right;
+    }
     float: right;
   }
   .chat-balloon-you{
@@ -109,7 +116,7 @@
       overflow:hidden; padding:0px 5px 5;
       position:relative;
       margin-top:6px;
-      span
+      .msg
       {
         .chat-balloon;
         border-top-left-radius: 0;
@@ -120,6 +127,13 @@
     {
       .msg_name;
       float: left;
+    }
+    .time
+    {
+      background-color:@color_5;
+      .font_style_0;
+      color:white;
+      float:left;
     }
     float: left;
   }

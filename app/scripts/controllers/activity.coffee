@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope,$location, $window, Util, socket, SocketClass, $modal) ->
+angular.module('hiin').controller 'ActivityCtrl', ($scope, $state,$rootScope,$location, $window, Util, socket, SocketClass, $modal) ->
     rankKey = 'activity_rank'
     activityKey = 'activity_activity'
     if $window.localStorage.getItem rankKey
@@ -37,21 +37,25 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $rootScope,$location,
     $scope.ShowProfile = (user) ->
       console.log user
       $scope.user = user
-      modalInstance = $modal.open(
-        templateUrl: "views/dialog/user_card.html"
-        scope: $scope
-      )
-      modalInstance.result.then ((selectedItem) ->
-        return
-      ), ->
-        $scope.modalInstance = null
-        return
-      $scope.modalInstance = modalInstance
+      if user.status is '0' or user.status is '2'
+        modalInstance = $modal.open(
+          templateUrl: "views/dialog/user_card.html"
+          scope: $scope
+        )
+        modalInstance.result.then ((selectedItem) ->
+          return
+        ), ->
+          $scope.modalInstance = null
+          return
+        $scope.modalInstance = modalInstance
+      else
+        $scope.chatRoom(user)
     $scope.chatRoom = (user) ->
       console.log(user)
       if $scope.modalInstance? 
         $scope.modalInstance.close()
-      $location.url('/list/userlists/'+user._id)
+      $state.go 'list.single',
+        userId: user._id
     $scope.sayHi = (user) ->
       if user.status == '0'
         console.log 'sayhi'

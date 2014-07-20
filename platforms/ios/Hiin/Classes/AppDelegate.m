@@ -86,6 +86,7 @@
     // [self.viewController viewWillAppear:] in your view controller.
 
     self.window.rootViewController = self.viewController;
+    application.idleTimerDisabled = YES;
     [self.window makeKeyAndVisible];
 
     return YES;

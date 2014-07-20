@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $window, Util, socket, SocketClass,$modal, $state,$location,$ionicNavBarDelegate,$timeout) ->
+angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scope, $window, Util, socket, SocketClass,$modal, $state,$location,$ionicNavBarDelegate,$timeout) ->
   #init
   $rootScope.selectedItem = 2
   ionic.DomUtil.ready ->
@@ -39,16 +39,12 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     $scope.modalInstance = modalInstance
     $window.localStorage.setItem 'flg_show_privacy_dialog', true
   $scope.ShowPrivacyFreeDialog()
-  listKey = thisEvent + '_currentEventUserList'
-  tempList = $window.localStorage.getItem listKey
-  if tempList
-    $scope.users = JSON.parse(tempList)
-  else
-    $scope.users = []
   MakeCurrentEventUserListOptionObj = ->
     socketMyInfo = new SocketClass.socketClass('currentEventUserList',null,100,true)
     socketMyInfo.onCallback = (data) ->
       console.log "list currentEventUserList"
+      console.log 'listKey is ' + listKey
+      $window.localStorage.setItem listKey, JSON.stringify(data)
       $scope.users = data
       console.log data
       return
@@ -60,7 +56,13 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       , (status) ->
         console.log "error"
     return
-  SendEmitCurrentEventUserList()
+  listKey = thisEvent + '_currentEventUserList'
+  tempList = $window.localStorage.getItem listKey
+  if tempList && tempList isnt '[]'
+    $scope.users = JSON.parse(tempList)
+  else
+    $scope.users = []
+    SendEmitCurrentEventUserList()
   socket.emit "unReadCount"
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
@@ -70,7 +72,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
     socket.removeListener("hi", hi)
     socket.removeListener("hiMe", hiMe)
     socket.removeListener("pendingHi", pendingHi)
-    $window.localStorage.setItem listKey, JSON.stringify($scope.users)
     return
   # socket event ↓
   unReadCount = (data) ->
@@ -86,7 +87,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
   userListChange = (data) ->
     console.log 'userListChange'
     console.log data
-    SendEmitCurrentEventUserList()
     return
   hi = (data) ->
     console.log 'on hi'
@@ -101,19 +101,24 @@ angular.module('hiin').controller 'ListCtrl', ($route, $rootScope,$scope, $windo
       $scope.modalInstance = null
       return
     $scope.modalInstance = modalInstance
-    SendEmitCurrentEventUserList()
+    user = $filter('getUserById')($scope.users, data.from)
+    user.status = "2"
+    # 하이 받았을때 리스트가 새로 변경되는게 보기 이상함..그래서 주석처리
+    #SendEmitCurrentEventUserList()
     return
   hiMe = (data) ->
     console.log 'on hiMe'
-    SendEmitCurrentEventUserList()
+    # 하이 받았을때 리스트가 새로 변경되는게 보기 이상함..그래서 주석처리
+    # 대신에, 클라이언트에서 변경
     return
   pendingHi = (data) ->
     console.log 'on pendinghi'
     console.log "list pedinghi"
+    console.log data.status
     if data.status isnt "0"
       console.log('error':data.status)
       return
-    SendEmitCurrentEventUserList()
+    #SendEmitCurrentEventUserList()
     return
   socket.on "unReadCount", unReadCount
   socket.on "unReadCountGroup", unReadCountGroup

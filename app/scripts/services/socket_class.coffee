@@ -25,6 +25,11 @@ angular.module('services').factory 'SocketClass', ($q, $window,$ionicModal,$time
   resSocket: (options)->
     recieved = false
     repeatCount = 0
+    socketFunc =  (data)->
+      recieved = true
+      console.log "got on"
+      console.log recieved
+      options.onCallback(data)
     deferred = $q.defer()
     if options.showLoadingFlg
       $ionicLoading.show template: "Loading..."
@@ -32,9 +37,7 @@ angular.module('services').factory 'SocketClass', ($q, $window,$ionicModal,$time
       socket.emit options.emit, options.emitData
     else
       socket.emit options.emit
-    socket.on options.on, (data)->
-      recieved = true
-      options.onCallback(data)
+    socket.on options.on, socketFunc
     #duration 시간 안에 응답이 오지 않을 경우, duration에 300ms를 더해서 기다림. 5번 기다려서 오지 않으면 에러
     TimerFunc = ->
       if repeatCount < 4 and recieved is false
@@ -47,12 +50,12 @@ angular.module('services').factory 'SocketClass', ($q, $window,$ionicModal,$time
         ), options.duration 
         return
       if recieved
-        socket.removeListener(options.emit, options.onCallback)
+        socket.removeListener(options.emit, socketFunc)
         console.log 'socket suc'
         $ionicLoading.hide()
         deferred.resolve 'success'
       else
-        socket.removeListener(options.emit, options.onCallback)
+        socket.removeListener(options.emit, socketFunc)
         console.log 'error'
         $ionicLoading.hide()
         deferred.reject 'fail'

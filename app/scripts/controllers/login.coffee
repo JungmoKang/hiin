@@ -42,10 +42,11 @@ angular.module('hiin').controller 'LoginCtrl', ($rootScope, $scope,$window,$stat
 		if token? and eventInfo?
 			CheckToken(token)
 				.then (response) ->
+					console.log 'token check ok'
 					eventCode = JSON.parse(eventInfo).code
 					CheckEvent(eventCode)
 				.then (response) ->
-					#$state.go('list.events')
+					$state.go('list.events')
 					console.log 'goto events'
 				,(response) ->
 					Util.ClearLocalStorage()
