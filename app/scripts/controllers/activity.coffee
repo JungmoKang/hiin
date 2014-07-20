@@ -1,8 +1,9 @@
 'use strict'
 
 angular.module('hiin').controller 'ActivityCtrl', ($scope, $state,$rootScope,$location, $window, Util, socket, SocketClass, $modal) ->
-    rankKey = 'activity_rank'
-    activityKey = 'activity_activity'
+    thisEvent = JSON.parse($window.localStorage.getItem "thisEvent").code
+    rankKey = thisEvent + '_activity_rank'
+    activityKey = thisEvent + '_activity_activity'
     if $window.localStorage.getItem rankKey
       $scope.rank = $window.localStorage.getItem rankKey
     if $window.localStorage.getItem activityKey

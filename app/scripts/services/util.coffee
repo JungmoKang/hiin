@@ -87,7 +87,6 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
         if data.status < 0
           deferred.reject data.status
           console.log data
-        $window.localStorage.setItem 'thisEvent', JSON.stringify(data.event)
         deferred.resolve data
       .error (error,status) ->
         deferred.reject status

@@ -19,7 +19,8 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
       , (status) ->
         console.log '-----user or error-----'
         console.log status
-        console.log "error"    
+        console.log "error"
+    $scope.thisEvent.code = ""    
   myinfo = $window.localStorage.getItem "myInfo"
   #socket 관련
   MakeMyInfoOptionObj = () ->
@@ -61,7 +62,19 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   $scope.$on "$destroy", (event) ->
     if $scope.modal?
       $scope.modal.hide()
-    return  
+    return
+  SetNewEvent = (data) ->
+    if $scope.thisEvent.code != ""
+      console.log $scope.thisEvent.code
+      deleteKeyList = []
+      for i in [0..$window.localStorage.length-1]
+        console.log i
+        if $window.localStorage.key(i).indexOf($scope.thisEvent.code) >= 0
+          deleteKeyList.push($window.localStorage.key(i))
+      for key in deleteKeyList
+        $window.localStorage.removeItem key
+    $window.localStorage.setItem 'thisEvent', JSON.stringify(data.event)
+    $state.go('list.userlists')
   $scope.confirmCode = ->
     promise = Util.ConfirmEvent($scope.formData )
     $scope.message = 'loaded'
@@ -69,7 +82,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     $timeout (->
       promise.then (data) ->
         $scope.modal.hide()
-        $state.go('list.userlists')
+        SetNewEvent(data)
       ,(status) ->
         console.log 'error'
         $scope.modal.hide()
@@ -121,7 +134,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
       code: code
     Util.ConfirmEvent(confirmData)
       .then (data) ->
-        $state.go('list.userlists')
+        SetNewEvent(data)
       ,(status) ->
         console.log 'error'
         Util.ShowModal($scope,'no_event')
