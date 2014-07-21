@@ -13102,3 +13102,328 @@ Jul 17 00:04:10 JungmoKang-no-MacBook-Pro.local Hiin[29014] <Error>: CGContextRe
 2014-07-21 09:42:35.743 Hiin[27879:70b] true
 2014-07-21 09:42:35.754 Hiin[27879:70b] socket suc
 2014-07-21 09:42:35.755 Hiin[27879:70b] socket got event list
+2014-07-21 12:24:27.161 Hiin[32512:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-21 12:24:27.329 Hiin[32512:70b] Unlimited access to network resources
+2014-07-21 12:24:28.127 Hiin[32512:70b] [CDVTimer][statusbar] 45.765996ms
+2014-07-21 12:24:28.128 Hiin[32512:70b] [CDVTimer][keyboard] 0.093997ms
+2014-07-21 12:24:28.129 Hiin[32512:70b] Init FacebookConnect Session
+2014-07-21 12:24:28.132 Hiin[32512:70b] [CDVTimer][facebookconnectplugin] 3.374994ms
+2014-07-21 12:24:28.133 Hiin[32512:70b] [CDVTimer][TotalPluginStartup] 51.985025ms
+2014-07-21 12:24:28.141 Hiin[32512:70b] active
+2014-07-21 12:24:28.748 Hiin[32512:70b] Resetting plugins due to page load.
+2014-07-21 12:24:29.246 Hiin[32512:70b] transaction function finished
+2014-07-21 12:24:29.246 Hiin[32512:70b] DeviceReady
+2014-07-21 12:24:29.246 Hiin[32512:70b] device type is ios
+2014-07-21 12:24:29.248 Hiin[32512:70b] error: - remote notifications are not supported in the simulator
+2014-07-21 12:24:29.274 Hiin[32512:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-21 12:24:29.540 Hiin[32512:70b] {"status":"0"}
+2014-07-21 12:24:29.540 Hiin[32512:70b] token check ok
+2014-07-21 12:24:29.540 Hiin[32512:70b] http://ec2-54-86-232-223.compute-1.amazonaws.com:3000/IsAvailableEvent
+2014-07-21 12:24:29.735 Hiin[32512:70b] {"status":"0"}
+2014-07-21 12:24:29.736 Hiin[32512:70b] goto events
+2014-07-21 12:24:29.830 Hiin[32512:70b] called menu Ctrl
+2014-07-21 12:24:30.714 Hiin[32512:70b] got on
+2014-07-21 12:24:30.715 Hiin[32512:70b] true
+2014-07-21 12:24:30.779 Hiin[32512:70b] socket suc
+2014-07-21 12:24:30.779 Hiin[32512:70b] socket got event list
+2014-07-21 12:28:01.561 Hiin[36564:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-21 12:28:01.593 Hiin[36564:70b] Unlimited access to network resources
+2014-07-21 12:28:01.674 Hiin[36564:70b] [CDVTimer][statusbar] 18.822014ms
+2014-07-21 12:28:01.678 Hiin[36564:70b] [CDVTimer][keyboard] 0.100017ms
+2014-07-21 12:28:01.682 Hiin[36564:70b] Init FacebookConnect Session
+2014-07-21 12:28:01.692 Hiin[36564:70b] [CDVTimer][facebookconnectplugin] 10.743976ms
+2014-07-21 12:28:01.698 Hiin[36564:70b] [CDVTimer][TotalPluginStartup] 42.874992ms
+2014-07-21 12:28:01.709 Hiin[36564:70b] active
+2014-07-21 12:28:02.344 Hiin[36564:70b] Resetting plugins due to page load.
+2014-07-21 12:28:02.669 Hiin[36564:70b] DeviceReady
+2014-07-21 12:28:02.670 Hiin[36564:70b] device type is ios
+2014-07-21 12:28:02.670 Hiin[36564:70b] error: - remote notifications are not supported in the simulator
+2014-07-21 12:28:02.720 Hiin[36564:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-21 12:28:03.035 Hiin[36564:70b] {"status":"0"}
+2014-07-21 12:28:03.035 Hiin[36564:70b] token check ok
+2014-07-21 12:28:03.035 Hiin[36564:70b] http://ec2-54-86-232-223.compute-1.amazonaws.com:3000/IsAvailableEvent
+2014-07-21 12:28:03.230 Hiin[36564:70b] {"status":"0"}
+2014-07-21 12:28:03.230 Hiin[36564:70b] goto events
+2014-07-21 12:28:03.311 Hiin[36564:70b] called menu Ctrl
+2014-07-21 12:28:04.222 Hiin[36564:70b] got on
+2014-07-21 12:28:04.222 Hiin[36564:70b] true
+2014-07-21 12:28:04.267 Hiin[36564:70b] socket suc
+2014-07-21 12:28:04.267 Hiin[36564:70b] socket got event list
+2014-07-21 12:28:05.345 Hiin[36564:70b] 9745
+2014-07-21 12:28:05.345 Hiin[36564:70b] 0
+2014-07-21 12:28:05.345 Hiin[36564:70b] 1
+2014-07-21 12:28:05.346 Hiin[36564:70b] 2
+2014-07-21 12:28:05.346 Hiin[36564:70b] 3
+2014-07-21 12:28:05.346 Hiin[36564:70b] 4
+2014-07-21 12:28:05.346 Hiin[36564:70b] 5
+2014-07-21 12:28:05.346 Hiin[36564:70b] 6
+2014-07-21 12:28:05.347 Hiin[36564:70b] 7
+2014-07-21 12:28:05.347 Hiin[36564:70b] 8
+2014-07-21 12:28:05.382 Hiin[36564:70b] list this event is 9745
+2014-07-21 12:28:05.459 Hiin[36564:70b] 1
+2014-07-21 12:28:05.459 Hiin[36564:70b] 400
+2014-07-21 12:28:05.597 Hiin[36564:70b] --unread count---
+2014-07-21 12:28:05.598 Hiin[36564:70b] {"count":2}
+2014-07-21 12:28:05.843 Hiin[36564:70b] got on
+2014-07-21 12:28:05.843 Hiin[36564:70b] true
+2014-07-21 12:28:05.843 Hiin[36564:70b] list currentEventUserList
+2014-07-21 12:28:05.844 Hiin[36564:70b] listKey is 9745_currentEventUserList
+2014-07-21 12:28:05.844 Hiin[36564:70b] [{"loginType":"facebook","job":"none","_id":"53c670a4be52acd214768c66","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/p100x100/1625640_10102272949632593_684156646732743126_n.jpg","device":"ios","deviceToken":"5677dd6d6e9dadf1265165915be78911f96568d07a538c5d0bcd4a05dada6632","organizer":"organizer","status":"3","lastName":"Moon","gender":"male","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/p100x100/1625640_10102272949632593_684156646732743126_n.jpg","email":"dongji.moon@gmail.com","enteredEvent":"6040","firstName":"DJ","rank":1},{"device":"ios","deviceToken":"","_id":"53c8d9ea4f4ff7a726f6fef1","firstName":"fdfd","lastName":"fdffd","gender":"1","job":"Fdfdfd","photoUrl":"profileImageOriginal/female.png","thumbnailUrl":"profileImageThumbnail/female.png","organizer":"user","status":"3","enteredEvent":"5445","rank":4},{"device":"ios","deviceToken":"6191819020d9aabc552670660133105a9de5f5b5011603ef39bea87b7cf1610b","_id":"53c65ce2be52acd214768c23","firstName":"K","lastName":"Kk","gender":"2","job":"Kk","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"5445","rank":2},{"device":"ios","deviceToken":"6191819020d9aabc552670660133105a9de5f5b5011603ef39bea87b7cf1610b","_id":"53c65eb7be52acd214768c41","firstName":"Kk","lastName":"Kk","gender":"2","job":"Kk","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"5445","rank":10},{"device":"ios","deviceToken":"0b7c8b0624d74e905e0892e69c8300e4dfa821a0f02a35e427d908fe896d1827","_id":"53c7edf97ad29962268d3532","firstName":"ㄱ","lastName":"ㄲ","gender":"2","job":"ㄹ","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"5445","rank":8},{"device":"ios","deviceToken":"0b7c8b0624d74e905e0892e69c8300e4dfa821a0f02a35e427d908fe896d1827","_id":"53c7ef924f4ff7a726f6feea","firstName":"ㅏㅏㅏ","lastName":"ㅁㅁㅁ","gender":"2","job":"ㅁㅁㅁ","photoUrl":"profileImageOriginal/706bae873fbcc668_1405611897965.png","thumbnailUrl":"profileImageThumbnail/706bae873fbcc668_1405611897965_thumb.png","organizer":"user","status":"1","enteredEvent":"5445","rank":7},{"device":"ios","deviceToken":"5677dd6d6e9dadf1265165915be78911f96568d07a538c5d0bcd4a05dada6632","_id":"53c7498ee27be5fd15ce3f5b","firstName":"Dj","lastName":"Moon","gender":"2","job":"Hsb","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"5445","rank":9},{"device":"web","deviceToken":"","_id":"53c745b5e27be5fd15ce3f22","firstName":"dw","lastName":"kim","gender":"2","job":"undefined","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"0","enteredEvent":"5445","rank":5}]
+2014-07-21 12:28:05.845 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:05.845 Hiin[36564:70b] 3
+2014-07-21 12:28:05.845 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.845 Hiin[36564:70b] 3
+2014-07-21 12:28:05.845 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.846 Hiin[36564:70b] 3
+2014-07-21 12:28:05.846 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.846 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:05.846 Hiin[36564:70b] 3
+2014-07-21 12:28:05.846 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.847 Hiin[36564:70b] 3
+2014-07-21 12:28:05.847 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.847 Hiin[36564:70b] 3
+2014-07-21 12:28:05.848 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.848 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:05.848 Hiin[36564:70b] 3
+2014-07-21 12:28:05.848 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.849 Hiin[36564:70b] 3
+2014-07-21 12:28:05.849 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.849 Hiin[36564:70b] 3
+2014-07-21 12:28:05.849 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.850 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:05.850 Hiin[36564:70b] 1
+2014-07-21 12:28:05.850 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.850 Hiin[36564:70b] 1
+2014-07-21 12:28:05.850 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.851 Hiin[36564:70b] 1
+2014-07-21 12:28:05.851 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.851 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:05.852 Hiin[36564:70b] 1
+2014-07-21 12:28:05.852 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.852 Hiin[36564:70b] 1
+2014-07-21 12:28:05.852 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.853 Hiin[36564:70b] 1
+2014-07-21 12:28:05.853 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.853 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:05.853 Hiin[36564:70b] 1
+2014-07-21 12:28:05.853 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.853 Hiin[36564:70b] 1
+2014-07-21 12:28:05.853 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.854 Hiin[36564:70b] 1
+2014-07-21 12:28:05.854 Hiin[36564:70b] btn Status = in
+2014-07-21 12:28:05.854 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:05.854 Hiin[36564:70b] 0
+2014-07-21 12:28:05.854 Hiin[36564:70b] btn status = hi
+2014-07-21 12:28:05.854 Hiin[36564:70b] 0
+2014-07-21 12:28:05.854 Hiin[36564:70b] btn status = hi
+2014-07-21 12:28:05.855 Hiin[36564:70b] 0
+2014-07-21 12:28:05.855 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:05.856 Hiin[36564:70b] 0
+2014-07-21 12:28:05.856 Hiin[36564:70b] btn status = hi
+2014-07-21 12:28:05.856 Hiin[36564:70b] 0
+2014-07-21 12:28:05.856 Hiin[36564:70b] btn status = hi
+2014-07-21 12:28:05.857 Hiin[36564:70b] 0
+2014-07-21 12:28:05.873 Hiin[36564:70b] socket suc
+2014-07-21 12:28:05.874 Hiin[36564:70b] socket got user list
+2014-07-21 12:28:06.487 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:06.809 Hiin[36564:70b] got on
+2014-07-21 12:28:06.810 Hiin[36564:70b] true
+2014-07-21 12:28:06.810 Hiin[36564:70b] activity
+2014-07-21 12:28:06.810 Hiin[36564:70b] {"rank":11,"activity":[{"loginType":"facebook","job":"none","_id":"53c670a4be52acd214768c66","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/p100x100/1625640_10102272949632593_684156646732743126_n.jpg","device":"ios","deviceToken":"5677dd6d6e9dadf1265165915be78911f96568d07a538c5d0bcd4a05dada6632","organizer":"organizer","status":"3","lastName":"Moon","gender":"male","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/p100x100/1625640_10102272949632593_684156646732743126_n.jpg","email":"dongji.moon@gmail.com","enteredEvent":"6040","firstName":"DJ","lastMsg":{"_id":"53c8d0504f4ff7a726f6feee","sender":"53c6591bbe52acd214768c12","reciever":"53c670a4be52acd214768c66","content":"","type":"hi","eventCode":"5445","created_at":"2014-07-18T07:44:16.244Z","__v":0,"read":false},"lastSender":"me"},{"device":"ios","deviceToken":"","_id":"53c8d9ea4f4ff7a726f6fef1","firstName":"fdfd","lastName":"fdffd","gender":"1","job":"Fdfdfd","photoUrl":"profileImageOriginal/female.png","thumbnailUrl":"profileImageThumbnail/female.png","organizer":"user","status":"3","enteredEvent":"5445","lastMsg":{"_id":"53c8db53c63f8ec02b4e9041","status":"0","sender":"53c6591bbe52acd214768c12","sender_name":"Jungmo","reciever":"53c8d9ea4f4ff7a726f6fef1","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","content":"gf","type":"personal","eventCode":"5445","created_at":"2014-07-18T08:32:02.635Z","__v":0,"read":false},"lastSender":"me"},{"device":"ios","deviceToken":"6191819020d9aabc552670660133105a9de5f5b5011603ef39bea87b7cf1610b","_id":"53c65eb7be52acd214768c41","firstName":"Kk","lastName":"Kk","gender":"2","job":"Kk","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"5445","lastMsg":{"_id":"53c693f2e27be5fd15ce3ec7","sender":"53c6591bbe52acd214768c12","reciever":"53c65eb7be52acd214768c41","content":"","type":"hi","eventCode":"5445","created_at":"2014-07-16T15:02:10.917Z","__v":0,"read":false},"lastSender":"me"},{"device":"ios","deviceToken":"0b7c8b0624d74e905e0892e69c8300e4dfa821a0f02a35e427d908fe896d1827","_id":"53c7ef924f4ff7a726f6feea","firstName":"ㅏㅏㅏ","lastName":"ㅁㅁㅁ","gender":"2","job":"ㅁㅁㅁ","photoUrl":"profileImageOriginal/706bae873fbcc668_1405611897965.png","thumbnailUrl":"profileImageThumbnail/706bae873fbcc668_1405611897965_thumb.png","organizer":"user","status":"1","enteredEvent":"5445","lastMsg":{"_id":"53c8d57d4f4ff7a726f6fef0","sender":"53c6591bbe52acd214768c12","reciever":"53c7ef924f4ff7a726f6feea","content":"","type":"hi","eventCode":"5445","created_at":"2014-07-18T08:06:21.300Z","__v":0,"read":false},"lastSender":"me"},{"device":"ios","deviceToken":"0b7c8b0624d74e905e0892e69c8300e4dfa821a0f02a35e427d908fe896d1827","_id":"53c7edf97ad29962268d3532","firstName":"ㄱ","lastName":"ㄲ","gender":"2","job":"ㄹ","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"5445","lastMsg":{"_id":"53c8d5794f4ff7a726f6feef","sender":"53c6591bbe52acd214768c12","reciever":"53c7edf97ad29962268d3532","content":"","type":"hi","eventCode":"5445","created_at":"2014-07-18T08:06:17.105Z","__v":0,"read":false},"lastSender":"me"},{"device":"ios","deviceToken":"6191819020d9aabc552670660133105a9de5f5b5011603ef39bea87b7cf1610b","_id":"53c65ce2be52acd214768c23","firstName":"K","lastName":"Kk","gender":"2","job":"Kk","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"5445","lastMsg":{"_id":"53c693f8e27be5fd15ce3ec8","sender":"53c6591bbe52acd214768c12","reciever":"53c65ce2be52acd214768c23","content":"","type":"hi","eventCode":"5445","created_at":"2014-07-16T15:02:16.323Z","__v":0,"read":false},"lastSender":"me"}]}
+2014-07-21 12:28:06.812 Hiin[36564:70b] false
+2014-07-21 12:28:06.813 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:06.813 Hiin[36564:70b] me
+2014-07-21 12:28:06.813 Hiin[36564:70b] me
+2014-07-21 12:28:06.814 Hiin[36564:70b] false
+2014-07-21 12:28:06.814 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:06.814 Hiin[36564:70b] me
+2014-07-21 12:28:06.814 Hiin[36564:70b] me
+2014-07-21 12:28:06.815 Hiin[36564:70b] false
+2014-07-21 12:28:06.815 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:06.815 Hiin[36564:70b] me
+2014-07-21 12:28:06.815 Hiin[36564:70b] me
+2014-07-21 12:28:06.816 Hiin[36564:70b] false
+2014-07-21 12:28:06.816 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:06.816 Hiin[36564:70b] me
+2014-07-21 12:28:06.816 Hiin[36564:70b] me
+2014-07-21 12:28:06.817 Hiin[36564:70b] false
+2014-07-21 12:28:06.817 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:06.817 Hiin[36564:70b] me
+2014-07-21 12:28:06.817 Hiin[36564:70b] me
+2014-07-21 12:28:06.818 Hiin[36564:70b] false
+2014-07-21 12:28:06.818 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:28:06.818 Hiin[36564:70b] me
+2014-07-21 12:28:06.819 Hiin[36564:70b] me
+2014-07-21 12:28:06.966 Hiin[36564:70b] socket suc
+2014-07-21 12:28:06.966 Hiin[36564:70b] socket got activity
+2014-07-21 12:31:33.726 Hiin[36564:70b] list this event is 9745
+2014-07-21 12:31:33.732 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:31:33.733 Hiin[36564:70b] 3
+2014-07-21 12:31:33.733 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.733 Hiin[36564:70b] 3
+2014-07-21 12:31:33.733 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.734 Hiin[36564:70b] 3
+2014-07-21 12:31:33.734 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.734 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:31:33.735 Hiin[36564:70b] 3
+2014-07-21 12:31:33.735 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.735 Hiin[36564:70b] 3
+2014-07-21 12:31:33.735 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.736 Hiin[36564:70b] 3
+2014-07-21 12:31:33.736 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.736 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:31:33.736 Hiin[36564:70b] 3
+2014-07-21 12:31:33.737 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.737 Hiin[36564:70b] 3
+2014-07-21 12:31:33.737 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.737 Hiin[36564:70b] 3
+2014-07-21 12:31:33.738 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.738 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:31:33.738 Hiin[36564:70b] 1
+2014-07-21 12:31:33.738 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.739 Hiin[36564:70b] 1
+2014-07-21 12:31:33.739 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.739 Hiin[36564:70b] 1
+2014-07-21 12:31:33.739 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.740 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:31:33.740 Hiin[36564:70b] 1
+2014-07-21 12:31:33.740 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.740 Hiin[36564:70b] 1
+2014-07-21 12:31:33.741 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.741 Hiin[36564:70b] 1
+2014-07-21 12:31:33.741 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.741 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:31:33.742 Hiin[36564:70b] 1
+2014-07-21 12:31:33.742 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.744 Hiin[36564:70b] 1
+2014-07-21 12:31:33.744 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.744 Hiin[36564:70b] 1
+2014-07-21 12:31:33.744 Hiin[36564:70b] btn Status = in
+2014-07-21 12:31:33.745 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:31:33.745 Hiin[36564:70b] 0
+2014-07-21 12:31:33.745 Hiin[36564:70b] btn status = hi
+2014-07-21 12:31:33.745 Hiin[36564:70b] 0
+2014-07-21 12:31:33.746 Hiin[36564:70b] btn status = hi
+2014-07-21 12:31:33.746 Hiin[36564:70b] 0
+2014-07-21 12:31:33.746 Hiin[36564:70b] ngProfileImage　attrs
+2014-07-21 12:31:33.746 Hiin[36564:70b] 0
+2014-07-21 12:31:33.747 Hiin[36564:70b] btn status = hi
+2014-07-21 12:31:33.747 Hiin[36564:70b] 0
+2014-07-21 12:31:33.747 Hiin[36564:70b] btn status = hi
+2014-07-21 12:31:33.748 Hiin[36564:70b] 0
+2014-07-21 12:31:33.961 Hiin[36564:70b] --unread count---
+2014-07-21 12:31:33.962 Hiin[36564:70b] {"count":2}
+2014-07-21 12:31:35.087 Hiin[38595:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-21 12:31:35.095 Hiin[38595:70b] Unlimited access to network resources
+2014-07-21 12:31:35.122 Hiin[38595:70b] [CDVTimer][statusbar] 10.300994ms
+2014-07-21 12:31:35.123 Hiin[38595:70b] [CDVTimer][keyboard] 0.084996ms
+2014-07-21 12:31:35.123 Hiin[38595:70b] Init FacebookConnect Session
+2014-07-21 12:31:35.125 Hiin[38595:70b] [CDVTimer][facebookconnectplugin] 2.170026ms
+2014-07-21 12:31:35.126 Hiin[38595:70b] [CDVTimer][TotalPluginStartup] 13.803005ms
+2014-07-21 12:31:35.129 Hiin[38595:70b] active
+2014-07-21 12:31:35.199 Hiin[38595:70b] Resetting plugins due to page load.
+2014-07-21 12:31:35.755 Hiin[38595:70b] DeviceReady
+2014-07-21 12:31:35.755 Hiin[38595:70b] device type is ios
+2014-07-21 12:31:35.756 Hiin[38595:70b] error: - remote notifications are not supported in the simulator
+2014-07-21 12:31:35.857 Hiin[38595:70b] Finished load of: file:///Users/moya/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/FC1F20C8-92FD-411B-A543-1ED9188A0072/Hiin.app/www/index.html#/
+2014-07-21 12:31:36.101 Hiin[38595:70b] {"status":"0"}
+2014-07-21 12:31:36.102 Hiin[38595:70b] token check ok
+2014-07-21 12:31:36.102 Hiin[38595:70b] http://ec2-54-86-232-223.compute-1.amazonaws.com:3000/IsAvailableEvent
+2014-07-21 12:31:36.293 Hiin[38595:70b] {"status":"0"}
+2014-07-21 12:31:36.293 Hiin[38595:70b] goto events
+2014-07-21 12:31:36.356 Hiin[38595:70b] called menu Ctrl
+2014-07-21 12:31:37.268 Hiin[38595:70b] got on
+2014-07-21 12:31:37.268 Hiin[38595:70b] true
+2014-07-21 12:31:37.321 Hiin[38595:70b] socket suc
+2014-07-21 12:31:37.322 Hiin[38595:70b] socket got event list
+2014-07-21 12:31:50.695 Hiin[38595:70b] On Pause
+2014-07-21 12:31:51.067 Hiin[38595:70b] active
+2014-07-21 12:31:51.076 Hiin[38595:70b] On Resume
+2014-07-21 12:31:54.158 Hiin[38595:70b] list this event is 9745
+2014-07-21 12:31:54.158 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:54.159 Hiin[38595:70b] 3
+2014-07-21 12:31:54.159 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.159 Hiin[38595:70b] 3
+2014-07-21 12:31:54.160 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.160 Hiin[38595:70b] 3
+2014-07-21 12:31:54.160 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.160 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:54.161 Hiin[38595:70b] 3
+2014-07-21 12:31:54.161 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.161 Hiin[38595:70b] 3
+2014-07-21 12:31:54.161 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.162 Hiin[38595:70b] 3
+2014-07-21 12:31:54.162 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.162 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:54.162 Hiin[38595:70b] 3
+2014-07-21 12:31:54.163 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.163 Hiin[38595:70b] 3
+2014-07-21 12:31:54.163 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.163 Hiin[38595:70b] 3
+2014-07-21 12:31:54.163 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.164 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:54.164 Hiin[38595:70b] 1
+2014-07-21 12:31:54.164 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.164 Hiin[38595:70b] 1
+2014-07-21 12:31:54.165 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.165 Hiin[38595:70b] 1
+2014-07-21 12:31:54.165 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.165 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:54.165 Hiin[38595:70b] 1
+2014-07-21 12:31:54.166 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.166 Hiin[38595:70b] 1
+2014-07-21 12:31:54.166 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.167 Hiin[38595:70b] 1
+2014-07-21 12:31:54.167 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.167 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:54.167 Hiin[38595:70b] 1
+2014-07-21 12:31:54.168 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.168 Hiin[38595:70b] 1
+2014-07-21 12:31:54.168 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.168 Hiin[38595:70b] 1
+2014-07-21 12:31:54.168 Hiin[38595:70b] btn Status = in
+2014-07-21 12:31:54.169 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:54.169 Hiin[38595:70b] 0
+2014-07-21 12:31:54.169 Hiin[38595:70b] btn status = hi
+2014-07-21 12:31:54.170 Hiin[38595:70b] 0
+2014-07-21 12:31:54.170 Hiin[38595:70b] btn status = hi
+2014-07-21 12:31:54.170 Hiin[38595:70b] 0
+2014-07-21 12:31:54.170 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:54.171 Hiin[38595:70b] 0
+2014-07-21 12:31:54.171 Hiin[38595:70b] btn status = hi
+2014-07-21 12:31:54.171 Hiin[38595:70b] 0
+2014-07-21 12:31:54.171 Hiin[38595:70b] btn status = hi
+2014-07-21 12:31:54.172 Hiin[38595:70b] 0
+2014-07-21 12:31:54.385 Hiin[38595:70b] --unread count---
+2014-07-21 12:31:54.385 Hiin[38595:70b] {"count":2}
+2014-07-21 12:31:55.273 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:55.549 Hiin[38595:70b] got on
+2014-07-21 12:31:55.549 Hiin[38595:70b] true
+2014-07-21 12:31:55.549 Hiin[38595:70b] activity
+2014-07-21 12:31:55.549 Hiin[38595:70b] {"rank":11,"activity":[{"loginType":"facebook","job":"none","_id":"53c670a4be52acd214768c66","photoUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/p100x100/1625640_10102272949632593_684156646732743126_n.jpg","device":"ios","deviceToken":"5677dd6d6e9dadf1265165915be78911f96568d07a538c5d0bcd4a05dada6632","organizer":"organizer","status":"3","lastName":"Moon","gender":"male","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/p100x100/1625640_10102272949632593_684156646732743126_n.jpg","email":"dongji.moon@gmail.com","enteredEvent":"6040","firstName":"DJ","lastMsg":{"_id":"53c8d0504f4ff7a726f6feee","sender":"53c6591bbe52acd214768c12","reciever":"53c670a4be52acd214768c66","content":"","type":"hi","eventCode":"5445","created_at":"2014-07-18T07:44:16.244Z","__v":0,"read":false},"lastSender":"me"},{"device":"ios","deviceToken":"","_id":"53c8d9ea4f4ff7a726f6fef1","firstName":"fdfd","lastName":"fdffd","gender":"1","job":"Fdfdfd","photoUrl":"profileImageOriginal/female.png","thumbnailUrl":"profileImageThumbnail/female.png","organizer":"user","status":"3","enteredEvent":"5445","lastMsg":{"_id":"53c8db53c63f8ec02b4e9041","status":"0","sender":"53c6591bbe52acd214768c12","sender_name":"Jungmo","reciever":"53c8d9ea4f4ff7a726f6fef1","thumbnailUrl":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/v/t1.0-1/c0.20.100.100/p100x100/1002502_500580236687581_1722468241_n.jpg?oh=05697f19bbfc793cc7ed5af4bef71569&oe=54458C7D&__gda__=1414690758_1826ca508d92d93cd5dabee5d5302651","content":"gf","type":"personal","eventCode":"5445","created_at":"2014-07-18T08:32:02.635Z","__v":0,"read":false},"lastSender":"me"},{"device":"ios","deviceToken":"6191819020d9aabc552670660133105a9de5f5b5011603ef39bea87b7cf1610b","_id":"53c65eb7be52acd214768c41","firstName":"Kk","lastName":"Kk","gender":"2","job":"Kk","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"5445","lastMsg":{"_id":"53c693f2e27be5fd15ce3ec7","sender":"53c6591bbe52acd214768c12","reciever":"53c65eb7be52acd214768c41","content":"","type":"hi","eventCode":"5445","created_at":"2014-07-16T15:02:10.917Z","__v":0,"read":false},"lastSender":"me"},{"device":"ios","deviceToken":"0b7c8b0624d74e905e0892e69c8300e4dfa821a0f02a35e427d908fe896d1827","_id":"53c7ef924f4ff7a726f6feea","firstName":"ㅏㅏㅏ","lastName":"ㅁㅁㅁ","gender":"2","job":"ㅁㅁㅁ","photoUrl":"profileImageOriginal/706bae873fbcc668_1405611897965.png","thumbnailUrl":"profileImageThumbnail/706bae873fbcc668_1405611897965_thumb.png","organizer":"user","status":"1","enteredEvent":"5445","lastMsg":{"_id":"53c8d57d4f4ff7a726f6fef0","sender":"53c6591bbe52acd214768c12","reciever":"53c7ef924f4ff7a726f6feea","content":"","type":"hi","eventCode":"5445","created_at":"2014-07-18T08:06:21.300Z","__v":0,"read":false},"lastSender":"me"},{"device":"ios","deviceToken":"0b7c8b0624d74e905e0892e69c8300e4dfa821a0f02a35e427d908fe896d1827","_id":"53c7edf97ad29962268d3532","firstName":"ㄱ","lastName":"ㄲ","gender":"2","job":"ㄹ","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"1","enteredEvent":"5445","lastMsg":{"_id":"53c8d5794f4ff7a726f6feef","sender":"53c6591bbe52acd214768c12","reciever":"53c7edf97ad29962268d3532","content":"","type":"hi","eventCode":"5445","created_at":"2014-07-18T08:06:17.105Z","__v":0,"read":false},"lastSender":"me"},{"device":"ios","deviceToken":"6191819020d9aabc552670660133105a9de5f5b5011603ef39bea87b7cf1610b","_id":"53c65ce2be52acd214768c23","firstName":"K","lastName":"Kk","gender":"2","job":"Kk","photoUrl":"undefined","thumbnailUrl":"undefined","organizer":"user","status":"3","enteredEvent":"5445","lastMsg":{"_id":"53c693f8e27be5fd15ce3ec8","sender":"53c6591bbe52acd214768c12","reciever":"53c65ce2be52acd214768c23","content":"","type":"hi","eventCode":"5445","created_at":"2014-07-16T15:02:16.323Z","__v":0,"read":false},"lastSender":"me"}]}
+2014-07-21 12:31:55.551 Hiin[38595:70b] false
+2014-07-21 12:31:55.551 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:55.552 Hiin[38595:70b] me
+2014-07-21 12:31:55.552 Hiin[38595:70b] me
+2014-07-21 12:31:55.552 Hiin[38595:70b] false
+2014-07-21 12:31:55.552 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:55.553 Hiin[38595:70b] me
+2014-07-21 12:31:55.553 Hiin[38595:70b] me
+2014-07-21 12:31:55.553 Hiin[38595:70b] false
+2014-07-21 12:31:55.553 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:55.554 Hiin[38595:70b] me
+2014-07-21 12:31:55.554 Hiin[38595:70b] me
+2014-07-21 12:31:55.554 Hiin[38595:70b] false
+2014-07-21 12:31:55.554 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:55.555 Hiin[38595:70b] me
+2014-07-21 12:31:55.555 Hiin[38595:70b] me
+2014-07-21 12:31:55.555 Hiin[38595:70b] false
+2014-07-21 12:31:55.556 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:55.556 Hiin[38595:70b] me
+2014-07-21 12:31:55.556 Hiin[38595:70b] me
+2014-07-21 12:31:55.556 Hiin[38595:70b] false
+2014-07-21 12:31:55.557 Hiin[38595:70b] ngProfileImage　attrs
+2014-07-21 12:31:55.557 Hiin[38595:70b] me
+2014-07-21 12:31:55.557 Hiin[38595:70b] me
+2014-07-21 12:31:55.757 Hiin[38595:70b] socket suc
+2014-07-21 12:31:55.757 Hiin[38595:70b] socket got activity
