@@ -9,9 +9,8 @@ ion-view.messaging-view(title='{{roomName}}')
       br
       .desc
         .message
-          div
-            span.msg {{ message.content }}
-          div
+          span.msg {{ message.content }}
+          div.time_wrap
             span.time {{message.created_at | date : 'shortTime' }}
   .nobody_msg(ng-show='messages.length==0')
     div.msg 

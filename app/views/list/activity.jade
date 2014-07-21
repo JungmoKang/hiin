@@ -5,8 +5,8 @@ ion-view(title='ACTIVITY')
       .job {{myInfo.job}}
       img.thumb_image_big.img-circle(ng-profile-image = 'ng-profile-image',source='{{myInfo.photoUrl}}')
       .rank_group
-        .rank RANK No.{{rank}}&nbsp;
-        .icon_i(ng-click='showRank()')
+        input.rank(value="RANK No.{{rank}}")
+        img.icon_i(ng-click='showRank()')
     #seperatorLineInActivity
     #list_contents
      .activityList(ng-repeat='activity in activitys | filter:query')
@@ -22,4 +22,3 @@ ion-view(title='ACTIVITY')
               .name {{activity.firstName}}&nbsp;{{activity.lastName}}&nbsp;&nbsp;&nbsp;&nbsp;
               .time {{activity.lastMsg.created_at | fromNow}}
             .msgct {{activity | convertMsg}}
-

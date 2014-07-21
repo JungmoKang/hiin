@@ -44,6 +44,8 @@ angular.module('hiin').controller 'eventInfoCtrl', ($scope,$rootScope,socket,$wi
   socket.on "currentEvent", currentEvent
   # ↑
   $scope.InputStartDate = ->
+    if $scope.editMode is false
+      return
     console.log 'input start date'
     if $window.localStorage.getItem "isPhoneGap"
       options =
@@ -58,6 +60,8 @@ angular.module('hiin').controller 'eventInfoCtrl', ($scope,$rootScope,socket,$wi
       $scope.eventInfo.startDate = new Date($scope.eventInfo.startDate)
       $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, h:mm a')
   $scope.InputEndDate = ->
+    if $scope.editMode is false
+      return
     console.log 'input end date'
     if $window.localStorage.getItem "isPhoneGap"
       options =

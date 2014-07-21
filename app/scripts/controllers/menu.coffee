@@ -21,6 +21,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   $scope.CloseHeaderMsg = ->
     $scope.msgHeaderShow = false
   ShowHeader = (msg) ->
+    if $state.current.name is 'list.organizerSignUp'
+      return
     $scope.CloseHeaderMsg()
     $scope.msgHeaderShow = true
     $scope.headerMsg = msg

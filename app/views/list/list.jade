@@ -9,7 +9,7 @@ ion-view(title='{{eventName}}')
             span.helper
               .imgContainer
                 img.profile.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{user.thumbnailUrl}}')
-                img.rankingBadge(ng-class = '"rankingBadge" + user.rank', ng-if='user.rank>=1 && user.rank<=5')
+                .rankingBadge(ng-class = '"rankingBadge" + user.rank', ng-if='user.rank>=1 && user.rank<=5')
           .col
             .item_desc
               a.name(ng-click='ShowProfile(user)') {{user.lastName}} {{user.firstName}}
