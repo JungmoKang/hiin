@@ -78,7 +78,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
       console.log '---blank----'
       console.log data
       console.log '--tmper--'
-      tempor = $scope.messages.concat data.message
+      tempor = $scope.messages.concat data.message.reverse()
       console.log tempor
       console.log 'tmper len:'+tempor.length
       $scope.messages = tempor

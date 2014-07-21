@@ -4,9 +4,9 @@ ion-view(title='ACTIVITY')
       .name {{myInfo.firstName}} {{myInfo.lastName}} 
       .job {{myInfo.job}}
       img.thumb_image_big.img-circle(ng-profile-image = 'ng-profile-image',source='{{myInfo.photoUrl}}')
-      .rank_group
-        input.rank(value="RANK No.{{rank}}")
-        img.icon_i(ng-click='showRank()')
+      .rank_group(ng-click='showRank()')
+        input.rank(value="RANK No.{{rank}}",readOnly)
+        img.icon_i
     #seperatorLineInActivity
     #list_contents
      .activityList(ng-repeat='activity in activitys | filter:query')
