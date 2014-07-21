@@ -38,6 +38,8 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
       return
     $scope.modalInstance = modalInstance
     $window.localStorage.setItem 'flg_show_privacy_dialog', true
+  $scope.DialogClose = ->
+    $scope.modalInstance.close()
   $scope.ShowPrivacyFreeDialog()
   MakeCurrentEventUserListOptionObj = ->
     socketMyInfo = new SocketClass.socketClass('currentEventUserList',null,100,true)

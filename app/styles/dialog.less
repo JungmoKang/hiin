@@ -2,20 +2,72 @@
 
 .modal-content
 {
-	margin:65px;
-	height:45%;
+	.btn_close
+	{
+		background-image:url(../images/login/btn-x-24x24.png);
+	    background-size:12px 12px;
+	    background-repeat:no-repeat;
+	    background-position: center center;
+	    height: 12px;
+	    width: 100%;
+	    position: absolute;
+		top: 11px;
+		left: 70px;
+	}
+	margin-top: 90px;
+	margin-left: 17%;
+	margin-right: 17%;
 	text-align:center;
 	p
 	{
 		margin:0px;
 	}
+	#rank_modal
+	{
+	  height: 215px;
+	  padding-left:22px;
+	  padding-right:22px;
+	  .rank_name
+	  {
+	  	margin-top:18px;
+	    .font_style_12;
+	  }
+	  .rank_content
+	  {
+	  	margin-top:32px;
+	  	p
+	  	{
+		    text-align: left;
+		    .font_style_6;
+		    margin:10px 0px;
+		    font-size: 11px;
+	    }
+	  }
+	  .rank_okay
+	  {
+	    position: absolute;
+	    bottom: 32px;
+	    width: 30%;
+		.font_style_12;
+	    margin-left: auto;
+	    margin-right: auto;
+	    left: 0;
+	    right: 0;
+	  }
+	}
 	#user_card
 	{
-		padding:22px;
+		padding:11px;
 		height:215px;
+		img
+		{
+			position:relative;
+			top:6px;
+			margin-bottom:10px;
+		}
 		.name
 		{
-			margin-top:20px;
+			margin-top:10px;
 			margin-bottom:6px;
 			.font_style_5;
 		}
@@ -26,6 +78,7 @@
 		.hiin
 		{
 			margin-top:20px;
+			margin-bottom:15px;
 		}
 		.btn-Hi
 		{
@@ -81,12 +134,12 @@
 		.icon
 		{
 			background-image:url('../images/creationpage/icn-passcode-90x90.png');
-	    background-size:45px 45px;
-	    background-repeat: no-repeat;
-	    background-position: center;
-	    width:46px;
-	    height:46px;
-	    margin:15px auto;
+		    background-size:45px 45px;
+		    background-repeat: no-repeat;
+		    background-position: center;
+		    width:46px;
+		    height:46px;
+		    margin:15px auto;
 		}
 		.title
 		{

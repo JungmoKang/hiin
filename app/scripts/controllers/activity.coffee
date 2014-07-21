@@ -30,7 +30,7 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $state,$rootScope,$lo
     $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
     $scope.showRank =->
       $scope.modalInstance = $modal.open(
-        templateUrl: "views/list/rank_modal.html"
+        templateUrl: "views/dialog/ranking.html"
         scope: $scope
       )
     $scope.ok = -> 

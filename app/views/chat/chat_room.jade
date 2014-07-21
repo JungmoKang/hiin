@@ -4,7 +4,8 @@ ion-view.messaging-view(title='{{roomName}}')
     .message(id="{{$index}}",ng-repeat='message in messages track by $index',
       ng-class="message.sender_name == 'me' ? 'chat-balloon-me' : 'chat-balloon-you'")
       .row#firstmsgspace(ng-if='$first')
-      img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{message.thumbnailUrl}}', alt='')
+      img.thumb_image.img-circle(ng-click='ShowProfile(message.sender)', 
+        ng-profile-image = 'ng-profile-image',source='{{message.thumbnailUrl}}', alt='')
       .name {{message.sender_name}}
       br
       .desc
@@ -17,6 +18,7 @@ ion-view.messaging-view(title='{{roomName}}')
       p.big NO MESSAGES YET
       p.normal Introduce yourself?
   .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }',ontouchmove='return false;')
+    div.alert_new_msg(ng-show='HaveANewMsg')
     div(ng-if="!amIOwner")
       .row
         .col-80

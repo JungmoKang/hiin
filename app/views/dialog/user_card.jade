@@ -1,4 +1,5 @@
 #user_card
+	.btn_close(ng-click='DialogClose()')
 	img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{user.thumbnailUrl}}', alt='')
 	.name {{user.firstName}} {{user.lastName}}
 	.job {{user.job}}

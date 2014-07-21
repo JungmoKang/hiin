@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, socket, Util,$location,$ionicScrollDelegate,$timeout) ->
+angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootScope, $window, socket, Util,$location,$ionicScrollDelegate,$timeout) ->
   console.log 'grpChat'
   #group chat init
   $scope.data = {}
@@ -174,3 +174,39 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $rootScope, $window, s
       $scope.showingMsg = false
       return
     ), 2000
+  #나중에 합치자...
+  $scope.ShowProfile = (sender) ->
+    listKey = thisEvent + '_currentEventUserList'
+    console.log listKey
+    users = JSON.parse($window.localStorage.getItem listKey)
+    console.log users
+    user = $filter('getUserById')(users, sender)
+    if user is null
+      return
+    console.log user
+    $scope.user = user
+    modalInstance = $modal.open(
+      templateUrl: "views/dialog/user_card.html"
+      scope: $scope
+    )
+    modalInstance.result.then ((selectedItem) ->
+      $scope.modalInstance = null
+      return
+    ), ->
+      $scope.modalInstance = null
+      return
+    $scope.modalInstance = modalInstance
+  $scope.sayHi = (user) ->
+    if user.status is '0' or user.status is '2'
+      console.log 'sayhi'
+      setTimeout () -> 
+        socket.emit "hi" , {
+          targetId : user._id
+        }, 100000
+      return
+  $scope.chatRoom = (user) ->
+    if $scope.modalInstance? 
+      $scope.modalInstance.close()
+    $location.url('/list/userlists/'+user._id)
+  $scope.DialogClose = ->
+    $scope.modalInstance.close()

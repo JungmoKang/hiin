@@ -4,24 +4,24 @@ ion-pane.has-header#menu_profile
     .btn_edit
       button(url='{{imageUploadUrl}}',accept="image/*,application/pdf",on-success="onSuccess(response)", upload_button)
   .list_separatebar
-  .desc
+  .desc.edit
     .form-group
       .row.row_title
-        .col
+        .col.first
           p FIRST NAME
-        .col
+        .col.second
           p LAST NAME
       .row
-        .col
+        .col.first
           input.name_input(ng-model="userInfo.firstName")
-        .col
+        .col.second
           input.name_input(ng-model="userInfo.lastName")
       .row.row_title
         .col
           p SEX
       .row
         .col
-          p.gender {{userInfo.gender | gender}}
+          .gender {{userInfo.gender | gender}}
       .row.row_title
         .col
           p JOB TITLE

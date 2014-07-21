@@ -156,3 +156,5 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   $scope.inputDown = ->
     console.log 'inputDown'
     return
+  $scope.ShowProfile = (sender) ->
+    return

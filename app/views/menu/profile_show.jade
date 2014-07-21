@@ -4,15 +4,15 @@ ion-pane.has-header#menu_profile
     .btn_edit
       button(url='{{imageUploadUrl}}',accept="image/*,application/pdf",on-success="onSuccess(response)", upload_button)
   .list_separatebar
-  .desc
+  .desc.show
     .form-group
-      .row.show
+      .row
         .col
           .it.name {{userInfo.firstName}} {{userInfo.lastName}}
-      .row.show
+      .row
         .col
           .it {{userInfo.gender | gender}}
-      .row.show
+      .row
         .col
           .it {{userInfo.job}}
 #profile_foot.btn-group.btn-group-justified
