@@ -1,3 +1,5 @@
-.page_header
-  a.etc_link(ng-click='backToList()')
-  h1 TERM AND POLISH
+ion-view(title='Terms and Policies')
+	ion-nav-buttons(side='left')
+		button.etc_link(ng-click='Back()')
+	ion-content
+		div(ng-include="'views/menu/eula.html'")

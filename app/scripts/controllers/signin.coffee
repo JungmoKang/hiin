@@ -19,7 +19,7 @@ angular.module('hiin')
       if $scope.userInfo?
         userInfo = $scope.userInfo
       else
-        userInfo={}
+        userInfo = {}
         userInfo.gender = 1
       userInfo.photoUrl = response.data.photoUrl
       userInfo.thumbnailUrl = response.data.thumbnailUrl

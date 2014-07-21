@@ -4,7 +4,7 @@ angular.module('hiin').controller 'MenuCtrlEtc', ($rootScope,$scope,Util,$window
     $ionicNavBarDelegate.showBackButton(false)
   $scope.TermAndPolish = ->
     $scope.slide = 'slide-left'
-    $state.go('termAndPolish')
+    $state.go('list.termAndPolish')
   $scope.Report = ->
     $scope.slide = 'slide-left'
     $state.go('report')
@@ -37,3 +37,5 @@ angular.module('hiin').controller 'MenuCtrlEtc', ($rootScope,$scope,Util,$window
   $scope.cancel = ->
     console.log 'cancel'
     $scope.modalInstance.close()
+  $scope.Back = ->
+    $window.history.back()
