@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootScope, $window, socket, Util,$location,$ionicScrollDelegate,$timeout) ->
+angular.module("hiin").controller "grpChatCtrl", ($scope, $state,$modal,$filter,$rootScope, $window, socket, Util,$location,$ionicScrollDelegate,$timeout) ->
   console.log 'grpChat'
   #group chat init
   $scope.data = {}
@@ -19,6 +19,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
       socket.emit "currentEventUserList"
   messageKey = thisEvent + '_groupMessage'
   $scope.roomName = "GROUP CHAT"
+  $scope.showNotice = true
   if $window.localStorage.getItem messageKey
     $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
   else
@@ -236,7 +237,9 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
     $scope.modalInstance.close()
   $scope.ScrollToBottom = ->
     $ionicScrollDelegate.scrollBottom()
+  $scope.GotoNotice = ->
+    $state.go 'list.notice'
   $scope.$on "Resume", (event,args) ->
-    console.log 'gettttt'
+    console.log 'group chat resume'
     console.log args
     SendLoadMsgs()

@@ -38,6 +38,13 @@ angular.module("hiin", [
     templateUrl: 'views/menu/menu.html'
     controller: 'MenuCtrl'
   )
+  .state("list.notice",
+    url: "/notice"
+    views:
+      menuContent:
+        templateUrl: "views/menu/notice.html"
+        controller: "NoticeCtrl"
+  )
   .state("list.userlists",
     url: "/userlists"
     views:
@@ -138,6 +145,12 @@ angular.module("hiin", [
     $httpProvider.defaults.withCredentials = true
 
 angular.module("hiin").run ($window,  Migration,　$rootScope) ->
+  $rootScope.$on "$stateChangeSuccess", (ev, to, toParams, from, fromParams) ->
+    $rootScope.previousState = from.name
+    $rootScope.currentState = to.name
+    console.log "Previous state:" + $rootScope.previousState
+    console.log "Current state:" + $rootScope.currentState
+    return
   # prepare database 
   $window.localDb = $window.openDatabase "hiin", "1.0", "hiin DB", 1000000
   Migration.apply $window.localDb

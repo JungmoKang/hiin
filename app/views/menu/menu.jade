@@ -18,6 +18,10 @@ ion-side-menus
           span(ng-show="selectedItem == 2 ") > 
           | CURRENT EVENT
         .list_separatebar
+        ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/notice',ng-class="{'selected_item_class':'5' == selectedItem }")
+          span(ng-show="selectedItem == 5 ") > 
+          | NOTICE
+        .list_separatebar
         ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/events',ng-class="{'selected_item_class':'3' == selectedItem }")
           span(ng-show="selectedItem == 3 ") > 
           | EVENTS

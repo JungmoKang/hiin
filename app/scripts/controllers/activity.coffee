@@ -2,12 +2,6 @@
 
 angular.module('hiin').controller 'ActivityCtrl', ($scope, $state,$rootScope,$location, $window, Util, socket, SocketClass, $modal) ->
     thisEvent = JSON.parse($window.localStorage.getItem "thisEvent").code
-    rankKey = thisEvent + '_activity_rank'
-    activityKey = thisEvent + '_activity_activity'
-    if $window.localStorage.getItem rankKey
-      $scope.rank = $window.localStorage.getItem rankKey
-    if $window.localStorage.getItem activityKey
-      $scope.activitys = $window.localStorage.getItem activityKey
     MakeActivityOptionObj = ->
       socketMyInfo = new SocketClass.socketClass('activity',null,500,true)
       socketMyInfo.onCallback = (data) ->
@@ -24,8 +18,6 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $state,$rootScope,$lo
         console.log "error"
     #scope가 destroy될때, 등록한 이벤트를 모두 지움
     $scope.$on "$destroy", (event) ->
-      $window.localStorage.setItem rankKey, $scope.rank 
-      $window.localStorage.setItem activityKey, $scope.activitys
       return
     $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
     $scope.showRank =->

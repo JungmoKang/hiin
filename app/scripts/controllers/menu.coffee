@@ -35,11 +35,9 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     $scope.CloseHeaderMsg()
     $scope.headerMsg = msg
     $scope.msgHeaderShow = true
-    ###
     $timeout (->
       $scope.CloseHeaderMsg()
     ), 4000
-    ###
     return
   ShowProfile = () ->
     $scope.CloseHeaderMsg()
