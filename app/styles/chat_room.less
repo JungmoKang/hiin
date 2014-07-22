@@ -204,6 +204,52 @@
       border:0px;
       padding:0px;
     }
+    .alert_new_msg
+    {
+      position: absolute;
+      top: -70px;
+      background-color: white;
+      border-radius: 8px;
+      border-top-left-radius: 0;
+      z-index: 1000;
+      margin:10px;
+      width:95%;
+      padding:10px;
+      .row
+      {
+        border-top:0px;
+        width:100%;
+        .msg
+        {
+          margin-left:15px;
+        }
+        .name
+        {
+          .font_style_8;
+        }
+        .message
+        {
+          margin-top:4px;
+          .font_style_8;
+        }
+      }
+      img
+      {
+        .chat-img;
+      }
+      .arrow
+      {
+        background: transparent;
+        background-image:url('../images/chatpage/arrow.png');
+        background-size:27px 15px;
+        background-repeat: no-repeat;
+        background-position: center;
+        width:27px;
+        height:15px;
+        position:relative;
+        top:10px;
+      }
+    }
     .owner_header
     {
       position:relative;

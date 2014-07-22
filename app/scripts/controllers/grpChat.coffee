@@ -6,6 +6,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
   $scope.data = {}
   $scope.data.message = ""
   $scope.amIOwner = false
+  $scope.scrollDelegate = null
   if $window.localStorage?
     eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
     thisEvent = eventInfo.code
@@ -38,7 +39,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
                               type: "group"
                               range: "blank"
     }
-
+  # socket event ↓
   $scope.pullLoadMsg =->
     console.log '---pull load msg---'
     socket.emit 'loadMsgs', {
@@ -47,7 +48,6 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
                               range: "pastThirty"
                               firstMsgTime: $scope.messages[0].created_at
     }
-  # socket event ↓
   currentEventUserList = (data) ->
     console.log "list currentEventUserList"
     $scope.userNum = data.length + 1
@@ -63,7 +63,16 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
       data.sender_name = 'me'
     $scope.messages.push data
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
-    $ionicScrollDelegate.scrollBottom()
+    $scope.newMsg = null
+    if data.sender_name is 'me'
+      $ionicScrollDelegate.scrollBottom()
+    else
+      console.log $scope.scrollDelegate.getScrollPosition()
+      if $scope.bottom is false
+        $scope.newMsg = data
+        $scope.newMsg.msg = $filter('getShortSentence')(data.content, 30)
+      else
+        $ionicScrollDelegate.scrollBottom()
     return
   loadMsgs = (data)->
     if data.message
@@ -74,6 +83,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
     if data.type is 'group' and data.range is 'all'
       console.log '---all---'
       $scope.messages = data.message
+      $ionicScrollDelegate.scrollBottom()
     else if data.type is 'group' and data.range is 'blank'
       console.log '---blank----'
       console.log data
@@ -82,6 +92,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
       console.log tempor
       console.log 'tmper len:'+tempor.length
       $scope.messages = tempor
+      $ionicScrollDelegate.scrollBottom()
     else if data.type is 'group' and data.range is 'unread'
       console.log '---unread----'
       console.log data
@@ -89,6 +100,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
       console.log tempor
       console.log 'tmper len:'+tempor.length
       $scope.messages = tempor
+      $ionicScrollDelegate.scrollBottom()
     else if data.type is 'group' and data.range is 'pastThirty'
       console.log '---pastthirty---'
       console.log data.message 
@@ -99,7 +111,6 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
       $scope.messages = tempor
       $scope.$broadcast('scroll.refreshComplete')
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
-    $ionicScrollDelegate.scrollBottom()
     return
   socket.on "currentEventUserList", currentEventUserList
   socket.on "userListChange", userListChange
@@ -127,6 +138,16 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
     console.log 'ready'
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true)
+    #스크롤 이벤트 등록
+    $scope.bottom = true
+    $scope.scrollDelegate = $ionicScrollDelegate.$getByHandle('myScroll')
+    $scope.scrollDelegate.getScrollView().onScroll = ->
+      if ($scope.scrollDelegate.getScrollView().__maxScrollTop - $scope.scrollDelegate.getScrollPosition().top) < 30
+        $scope.bottom = true
+        $scope.newMsg = null
+        $scope.$apply()
+      else
+        $scope.bottom = false
   $scope.$on "$destroy", (event) ->
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
@@ -210,3 +231,9 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
     $location.url('/list/userlists/'+user._id)
   $scope.DialogClose = ->
     $scope.modalInstance.close()
+  $scope.ScrollToBottom = ->
+    $ionicScrollDelegate.scrollBottom()
+  $(window).scroll ->
+    console.log 'scroll'
+    alert "bottom!"  if $(window).scrollTop() + $(window).height() is getDocHeight()
+    return

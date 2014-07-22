@@ -1,5 +1,5 @@
 ion-view.messaging-view(title='{{roomName}}')
-  ion-content(ng-style='{ bottom: (data.keyboardHeight + 40) + "px" }')
+  ion-content(ng-style='{ bottom: (data.keyboardHeight + 40) + "px" }', delegate-handle="myScroll")
     ion-refresher(pulling-text="Pull to refresh..." on-refresh='pullLoadMsg()')
     .message(id="{{$index}}",ng-repeat='message in messages track by $index',
       ng-class="message.sender_name == 'me' ? 'chat-balloon-me' : 'chat-balloon-you'")
@@ -18,7 +18,19 @@ ion-view.messaging-view(title='{{roomName}}')
       p.big NO MESSAGES YET
       p.normal Introduce yourself?
   .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }',ontouchmove='return false;')
-    div.alert_new_msg(ng-show='HaveANewMsg')
+    div.alert_new_msg(ng-show='newMsg != null')
+      .row
+        .col.col-10
+          img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{newMsg.thumbnailUrl}}')
+        .col.msg
+          .row
+            .col.name {{newMsg.sender_name}}
+          .row.message
+            .col {{newMsg.msg}} 
+        .col.col-10(ng-click="ScrollToBottom()")
+          .arrow
+      .name
+      .short_message
     div(ng-if="!amIOwner")
       .row
         .col-80

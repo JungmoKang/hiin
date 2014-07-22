@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$stateParams,$ionicScrollDelegate,$timeout) ->
+angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, Util,$stateParams,$ionicScrollDelegate,$timeout) ->
   console.log('chat')
   console.dir($stateParams)
   #init
@@ -10,6 +10,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     thisEvent = eventInfo.code
     $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
   messageKey = thisEvent + '_' + partnerId
+  $scope.scrollDelegate = null
   #기본적으로 개인 메세지 창은 나가기 개념이 없음. 즉, 대화가 로컬에 없으면 처음 대화하므로 상대방 대화를 모두 긁어옴
   if $window.localStorage.getItem messageKey
     $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
@@ -87,7 +88,12 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     #read function here later
     $scope.messages.push data
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
-    $ionicScrollDelegate.scrollBottom()
+    $scope.newMsg = null
+    if $scope.bottom is false
+      $scope.newMsg = data
+      $scope.newMsg.msg = $filter('getShortSentence')(data.content, 30)
+    else
+      $ionicScrollDelegate.scrollBottom()
     return
   socket.on 'loadMsgs', loadMsgs
   socket.on "getUserInfo", getUserInfo
@@ -120,6 +126,16 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
   ionic.DomUtil.ready ->
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true)
+    #스크롤 이벤트 등록
+    $scope.bottom = true
+    $scope.scrollDelegate = $ionicScrollDelegate.$getByHandle('myScroll')
+    $scope.scrollDelegate.getScrollView().onScroll = ->
+      if ($scope.scrollDelegate.getScrollView().__maxScrollTop - $scope.scrollDelegate.getScrollPosition().top) < 30
+        $scope.bottom = true
+        $scope.newMsg = null
+        $scope.$apply()
+      else
+        $scope.bottom = false
   $scope.$on "$destroy", (event) ->
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
@@ -158,3 +174,5 @@ angular.module("hiin").controller "chatCtrl", ($scope, $window,socket, Util,$sta
     return
   $scope.ShowProfile = (sender) ->
     return
+  $scope.ScrollToBottom = ->
+    $ionicScrollDelegate.scrollBottom()

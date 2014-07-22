@@ -17,6 +17,7 @@ angular.module('hiin').controller 'eventInfoCtrl', ($scope,$rootScope,socket,$wi
     $scope.right_link = 'edit_link'
     $ionicNavBarDelegate.showBackButton(true)
     return
+  $scope.editMode = false
   $scope.ToEditMode = ->
     if $scope.editMode is true
       Util.authReq('post','editEvent',$scope.eventInfo )

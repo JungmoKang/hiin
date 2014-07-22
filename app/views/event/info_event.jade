@@ -11,20 +11,24 @@ ion-view(title='INFO')
       form
         .row
           .col
+            .title
+              p TITLE
             input.name(type='text', placeholder='EVENT TITLE', ng-model="eventInfo.name",required,ng-readonly="!editMode")
         .list_separatebar
         .row
           .col(ng-click='InputStartDate()')
-            input.date(type='text', ng-model="startDate",required,readonly)
-            .date_label
+            .title
               p START
+            input.date(type='text', ng-model="startDate",required,readonly)
           .col(ng-click='InputEndDate()')
-            input.date(type='text', ng-model='endDate',required,readonly)
-            .date_label
+            .title
               p END
+            input.date(type='text', ng-model='endDate',required,readonly)
         .list_separatebar
         .row
           .col
+            .title
+              p LOCATION
             input.place(type='text', placeholder='LOCATION', ng-model="eventInfo.place",ng-readonly="!editMode")
         .list_separatebar
         .row.row_note
