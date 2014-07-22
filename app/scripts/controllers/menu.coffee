@@ -6,6 +6,15 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   $rootScope.onResume = ->
     console.log "On Resume"
     socket.emit "resume"
+    console.log $state.current.name
+    if $state.current.name is 'list.groupChat'
+      console.log 'group chat'
+      $scope.$broadcast("Resume", null)
+      return
+    if $state.current.name is 'list.single'
+      console.log 'list single'
+      $scope.$broadcast("Resume", null)
+      return    
     return
   $rootScope.onPause = ->
     console.log "On Pause"
@@ -24,8 +33,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     if $state.current.name is 'list.organizerSignUp'
       return
     $scope.CloseHeaderMsg()
-    $scope.msgHeaderShow = true
     $scope.headerMsg = msg
+    $scope.msgHeaderShow = true
     ###
     $timeout (->
       $scope.CloseHeaderMsg()

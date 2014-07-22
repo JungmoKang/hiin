@@ -23,22 +23,23 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
     $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
   else
     $scope.messages = []
-  if $scope.messages.length > 0
-    console.log '----unread----'
-    console.log 'len:'+$scope.messages.length
-    socket.emit 'loadMsgs', {
-                              code: thisEvent
-                              type: "group"
-                              range: "unread"
-                              lastMsgTime: $scope.messages[$scope.messages.length-1].created_at
-    }
-  else
-    console.log '---first entered---'
-    socket.emit 'loadMsgs', {
-                              code: thisEvent
-                              type: "group"
-                              range: "blank"
-    }
+  SendLoadMsgs = ->
+    if $scope.messages.length > 0
+      console.log '----unread----'
+      console.log 'len:'+$scope.messages.length
+      socket.emit 'loadMsgs', {
+                                code: thisEvent
+                                type: "group"
+                                range: "unread"
+                                lastMsgTime: $scope.messages[$scope.messages.length-1].created_at
+      }
+    else
+      console.log '---first entered---'
+      socket.emit 'loadMsgs', {
+                                code: thisEvent
+                                type: "group"
+                                range: "blank"
+      }
   # socket event ↓
   $scope.pullLoadMsg =->
     console.log '---pull load msg---'
@@ -48,6 +49,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
                               range: "pastThirty"
                               firstMsgTime: $scope.messages[0].created_at
     }
+  SendLoadMsgs()
   currentEventUserList = (data) ->
     console.log "list currentEventUserList"
     $scope.userNum = data.length + 1
@@ -144,8 +146,9 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
     $scope.scrollDelegate.getScrollView().onScroll = ->
       if ($scope.scrollDelegate.getScrollView().__maxScrollTop - $scope.scrollDelegate.getScrollPosition().top) < 30
         $scope.bottom = true
-        $scope.newMsg = null
-        $scope.$apply()
+        if $scope.newMsg isnt null 
+          $scope.newMsg = null
+          $ionicScrollDelegate.scrollBottom()
       else
         $scope.bottom = false
   $scope.$on "$destroy", (event) ->
@@ -233,7 +236,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $modal,$filter,$rootSc
     $scope.modalInstance.close()
   $scope.ScrollToBottom = ->
     $ionicScrollDelegate.scrollBottom()
-  $(window).scroll ->
-    console.log 'scroll'
-    alert "bottom!"  if $(window).scrollTop() + $(window).height() is getDocHeight()
-    return
+  $scope.$on "Resume", (event,args) ->
+    console.log 'gettttt'
+    console.log args
+    SendLoadMsgs()

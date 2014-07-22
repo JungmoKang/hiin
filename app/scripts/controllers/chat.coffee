@@ -16,25 +16,26 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
     $scope.messages =  JSON.parse($window.localStorage.getItem messageKey)
   else
     $scope.messages = []
-  if $scope.messages.length > 0
-    console.log '----unread----'
-    console.log 'len:'+$scope.messages.length
-    socket.emit 'loadMsgs', {
-                              code: thisEvent
-                              partner: partnerId
-                              type: "personal"
-                              range: "unread"
-                              lastMsgTime: $scope.messages[$scope.messages.length-1].created_at
-    }
-  else
-    console.log '---call all---'
-    socket.emit 'loadMsgs', { 
-                              code: thisEvent
-                              partner: partnerId
-                              type: "personal"
-                              range: "all"
-    }
-  
+  SendLoadMsgs = ->
+    if $scope.messages.length > 0
+      console.log '----unread----'
+      console.log 'len:'+$scope.messages.length
+      socket.emit 'loadMsgs', {
+                                code: thisEvent
+                                partner: partnerId
+                                type: "personal"
+                                range: "unread"
+                                lastMsgTime: $scope.messages[$scope.messages.length-1].created_at
+      }
+    else
+      console.log '---call all---'
+      socket.emit 'loadMsgs', { 
+                                code: thisEvent
+                                partner: partnerId
+                                type: "personal"
+                                range: "all"
+      }
+  SendLoadMsgs()
   $scope.pullLoadMsg =->
     console.log '---pull load msg---'
     socket.emit 'loadMsgs', {
@@ -132,8 +133,9 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
     $scope.scrollDelegate.getScrollView().onScroll = ->
       if ($scope.scrollDelegate.getScrollView().__maxScrollTop - $scope.scrollDelegate.getScrollPosition().top) < 30
         $scope.bottom = true
-        $scope.newMsg = null
-        $scope.$apply()
+        if $scope.newMsg isnt null 
+          $scope.newMsg = null
+          $ionicScrollDelegate.scrollBottom()
       else
         $scope.bottom = false
   $scope.$on "$destroy", (event) ->
@@ -176,3 +178,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
     return
   $scope.ScrollToBottom = ->
     $ionicScrollDelegate.scrollBottom()
+  $scope.$on "Resume", (event,args) ->
+    console.log 'single chat resume'
+    console.log args
+    SendLoadMsgs()
