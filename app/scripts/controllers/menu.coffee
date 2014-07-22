@@ -26,10 +26,11 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     $scope.CloseHeaderMsg()
     $scope.msgHeaderShow = true
     $scope.headerMsg = msg
-    $scope.msgHeaderClass = 'private_msg_push'
+    ###
     $timeout (->
       $scope.CloseHeaderMsg()
     ), 4000
+    ###
     return
   ShowProfile = () ->
     $scope.CloseHeaderMsg()
@@ -43,7 +44,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     ), ->
       $scope.modalInstance = null
       return
-    $scope.modalInstance = modalInstance    
+    $scope.modalInstance = modalInstance
+  #개인 챗
   message = (data) ->
     console.log 'private message in menu'
     console.log data
@@ -53,36 +55,43 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     listKey = eventInfo.code + '_currentEventUserList'
     users = JSON.parse($window.localStorage.getItem listKey)
     user = $filter('getUserById')(users, data.sender)
+    $scope.msgHeaderClass = 'private_msg_push'
     if user.status is '0' or user.status is '2'
-      msg = '<p> ' + data.sender_name + ' sended a message.' + '<p> Click to hi'
+      msg = '<p> ' + data.sender_name + ' has sent a message.' + 
+      '<p> Click to say \'HI\' and join th chat.'
       ShowHeader(msg)
       $scope.user = user
       $scope.headerClickAction = ShowProfile
     else
-      msg = '<p> ' + data.sender_name + ' sended:' + data.content + '<p> Click to move'
+      shortMsg = $filter('getShortSentence')(data.content, 30)
+      msg = '<p> ' + data.sender_name + ' has sent a message.' + "<p>\'" + shortMsg + "\'"
       ShowHeader(msg)
       $scope.headerClickAction = ->
         $scope.CloseHeaderMsg()
         history.pushState(null, null, '#/list/userlists')
         $state.go 'list.single',
           userId: data.sender
+  #그룹챗 나중에 지울거임
   groupMessage = (data) ->
     console.log 'group message in menu'
     console.log data
     if $state.current.name is 'list.groupChat'
       return
     msg = '<p> GroupMessage: ' + data.content + '<p> Click to move'
+    $scope.msgHeaderClass = 'private_msg_push'
     ShowHeader(msg)
     $scope.headerClickAction = ->
       $scope.CloseHeaderMsg()
       history.pushState(null, null, '#/list/userlists')
       $state.go 'list.groupChat'
+  #전체공지
   notice = (data) ->
     console.log 'got notice'
     console.log data
     if myInfo._id is data.from
       return
-    msg = '<p> NOTICE: ' + data.message + '<p> Click to move'
+    msg = '<p>\'' + data.message + '\'<p>Click to check the detail of notice.'
+    $scope.msgHeaderClass = 'notice_push'
     ShowHeader(msg)
     $scope.headerClickAction = ->
       $scope.CloseHeaderMsg()
@@ -120,19 +129,26 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
           targetId : user._id
         }, 100000
       return
+  #하이를 받았을때
   hi = (data) ->
     console.log 'got hi in menu'
     console.log data
     if $state.current.name is 'list.userlists'
       SendEmitCurrentEventUserList()
       return
-    msg = '<p> ' + data.fromName + ' Say HI' + '<p> Click to show profile'
-    ShowHeader(msg)
     eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
     listKey = eventInfo.code + '_currentEventUserList'
     users = JSON.parse($window.localStorage.getItem listKey)
     user = $filter('getUserById')(users, data.from)
-    user.status = "2"
+    subString = '.'
+    if user.status is '0'
+      subString = ' and say \'HI\' back.'
+      user.status = "2"
+    else
+      user.status = "3"
+    msg = '<p> ' + data.fromName + 'has sent \'HI\'' + '<p> Click to see his profile' + subString
+    $scope.msgHeaderClass = 'hi_push'
+    ShowHeader(msg)
     $scope.user = user
     $scope.headerClickAction = ShowProfile
     SendEmitCurrentEventUserList()
@@ -164,3 +180,5 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     history.pushState(null, null, '#/list/userlists')
     $state.go 'list.single',
       userId: user._id
+  $scope.DialogClose = ->
+    $scope.modalInstance.close()
