@@ -66,6 +66,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
     $scope.users = []
     SendEmitCurrentEventUserList()
   socket.emit "unReadCount"
+  socket.emit "unReadCountGroup"
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeListener("unReadCount", unReadCount)
@@ -77,12 +78,12 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
     return
   # socket event ↓
   unReadCount = (data) ->
-    console.log '--unread count---'
+    console.log '-######-unread count--#####-'
     console.log data
     $scope.unreadActivity = data.count
     return
   unReadCountGroup = (data) ->
-    console.log '--unread count---'
+    console.log '-########-unread count for group--#######-'
     console.log data
     $scope.unreadGroup = data.count
     return
