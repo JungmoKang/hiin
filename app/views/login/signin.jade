@@ -16,10 +16,14 @@
           .col.col-33
             .grp_photo
               .wrapper_photo
-                button(url='{{imageUploadUrl}}',accept="image/*,application/pdf",on-success="onSuccess(response)", upload_button)
+                button(url='{{imageUploadUrl}}',accept="image/*,application/pdf",
+                  on-success="onSuccess(response)", 
+                  on-upload="onUpload(files)",
+                  on-error="onError(response)",
+                  on-complete="onComplete(response)",
+                  upload_button)
                 img.image_upload_btn
-              .add_photo 
-                p add photo
+                p.add_photo add photo
           .col.col-67
             .gender
               .row

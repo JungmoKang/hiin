@@ -7,7 +7,6 @@ ion-view(title='ACTIVITY')
       .rank_group(ng-click='showRank()')
         input.rank(value="RANK No.{{rank}}",readOnly)
         img.icon_i
-    #seperatorLineInActivity
     #list_contents
      .activityList(ng-repeat='activity in activitys | filter:query')
        a.child_list(ng-click='ShowProfile(activity)')

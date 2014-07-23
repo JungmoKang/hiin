@@ -5,7 +5,7 @@ ion-view(title='{{eventName}}')
     button.notice_link(ng-click='GotoNotice()', ng-class="right_link")
   ion-content.has-header.has-footer
     ion-list#user_lists
-      ion-item(ng-repeat='user in users track by user.rank | filter:query')
+      ion-item(ng-repeat='user in users track by user.rank  | filter:query')
         .row.user_list
           .col.col-25
             span.helper

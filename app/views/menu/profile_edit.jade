@@ -2,7 +2,12 @@ ion-pane.has-header#menu_profile
   .header
     img.img-circle.profile_pic(ng-profile-image = 'ng-profile-image',source='{{userInfo.photoUrl}}',src='')
     .btn_edit
-      button(url='{{imageUploadUrl}}',accept="image/*,application/pdf",on-success="onSuccess(response)", upload_button)
+      button(url='{{imageUploadUrl}}',accept="image/*,application/pdf",
+        on-success="onSuccess(response)", 
+        on-upload="onUpload(files)",
+        on-error="onError(response)",
+        on-complete="onComplete(response)",
+        upload_button)
   .list_separatebar
   .desc.edit
     .form-group

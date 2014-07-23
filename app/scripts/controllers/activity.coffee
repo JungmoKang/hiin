@@ -20,13 +20,20 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $state,$rootScope,$lo
     $scope.$on "$destroy", (event) ->
       return
     $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
-    $scope.showRank =->
-      $scope.modalInstance = $modal.open(
+    $scope.showRank = ->
+      modalInstance = $modal.open(
         templateUrl: "views/dialog/ranking.html"
         scope: $scope
       )
+      modalInstance.result.then ((selectedItem) ->
+          return
+        ), ->
+          $scope.modalInstance = null
+          return
+      $scope.modalInstance = modalInstance
     $scope.ok = -> 
         $scope.modalInstance.close()
+        $scope.modalInstance = null
     $scope.ShowProfile = (user) ->
       console.log user
       $scope.user = user
@@ -50,7 +57,7 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $state,$rootScope,$lo
       $state.go 'list.single',
         userId: user._id
     $scope.sayHi = (user) ->
-      if user.status == '0'
+      if user.status is '0' or user.status is '2'
         console.log 'sayhi'
         setTimeout () -> 
           socket.emit "hi" , {

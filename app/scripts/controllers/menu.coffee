@@ -111,7 +111,9 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
       eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
       listKey = eventInfo.code + '_currentEventUserList'
       console.log "listKey is " + listKey
-      $window.localStorage.setItem listKey, JSON.stringify(data)
+      if data.length > 0
+        sortedData = $filter('orderBy')(data,'rank')
+        $window.localStorage.setItem listKey, JSON.stringify(sortedData)
       console.log data
       return
     return socketMyInfo

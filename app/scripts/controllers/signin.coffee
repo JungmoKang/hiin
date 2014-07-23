@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('hiin')
-  .controller 'SignInCtrl', ($modal,$sce,$q,$http,$scope, $window, Util, Host,$state,$timeout) ->  
+  .controller 'SignInCtrl', ($modal,$sce,$q,$http,$scope, $window, Util, Host,$state,$timeout,$ionicLoading) ->  
     #init
     $scope.userInfo = {}
     $scope.userInfo.gender = 1
@@ -28,6 +28,13 @@ angular.module('hiin')
       $scope.userInfo = userInfo
       angular.element('img.image_upload_btn').attr("src", $scope.thumbnailUrl)
       return
+    $scope.onUpload = (files) ->
+      $ionicLoading.show template: "Uploading..."
+    $scope.onError = (response) ->
+      alert 'Image Upload error'
+      console.log 'error'
+    $scope.onComplete = (response) ->
+      $ionicLoading.hide()
     $scope.SignUp = (isValid) ->
       console.log isValid
       if $scope.userInfo.photoUrl is ""

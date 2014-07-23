@@ -44,11 +44,13 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
   MakeCurrentEventUserListOptionObj = ->
     socketMyInfo = new SocketClass.socketClass('currentEventUserList',null,100,true)
     socketMyInfo.onCallback = (data) ->
+      console.log data
       console.log "list currentEventUserList"
       console.log 'listKey is ' + listKey
-      $window.localStorage.setItem listKey, JSON.stringify(data)
-      $scope.users = data
-      console.log data
+      if data.length > 0
+        sortedData = $filter('orderBy')(data,'rank')
+        $window.localStorage.setItem listKey, JSON.stringify(sortedData)
+        $scope.users = sortedData
       return
     return socketMyInfo
   SendEmitCurrentEventUserList = ->
@@ -62,6 +64,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
   tempList = $window.localStorage.getItem listKey
   if tempList && tempList isnt '[]'
     $scope.users = JSON.parse(tempList)
+    $scope.users = $filter('orderBy')($scope.users,'rank')
   else
     $scope.users = []
     SendEmitCurrentEventUserList()
