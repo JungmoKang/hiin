@@ -166,3 +166,5 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
     $scope.modalInstance = modalInstance
   $scope.CloseDialog = ->
     $scope.modalInstance.close()
+  $scope.GotoNotice = ->
+    $state.go 'list.notice'

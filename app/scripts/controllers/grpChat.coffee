@@ -237,8 +237,6 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $state,$modal,$filter,
     $scope.modalInstance.close()
   $scope.ScrollToBottom = ->
     $ionicScrollDelegate.scrollBottom()
-  $scope.GotoNotice = ->
-    $state.go 'list.notice'
   $scope.$on "Resume", (event,args) ->
     console.log 'group chat resume'
     console.log args

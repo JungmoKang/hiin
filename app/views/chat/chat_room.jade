@@ -1,6 +1,4 @@
 ion-view.messaging-view(title='{{roomName}}')
-  ion-nav-buttons(side='right')
-    button.notice_link(ng-click='GotoNotice()', ng-if="showNotice",ng-class="right_link")
   ion-content(ng-style='{ bottom: (data.keyboardHeight + 40) + "px" }', delegate-handle="myScroll")
     ion-refresher(pulling-text="Pull to refresh..." on-refresh='pullLoadMsg()')
     .message(id="{{$index}}",ng-repeat='message in messages track by $index',

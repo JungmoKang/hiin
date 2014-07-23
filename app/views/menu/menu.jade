@@ -10,17 +10,13 @@ ion-side-menus
     #menus
       ion-list
         .list_separatebar
+        ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/userlists',ng-class="{'selected_item_class':'2' == selectedItem }")
+          span(ng-show="selectedItem == 2 ") > 
+          | HOME
+        .list_separatebar
         ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/profile', ng-class="{'selected_item_class':'1' == selectedItem }")
           span(ng-show="selectedItem == 1 ") > 
           | PROFILE
-        .list_separatebar
-        ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/userlists',ng-class="{'selected_item_class':'2' == selectedItem }")
-          span(ng-show="selectedItem == 2 ") > 
-          | CURRENT EVENT
-        .list_separatebar
-        ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/notice',ng-class="{'selected_item_class':'5' == selectedItem }")
-          span(ng-show="selectedItem == 5 ") > 
-          | NOTICE
         .list_separatebar
         ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/events',ng-class="{'selected_item_class':'3' == selectedItem }")
           span(ng-show="selectedItem == 3 ") > 
