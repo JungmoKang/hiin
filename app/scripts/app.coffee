@@ -160,6 +160,7 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util,$filter) ->
     Util.ShowModal($rootScope,'profile_image')
   $rootScope.Close = ->
     $rootScope.modal.hide()
+    $rootScope.modal.remove()
   $window.localDb = $window.openDatabase "hiin", "1.0", "hiin DB", 1000000
   Migration.apply $window.localDb
   pushNotification = ''

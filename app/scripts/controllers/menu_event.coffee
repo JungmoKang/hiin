@@ -62,6 +62,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   $scope.$on "$destroy", (event) ->
     if $scope.modal?
       $scope.modal.hide()
+      $scope.modal.remove()
     return
   SetNewEvent = (data) ->
     if $scope.thisEvent.code != ""
@@ -82,10 +83,12 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
     $timeout (->
       promise.then (data) ->
         $scope.modal.hide()
+        $scope.modal.remove()
         SetNewEvent(data)
       ,(status) ->
         console.log 'error'
         $scope.modal.hide()
+        $scope.modal.remove()
         $scope.message = 'EVENT NOT FOUND'
         Util.ShowModal($scope,'no_event')
     ), 1000
@@ -110,6 +113,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
         alert "error"
   $scope.yes = ->
     $scope.modal.hide()
+    $scope.modal.remove()
     id_type = $window.localStorage.getItem "id_type"
     if id_type is "facebook"
       Util.authReq('get','organizerFbSignUp','')
@@ -123,6 +127,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
       $state.go('list.organizerSignUp')
   $scope.no = ->
     $scope.modal.hide()
+    $scope.modal.remove()
   $scope.current = (event) ->
     return event.code is $scope.thisEvent.code
   $scope.myEvent = (event) ->
@@ -140,3 +145,4 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
         Util.ShowModal($scope,'no_event')
   $scope.back = ->
     $scope.modal.hide()
+    $scope.modal.remove()

@@ -1,6 +1,7 @@
 #user_card
 	.btn_close(ng-click='DialogClose()')
-	img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{user.thumbnailUrl}}', alt='')
+	img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{user.thumbnailUrl}}', alt='',
+		ng-click='ShowProfileImage(user)')
 	.name {{user.firstName}} {{user.lastName}}
 	.job {{user.job}}
 	.hiin(ng-flip-btn = 'ng-flip-btn'  hiStatus = '{{user.status}}')

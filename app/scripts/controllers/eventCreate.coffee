@@ -69,6 +69,7 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
           thisEvent.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
           $window.localStorage.setItem 'thisEvent', JSON.stringify(thisEvent)
           $scope.modal.hide()
+          $scope.modal.remove()
           $scope.eventCode = data.eventCode
           modalInstance = $modal.open(
             templateUrl: "views/event/passcode_dialog.html"
@@ -81,6 +82,7 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
         ,(status) ->
           console.log 'error'
           $scope.modal.hide()
+          $scope.modal.remove()
           alert 'err'
       ), 1000
     return

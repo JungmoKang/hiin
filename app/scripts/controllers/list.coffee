@@ -14,6 +14,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
       $scope.back = ->
         console.log 'back'
         $scope.modal.hide()
+        $scope.modal.remove()
         $window.history.back()
       $scope.message = '<p> You have not entered an event. 
       <p>Please go back 
