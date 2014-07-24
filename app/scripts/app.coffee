@@ -42,7 +42,7 @@ angular.module("hiin", [
     url: "/notice"
     views:
       menuContent:
-        templateUrl: "views/menu/notice.html"
+        templateUrl: "views/chat/chat_room.html"
         controller: "NoticeCtrl"
   )
   .state("list.userlists",
