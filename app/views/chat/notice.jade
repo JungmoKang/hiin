@@ -1,0 +1,34 @@
+ion-view.messaging-view(title='NOTICE')
+  ion-content(ng-style='amIOwner ? { bottom: (data.keyboardHeight + 40) + "px" } : { bottom: (data.keyboardHeight) + "px" }', delegate-handle="myScroll")
+    ion-refresher(pulling-text="Pull to refresh..." on-refresh='pullLoadMsg()')
+    .message(id="{{$index}}",ng-repeat='message in messages track by $index',
+      ng-class="'chat-balloon-you'")
+      .row#firstmsgspace(ng-if='$first')
+      img.thumb_image.img-circle(ng-click='ShowProfile(owner)', 
+        ng-profile-image = 'ng-profile-image',source='{{owner.thumbnailUrl}}', alt='')
+      .desc
+        .message
+          span.msg {{ message.content }}
+          div.time_wrap
+            span.time {{message.created_at | date : 'shortTime' }}
+  .message-input(ng-style='amIOwner ? { bottom: data.keyboardHeight + "px", height:40 + "px" } : { bottom: data.keyboardHeight + "px", height:0 + "px" } ',ontouchmove='return false;')
+    div.alert_new_msg(ng-show='newMsg != null')
+      .row
+        .col.col-10
+          img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{newMsg.thumbnailUrl}}')
+        .col.msg
+          .row
+            .col.name {{newMsg.sender_name}}
+          .row.message
+            .col {{newMsg.msg}} 
+        .col.col-10(ng-click="ScrollToBottom()")
+          .arrow
+      .name
+      .short_message
+    div(ng-if="amIOwner")
+      .row
+        .col-80
+          input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
+            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()' autocorrect="off")
+        .col-20
+          button.send(ng-click='sendMessage()') SEND

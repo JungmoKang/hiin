@@ -95,6 +95,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   notice = (data) ->
     console.log 'got notice'
     console.log data
+    if $state.current.name is 'list.notice'
+      return
     if myInfo._id is data.from
       return
     msg = '<p>\'' + data.message + '\'<p>Click to check the detail of notice.'
