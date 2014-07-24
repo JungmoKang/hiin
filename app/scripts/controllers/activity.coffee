@@ -26,6 +26,7 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $state,$rootScope,$lo
         scope: $scope
       )
       modalInstance.result.then ((selectedItem) ->
+          $scope.modalInstance = null
           return
         ), ->
           $scope.modalInstance = null
@@ -43,6 +44,7 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $state,$rootScope,$lo
           scope: $scope
         )
         modalInstance.result.then ((selectedItem) ->
+          $scope.modalInstance = null
           return
         ), ->
           $scope.modalInstance = null

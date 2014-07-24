@@ -1,15 +1,15 @@
 ion-view(title='ACTIVITY')
-  ion-pane.has-header
+  ion-content.has-header#activity
     #userActivityInfo
       .name {{myInfo.firstName}} {{myInfo.lastName}} 
       .job {{myInfo.job}}
       img.thumb_image_big.img-circle(ng-profile-image = 'ng-profile-image',source='{{myInfo.photoUrl}}')
-      .rank_group(ng-click='showRank()')
+      .rank_group
         input.rank(value="RANK No.{{rank}}",readOnly)
-        img.icon_i
+        img.icon_i(ng-click='showRank()')
     #list_contents
-     .activityList(ng-repeat='activity in activitys | filter:query')
-       a.child_list(ng-click='ShowProfile(activity)')
+      .activityList(ng-repeat='activity in activitys | filter:query')
+        a.child_list(ng-click='ShowProfile(activity)')
           .dot(ng-show='activity.lastMsg.read==false')
           .pic
             span.helper
