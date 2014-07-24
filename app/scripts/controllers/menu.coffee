@@ -56,7 +56,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   message = (data) ->
     console.log 'private message in menu'
     console.log data
-    socket.emit "unreadCount"
+    console.log('unreadcount:')
+    socket.emit "unReadCount"
     if typeof $state.params.userId != 'undefined' and state.params.userId == data.sender
       return
     eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
@@ -83,7 +84,7 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   groupMessage = (data) ->
     console.log 'group message in menu'
     console.log data
-    socket.emit "unreadCountGroup"
+    socket.emit "unReadCountGroup"
     if $state.current.name is 'list.groupChat'
       return
     msg = '<p> GroupMessage: ' + data.content + '<p> Click to move'
@@ -97,7 +98,7 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   notice = (data) ->
     console.log 'got notice'
     console.log data
-    socket.emit "unreadCountNotice"
+    socket.emit "unReadCountNotice"
     if $state.current.name is 'list.notice'
       return
     if myInfo._id is data.from

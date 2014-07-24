@@ -71,6 +71,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
     SendEmitCurrentEventUserList()
   socket.emit "unReadCount"
   socket.emit "unReadCountGroup"
+  socket.emit "unReadCountNotice"
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeListener("unReadCount", unReadCount)
