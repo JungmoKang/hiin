@@ -144,7 +144,7 @@ angular.module("hiin", [
       $.param data
     $httpProvider.defaults.withCredentials = true
 
-angular.module("hiin").run ($window,  Migration,　$rootScope) ->
+angular.module("hiin").run ($window,  Migration,　$rootScope,Util,$filter) ->
   ###
   $rootScope.$on "$stateChangeSuccess", (ev, to, toParams, from, fromParams) ->
     $rootScope.previousState = from.name
@@ -154,6 +154,12 @@ angular.module("hiin").run ($window,  Migration,　$rootScope) ->
     return
   ###
   # prepare database 
+  $rootScope.ShowProfileImage = (userInfo) ->
+    console.log userInfo
+    $rootScope.imgUrl = $filter('profileImage')(userInfo.photoUrl)
+    Util.ShowModal($rootScope,'profile_image')
+  $rootScope.Close = ->
+    $rootScope.modal.hide()
   $window.localDb = $window.openDatabase "hiin", "1.0", "hiin DB", 1000000
   Migration.apply $window.localDb
   pushNotification = ''

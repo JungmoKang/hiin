@@ -19,3 +19,9 @@ angular.module("filters", [])
   		retValue = input.substring(0,count)
   		retValue += '...'
   	return retValue
+.filter 'profileImage', (Util) ->
+  (input) ->
+    newVal = input  
+    if input.indexOf('http') < 0
+      newVal = Util.serverUrl() + "/" + newVal
+    return newVal

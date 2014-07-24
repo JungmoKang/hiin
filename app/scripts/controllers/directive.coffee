@@ -80,7 +80,7 @@ angular.module("hiin").directive "ngFlipBtn", ()->
         console.log('addclass')
     else
       console.log ('btn Status = in')
-angular.module("hiin").directive "ngProfileImage", (Util)->
+angular.module("hiin").directive "ngProfileImage", ($compile,Util)->
   link: (scope,element, attrs) ->
     console.log 'ngProfileImage　attrs'
     attrs.$observe 'source', (val) ->
@@ -88,3 +88,6 @@ angular.module("hiin").directive "ngProfileImage", (Util)->
       if val.indexOf('http') < 0
         newVal = Util.serverUrl() + "/" + val
       attrs.$set('src', newVal)
+      attrs.$set('ng-click', 'alert("test")')
+      
+

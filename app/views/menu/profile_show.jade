@@ -1,6 +1,7 @@
 ion-pane.has-header#menu_profile
   .header
-    img.img-circle.profile_pic(ng-profile-image = 'ng-profile-image',source='{{userInfo.photoUrl}}',src='')
+    img.img-circle.profile_pic(ng-profile-image = 'ng-profile-image',source='{{userInfo.photoUrl}}',src='',
+      ng-click='ShowProfileImage(userInfo)')
   .list_separatebar
   .desc.show
     .form-group
