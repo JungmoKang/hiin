@@ -2,18 +2,17 @@ ion-view(title='SETTING')
   ion-nav-buttons(side='left')
     button.button.button-icon.icon#list_header_button(menu-toggle='left')
   ion-pane.has-header#menu_setting
-    .container
-      .row
-        .col
-          .input-group(ng-click='TermAndPolish()')
-            input(value='TERMS & POLICIES',readonly)
-            span.arrow
-      .list_separatebar
-      .row
-        .col
-          .input-group(ng-click='Report()')
-            input(value='REPORT',readonly)
-            span.arrow
-      .list_separatebar
+    .row
+      .col
+        .input-group(ng-click='TermAndPolish()')
+          input(value='TERMS & POLICIES',readonly)
+          span.arrow
+    .list_separatebar
+    .row
+      .col
+        .input-group(ng-click='Report()')
+          input(value='REPORT',readonly)
+          span.arrow
+    .list_separatebar
     .bar.bar-footer.foot_link(ng-click='signOut()') 
       .log_out LOG OUT

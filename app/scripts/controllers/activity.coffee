@@ -1,12 +1,13 @@
 'use strict'
 
-angular.module('hiin').controller 'ActivityCtrl', ($scope, $state,$rootScope,$location, $window, Util, socket, SocketClass, $modal) ->
+angular.module('hiin').controller 'ActivityCtrl', ($scope, $filter,$state,$rootScope,$location, $window, Util, socket, SocketClass, $modal) ->
     thisEvent = JSON.parse($window.localStorage.getItem "thisEvent").code
     MakeActivityOptionObj = ->
       socketMyInfo = new SocketClass.socketClass('activity',null,500,true)
       socketMyInfo.onCallback = (data) ->
         $scope.rank = data.rank
-        $scope.activitys = data.activity
+        #$scope.activitys = data.activity
+        $scope.activitys = $filter('orderBy')(data.activity,'lastMsg.created_at','reverse')
         console.log "activity"
         console.log data
         return
@@ -66,13 +67,13 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $state,$rootScope,$lo
             targetId : user._id
           }, 100000
         return
-angular.module('hiin').filter 'convertMsg', () ->
+angular.module('hiin').filter 'convertMsg', ($filter) ->
   return (activity) -> 
     if activity.lastMsg.type == 'hi' 
       return 'Sent \'HI\'!'
     else
-      return activity.lastMsg.content
+      return  $filter('getShortSentence')(activity.lastMsg.content, 40)
  
 angular.module('hiin').filter 'fromNow', () ->
   return (time) -> 
-    moment(time).fromNow()
+    moment(time).fromNow().replace('minute','min')

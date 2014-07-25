@@ -106,7 +106,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
     }
   $scope.data = {}
   $scope.data.message = ""
-  window.addEventListener "native.keyboardshow", (e) ->
+  keyboardShowEvent = (e) ->
     console.log "Keyboard height is: " + e.keyboardHeight
     if document.activeElement.tagName is "BODY"
       cordova.plugins.Keyboard.close()
@@ -118,11 +118,13 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
       return
     ), 200
     return
-  window.addEventListener "native.keyboardhide", (e) ->
+  keyboardHideEvent = (e) ->
     console.log "Keyboard close"
     $scope.data.keyboardHeight = 0
     $ionicScrollDelegate.resize()
-    return
+    return    
+  window.addEventListener "native.keyboardshow", keyboardShowEvent, false
+  window.addEventListener "native.keyboardhide", keyboardHideEvent, false
   #채팅창에서만 키보드 헤더를 표시하지 않음
   ionic.DomUtil.ready ->
     if window.cordova
@@ -145,6 +147,8 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
     socket.removeListener("loadMsgs",loadMsgs)
     socket.removeListener("getUserInfo",getUserInfo)
     socket.removeListener("message",message)
+    window.removeEventListener "native.keyboardshow", keyboardShowEvent, false
+    window.removeEventListener "native.keyboardhide", keyboardHideEvent, false
     temp = $scope.messages
     len = temp.length
     console.log 'mlen:'+len

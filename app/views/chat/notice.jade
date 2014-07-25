@@ -6,9 +6,11 @@ ion-view.messaging-view(title='NOTICE')
       .row#firstmsgspace(ng-if='$first')
       img.thumb_image.img-circle(ng-click='ShowProfile(owner)', 
         ng-profile-image = 'ng-profile-image',source='{{owner.thumbnailUrl}}', alt='')
+      .name {{owner.firstName}}
+      br
       .desc
         .message
-          span.msg {{ message.content }}
+          span.notice {{ message.content }}
           div.time_wrap
             span.time {{message.created_at | date : 'shortTime' }}
   .message-input(ng-style='amIOwner ? { bottom: data.keyboardHeight + "px", height:40 + "px" } : { bottom: data.keyboardHeight + "px", height:0 + "px" } ',ontouchmove='return false;')

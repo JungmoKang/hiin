@@ -17,6 +17,25 @@ angular.module('hiin').controller 'NoticeCtrl', ($rootScope,$filter,$scope,Socke
       tempList = $window.localStorage.getItem listKey
       $scope.owner = $filter('getUserById')(JSON.parse(tempList), eventInfo.author)
   #
+  $scope.ShowProfile = (sender) ->
+    user = $scope.owner
+    if user is null
+      return
+    console.log user
+    $scope.user = user
+    modalInstance = $modal.open(
+      templateUrl: "views/dialog/user_card.html"
+      scope: $scope
+    )
+    modalInstance.result.then ((selectedItem) ->
+      $scope.modalInstance = null
+      return
+    ), ->
+      $scope.modalInstance = null
+      return
+    $scope.modalInstance = modalInstance
+  $scope.DialogClose = ->
+    $scope.modalInstance.close()
   MakeNoticeListOptionObj = ->
     socketNotice = new SocketClass.socketClass('allNotice',null,0,true)
     socketNotice.onCallback = (data) ->
@@ -27,7 +46,7 @@ angular.module('hiin').controller 'NoticeCtrl', ($rootScope,$filter,$scope,Socke
   SendEmitCurrentEventUserList = ->
     SocketClass.resSocket(MakeNoticeListOptionObj())
       .then (data) ->
-        console.log 'socket got notice list'
+        console.log ' got notice list'
       , (status) ->
         console.log "error"
     return

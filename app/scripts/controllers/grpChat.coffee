@@ -120,7 +120,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $state,$modal,$filter,
   socket.on "groupMessage", groupMessage
   socket.on 'loadMsgs', loadMsgs
   # ↑
-  window.addEventListener "native.keyboardshow", (e) ->
+  keyboardShowEvent = (e) ->
     console.log "Keyboard height is: " + e.keyboardHeight
     if document.activeElement.tagName is "BODY"
       cordova.plugins.Keyboard.close()
@@ -132,11 +132,13 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $state,$modal,$filter,
       return
     ), 200
     return
-  window.addEventListener "native.keyboardhide", (e) ->
+  keyboardHideEvent = (e) ->
     console.log "Keyboard close"
     $scope.data.keyboardHeight = 0
     $ionicScrollDelegate.resize()
-    return
+    return    
+  window.addEventListener "native.keyboardshow", keyboardShowEvent, false
+  window.addEventListener "native.keyboardhide", keyboardHideEvent, false
   ionic.DomUtil.ready ->
     console.log 'ready'
     if window.cordova
@@ -155,10 +157,13 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $state,$modal,$filter,
   $scope.$on "$destroy", (event) ->
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
+    
     socket.removeListener("currentEventUserList", currentEventUserList)
     socket.removeListener("userListChange", userListChange)
     socket.removeListener("groupMessage", groupMessage)
     socket.removeListener('loadMsgs', loadMsgs)
+    window.removeEventListener "native.keyboardshow", keyboardShowEvent, false
+    window.removeEventListener "native.keyboardhide", keyboardHideEvent, false
     temp = $scope.messages
     len = temp.length
     console.log 'mlen:'+len

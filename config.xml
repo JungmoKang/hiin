@@ -22,4 +22,5 @@
         <param name="APP_ID" value="684817121572800" />
         <param name="APP_NAME" value="Hiin" />
     </cdv:plugin>
+    <preference name="DisallowOverscroll" value="true" />
 </widget>
