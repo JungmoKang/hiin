@@ -10,7 +10,7 @@ ion-view(title='ACTIVITY')
     #list_contents
       .activityList(ng-repeat='activity in activitys | filter:query')
         a.child_list(ng-click='ShowProfile(activity)')
-          .dot(ng-show='activity.lastMsg.read==false')
+          .dot(ng-show="activity.lastMsg.read==false && activity.lastSender=='you'")
           .pic
             span.helper
              img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{activity.thumbnailUrl}}')
