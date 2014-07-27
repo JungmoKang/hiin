@@ -49,6 +49,7 @@
 		D09AEE5E5298457599E839F1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9F27CA42F34C34BFCE569E /* FacebookSDK.framework */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		E779AE7E4E1E4293A442EA7F /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD04F4660BA44F909FB11CB0 /* CDVDevice.m */; };
+		B91DC08208EE433A9BEC3367 /* AppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EEBA96553B487BB38F4791 /* AppVersion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,8 @@
 		FD04F4660BA44F909FB11CB0 /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
 		FD8945A4886643D7ABA4C0EF /* PushPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushPlugin.m; path = com.phonegap.plugins.PushPlugin/PushPlugin.m; sourceTree = "<group>"; };
 		FF170BD301004A4E8C6E8375 /* IonicKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IonicKeyboard.m; path = com.ionic.keyboard/IonicKeyboard.m; sourceTree = "<group>"; };
+		C9EEBA96553B487BB38F4791 /* AppVersion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppVersion.m"; path = "uk.co.whiteoctober.cordova.AppVersion/AppVersion.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		FB05F213D7B74D7F8C9D5D68 /* AppVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppVersion.h"; path = "uk.co.whiteoctober.cordova.AppVersion/AppVersion.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +287,8 @@
 				FD8945A4886643D7ABA4C0EF /* PushPlugin.m */,
 				D506FE3073894611B0742E3B /* AppDelegate+notification.h */,
 				0E0E2DB77DAC44A28DD1B917 /* PushPlugin.h */,
+				C9EEBA96553B487BB38F4791 /* AppVersion.m */,
+				FB05F213D7B74D7F8C9D5D68 /* AppVersion.h */,
 			);
 			name = Plugins;
 			path = Hiin/Plugins;
@@ -493,6 +498,7 @@
 				AA6E363A11BF4D009063BC63 /* FacebookConnectPlugin.m in Sources */,
 				2E9F006EDD8E4A81985521D8 /* AppDelegate+notification.m in Sources */,
 				0352F7350572434E92571647 /* PushPlugin.m in Sources */,
+				B91DC08208EE433A9BEC3367 /* AppVersion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -51,6 +51,10 @@
                         {
                             "xml": "<feature name=\"PushPlugin\"><param name=\"android-package\" value=\"com.plugin.gcm.PushPlugin\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AppVersion\"><param name=\"android-package\" value=\"uk.co.whiteoctober.cordova.AppVersion\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -152,6 +156,9 @@
         },
         "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "com.example.Hiin"
+        },
+        "uk.co.whiteoctober.cordova.AppVersion": {
+            "PACKAGE_NAME": "co.hiin.app"
         }
     },
     "dependent_plugins": {}

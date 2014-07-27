@@ -46,7 +46,7 @@
 	.foot_link
 	{
 		.page_footer(150px,@color_3);
-    display: inline-block;
+    	display: inline-block;
 		border-top:1px solid @color_4;
 		text-align:center;
 		.font_style_3;
@@ -55,9 +55,24 @@
 			position:relative;
 			top:30px;
 		}
+		.version
+		{
+			position:absolute;
+			top:-30px;
+			float:left;
+			.ver1
+			{
+				.font_style_9;	
+			}
+			.ver2
+			{
+				.font_style_6;
+				color:black;
+			}	
+		}
 	}
 	.foot_link:active
-  {
-    background-color: @color_4;
-  }
+	{
+		background-color: @color_4;
+	}
 }

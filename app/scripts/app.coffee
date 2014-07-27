@@ -144,7 +144,7 @@ angular.module("hiin", [
       $.param data
     $httpProvider.defaults.withCredentials = true
 
-angular.module("hiin").run ($window,  Migration,　$rootScope,Util,$filter) ->
+angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $state) ->
   ###
   $rootScope.$on "$stateChangeSuccess", (ev, to, toParams, from, fromParams) ->
     $rootScope.previousState = from.name
@@ -154,6 +154,8 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util,$filter) ->
     return
   ###
   # prepare database 
+  $rootScope.deviceType = "web"
+  $rootScope.version = "0.1.0"
   $rootScope.ShowProfileImage = (userInfo) ->
     console.log userInfo
     $rootScope.imgUrl = $filter('profileImage')(userInfo.photoUrl)
@@ -182,6 +184,19 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util,$filter) ->
       snd = new Media(event.sound)
       snd.play()
     pushNotification.setApplicationIconBadgeNumber successHandler, errorHandler, event.badge  if event.badge
+    console.log event
+    console.log event.message
+    console.log JSON.stringify(event)
+    switch event.message
+      when "group"
+        console.log "group"
+        $location.url('/list/groupChat')
+      when "personal"
+        console.log 'personal'
+      when "hi"
+        console.log "hi"
+      when "notice"
+        console.log "notice"
     return
   onNotification = (e) ->
     switch e.event
@@ -207,7 +222,9 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util,$filter) ->
   document.addEventListener "deviceready", ->
     console.log "DeviceReady"
     pushNotification = window.plugins.pushNotification
-    $rootScope.deviceToken = ''
+    cordova.getAppVersion().then (version) ->
+      $rootScope.version = version
+      console.log version
     if typeof device  is 'undefined' or device is null
       $rootScope.deviceType = 'web'
     else if device.platform is "android" or device.platform is "Android"

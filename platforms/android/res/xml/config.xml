@@ -46,4 +46,7 @@
         <param name="APP_ID" value="684817121572800" />
         <param name="APP_NAME" value="Hiin" />
     </cdv:plugin>
+    <feature name="AppVersion">
+        <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion" />
+    </feature>
 </widget>

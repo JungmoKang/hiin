@@ -62,11 +62,15 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $filter,$state,$rootS
     $scope.sayHi = (user) ->
       if user.status is '0' or user.status is '2'
         console.log 'sayhi'
-        setTimeout () -> 
-          socket.emit "hi" , {
-            targetId : user._id
-          }, 100000
-        return
+        socket.emit "hi" , {
+          targetId : user._id
+        }
+        if user.status is '2'
+          socket.emit "readHi" , {
+            partner : $scope.myInfo._id
+            code : thisEvent
+          }
+      return
 angular.module('hiin').filter 'convertMsg', ($filter) ->
   return (activity) -> 
     if activity.lastMsg.type == 'hi' 
