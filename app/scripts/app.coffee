@@ -181,6 +181,11 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
   $window.onNotificationAPN = (event) ->
     console.log 'onNotificationAPN'
     console.log event
+    sleepFlg = $window.localStorage.getItem "sleep"
+    console.log sleepFlg
+    if sleepFlg is 'false' or event.foreground is '1'
+      console.log 'cancel'
+      return
     $rootScope.$broadcast("pushed", event)
     navigator.notification.alert event.alert  if event.alert
     if event.sound

@@ -62,6 +62,12 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
       $scope.modalInstance = null
       return
     $scope.modalInstance = modalInstance
+  GetUserById = (id) ->
+    eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
+    listKey = eventInfo.code + '_currentEventUserList'
+    users = JSON.parse($window.localStorage.getItem listKey)
+    user = $filter('getUserById')(users, id)
+    return user
   #개인 챗
   message = (data) ->
     console.log 'private message in menu'
@@ -70,10 +76,7 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     socket.emit "unReadCount"
     if typeof $state.params.userId != 'undefined' and state.params.userId == data.sender
       return
-    eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
-    listKey = eventInfo.code + '_currentEventUserList'
-    users = JSON.parse($window.localStorage.getItem listKey)
-    user = $filter('getUserById')(users, data.sender)
+    user = GetUserById(data.sender)
     if user.unread is false
       SendEmitCurrentEventUserList()
     $scope.msgHeaderClass = 'private_msg_push'
@@ -158,7 +161,7 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
       if user.status is '2'
         eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
         socket.emit "readHi" , {
-          partner : myInfo._id
+          partner : user._id
           code : eventInfo.code
         }
     return
@@ -218,3 +221,26 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   $scope.$on "pushed", (event,args) ->
     console.log 'pushed menu'
     console.log args
+    switch args.type
+      when "personal"
+        console.log "personal"
+        #history.pushState(null, null, '#/list/userlists')
+        user = GetUserById(args.id)
+        if user.status is '0' or user.status is '2'
+          $scope.user = user
+          ShowProfile()
+        else
+          $scope.CloseHeaderMsg()
+          history.pushState(null, null, '#/list/userlists')
+          $state.go 'list.single',
+            userId: args.id
+      when "group"
+        console.log "group"
+        history.pushState(null, null, '#/list/userlists')
+        $state.go 'list.groupChat'
+      when "notice"
+        console.log "notice"
+        history.pushState(null, null, '#/list/userlists')
+        $state.go 'list.notice'
+      when "hi"
+        console.log "hi"

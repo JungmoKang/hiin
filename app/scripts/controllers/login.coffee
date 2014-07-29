@@ -46,8 +46,12 @@ angular.module('hiin').controller 'LoginCtrl', ($rootScope, $scope,$window,$stat
 					eventCode = JSON.parse(eventInfo).code
 					CheckEvent(eventCode)
 				.then (response) ->
-					$state.go('list.events')
+					confirmData =
+						code: JSON.parse(eventInfo).code
+					Util.ConfirmEvent(confirmData)
+				.then (response) ->
 					console.log 'goto events'
+					$state.go('list.events')
 				,(response) ->
 					Util.ClearLocalStorage()
 	FacebookLogin = ->

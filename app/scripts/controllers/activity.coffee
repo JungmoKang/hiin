@@ -67,7 +67,7 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $filter,$state,$rootS
         }
         if user.status is '2'
           socket.emit "readHi" , {
-            partner : $scope.myInfo._id
+            partner : user._id
             code : thisEvent
           }
       return

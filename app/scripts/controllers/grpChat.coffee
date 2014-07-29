@@ -234,7 +234,7 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $state,$modal,$filter,
       }
       if user.status is '2'
         socket.emit "readHi" , {
-          partner : $scope.myInfo._id
+          partner : user._id
           code : thisEvent
         }
     return

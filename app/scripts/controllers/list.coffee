@@ -160,7 +160,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
       }
       if user.status is '2'
         socket.emit "readHi" , {
-          partner : myInfo._id
+          partner : user._id
           code : thisEvent
         }
     return

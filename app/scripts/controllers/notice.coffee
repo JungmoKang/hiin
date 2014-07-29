@@ -55,6 +55,7 @@ angular.module('hiin').controller 'NoticeCtrl', ($rootScope,$filter,$scope,Socke
   SendEmitCurrentEventUserList()
   notice = (data) ->
     console.log data
+    data.created_at = data.regTime
     $scope.messages.push data
     if $scope.bottom is false
       $scope.newMsg = data
