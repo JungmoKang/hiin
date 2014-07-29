@@ -3,21 +3,26 @@
 angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,socket,SocketClass,$state,$stateParams,$location,$ionicNavBarDelegate,$modal,$timeout,$filter) ->
   console.log 'called menu Ctrl'
   myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
+  $window.localStorage.setItem "sleep", false
   $rootScope.onResume = ->
     console.log "On Resume"
+    $window.localStorage.setItem "sleep", false
     socket.emit "resume"
     console.log $state.current.name
-    if $state.current.name is 'list.groupChat'
-      console.log 'group chat'
-      $scope.$broadcast("Resume", null)
-      return
-    if $state.current.name is 'list.single'
-      console.log 'list single'
-      $scope.$broadcast("Resume", null)
-      return    
+    switch $state.current.name
+      when 'list.groupChat'
+        console.log 'group chat'
+        $scope.$broadcast("Resume", null)
+      when 'list.single'
+        console.log 'list single'
+        $scope.$broadcast("Resume", null)
+      when 'list.userlists'
+        console.log 'list'
+        $scope.$broadcast("Resume", null)
     return
   $rootScope.onPause = ->
     console.log "On Pause"
+    $window.localStorage.setItem "sleep", true
     socket.disconnect()
     return
   if typeof $rootScope.AddFlagPauseHandler  == 'undefined' || $rootScope.AddFlagPauseHandler is false
@@ -30,6 +35,11 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   $scope.CloseHeaderMsg = ->
     $scope.msgHeaderShow = false
   ShowHeader = (msg) ->
+    sleepFlg = $window.localStorage.getItem "sleep"
+    console.log sleepFlg
+    if sleepFlg is 'true'
+      console.log 'dont show header'
+      return
     if $state.current.name is 'list.organizerSignUp'
       return
     $scope.CloseHeaderMsg()
@@ -64,6 +74,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     listKey = eventInfo.code + '_currentEventUserList'
     users = JSON.parse($window.localStorage.getItem listKey)
     user = $filter('getUserById')(users, data.sender)
+    if user.unread is false
+      SendEmitCurrentEventUserList()
     $scope.msgHeaderClass = 'private_msg_push'
     if user.status is '0' or user.status is '2'
       msg = '<p> ' + data.sender_name + ' has sent a message.' + 
@@ -137,15 +149,17 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   유저 정보를 갱신하여 로컬 스토리지에 저장한다.
   ###
   $scope.sayHi = (user) ->
+    console.log 'menu say hi'
     if user.status is '0' or user.status is '2'
       console.log 'sayhi'
       socket.emit "hi" , {
         targetId : user._id
       }
       if user.status is '2'
+        eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
         socket.emit "readHi" , {
-          partner : $scope.myInfo._id
-          code : thisEvent
+          partner : myInfo._id
+          code : eventInfo.code
         }
     return
   #하이를 받았을때
@@ -201,3 +215,6 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
       userId: user._id
   $scope.DialogClose = ->
     $scope.modalInstance.close()
+  $scope.$on "pushed", (event,args) ->
+    console.log 'pushed menu'
+    console.log args

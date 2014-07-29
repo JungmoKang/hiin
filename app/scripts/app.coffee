@@ -178,25 +178,16 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
   successHandler = (result) ->
     console.log "result:" + result
     return
-  onNotificationAPN = (event) ->
+  $window.onNotificationAPN = (event) ->
+    console.log 'onNotificationAPN'
+    console.log event
+    $rootScope.$broadcast("pushed", event)
     navigator.notification.alert event.alert  if event.alert
     if event.sound
       snd = new Media(event.sound)
       snd.play()
     pushNotification.setApplicationIconBadgeNumber successHandler, errorHandler, event.badge  if event.badge
-    console.log event
-    console.log event.message
-    console.log JSON.stringify(event)
-    switch event.message
-      when "group"
-        console.log "group"
-        $location.url('/list/groupChat')
-      when "personal"
-        console.log 'personal'
-      when "hi"
-        console.log "hi"
-      when "notice"
-        console.log "notice"
+    
     return
   onNotification = (e) ->
     switch e.event
@@ -240,4 +231,4 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
         badge: "true"
         sound: "true"
         alert: "true"
-        ecb: "onNotificationAPN"
+        ecb: "window.onNotificationAPN"

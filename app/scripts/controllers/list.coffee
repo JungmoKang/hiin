@@ -3,6 +3,7 @@
 angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scope, $window, Util, socket, SocketClass,$modal, $state,$location,$ionicNavBarDelegate,$timeout) ->
   #init
   $rootScope.selectedItem = 2
+  myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
   ionic.DomUtil.ready ->
     $ionicNavBarDelegate.showBackButton(false)
   if $window.localStorage?
@@ -80,6 +81,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
     socket.removeListener("hi", hi)
     socket.removeListener("hiMe", hiMe)
     socket.removeListener("pendingHi", pendingHi)
+    socket.removeListener("message", message)
     return
   # socket event ↓
   unReadCount = (data) ->
@@ -128,18 +130,29 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
       return
     #SendEmitCurrentEventUserList()
     return
+  message = (data) ->
+    console.log 'private message in list'
+    console.log data
+    user = $filter('getUserById')($scope.users, data.sender)
+    if user is null
+      return
+    if user.unread is false
+      user.unread = true
+    return
   socket.on "unReadCount", unReadCount
   socket.on "unReadCountGroup", unReadCountGroup
   socket.on "userListChange", userListChange
   socket.on "hi", hi
   socket.on "hiMe", hiMe
   socket.on "pendingHi", pendingHi
+  socket.on "message", message
   # ↑
   $scope.chatRoom = (user) ->
     if $scope.modalInstance? 
       $scope.modalInstance.close()
     $location.url('/list/userlists/'+user._id)
   $scope.sayHi = (user) ->
+    console.log 'list say hi'
     if user.status is '0' or user.status is '2'
       console.log 'sayhi'
       socket.emit "hi" , {
@@ -147,7 +160,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
       }
       if user.status is '2'
         socket.emit "readHi" , {
-          partner : $scope.myInfo._id
+          partner : myInfo._id
           code : thisEvent
         }
     return
@@ -177,3 +190,11 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
     $scope.modalInstance.close()
   $scope.GotoNotice = ->
     $state.go 'list.notice'
+  $scope.CancelRedPoint = (user) ->
+    console.log 'CancelRedPoint'
+    if user.unread == true
+      user.unread = false
+  $scope.$on "Resume", (event,args) ->
+    console.log 'list resume'
+    console.log args
+    SendEmitCurrentEventUserList()
