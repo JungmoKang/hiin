@@ -59,7 +59,7 @@ angular.module('hiin').controller 'NoticeCtrl', ($rootScope,$filter,$scope,Socke
     $scope.messages.push data
     if $scope.bottom is false
       $scope.newMsg = data
-      $scope.newMsg.msg = $filter('getShortSentence')(data.content, 30)
+      $scope.newMsg.msg = Util.trimStr(data.content, 30)
     else
       $ionicScrollDelegate.scrollBottom()
   socket.on "notice", notice

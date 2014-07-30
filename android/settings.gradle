@@ -1,3 +1,0 @@
-include ':FacebookLib'
-include ':HiinCordovaLib'
-include ':Hiin'

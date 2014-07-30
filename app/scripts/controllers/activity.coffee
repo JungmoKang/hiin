@@ -71,12 +71,12 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $filter,$state,$rootS
             code : thisEvent
           }
       return
-angular.module('hiin').filter 'convertMsg', ($filter) ->
+angular.module('hiin').filter 'convertMsg', (Util) ->
   return (activity) -> 
     if activity.lastMsg.type == 'hi' 
       return 'Sent \'HI\'!'
     else
-      return  $filter('getShortSentence')(activity.lastMsg.content, 40)
+      return  Util.trimStr(activity.lastMsg.content, 40)
  
 angular.module('hiin').filter 'fromNow', () ->
   return (time) -> 

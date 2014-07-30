@@ -12,13 +12,6 @@ angular.module("filters", [])
       return input[i]  if input[i]._id is id
       i++
     null
-.filter "getShortSentence", ->
-  (input, count) ->
-  	retValue = input
-  	if input.length > count
-  		retValue = input.substring(0,count)
-  		retValue += '...'
-  	return retValue
 .filter 'profileImage', (Util) ->
   (input) ->
     newVal = input  

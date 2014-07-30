@@ -90,9 +90,12 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
     $scope.messages.push data
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     $scope.newMsg = null
+    socket.emit "read",{
+      msgId: data._id
+    }
     if $scope.bottom is false
       $scope.newMsg = data
-      $scope.newMsg.msg = $filter('getShortSentence')(data.content, 30)
+      $scope.newMsg.msg = Util.trimStr(data.content, 30)
     else
       $ionicScrollDelegate.scrollBottom()
     return

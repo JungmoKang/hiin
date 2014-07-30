@@ -106,3 +106,17 @@ angular.module('services').factory 'Util', ($q, $http, $window,$location,$docume
     if window.cordova
       $window.localStorage.setItem "isPhoneGap", "1"
     return
+  trimStr : (str, byteSize) ->
+    byte = 0
+    trimStr = ""
+    j = 0
+    len = str.length
+
+    while j < len
+      (if str.charCodeAt(j) < 0x100 then byte++ else byte += 2)
+      trimStr += str.charAt(j)
+      if byte >= byteSize
+        trimStr = trimStr.substr(0, j - 2) + "..."
+        break
+      j++
+    trimStr

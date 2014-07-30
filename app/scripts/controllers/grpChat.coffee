@@ -67,13 +67,16 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $state,$modal,$filter,
     $scope.messages.push data
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     $scope.newMsg = null
+    socket.emit "read",{
+      msgId: data._id
+    }
     if data.sender_name is 'me'
       $ionicScrollDelegate.scrollBottom()
     else
       console.log $scope.scrollDelegate.getScrollPosition()
       if $scope.bottom is false
         $scope.newMsg = data
-        $scope.newMsg.msg = $filter('getShortSentence')(data.content, 30)
+        $scope.newMsg.msg = Util.trimStr(data.content, 30)
       else
         $ionicScrollDelegate.scrollBottom()
     return

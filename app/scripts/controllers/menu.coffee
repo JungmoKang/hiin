@@ -72,9 +72,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   message = (data) ->
     console.log 'private message in menu'
     console.log data
-    console.log('unreadcount:')
     socket.emit "unReadCount"
-    if typeof $state.params.userId != 'undefined' and state.params.userId == data.sender
+    if typeof $state.params.userId != 'undefined' and $state.params.userId == data.sender
       return
     user = GetUserById(data.sender)
     if user.unread is false
@@ -87,7 +86,7 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
       $scope.user = user
       $scope.headerClickAction = ShowProfile
     else
-      shortMsg = $filter('getShortSentence')(data.content, 30)
+      shortMsg = Util.trimStr(data.content, 30)
       msg = '<p> ' + data.sender_name + ' has sent a message.' + "<p>\'" + shortMsg + "\'"
       ShowHeader(msg)
       $scope.headerClickAction = ->

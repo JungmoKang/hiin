@@ -8,12 +8,12 @@ ion-view(title='SETTING')
           input(value='TERMS & POLICIES',readonly)
           span.arrow
     .list_separatebar
-    .row
+    .row(ng-hide='true')
       .col
         .input-group(ng-click='Report()')
           input(value='REPORT',readonly)
           span.arrow
-    .list_separatebar
+    .list_separatebar(ng-hide='true')
     .bar.bar-footer.foot_link(ng-click='signOut()') 
       .version 
         span.ver1 version: 
