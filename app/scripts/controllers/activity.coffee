@@ -2,8 +2,8 @@
 
 angular.module('hiin').controller 'ActivityCtrl', ($scope, $filter,$state,$rootScope,$location, $window, Util, socket, SocketClass, $modal) ->
     thisEvent = JSON.parse($window.localStorage.getItem "thisEvent").code
-    MakeActivityOptionObj = ->
-      socketMyInfo = new SocketClass.socketClass('activity',null,500,true)
+    MakeActivityOptionObj = (msgFlag) ->
+      socketMyInfo = new SocketClass.socketClass('activity',null,500,msgFlag)
       socketMyInfo.onCallback = (data) ->
         $scope.rank = data.rank
         #$scope.activitys = data.activity
@@ -12,11 +12,13 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $filter,$state,$rootS
         console.log data
         return
       return socketMyInfo
-    SocketClass.resSocket(MakeActivityOptionObj())
-      .then (data) ->
-        console.log 'socket got activity'
-      , (status) ->
-        console.log "error"
+    SendEmitActivity = (msgFlag) ->
+      SocketClass.resSocket(MakeActivityOptionObj(msgFlag))
+        .then (data) ->
+          console.log 'socket got activity'
+        , (status) ->
+          console.log "error"
+    SendEmitActivity(true)
     #scope가 destroy될때, 등록한 이벤트를 모두 지움
     $scope.$on "$destroy", (event) ->
       return
@@ -71,6 +73,9 @@ angular.module('hiin').controller 'ActivityCtrl', ($scope, $filter,$state,$rootS
             code : thisEvent
           }
       return
+    $scope.$on "update activity", (event,args) ->
+      console.log 'update activity'
+      SendEmitActivity(false)
 angular.module('hiin').filter 'convertMsg', (Util) ->
   return (activity) -> 
     if activity.lastMsg.type == 'hi' 

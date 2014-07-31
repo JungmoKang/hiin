@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0352F7350572434E92571647 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8945A4886643D7ABA4C0EF /* PushPlugin.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -46,10 +47,10 @@
 		AA6E363A11BF4D009063BC63 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = EAFCE71D106E467D848253DE /* FacebookConnectPlugin.m */; };
 		ACF9B6464A404F13BAF7CFAA /* DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C473150165F4C5198EE9841 /* DatePicker.m */; };
 		ADACE6C419541FBA001DFE75 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADACE6C319541FBA001DFE75 /* Images.xcassets */; };
+		B91DC08208EE433A9BEC3367 /* AppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EEBA96553B487BB38F4791 /* AppVersion.m */; };
 		D09AEE5E5298457599E839F1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9F27CA42F34C34BFCE569E /* FacebookSDK.framework */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		E779AE7E4E1E4293A442EA7F /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FD04F4660BA44F909FB11CB0 /* CDVDevice.m */; };
-		B91DC08208EE433A9BEC3367 /* AppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EEBA96553B487BB38F4791 /* AppVersion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		ADACE6C319541FBA001DFE75 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Hiin/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		B5F313649C194527A1643773 /* AppDelegate+notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.m"; sourceTree = "<group>"; };
 		C25A677734A149F9977996E0 /* Accounts.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		C9EEBA96553B487BB38F4791 /* AppVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppVersion.m; path = uk.co.whiteoctober.cordova.AppVersion/AppVersion.m; sourceTree = "<group>"; };
 		CA9F27CA42F34C34BFCE569E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Hiin/Plugins/com.phonegap.plugins.facebookconnect/FacebookSDK.framework; sourceTree = "<group>"; };
 		CC895EC568D34BA483A6BE5D /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.device/CDVDevice.h; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
@@ -135,12 +137,11 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Hiin/config.xml; sourceTree = "<group>"; };
+		FB05F213D7B74D7F8C9D5D68 /* AppVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppVersion.h; path = uk.co.whiteoctober.cordova.AppVersion/AppVersion.h; sourceTree = "<group>"; };
 		FBB32ECAFC704C699168BD9E /* CDVStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = org.apache.cordova.statusbar/CDVStatusBar.m; sourceTree = "<group>"; };
 		FD04F4660BA44F909FB11CB0 /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
 		FD8945A4886643D7ABA4C0EF /* PushPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushPlugin.m; path = com.phonegap.plugins.PushPlugin/PushPlugin.m; sourceTree = "<group>"; };
 		FF170BD301004A4E8C6E8375 /* IonicKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IonicKeyboard.m; path = com.ionic.keyboard/IonicKeyboard.m; sourceTree = "<group>"; };
-		C9EEBA96553B487BB38F4791 /* AppVersion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppVersion.m"; path = "uk.co.whiteoctober.cordova.AppVersion/AppVersion.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		FB05F213D7B74D7F8C9D5D68 /* AppVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppVersion.h"; path = "uk.co.whiteoctober.cordova.AppVersion/AppVersion.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

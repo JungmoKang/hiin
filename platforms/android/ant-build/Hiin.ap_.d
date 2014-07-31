@@ -1814,6 +1814,7 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/chat-organizer/icn-online-16x20.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/chat-organizer/switch-off-48x42.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/chat-organizer/switch-on-48x42.png \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/chatpage/arrow.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/chatpage/btn-x-24x24.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/creationpage/btn-edit-content48x38.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/creationpage/btn-edit-location48x38.png \
@@ -1827,6 +1828,7 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/inbetweenpages/icn-no90x90.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/inbetweenpages/loader.gif \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/inbetweenpages/loader2.gif \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/infopage/bg.jpg \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/infopage/hi-in-guide.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/bg-314x314.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/bg-photo.jpg \
@@ -1842,8 +1844,10 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/btn-login-2.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/btn-reset-150x150.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/btn-x-24x24.png \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/btn-x-24x24_white.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/graphic-line-416x10.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/logo-150x150.png \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/party photo4.jpg \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/screenshot \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/screenshot/hi-in-login-normal.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/login/screenshot/hi-in-login-wrong.png \
@@ -1856,6 +1860,7 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/nav/btn-edit-100x38.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/nav/btn-groupchat-100x100.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/nav/btn-info-100x100.png \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/nav/btn-notice-100x38.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/nav/btn-save-100x38.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/nav/btn-sidenav-50x50.png \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/images/nav/separatebar-610x10.png \
@@ -1881,6 +1886,7 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/com.plugin.datepicker \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/org.apache.cordova.device \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/org.apache.cordova.statusbar \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/uk.co.whiteoctober.cordova.AppVersion \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/com.ionic.keyboard/www \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/com.ionic.keyboard/www/keyboard.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/com.phonegap.plugins.facebookconnect/www \
@@ -1897,6 +1903,8 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/org.apache.cordova.statusbar/www \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/org.apache.cordova.statusbar/www/statusbar.js \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/uk.co.whiteoctober.cordova.AppVersion/www \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/plugins/uk.co.whiteoctober.cordova.AppVersion/www/AppVersionPlugin.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/res/icons \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/res/screens \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/res/icons/android \
@@ -1970,10 +1978,10 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/imageUpload.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/services.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/socket.js \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/socket_class.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/util.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/webDb.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/styles/hiin.css \
-/Users/moya/Program/hiin_ionic/platforms/android/assets/www/styles/main.css \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/chat \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/dialog \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/etc \
@@ -1983,17 +1991,18 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/menu \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/modal \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/chat/chat_room.html \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/chat/notice.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/dialog/logout_notice.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/dialog/privacy_free.html \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/dialog/ranking.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/dialog/user_card.html \
-/Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/etc/error_msg_header.html \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/etc/msg_header.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/event/create_event.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/event/info_event.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/event/passcode_dialog.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/list/activity.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/list/hi_modal.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/list/list.html \
-/Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/list/rank_modal.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/login/alert.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/login/login.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/login/organizer_login.html \
@@ -2001,6 +2010,7 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/login/organizerLoginFromEventPage.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/login/reset_password.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/login/signin.html \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/menu/eula.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/menu/events.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/menu/menu.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/menu/profile.html \
@@ -2012,4 +2022,5 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/modal/create_event_attention.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/modal/create_or_loaded_event.html \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/modal/no_event.html \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/views/modal/profile_image.html \
 /Users/moya/Program/hiin_ionic/platforms/android/ant-build/AndroidManifest.xml \

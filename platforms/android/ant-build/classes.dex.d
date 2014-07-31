@@ -48,6 +48,7 @@
 /Users/moya/Program/hiin_ionic/platforms/android/ant-build/classes/org/apache/cordova/statusbar/StatusBar$1.class \
 /Users/moya/Program/hiin_ionic/platforms/android/ant-build/classes/org/apache/cordova/statusbar/StatusBar$2.class \
 /Users/moya/Program/hiin_ionic/platforms/android/ant-build/classes/org/apache/cordova/statusbar/StatusBar.class \
+/Users/moya/Program/hiin_ionic/platforms/android/ant-build/classes/uk/co/whiteoctober/cordova/AppVersion.class \
 /Users/moya/Program/hiin_ionic/platforms/android/ant-build/dexedLibs/classes-4085e5a17144b51898695427bcce034e.jar \
 /Users/moya/Program/hiin_ionic/platforms/android/ant-build/dexedLibs/classes-6e0b75a8dd8b27aa74e85eaeed0cd98b.jar \
 /Users/moya/Program/hiin_ionic/platforms/android/ant-build/dexedLibs/gcm-0eab723c2a4da31806295365c5128f28.jar \

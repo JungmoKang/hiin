@@ -9,15 +9,15 @@ ion-view(title='{{eventName}}')
         .row.user_list
           .col.col-25
             span.helper
-              .imgContainer
+              .imgContainer(ng-click="ShowProfileImage(user)")
+                .dotList(ng-if="user.unread==true")
                 img.profile.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{user.thumbnailUrl}}')
                 .rankingBadge(ng-class = '"rankingBadge" + user.rank', ng-if='user.rank>=1 && user.rank<=5')
           .col
             .item_desc
-              a.name(ng-click='ShowProfile(user)') {{user.lastName}} {{user.firstName}}
+              a.name {{user.lastName}} {{user.firstName}}
               .job {{user.job}}
           .col.col-25
-            .dotList(ng-show="user.unread==true")
             .btn-container(ng-flip-btn = 'ng-flip-btn',hiStatus = '{{user.status}}')
               button(ng-click="sayHi(user)",ng-Hi-Btn = 'ng-hi-btn',hiStatus = '{{user.status}}'
                 ,ng-class="user.status=='0'?'btn-Hi':'btn-Hied'") HI 

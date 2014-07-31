@@ -2,6 +2,13 @@
 
 angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,socket,SocketClass,$state,$stateParams,$location,$ionicNavBarDelegate,$modal,$timeout,$filter) ->
   console.log 'called menu Ctrl'
+  ###
+  액티비티 갱신
+  1. 하이 받았을때
+  2. 하이할때
+  3. 메세지 받았을때
+  4. 유저가 추가되었을때
+  ###
   myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
   $window.localStorage.setItem "sleep", false
   $rootScope.onResume = ->
@@ -73,6 +80,7 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     console.log 'private message in menu'
     console.log data
     socket.emit "unReadCount"
+    $scope.$broadcast("update activity", data)
     if typeof $state.params.userId != 'undefined' and $state.params.userId == data.sender
       return
     user = GetUserById(data.sender)
@@ -187,15 +195,18 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     $scope.user = user
     $scope.headerClickAction = ShowProfile
     SendEmitCurrentEventUserList()
+    $scope.$broadcast("update activity", data)
     return
   userListChange = (data) ->
     console.log 'userListChange in menu'
     console.log data
     SendEmitCurrentEventUserList()
+    $scope.$broadcast("update activity", data)
     return
   hiMe = (data) ->
     console.log 'on hiMe in menu'
     SendEmitCurrentEventUserList()
+    $scope.$broadcast("update activity", data)
     return
   pendingHi = (data) ->
     console.log 'on pendinghi in menu'
@@ -212,6 +223,10 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   $scope.chatRoom = (user) ->
     if $scope.modalInstance? 
       $scope.modalInstance.close()
+    if user.unread == true
+      console.log 'CancelRedPoint'
+      user.unread = false
+      SaveUsersToLocalStorage()
     history.pushState(null, null, '#/list/userlists')
     $state.go 'list.single',
       userId: user._id
