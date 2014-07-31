@@ -16,9 +16,9 @@ ion-view(title='{{eventName}}')
             .item_desc
               a.name(ng-click='ShowProfile(user)') {{user.lastName}} {{user.firstName}}
               .job {{user.job}}
-          .col.col-25(ng-click="CancelRedPoint(user)")
+          .col.col-25
             .dotList(ng-show="user.unread==true")
-            .btn-container(ng-flip-btn = 'ng-flip-btn'  hiStatus = '{{user.status}}')
+            .btn-container(ng-flip-btn = 'ng-flip-btn',hiStatus = '{{user.status}}')
               button(ng-click="sayHi(user)",ng-Hi-Btn = 'ng-hi-btn',hiStatus = '{{user.status}}'
                 ,ng-class="user.status=='0'?'btn-Hi':'btn-Hied'") HI 
               button.btn-In(ng-click="chatRoom(user)", ng-In-Btn = 'ng-in-btn',hiStatus = '{{user.status}}') IN 

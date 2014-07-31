@@ -43,6 +43,8 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
   $scope.DialogClose = ->
     $scope.modalInstance.close()
   $scope.ShowPrivacyFreeDialog()
+  SaveUsersToLocalStorage = ->
+    $window.localStorage.setItem listKey, JSON.stringify($scope.users)
   MakeCurrentEventUserListOptionObj = ->
     socketMyInfo = new SocketClass.socketClass('currentEventUserList',null,100,true)
     socketMyInfo.onCallback = (data) ->
@@ -53,6 +55,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
         sortedData = $filter('orderBy')(data,'rank')
         $window.localStorage.setItem listKey, JSON.stringify(sortedData)
         $scope.users = sortedData
+        console.dir $scope.users
       return
     return socketMyInfo
   SendEmitCurrentEventUserList = ->
@@ -67,6 +70,8 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
   if tempList && tempList isnt '[]'
     $scope.users = JSON.parse(tempList)
     $scope.users = $filter('orderBy')($scope.users,'rank')
+    console.log "Get Users from local Storage"
+    console.dir $scope.users
   else
     $scope.users = []
     SendEmitCurrentEventUserList()
@@ -112,7 +117,10 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
       return
     $scope.modalInstance = modalInstance
     user = $filter('getUserById')($scope.users, data.from)
-    user.status = "2"
+    if user.status = "0"
+      user.status = "2"
+      user.unread = true
+      SaveUsersToLocalStorage()
     # 하이 받았을때 리스트가 새로 변경되는게 보기 이상함..그래서 주석처리
     #SendEmitCurrentEventUserList()
     return
@@ -138,6 +146,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
       return
     if user.unread is false
       user.unread = true
+      SaveUsersToLocalStorage()
     return
   socket.on "unReadCount", unReadCount
   socket.on "unReadCountGroup", unReadCountGroup
@@ -150,6 +159,10 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
   $scope.chatRoom = (user) ->
     if $scope.modalInstance? 
       $scope.modalInstance.close()
+    if user.unread == true
+      console.log 'CancelRedPoint'
+      user.unread = false
+      SaveUsersToLocalStorage()
     $location.url('/list/userlists/'+user._id)
   $scope.sayHi = (user) ->
     console.log 'list say hi'
@@ -163,6 +176,10 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
           partner : user._id
           code : thisEvent
         }
+    if user.unread == true
+      console.log 'CancelRedPoint'
+      user.unread = false
+      SaveUsersToLocalStorage()
     return
   $scope.activity = ->
   	$location.url('/list/activity')
@@ -190,10 +207,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
     $scope.modalInstance.close()
   $scope.GotoNotice = ->
     $state.go 'list.notice'
-  $scope.CancelRedPoint = (user) ->
-    console.log 'CancelRedPoint'
-    if user.unread == true
-      user.unread = false
   $scope.$on "Resume", (event,args) ->
     console.log 'list resume'
     console.log args

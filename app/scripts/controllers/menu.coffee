@@ -134,7 +134,7 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
       if data.length > 0
         sortedData = $filter('orderBy')(data,'rank')
         $window.localStorage.setItem listKey, JSON.stringify(sortedData)
-      console.log data
+      console.dir data
       return
     return socketMyInfo
   SendEmitCurrentEventUserList = ->
