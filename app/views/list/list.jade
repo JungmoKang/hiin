@@ -15,7 +15,7 @@ ion-view(title='{{eventName}}')
                 .rankingBadge(ng-class = '"rankingBadge" + user.rank', ng-if='user.rank>=1 && user.rank<=5')
           .col
             .item_desc
-              a.name {{user.lastName}} {{user.firstName}}
+              a.name {{user.lastName | toShortSentence:10}} {{user.firstName|toShortSentence:15}}
               .job {{user.job}}
           .col.col-25
             .btn-container(ng-flip-btn = 'ng-flip-btn',hiStatus = '{{user.status}}')

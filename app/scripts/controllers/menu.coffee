@@ -146,6 +146,9 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
       return
     return socketMyInfo
   SendEmitCurrentEventUserList = ->
+    eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
+    if eventInfo is null
+      return
     SocketClass.resSocket(MakeCurrentEventUserListOptionObj())
       .then (data) ->
         console.log 'socket got user list'

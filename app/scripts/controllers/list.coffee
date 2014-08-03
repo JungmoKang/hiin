@@ -117,7 +117,7 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
       return
     $scope.modalInstance = modalInstance
     user = $filter('getUserById')($scope.users, data.from)
-    if user.status = "0"
+    if user.status is "0"
       user.status = "2"
       user.unread = true
       SaveUsersToLocalStorage()

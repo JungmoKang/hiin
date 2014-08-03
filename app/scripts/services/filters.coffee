@@ -18,3 +18,8 @@ angular.module("filters", [])
     if input.indexOf('http') < 0
       newVal = Util.serverUrl() + "/" + newVal
     return newVal
+.filter "toShortSentence", (Util) ->
+  (input, count) ->
+    console.log input
+    console.log count
+    return Util.trimStr(input,count)
