@@ -3,7 +3,26 @@
 angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scope, $window, Util, socket, SocketClass,$modal, $state,$location,$ionicNavBarDelegate,$timeout) ->
   #init
   $rootScope.selectedItem = 2
+  MakeMyInfoOptionObj = () ->
+    socketMyInfo = new SocketClass.socketClass('myInfo',null,1500,true)
+    socketMyInfo.onCallback = (data) ->
+      console.log "list myInfo"
+      console.log data
+      $window.localStorage.setItem 'myInfo', JSON.stringify(data)
+      $scope.myId = new Array()
+      $scope.myId.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
+      return
+    return socketMyInfo
+  SendEmitMyInfo = () ->
+    SocketClass.resSocket(MakeMyInfoOptionObj())
+      .then (data) ->
+        console.log 'socket got myInfo'
+      , (status) ->
+        console.log "error"
+        alert 'error get my info'
   myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
+  if !myInfo?
+    SendEmitMyInfo()
   ionic.DomUtil.ready ->
     $ionicNavBarDelegate.showBackButton(false)
   if $window.localStorage?

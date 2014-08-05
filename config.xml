@@ -23,4 +23,6 @@
         <param name="APP_NAME" value="Hiin" />
     </cdv:plugin>
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="orientation" value="portrait" />
 </widget>
+z/+GJ2Vw7DiJkV1h2bPjHiOsKxg

@@ -115,7 +115,8 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
       cordova.plugins.Keyboard.close()
       return
     window.scroll(0,0)
-    $scope.data.keyboardHeight = e.keyboardHeight
+    if isIOS
+      $scope.data.keyboardHeight = e.keyboardHeight
     $timeout (->
       $ionicScrollDelegate.scrollBottom true
       return

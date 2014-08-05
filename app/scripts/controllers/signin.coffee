@@ -47,6 +47,7 @@ angular.module('hiin')
       if isValid == true
         Util.MakeId($scope.userInfo)
           .then (data) ->
+            console.log data
             console.log '---return make Id---'
             $window.localStorage.setItem "auth_token", data.Token
             $window.localStorage.setItem "id_type", 'normal'

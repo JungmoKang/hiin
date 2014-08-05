@@ -24,7 +24,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
   myinfo = $window.localStorage.getItem "myInfo"
   #socket 관련
   MakeMyInfoOptionObj = () ->
-    socketMyInfo = new SocketClass.socketClass('myInfo',null,0,true)
+    socketMyInfo = new SocketClass.socketClass('myInfo',null,1500,true)
     socketMyInfo.onCallback = (data) ->
       console.log "list myInfo"
       console.log data
