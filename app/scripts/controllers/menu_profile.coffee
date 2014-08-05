@@ -10,7 +10,6 @@ angular.module('hiin').controller 'ProfileCtrl', ($rootScope,$ionicLoading,$scop
   $scope.imageUploadUrl = "#{Host.getAPIHost()}:#{Host.getAPIPort()}/profileImage"
   $scope.isEditMode = false
   $scope.btn_edit_or_confirm = 'edit'
-  $scope.userInfo = JSON.parse($window.localStorage.getItem 'myInfo')
   MakeMyInfoOptionObj = () ->
     socketMyInfo = new SocketClass.socketClass('myInfo',null,0,true)
     socketMyInfo.onCallback = (data) ->
@@ -20,6 +19,14 @@ angular.module('hiin').controller 'ProfileCtrl', ($rootScope,$ionicLoading,$scop
       $window.localStorage.setItem 'myInfo', JSON.stringify(data)
       return
     return socketMyInfo
+  myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
+  if myInfo?
+    SocketClass.resSocket(MakeMyInfoOptionObj())
+      .then (data) ->
+        $scope.userInfo = JSON.parse($window.localStorage.getItem 'myInfo')
+        console.log 'socket got myInfo'
+      , (status) ->
+        console.log "error"
   $scope.edit = ->
     $scope.isEditMode = !$scope.isEditMode
   $scope.cancel = ->
