@@ -12,17 +12,15 @@
     <feature name="Keyboard">
 	    <param name="ios-package" value="IonicKeyboard" onload="true" />
 	</feature>
-    <preference name="ios-statusbarstyle" value="black-opaque" />
-    <feature name="FacebookConnectPlugin">
-        <param name="ios-package" value="FacebookConnectPlugin" />
-        <param name="onload" value="true" />
+    <feature name="PushPlugin">
+        <param name="android-package" value="com.plugin.gcm.PushPlugin" />
     </feature>
-    <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
-    <cdv:plugin name="com.phonegap.plugins.facebookconnect" version="0.4.0">
-        <param name="APP_ID" value="684817121572800" />
-        <param name="APP_NAME" value="Hiin" />
-    </cdv:plugin>
+    <plugin name="PushPlugin" value="com.plugin.gcm.PushPlugin" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="orientation" value="portrait" />
+     <preference name="webviewbounce" value="false" />
+     <preference name="stay-in-webview" value="false" />
+     <preference name="android-minSdkVersion" value="7" />
+     <preference name="android-installLocation" value="auto" />
 </widget>
-z/+GJ2Vw7DiJkV1h2bPjHiOsKxg

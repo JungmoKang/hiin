@@ -285,6 +285,11 @@ module.exports = function (grunt) {
                   dest: ".tmp"
               }, {
                   expand: true,
+                  cwd: "<%= yeoman.app %>/",
+                  src: "scripts/services/PushNotification.js",
+                  dest: ".tmp"
+              }, {
+                  expand: true,
                   cwd: '.tmp',
                   src: '**',
                   dest: '<%= yeoman.dist %>'

@@ -120,7 +120,7 @@ angular.module("hiin", [
     views:
       menuContent:
         templateUrl: "views/login/organizerLoginFromEventPage.html"
-        controller: "OrganizerSignCtrl"
+        controller: "OrganizerLoginCtrl"
   )
   .state("list.termAndPolish",
     url: "/termAndPolish"
@@ -194,7 +194,7 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
     pushNotification.setApplicationIconBadgeNumber successHandler, errorHandler, event.badge  if event.badge
     
     return
-  onNotification = (e) ->
+  $window.onNotification = (e) ->
     switch e.event
       when "registered"
         if e.regid.length > 0
@@ -227,8 +227,8 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
       console.log 'device type is android'
       $rootScope.deviceType = 'android'
       pushNotification.register successHandler, errorHandler,
-        senderID: "hiin-push-server"
-        ecb: "onNotification"
+        senderID: "605768570066"
+        ecb: "window.onNotification"
     else
       console.log 'device type is ios'
       $rootScope.deviceType = 'ios'

@@ -8,7 +8,7 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
       options =
         date: new Date()
         mode: "datetime"
-      datePicker.show options, (date) ->
+      window.plugins.datePicker.show options, (date) ->
         $scope.eventInfo.startDate = new Date(date)
         $scope.eventInfo.endDate = new Date(date)
         $scope.eventInfo.endDate.setTime($scope.eventInfo.endDate.getTime() + (2*60*60*1000))
@@ -30,7 +30,7 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
       options =
         date: new Date()
         mode: "datetime"
-      datePicker.show options, (date) ->
+      window.plugins.datePicker.show options, (date) ->
         $scope.eventInfo.endDate = new Date(date)
         $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a')
         $scope.$apply()
