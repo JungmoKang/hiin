@@ -195,22 +195,24 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
     
     return
   $window.onNotification = (e) ->
+    console.log 'get notification'
     switch e.event
       when "registered"
         if e.regid.length > 0
           console.log "regID = " + e.regid
           $rootScope.deviceToken = e.regid
       when "message"
-        # if this flag is set, this notification happened while we were in the foreground.
-        # you might want to play a sound to get the user's attention, throw up a dialog, etc.
-        if e.foreground
-          # on Android soundname is outside the payload. 
-          # On Amazon FireOS all custom attributes are contained within payload
-          soundfile = e.soundname or e.payload.sound
+        sleepFlg = $window.localStorage.getItem "sleep"
+        console.log sleepFlg
+        if sleepFlg is 'false' or !e.foreground
+          console.log 'cancel'
+          return
+        soundfile = e.soundname or e.payload.sound
           # if the notification contains a soundname, play it.
-          my_media = new Media("/android_asset/www/" + soundfile)
-          my_media.play()
-        else # otherwise we were launched because the user touched a notification in the notification tray.
+        my_media = new Media("/android_asset/www/" + soundfile)
+        my_media.play()
+        navigator.notification.alert e.event  if e.event.alert
+        $rootScope.$broadcast("pushed", e.event)
       when "error"
         console.log "error"
       else
@@ -229,6 +231,7 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
       pushNotification.register successHandler, errorHandler,
         senderID: "605768570066"
         ecb: "window.onNotification"
+      $("body").height($("body").height())
     else
       console.log 'device type is ios'
       $rootScope.deviceType = 'ios'

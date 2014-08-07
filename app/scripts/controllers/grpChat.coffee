@@ -147,6 +147,8 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $state,$modal,$filter,
     console.log 'ready'
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true)
+    $("body").height "100%"
+    $scope.bodyHeight = $("body").height()
     #스크롤 이벤트 등록
     $scope.bottom = true
     $scope.scrollDelegate = $ionicScrollDelegate.$getByHandle('myScroll')
@@ -161,7 +163,8 @@ angular.module("hiin").controller "grpChatCtrl", ($scope, $state,$modal,$filter,
   $scope.$on "$destroy", (event) ->
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
-    
+    if $rootScope.deviceType is "android"
+      $("body").height($scope.bodyHeight)
     socket.removeListener("currentEventUserList", currentEventUserList)
     socket.removeListener("userListChange", userListChange)
     socket.removeListener("groupMessage", groupMessage)
