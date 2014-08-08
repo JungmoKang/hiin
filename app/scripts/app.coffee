@@ -204,15 +204,15 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
       when "message"
         sleepFlg = $window.localStorage.getItem "sleep"
         console.log sleepFlg
-        if sleepFlg is 'false' or !e.foreground
+        if sleepFlg is 'false' or e.foreground
+          navigator.notification.alert e.message
           console.log 'cancel'
           return
-        soundfile = e.soundname or e.payload.sound
+        #soundfile = e.soundname or e.payload.sound
           # if the notification contains a soundname, play it.
-        my_media = new Media("/android_asset/www/" + soundfile)
-        my_media.play()
-        navigator.notification.alert e.event  if e.event.alert
-        $rootScope.$broadcast("pushed", e.event)
+        #my_media = new Media("/android_asset/www/" + soundfile)
+        #my_media.play()
+        $rootScope.$broadcast("pushed", e)
       when "error"
         console.log "error"
       else

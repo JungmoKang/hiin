@@ -235,9 +235,15 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
       userId: user._id
   $scope.DialogClose = ->
     $scope.modalInstance.close()
-  $scope.$on "pushed", (event,args) ->
+  $scope.$on "pushed", (event,arg) ->
     console.log 'pushed menu'
-    console.log args
+    console.dir arg
+    args = {}
+    if $rootScope.deviceType is "android"
+      args.type = arg.payload.type
+      args.id = arg.from
+    else
+      args = arg
     switch args.type
       when "personal"
         console.log "personal"
