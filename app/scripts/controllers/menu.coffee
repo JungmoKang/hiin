@@ -241,7 +241,7 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     args = {}
     if $rootScope.deviceType is "android"
       args.type = arg.payload.type
-      args.id = arg.from
+      args.id = arg.payload.id
     else
       args = arg
     switch args.type

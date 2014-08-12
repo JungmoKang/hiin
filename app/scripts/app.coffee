@@ -187,7 +187,7 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
       console.log 'cancel'
       return
     $rootScope.$broadcast("pushed", event)
-    navigator.notification.alert event.alert  if event.alert
+    navigator.notification.alert event.alert,'Hiin'
     if event.sound
       snd = new Media(event.sound)
       snd.play()
@@ -205,7 +205,7 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
         sleepFlg = $window.localStorage.getItem "sleep"
         console.log sleepFlg
         if sleepFlg is 'false' or e.foreground
-          navigator.notification.alert e.message
+          navigator.notification.alert e.message,'Hiin'
           console.log 'cancel'
           return
         #soundfile = e.soundname or e.payload.sound
