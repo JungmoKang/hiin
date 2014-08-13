@@ -1,12 +1,13 @@
 'use strict'
 
-angular.module("hiin").controller "grpChatCtrl", ($scope, $state,$modal,$filter,$rootScope, $window, socket, Util,$location,$ionicScrollDelegate,$timeout) ->
+angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope, $state,$modal,$filter,$rootScope, $window, socket, Util,$location,$ionicScrollDelegate,$timeout) ->
   console.log 'grpChat'
   #group chat init
   $scope.data = {}
   $scope.data.message = ""
   $scope.amIOwner = false
   $scope.scrollDelegate = null
+  $ionicSideMenuDelegate.canDragContent(false)
   if $window.localStorage?
     eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
     thisEvent = eventInfo.code

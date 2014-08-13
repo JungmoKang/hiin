@@ -1,14 +1,21 @@
 'use strict'
 
-angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, Util,$stateParams,$ionicScrollDelegate,$timeout) ->
+angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate, $scope, $filter,$window,socket, Util,$stateParams,$ionicScrollDelegate,$timeout) ->
   console.log('chat')
   console.dir($stateParams)
   #init
   partnerId = $stateParams.userId
+  $ionicSideMenuDelegate.canDragContent(false)
   if $window.localStorage?
     eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
     thisEvent = eventInfo.code
     $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
+    listKey = thisEvent + '_currentEventUserList'
+    users = JSON.parse($window.localStorage.getItem listKey)
+    console.log users
+    $scope.user = $filter('getUserById')(users, partnerId)
+    $scope.partner = $scope.user.firstName
+    $scope.roomName = "CHAT WITH " + $scope.user.firstName
   messageKey = thisEvent + '_' + partnerId
   $scope.scrollDelegate = null
   #기본적으로 개인 메세지 창은 나가기 개념이 없음. 즉, 대화가 로컬에 없으면 처음 대화하므로 상대방 대화를 모두 긁어옴
@@ -73,12 +80,6 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
     return
-  getUserInfo = (data) ->
-    console.log "chat,getUserInfo"
-    $scope.opponent = data
-    $scope.partner = data.firstName
-    $scope.roomName = "CHAT WITH " + data.firstName
-    return
   message = (data) ->
     console.log 'ms'
     console.log data
@@ -100,13 +101,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
       $ionicScrollDelegate.scrollBottom()
     return
   socket.on 'loadMsgs', loadMsgs
-  socket.on "getUserInfo", getUserInfo
   socket.on "message", message
-  # ↑
-  #상대방의 정보 습득
-  socket.emit "getUserInfo",{
-      targetId: $stateParams.userId
-    }
   $scope.data = {}
   $scope.data.message = ""
   keyboardShowEvent = (e) ->
@@ -153,7 +148,6 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
       $("body").height($scope.bodyHeight)
     #등록된 이벤트 삭제
     socket.removeListener("loadMsgs",loadMsgs)
-    socket.removeListener("getUserInfo",getUserInfo)
     socket.removeListener("message",message)
     window.removeEventListener "native.keyboardshow", keyboardShowEvent, false
     window.removeEventListener "native.keyboardhide", keyboardHideEvent, false
@@ -187,6 +181,7 @@ angular.module("hiin").controller "chatCtrl", ($scope, $filter,$window,socket, U
     console.log 'inputDown'
     return
   $scope.ShowProfile = (sender) ->
+    $rootScope.ShowProfileImage($scope.user)
     return
   $scope.ScrollToBottom = ->
     $ionicScrollDelegate.scrollBottom()
