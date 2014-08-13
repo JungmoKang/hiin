@@ -74,8 +74,15 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
       tempor = data.message.reverse().concat $scope.messages
       console.log tempor
       console.log 'tmper len:'+tempor.length
+      console.log $("#messageList")[0].scrollHeight
+      prevHeight = $("#messageList")[0].scrollHeight 
       $scope.messages = tempor
+      $scope.$apply()
+      console.log $("#messageList")[0].scrollHeight
+      nextHeight = $("#messageList")[0].scrollHeight
       $scope.$broadcast('scroll.refreshComplete')
+      scrollTo = nextHeight - prevHeight -
+      $scope.scrollDelegate.scrollTo(0,scrollTo,false)
     $scope.$apply()
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     $ionicScrollDelegate.scrollBottom()
@@ -177,14 +184,23 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
     $ionicScrollDelegate.scrollBottom()
   $scope.inputUp = ->
     console.log 'inputUp'
+    if $rootScope.deviceType is 'web' and $rootScope.browser is 'ios'
+      $("body").height ($(window).height()-216)
+      $scope.ScrollToBottom()
   $scope.inputDown = ->
     console.log 'inputDown'
+    if $rootScope.deviceType is 'web' and $rootScope.browser is 'ios'
+      $("body").height "100%"
+      $scope.ScrollToBottom()
     return
   $scope.ShowProfile = (sender) ->
     $rootScope.ShowProfileImage($scope.user)
     return
   $scope.ScrollToBottom = ->
     $ionicScrollDelegate.scrollBottom()
+  $scope.$on "back", (event,args) ->
+    $scope.data.keyboardHeight = 0
+    $ionicScrollDelegate.resize()
   $scope.$on "Resume", (event,args) ->
     console.log 'single chat resume'
     console.log args

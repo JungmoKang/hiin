@@ -1,5 +1,5 @@
 ion-view.messaging-view(title='{{roomName}}')
-  ion-content(ng-style='{ bottom: (data.keyboardHeight + 40) + "px" }', delegate-handle="myScroll")
+  ion-content(ng-style='{ bottom: (data.keyboardHeight + 40) + "px" }', delegate-handle="myScroll",id='messageList')
     ion-refresher(pulling-text="Pull to refresh..." on-refresh='pullLoadMsg()')
     .message(id="{{$index}}",ng-repeat='message in messages track by $index',
       ng-class="message.sender_name == 'me' ? 'chat-balloon-me' : 'chat-balloon-you'")

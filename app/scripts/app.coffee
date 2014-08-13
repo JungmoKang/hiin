@@ -167,6 +167,10 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
   Migration.apply $window.localDb
   pushNotification = ''
   $rootScope.deviceType = 'web'
+  if navigator.userAgent.indexOf('iPhone') > 0
+    $rootScope.browser = 'ios'
+  else if navigator.userAgent.indexOf('Android') > 0
+    $rootScope.browser = 'android'
   tokenHandler = (result) ->
     console.log "deviceToken:" + result
     $rootScope.deviceToken = result
@@ -192,7 +196,6 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
       snd = new Media(event.sound)
       snd.play()
     pushNotification.setApplicationIconBadgeNumber successHandler, errorHandler, event.badge  if event.badge
-    
     return
   $window.onNotification = (e) ->
     console.log 'get notification'

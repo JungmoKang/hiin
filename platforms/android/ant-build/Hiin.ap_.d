@@ -120,6 +120,7 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/angular-upload \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/angularLocalStorage \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/bootstrap \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/ionic \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/jcrop \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/jquery \
@@ -323,6 +324,17 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/bootstrap/test-infra/s3_cache.py \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/bootstrap/test-infra/sauce_browsers.yml \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/bootstrap/test-infra/uncached-npm-install.sh \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide/bower.json \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide/collide.js \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide/package.json \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide/README.md \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide/test \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide/test.html \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide/test/animator.spec.js \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide/test/core \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide/test/util \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide/test/core/timeline.spec.js \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/collide/test/util/simple-emitter.spec.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/ionic/bower.json \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/ionic/CHANGELOG.md \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/bower_components/ionic/demos \
@@ -1984,6 +1996,7 @@
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/filters.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/host.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/imageUpload.js \
+/Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/PushNotification.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/services.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/socket.js \
 /Users/moya/Program/hiin_ionic/platforms/android/assets/www/scripts/services/socket_class.js \

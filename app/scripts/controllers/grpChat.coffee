@@ -115,8 +115,15 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
       tempor = data.message.reverse().concat $scope.messages
       console.log tempor
       console.log 'tmper len:'+tempor.length
+      console.log $("#messageList")[0].scrollHeight
+      prevHeight = $("#messageList")[0].scrollHeight 
       $scope.messages = tempor
+      $scope.$apply()
+      console.log $("#messageList")[0].scrollHeight
+      nextHeight = $("#messageList")[0].scrollHeight
       $scope.$broadcast('scroll.refreshComplete')
+      scrollTo = nextHeight - prevHeight - 300
+      $scope.scrollDelegate.scrollTo(0,scrollTo,false)
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     return
   socket.on "currentEventUserList", currentEventUserList
@@ -153,6 +160,7 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
     #스크롤 이벤트 등록
     $scope.bottom = true
     $scope.scrollDelegate = $ionicScrollDelegate.$getByHandle('myScroll')
+    $scope.maxScrollTop = 0
     $scope.scrollDelegate.getScrollView().onScroll = ->
       if ($scope.scrollDelegate.getScrollView().__maxScrollTop - $scope.scrollDelegate.getScrollPosition().top) < 30
         $scope.bottom = true
@@ -161,6 +169,12 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
           $ionicScrollDelegate.scrollBottom()
       else
         $scope.bottom = false
+      ###
+      console.log $scope.scrollDelegate.getScrollPosition().top
+      console.log $scope.bodyHeight
+      console.log $scope.scrollDelegate.getScrollView().__maxScrollTop
+      console.log $scope.scrollDelegate.getScrollView().__contentHeight
+      ###
   $scope.$on "$destroy", (event) ->
     if window.cordova
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
@@ -196,8 +210,15 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
     $scope.data.message = ""
   $scope.inputUp = ->
     console.log 'inputUp'
+    if $rootScope.deviceType is 'web' and $rootScope.browser is 'ios'
+      $("body").height ($(window).height()-216)
+      $scope.ScrollToBottom()
+    return
   $scope.inputDown = ->
     console.log 'inputDown'
+    if $rootScope.deviceType is 'web' and $rootScope.browser is 'ios'
+      $("body").height "100%"
+      $scope.ScrollToBottom()
     return
   $scope.toggleOwnerMsg = ->
     $rootScope.regular_msg_flg = !$rootScope.regular_msg_flg
@@ -254,6 +275,9 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
     $scope.modalInstance.close()
   $scope.ScrollToBottom = ->
     $ionicScrollDelegate.scrollBottom()
+  $scope.$on "back", (event,args) ->
+    $scope.data.keyboardHeight = 0
+    $ionicScrollDelegate.resize()
   $scope.$on "Resume", (event,args) ->
     console.log 'group chat resume'
     console.log args

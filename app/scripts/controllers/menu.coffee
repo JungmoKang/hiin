@@ -37,6 +37,7 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     document.addEventListener "pause", $rootScope.onPause, false
     $rootScope.AddFlagPauseHandler = true
   $rootScope.goBack = ->
+    $rootScope.$broadcast("back")
     window.history.back()
   $scope.msgHeaderShow = false
   $scope.CloseHeaderMsg = ->
