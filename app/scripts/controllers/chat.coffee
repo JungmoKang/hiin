@@ -198,6 +198,14 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
     return
   $scope.ScrollToBottom = ->
     $ionicScrollDelegate.scrollBottom()
+  $scope.dateChanged = (msg_id) -> 
+    if $scope.messages.length > 0 and msg_id > 0
+      bmd = new Date($scope.messages[msg_id - 1].created_at)
+      cmd = new Date($scope.messages[msg_id].created_at)
+      date_changed = bmd.getYear() != cmd.getYear() or bmd.getMonth() != cmd.getMonth() or bmd.getDate() != cmd.getDate()
+      return date_changed
+    else
+      return msg_id == 0
   $scope.$on "back", (event,args) ->
     $scope.data.keyboardHeight = 0
     $ionicScrollDelegate.resize()
