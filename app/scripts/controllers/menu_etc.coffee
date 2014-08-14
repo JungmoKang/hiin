@@ -9,6 +9,18 @@ angular.module('hiin').controller 'MenuCtrlEtc', ($rootScope,$scope,Util,$window
     $scope.slide = 'slide-left'
     $state.go('report')
   $scope.signOut = ->
+    Util.checkOrganizer()
+      .then (data) ->
+        console.log '---organizer state----'
+        if data.status == "0"
+          # 오거나이저
+          $scope.message = "<p>are you sure to 
+             <p>log out?"
+        else if data.status == "1"
+          $scope.message = "<p>Your account infomation(profile, chat history, activity log)
+             <p>will be permanently deleted
+             <p>when you log out."
+          # 일반유저
     modalInstance = $modal.open(
       templateUrl: "views/dialog/logout_notice.html"
       scope: $scope

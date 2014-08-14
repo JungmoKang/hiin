@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0352F7350572434E92571647 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8945A4886643D7ABA4C0EF /* PushPlugin.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -45,6 +46,7 @@
 		A11BA7BF52FB487EA4465401 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB32ECAFC704C699168BD9E /* CDVStatusBar.m */; };
 		AA6E363A11BF4D009063BC63 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = EAFCE71D106E467D848253DE /* FacebookConnectPlugin.m */; };
 		ACF9B6464A404F13BAF7CFAA /* DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C473150165F4C5198EE9841 /* DatePicker.m */; };
+		AD84CAD0199C5A7A00424E7E /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD84CACF199C5A7A00424E7E /* Images-2.xcassets */; };
 		ADACE6C419541FBA001DFE75 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADACE6C319541FBA001DFE75 /* Images.xcassets */; };
 		B91DC08208EE433A9BEC3367 /* AppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EEBA96553B487BB38F4791 /* AppVersion.m */; };
 		D09AEE5E5298457599E839F1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9F27CA42F34C34BFCE569E /* FacebookSDK.framework */; };
@@ -122,6 +124,7 @@
 		8D1107310486CEB800E47090 /* Hiin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Hiin-Info.plist"; path = "../Hiin-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9C473150165F4C5198EE9841 /* DatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePicker.m; path = com.plugin.datepicker/DatePicker.m; sourceTree = "<group>"; };
 		A0ED82C138904B6FBFC38DD5 /* AdSupport.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		AD84CACF199C5A7A00424E7E /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-2.xcassets"; path = "Hiin/Images-2.xcassets"; sourceTree = SOURCE_ROOT; };
 		ADACE6C319541FBA001DFE75 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Hiin/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		B5F313649C194527A1643773 /* AppDelegate+notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.m"; sourceTree = "<group>"; };
 		C25A677734A149F9977996E0 /* Accounts.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -228,6 +231,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AD84CACF199C5A7A00424E7E /* Images-2.xcassets */,
 				ADACE6C319541FBA001DFE75 /* Images.xcassets */,
 				30A0434214DC770100060A13 /* de.lproj */,
 				30A0434514DC770100060A13 /* se.lproj */,
@@ -447,6 +451,7 @@
 				7E7966E61810823500FA85AD /* icon-small.png in Resources */,
 				3088BBBD154F3926009F9C59 /* Default-Landscape@2x~ipad.png in Resources */,
 				3088BBBE154F3926009F9C59 /* Default-Landscape~ipad.png in Resources */,
+				AD84CAD0199C5A7A00424E7E /* Images-2.xcassets in Resources */,
 				3088BBBF154F3926009F9C59 /* Default-Portrait@2x~ipad.png in Resources */,
 				7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */,
 				3088BBC0154F3926009F9C59 /* Default-Portrait~ipad.png in Resources */,
@@ -556,7 +561,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: DJ Moon (27TM76FYL7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: DJ Moon (27TM76FYL7)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -600,7 +605,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: DJ Moon (27TM76FYL7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: DJ Moon (27TM76FYL7)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
