@@ -17,7 +17,8 @@ angular.module('hiin').controller 'MenuCtrlEtc', ($rootScope,$scope,Util,$window
           $scope.message = "<p>are you sure to 
              <p>log out?"
         else if data.status == "1"
-          $scope.message = "<p>Your account infomation(profile, chat history, activity log)
+          $scope.message = "<p>Your account infomation
+          <p>(profile, chat history, activity log)
              <p>will be permanently deleted
              <p>when you log out."
           # 일반유저

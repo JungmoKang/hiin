@@ -4,6 +4,7 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
   console.log 'grpChat'
   #group chat init
   $scope.data = {}
+  $scope.owner = {}
   $scope.data.message = ""
   $scope.amIOwner = false
   $scope.scrollDelegate = null
@@ -13,13 +14,16 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
     thisEvent = eventInfo.code
     $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
     console.log $scope.myInfo
+    listKey = thisEvent + '_currentEventUserList'
+    users = JSON.parse($window.localStorage.getItem listKey)
     if ($window.localStorage.getItem 'thisEventOwner') is 'true'
       $scope.amIOwner = true
       if !$rootScope.regular_msg_flg?
         $rootScope.regular_msg_flg = false
-      listKey = thisEvent + '_currentEventUserList'
-      users = JSON.parse($window.localStorage.getItem listKey)
       $scope.userNum = users.length
+      $scope.owner = $scope.myInfo
+    else
+      $scope.owner = $filter('getUserById')(users, eventInfo.author)
   messageKey = thisEvent + '_groupMessage'
   $scope.roomName = "GROUP CHAT"
   $scope.showNotice = true
@@ -62,6 +66,11 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
     console.log 'userListChange'
     $scope.userNum = data.message.usersNumber
     return
+  notice = (data) ->
+    console.log data
+    data.created_at = data.regTime
+    data.type = 'notice'
+    groupMessage(data)
   groupMessage = (data) ->
     console.log "grp chat,groupMessage"
     if $scope.myInfo._id == data.sender
@@ -85,7 +94,7 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
   loadMsgs = (data)->
     if data.message
       data.message.forEach (item)->
-        if item.sender is $scope.myInfo._id
+        if item.type isnt 'notice' and item.sender is $scope.myInfo._id
           item.sender_name = 'me'
         return
     if data.type is 'group' and data.range is 'all'
@@ -130,6 +139,7 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
   socket.on "userListChange", userListChange
   socket.on "groupMessage", groupMessage
   socket.on 'loadMsgs', loadMsgs
+  socket.on 'notice', notice
   # ↑
   keyboardShowEvent = (e) ->
     console.log "Keyboard height is: " + e.keyboardHeight

@@ -6,15 +6,26 @@ ion-view.messaging-view(title='{{roomName}}')
       .row#firstmsgspace(ng-if='$first')
       .dateLine(ng-if="dateChanged($index)")
         p {{message.created_at | date: 'yyyy.MM.dd'}}
-      img.thumb_image.img-circle(ng-click='ShowProfile(message.sender)', 
-        ng-profile-image = 'ng-profile-image',source='{{message.thumbnailUrl}}', alt='')
-      .name {{message.sender_name}}
-      br
-      .desc
-        .message
-          span.msg {{ message.content }}
-          div.time_wrap
-            span.time {{message.created_at | date : 'shortTime' }}
+      div(ng-if="message.type == 'group'")
+        img.thumb_image.img-circle(ng-click='ShowProfile(message.sender)', 
+          ng-profile-image = 'ng-profile-image',source='{{message.thumbnailUrl}}', alt='')
+        .name {{message.sender_name}}
+        br
+        .desc
+          .message
+            span.msg {{ message.content }}
+            div.time_wrap
+              span.time {{message.created_at | date : 'shortTime' }}
+      div(ng-if="message.type == 'notice'")
+        img.thumb_image.img-circle(ng-click='ShowProfile(message.sender)', 
+          ng-profile-image = 'ng-profile-image',source='{{owner.thumbnailUrl}}', alt='')
+        .name {{owner.firstName}}
+        br
+        .desc
+          .message
+            span.notice {{ message.content }}
+            div.time_wrap
+              span.time {{message.created_at | date : 'shortTime' }}
   .nobody_msg(ng-show='messages.length==0')
     div.msg 
       p.big NO MESSAGES YET
