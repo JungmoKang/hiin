@@ -23,6 +23,21 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
   myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
   if !myInfo?
     SendEmitMyInfo()
+  MakeNoticeObj = () ->
+    socketMyInfo = new SocketClass.socketClass('unReadCountNotice',null,0,false)
+    socketMyInfo.onCallback = (data) ->
+      console.log "menu unReadCountNotice"
+      console.log data
+      if data.count > 0
+        $rootScope.noticeFlg = true
+      return
+    return socketMyInfo
+  if ($window.localStorage.getItem 'thisEventOwner') isnt 'true'
+    SocketClass.resSocket(MakeNoticeObj())
+      .then (data) ->
+        console.log 'socket got notice'
+      , (status) ->
+        console.log "error"
   ionic.DomUtil.ready ->
     $ionicNavBarDelegate.showBackButton(false)
   if $window.localStorage?
@@ -96,7 +111,6 @@ angular.module('hiin').controller 'ListCtrl', ($route, $filter, $rootScope,$scop
     SendEmitCurrentEventUserList()
   socket.emit "unReadCount"
   socket.emit "unReadCountGroup"
-  socket.emit "unReadCountNotice"
   #scope가 destroy될때, 등록한 이벤트를 모두 지움
   $scope.$on "$destroy", (event) ->
     socket.removeListener("unReadCount", unReadCount)

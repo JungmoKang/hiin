@@ -13,11 +13,13 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
     thisEvent = eventInfo.code
     $scope.myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
     console.log $scope.myInfo
-    if eventInfo.author == $scope.myInfo._id
+    if ($window.localStorage.getItem 'thisEventOwner') is 'true'
       $scope.amIOwner = true
       if !$rootScope.regular_msg_flg?
         $rootScope.regular_msg_flg = false
-      socket.emit "currentEventUserList"
+      listKey = thisEvent + '_currentEventUserList'
+      users = JSON.parse($window.localStorage.getItem listKey)
+      $scope.userNum = users.length
   messageKey = thisEvent + '_groupMessage'
   $scope.roomName = "GROUP CHAT"
   $scope.showNotice = true
@@ -45,18 +47,17 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
   # socket event ↓
   $scope.pullLoadMsg =->
     console.log '---pull load msg---'
+    if $scope.messages.length > 0
+      lastTime = firstMsgTime: $scope.messages[0].created_at
+    else
+      lastTime = new Date()
     socket.emit 'loadMsgs', {
                               code: thisEvent
                               type: "group"
                               range: "pastThirty"
-                              firstMsgTime: $scope.messages[0].created_at
+                              firstMsgTime: lastTime
     }
   SendLoadMsgs()
-  currentEventUserList = (data) ->
-    console.log "list currentEventUserList"
-    $scope.userNum = data.length + 1
-    console.log data
-    return
   userListChange = (data) ->
     console.log 'userListChange'
     $scope.userNum = data.message.usersNumber
@@ -126,7 +127,6 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
       $scope.scrollDelegate.scrollTo(0,scrollTo,false)
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     return
-  socket.on "currentEventUserList", currentEventUserList
   socket.on "userListChange", userListChange
   socket.on "groupMessage", groupMessage
   socket.on 'loadMsgs', loadMsgs
@@ -180,7 +180,6 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
     if $rootScope.deviceType is "android"
       $("body").height($scope.bodyHeight)
-    socket.removeListener("currentEventUserList", currentEventUserList)
     socket.removeListener("userListChange", userListChange)
     socket.removeListener("groupMessage", groupMessage)
     socket.removeListener('loadMsgs', loadMsgs)

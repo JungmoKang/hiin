@@ -45,12 +45,15 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
   SendLoadMsgs()
   $scope.pullLoadMsg =->
     console.log '---pull load msg---'
+    if $scope.messages.length > 0
+      lastTime = firstMsgTime: $scope.messages[0].created_at
+    else
+      lastTime = new Date()
     socket.emit 'loadMsgs', {
                               code: thisEvent
-                              partner: partnerId
-                              type: "personal"
+                              type: "group"
                               range: "pastThirty"
-                              firstMsgTime: $scope.messages[0].created_at
+                              firstMsgTime: lastTime
     }
   # socket event ↓
   loadMsgs = (data)->

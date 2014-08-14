@@ -19,8 +19,8 @@ angular.module('hiin').controller 'ProfileCtrl', ($rootScope,$ionicLoading,$scop
       $window.localStorage.setItem 'myInfo', JSON.stringify(data)
       return
     return socketMyInfo
-  myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
-  if myInfo?
+  $scope.userInfo = JSON.parse($window.localStorage.getItem 'myInfo')
+  if !$scope.userInfo?
     SocketClass.resSocket(MakeMyInfoOptionObj())
       .then (data) ->
         $scope.userInfo = JSON.parse($window.localStorage.getItem 'myInfo')

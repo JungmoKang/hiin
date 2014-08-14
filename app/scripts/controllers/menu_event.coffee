@@ -75,6 +75,10 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
       for key in deleteKeyList
         $window.localStorage.removeItem key
     $window.localStorage.setItem 'thisEvent', JSON.stringify(data.event)
+    if $scope.myId.author is data.event.author
+      $window.localStorage.setItem 'thisEventOwner', 'true'
+    else
+      $window.localStorage.setItem 'thisEventOwner', 'false'
     $state.go('list.userlists')
   $scope.confirmCode = ->
     promise = Util.ConfirmEvent($scope.formData )

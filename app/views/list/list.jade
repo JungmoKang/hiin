@@ -2,7 +2,7 @@ ion-view(title='{{eventName}}')
   ion-nav-buttons(side='left')
     button.button.button-icon.icon#list_header_button(menu-toggle='left')
   ion-nav-buttons(side='right')
-    button.notice_link(ng-click='GotoNotice()', ng-class="right_link")
+    button.notice_link(ng-click='GotoNotice()', ng-class="noticeFlg ? 'hasNotice' : 'noNotice' ")
   ion-content.has-header.has-footer
     ion-list#user_lists
       ion-item(ng-repeat='user in users track by user.rank  | filter:query')
@@ -30,7 +30,7 @@ ion-view(title='{{eventName}}')
     .btn-group
       button.btn.btn-default.btn_activity(ng-click='activity()') 
         .unreadBadge(ng-if="unreadActivity>0") {{unreadActivity}}
-        span ACTIVITY
+        span ACTIVITY{{noticeFlg}}
     .btn-group
       button.btn.btn-default.btn_group_chat(ng-click='groupChat()')
         .unreadBadge(ng-if="unreadGroup>0") N

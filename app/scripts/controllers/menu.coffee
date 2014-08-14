@@ -11,6 +11,7 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
   ###
   myInfo = JSON.parse($window.localStorage.getItem 'myInfo')
   $window.localStorage.setItem "sleep", false
+  $rootScope.noticeFlg = false
   $rootScope.onResume = ->
     console.log "On Resume"
     $window.localStorage.setItem "sleep", false
@@ -122,8 +123,10 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     console.log 'got notice'
     console.log data
     socket.emit "unReadCountNotice"
-    if $state.current.name is 'list.notice'
+    if $state.current.name is 'list.notice' or $state.current.name is 'list.groupChat'
       return
+    if ($window.localStorage.getItem 'thisEventOwner') isnt 'true'
+      $rootScope.noticeFlg = true
     if myInfo._id is data.from
       return
     msg = '<p>\'' + data.message + '\'<p>Click to check the detail of notice.'
@@ -131,6 +134,8 @@ angular.module('hiin').controller 'MenuCtrl', ($rootScope,$scope,Util,$window,so
     ShowHeader(msg)
     $scope.headerClickAction = ->
       $scope.CloseHeaderMsg()
+      history.pushState(null, null, '#/list/userlists')
+      $state.go 'list.notice'
     return
   MakeCurrentEventUserListOptionObj = ->
     console.log 'make event user list obj'

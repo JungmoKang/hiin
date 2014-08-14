@@ -3,6 +3,7 @@ angular.module('hiin').controller 'NoticeCtrl', ($rootScope,$filter,$scope,Socke
   #init
   $scope.data = {}
   $scope.owner = {}
+  $rootScope.noticeFlg = false
   if $window.localStorage?
     eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
     thisEvent = eventInfo.code
