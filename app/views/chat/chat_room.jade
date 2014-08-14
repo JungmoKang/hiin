@@ -4,8 +4,8 @@ ion-view.messaging-view(title='{{roomName}}')
     .message(id="{{$index}}",ng-repeat='message in messages track by $index',
       ng-class="message.sender_name == 'me' ? 'chat-balloon-me' : 'chat-balloon-you'")
       .row#firstmsgspace(ng-if='$first')
-      div.dateLine(ng-if="dateChanged($index)")
-        p.date {{message.created_at | date: 'yyyy.MM.dd'}}
+      .dateLine(ng-if="dateChanged($index)")
+        p {{message.created_at | date: 'yyyy.MM.dd'}}
       img.thumb_image.img-circle(ng-click='ShowProfile(message.sender)', 
         ng-profile-image = 'ng-profile-image',source='{{message.thumbnailUrl}}', alt='')
       .name {{message.sender_name}}

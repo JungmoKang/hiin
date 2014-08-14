@@ -164,6 +164,7 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
     if len > 30
       window.localStorage[messageKey]=JSON.stringify(temp.slice(len-30,temp.length))
     return  
+    ionicSideMenuDelegate.canDragContent(true)
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
   $scope.sendMessage =->
   	if $scope.data.message == ""

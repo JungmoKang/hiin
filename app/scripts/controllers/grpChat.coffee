@@ -122,7 +122,7 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
       console.log $("#messageList")[0].scrollHeight
       nextHeight = $("#messageList")[0].scrollHeight
       $scope.$broadcast('scroll.refreshComplete')
-      scrollTo = nextHeight - prevHeight - 300
+      scrollTo = nextHeight - prevHeight - 200
       $scope.scrollDelegate.scrollTo(0,scrollTo,false)
     $window.localStorage.setItem messageKey, JSON.stringify($scope.messages)
     return
@@ -191,7 +191,8 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
     console.log 'mlen:'+len
     if len > 30
       window.localStorage[messageKey]=JSON.stringify(temp.slice(len-30,temp.length))
-    return  
+    return 
+    $ionicSideMenuDelegate.canDragContent(true)
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
   $scope.sendMessage =->
     time = new Date()
