@@ -29,11 +29,11 @@ ion-view(title='{{eventName}}')
   .bar.bar-footer.list_footer
     .btn-group
       button.btn.btn-default.btn_activity(ng-click='activity()') 
-        .unreadBadge(ng-if="unreadActivity>0") {{unreadActivity}}
-        span ACTIVITY{{noticeFlg}}
+        .badge.unreadBadge(ng-if="unreadActivity>0") {{unreadActivity}}
+        span ACTIVITY
     .btn-group
       button.btn.btn-default.btn_group_chat(ng-click='groupChat()')
-        .unreadBadge(ng-if="unreadGroup>0") N
+        .badge.unreadBadge(ng-if="unreadGroup>0") N
         span GROUP CHAT
     .btn-group
       button.btn.btn-default.btn_info(ng-click='info()')
