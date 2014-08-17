@@ -46,7 +46,7 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
   $scope.pullLoadMsg =->
     console.log '---pull load msg---'
     if $scope.messages.length > 0
-      lastTime = firstMsgTime: $scope.messages[0].created_at
+      lastTime = $scope.messages[0].created_at
     else
       lastTime = new Date()
     socket.emit 'loadMsgs', {
@@ -156,6 +156,7 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
       cordova.plugins && cordova.plugins.Keyboard && cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false) && cordova.plugins.Keyboard.close()
     if $rootScope.deviceType is "android"
       $("body").height($scope.bodyHeight)
+    $ionicSideMenuDelegate.canDragContent(true)
     #등록된 이벤트 삭제
     socket.removeListener("loadMsgs",loadMsgs)
     socket.removeListener("message",message)
@@ -166,7 +167,6 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
     console.log 'mlen:'+len
     if len > 30
       window.localStorage[messageKey]=JSON.stringify(temp.slice(len-30,temp.length))  
-    ionicSideMenuDelegate.canDragContent(true)
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
   $scope.sendMessage =->
   	if $scope.data.message == ""

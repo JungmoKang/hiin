@@ -18,9 +18,7 @@ angular.module('hiin').controller 'MenuCtrlEtc', ($rootScope,$scope,Util,$window
              <p>log out?"
         else if data.status == "1"
           $scope.message = "<p>Your account infomation
-          <p>(profile, chat history, activity log)
-             <p>will be permanently deleted
-             <p>when you log out."
+          <p>(profile, chat history, activity log) will be permanently deleted when you log out."
           # 일반유저
     modalInstance = $modal.open(
       templateUrl: "views/dialog/logout_notice.html"

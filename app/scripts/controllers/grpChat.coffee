@@ -20,7 +20,10 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
       $scope.amIOwner = true
       if !$rootScope.regular_msg_flg?
         $rootScope.regular_msg_flg = false
-      $scope.userNum = users.length
+      if users is null
+        $scope.userNum = 0
+      else  
+        $scope.userNum = users.length
       $scope.owner = $scope.myInfo
     else
       $scope.owner = $filter('getUserById')(users, eventInfo.author)
@@ -52,7 +55,7 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
   $scope.pullLoadMsg =->
     console.log '---pull load msg---'
     if $scope.messages.length > 0
-      lastTime = firstMsgTime: $scope.messages[0].created_at
+      lastTime = $scope.messages[0].created_at
     else
       lastTime = new Date()
     socket.emit 'loadMsgs', {

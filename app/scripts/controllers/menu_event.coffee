@@ -105,6 +105,7 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
         if data.status == "0"
           # 오거나이저
           $window.localStorage.setItem 'flg_show_privacy_dialog', true
+          $window.localStorage.setItem 'thisEventOwner', 'true'
           $state.go('list.createEvent')
         else if data.status == "1"
           # 가입시켜야함

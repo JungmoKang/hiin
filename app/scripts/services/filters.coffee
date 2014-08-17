@@ -7,6 +7,8 @@ angular.module("filters", [])
 .filter "getUserById", ->
   (input, id) ->
     i = 0
+    if input is null
+      return null
     len = input.length
     while i < len
       return input[i]  if input[i]._id is id

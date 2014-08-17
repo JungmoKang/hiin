@@ -6,7 +6,7 @@ ion-view.messaging-view(title='{{roomName}}')
       .row#firstmsgspace(ng-if='$first')
       .dateLine(ng-if="dateChanged($index)")
         p {{message.created_at | date: 'yyyy.MM.dd'}}
-      div(ng-if="message.type == 'group'")
+      div(ng-if="message.type != 'notice'")
         img.thumb_image.img-circle(ng-click='ShowProfile(message.sender)', 
           ng-profile-image = 'ng-profile-image',source='{{message.thumbnailUrl}}', alt='')
         .name {{message.sender_name}}
