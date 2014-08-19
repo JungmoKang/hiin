@@ -67,6 +67,7 @@ angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util
           thisEvent = $scope.eventInfo
           thisEvent.code = data.eventCode
           thisEvent.author = JSON.parse($window.localStorage.getItem 'myInfo')._id
+          $window.localStorage.setItem 'thisEventOwner', 'true'
           $window.localStorage.setItem 'thisEvent', JSON.stringify(thisEvent)
           $scope.modal.hide()
           $scope.modal.remove()

@@ -171,6 +171,7 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
     $rootScope.browser = 'ios'
   else if navigator.userAgent.indexOf('Android') > 0
     $rootScope.browser = 'android'
+    $("body").height($("body").height())
   tokenHandler = (result) ->
     console.log "deviceToken:" + result
     $rootScope.deviceToken = result
@@ -234,7 +235,6 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
       pushNotification.register successHandler, errorHandler,
         senderID: "605768570066"
         ecb: "window.onNotification"
-      $("body").height($("body").height())
     else
       console.log 'device type is ios'
       $rootScope.deviceType = 'ios'
