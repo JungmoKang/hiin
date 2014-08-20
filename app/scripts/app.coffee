@@ -108,6 +108,20 @@ angular.module("hiin", [
         templateUrl: "views/event/create_event.html"
         controller: "CreateEventCtrl"
   )
+  .state("list.createEventPc",
+    url: "/createEventPc"
+    views:
+      menuContent:
+        templateUrl: "views/event/create_event_pc.html"
+        controller: "CreateEventCtrlPc"
+  )
+  .state("list.createEventAndroid",
+    url: "/createEventAndroid"
+    views:
+      menuContent:
+        templateUrl: "views/event/create_event_android.html"
+        controller: "CreateEventCtrlAndroid"
+  )
   .state("list.organizerSignUp",
     url: "/organizerSignUp"
     views:
@@ -172,6 +186,8 @@ angular.module("hiin").run ($window,  Migration,　$rootScope,Util, $filter, $st
   else if navigator.userAgent.indexOf('Android') > 0
     $rootScope.browser = 'android'
     $("body").height($("body").height())
+  else
+    $rootScope.browser = 'pc'
   tokenHandler = (result) ->
     console.log "deviceToken:" + result
     $rootScope.deviceToken = result

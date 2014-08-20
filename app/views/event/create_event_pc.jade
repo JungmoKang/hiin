@@ -1,0 +1,31 @@
+ion-view(title='CREATE EVENT')
+  ion-pane.has-header#create_event
+    form(name='createEventForm')
+      .form-group
+        .row
+          input#title(type='text', placeholder='EVENT TITLE', ng-model="eventInfo.name",required)
+        .line
+          .list_separatebar
+        .row
+          .col
+            input(type='date', placeholder='START DATE',ng-model='startDate',required)
+          .col
+            input(type='time', placeholder='START DATE',ng-model='startTime',required)
+        .row
+          .col
+            input(type='date', placeholder='END DATE',ng-model="endDate",required)
+          .col
+            input(type='time', placeholder='END DATE',ng-model="endTime",required)
+        .line
+          .list_separatebar
+        .row
+          .col
+            input#location(type='text', placeholder='LOCATION', ng-model="eventInfo.place")
+        .line
+          .list_separatebar
+        .row.notes
+          .col
+            textarea#notes(placeholder='NOTES', ng-model="eventInfo.desc")
+        .publish
+          button.btn_publish(ng-click='pubish()',ng-disabled="createEventForm.$invalid") 
+            span PUBLISH

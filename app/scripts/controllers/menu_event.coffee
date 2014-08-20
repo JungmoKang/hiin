@@ -3,6 +3,10 @@
 angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http,socket,SocketClass,$log,$state,$ionicScrollDelegate, $ionicNavBarDelegate, $timeout,$ionicModal,$window) ->
   #init
   $rootScope.selectedItem = 3
+  if $rootScope.browser is 'android'
+    $scope.input_class = 'text_box_enter_code_android'
+  else
+    $scope.input_class = 'text_box_enter_code'
   ionic.DomUtil.ready ->
     $ionicNavBarDelegate.showBackButton(false)
   $scope.thisEvent = new Array()
@@ -105,8 +109,12 @@ angular.module('hiin').controller 'MenuEventCtrl', ($rootScope,$scope,Util,$http
         if data.status == "0"
           # 오거나이저
           $window.localStorage.setItem 'flg_show_privacy_dialog', true
-          $window.localStorage.setItem 'thisEventOwner', 'true'
-          $state.go('list.createEvent')
+          if $rootScope.deviceType is 'ios'
+            $state.go('list.createEvent')
+          else if $rootScope.deviceType is 'android'
+            $state.go('list.createEventAndroid')
+          else
+            $state.go('list.createEventAndroid')
         else if data.status == "1"
           # 가입시켜야함
           Util.ShowModal($scope, 'create_event_attention')

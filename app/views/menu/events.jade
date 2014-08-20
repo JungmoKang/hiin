@@ -4,12 +4,12 @@ ion-view(title='EVENTS')
   ion-pane.confirm_event
     .center
       .form-group
-        input.text_box_enter_code(ng-maxlength='4',type='text', pattern="[0-9]*", ng-model='formData.code', placeholder='ENTER EVENT PASSCODE')
+        input(ng-class="input_class",ng-maxlength='4',type='text', pattern="[0-9]*", ng-model='formData.code', placeholder='ENTER EVENT PASSCODE')
         a(ng-click="confirmCode()", ng-show="formData.code.length == 4")
           span.btn_go(style="vertical-align:middle")
         .key
       div.or OR
-      input.btn_create_event(placeholder="CREATE EVENT",readonly,ng-click="CreateEvent()")
+      input.btn_create_event(value="CREATE EVENT",readonly,ng-click="CreateEvent()")
   ion-content#menu_events(ng-show="enteredEventsOrOwner")
     .event.current_event
       .title Current event

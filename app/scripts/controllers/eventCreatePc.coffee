@@ -1,33 +1,13 @@
 'use strict'
 
-angular.module('hiin').controller 'CreateEventCtrl', ($scope,$window,$modal,Util,Host,$q,$state,$filter,$timeout) ->
+angular.module('hiin').controller 'CreateEventCtrlPc', ($scope,$window,$modal,Util,Host,$q,$state,$filter,$timeout) ->
   #init
-  $scope.InputStartDate = ->
-    console.log 'input start date'
-    options =
-      date: new Date()
-      mode: "datetime"
-    window.plugins.datePicker.show options, (date) ->
-      $scope.eventInfo.startDate = new Date(date)
-      $scope.eventInfo.endDate = new Date(date)
-      $scope.eventInfo.endDate.setTime($scope.eventInfo.endDate.getTime() + (2*60*60*1000))
-      $scope.startDate = $filter('date')($scope.eventInfo.startDate, 'MMM d, y h:mm a')
-      $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a')
-      $scope.$apply()
-      return  
-  $scope.InputEndDate = ->
-    console.log 'input end date'
-    if typeof $scope.eventInfo.startDate == 'undefined' || !$scope.eventInfo.startDate? 
-      return 
-    options =
-      date: new Date()
-      mode: "datetime"
-    window.plugins.datePicker.show options, (date) ->
-      $scope.eventInfo.endDate = new Date(date)
-      $scope.endDate = $filter('date')($scope.eventInfo.endDate, 'MMM d, y h:mm a')
-      $scope.$apply()
-      return   
   $scope.eventInfo = {}
+  today = new Date()
+  $scope.startDate = new Date()
+  $scope.startTime = new Date()
+  $scope.endDate = new Date()
+  $scope.endTime = new Date()
   $scope.CreateEvent = (eventInfo) ->
   	deferred = $q.defer()
   	Util.authReq('post','event',eventInfo)

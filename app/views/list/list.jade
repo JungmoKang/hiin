@@ -27,14 +27,15 @@ ion-view(title='{{eventName}}')
   .nobody_msg(ng-show='users.length==0')
     p No participants yet.  
   .bar.bar-footer.list_footer
-    .btn-group
-      button.btn.btn-default.btn_activity(ng-click='activity()') 
-        .badge.unreadBadge(ng-if="unreadActivity>0") {{unreadActivity}}
-        span ACTIVITY
-    .btn-group
-      button.btn.btn-default.btn_group_chat(ng-click='groupChat()')
-        .badge.unreadBadge(ng-if="unreadGroup>0") N
-        span GROUP CHAT
-    .btn-group
-      button.btn.btn-default.btn_info(ng-click='info()')
-        span INFO
+    .row
+      .col
+        button.btn.btn-default.btn_activity(ng-click='activity()') 
+          .badge.unreadBadge(ng-if="unreadActivity>0") {{unreadActivity}}
+          span ACTIVITY
+      .col
+        button.btn.btn-default.btn_group_chat(ng-click='groupChat()')
+          .badge.unreadBadge(ng-if="unreadGroup>0") N
+          span GROUP CHAT
+      .col
+        button.btn.btn-default.btn_info(ng-click='info()')
+          span INFO
