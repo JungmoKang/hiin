@@ -207,6 +207,7 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
   $scope.sendMessage =->
     time = new Date()
+    angular.element(".input-bar input").focus()
     if $scope.data.message == ""
       return
     if $scope.amIOwner is true and $rootScope.regular_msg_flg is false
