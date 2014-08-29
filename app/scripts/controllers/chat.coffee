@@ -5,6 +5,8 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
   console.dir($stateParams)
   #init
   partnerId = $stateParams.userId
+  #for retention of keyboard up
+  $scope.clickSendStatus = false
   $ionicSideMenuDelegate.canDragContent(false)
   if $window.localStorage?
     eventInfo = JSON.parse($window.localStorage.getItem "thisEvent")
@@ -172,6 +174,7 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
   	if $scope.data.message == ""
       return
     time = new Date()
+    $scope.clickSendStatus = true
     socket.emit "message",{
       created_at: time
   		targetId: $stateParams.userId

@@ -32,8 +32,16 @@ angular.module("hiin").directive "ngChatInput", ($timeout) ->
     element.bind "blur", (e) ->
       console.log 'blur'
       console.log document.activeElement.tagName
-      if scope.onBlur
-        $timeout ->
+      console.log attr
+      console.log attr.clicksendstatus 
+      if attr.clicksendstatus is "true"
+        console.log('true')
+        attr.clicksendstatus = false
+        angular.element(":text").focus()
+      else
+        console.log('false')
+        if scope.onBlur
+          $timeout ->
           scope.onBlur()
           return
       return
@@ -89,5 +97,3 @@ angular.module("hiin").directive "ngProfileImage", ($compile,Util)->
         newVal = Util.serverUrl() + "/" + val
       attrs.$set('src', newVal)
       attrs.$set('ng-click', 'alert("test")')
-      
-

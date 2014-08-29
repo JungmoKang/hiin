@@ -7,6 +7,8 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
   $scope.owner = {}
   $scope.data.message = ""
   $scope.amIOwner = false
+  #for retention of keyboard up
+  $scope.clickSendStatus = false
   $scope.scrollDelegate = null
   $ionicSideMenuDelegate.canDragContent(false)
   if $window.localStorage?
@@ -206,8 +208,8 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
     $ionicSideMenuDelegate.canDragContent(true)
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
   $scope.sendMessage =->
+    $scope.clickSendStatus = true
     time = new Date()
-    angular.element(".input-bar input").focus()
     if $scope.data.message == ""
       return
     if $scope.amIOwner is true and $rootScope.regular_msg_flg is false
