@@ -174,7 +174,8 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
   	if $scope.data.message == ""
       return
     time = new Date()
-    $scope.clickSendStatus = true
+    #$scope.clickSendStatus = true
+    angular.element(':text').attr('clicksendstatus','true')
     socket.emit "message",{
       created_at: time
   		targetId: $stateParams.userId
@@ -190,6 +191,7 @@ angular.module("hiin").controller "chatCtrl", ($rootScope,$ionicSideMenuDelegate
     $ionicScrollDelegate.scrollBottom()
   $scope.inputUp = ->
     console.log 'inputUp'
+    angular.element(':text').attr('clicksendstatus',false)
     if $rootScope.deviceType is 'web' and $rootScope.browser is 'ios'
       $("body").height ($(window).height()-216)
       $scope.ScrollToBottom()

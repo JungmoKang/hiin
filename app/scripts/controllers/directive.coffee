@@ -34,9 +34,10 @@ angular.module("hiin").directive "ngChatInput", ($timeout) ->
       console.log document.activeElement.tagName
       console.log attr
       console.log attr.clicksendstatus 
-      if attr.clicksendstatus is "true"
+      if angular.element(':text').attr('clicksendstatus') is "true"
         console.log('true')
-        attr.clicksendstatus = false
+        #attr.clicksendstatus = false
+        angular.element(':text').attr('clicksendstatus','false')
         angular.element(":text").focus()
       else
         console.log('false')

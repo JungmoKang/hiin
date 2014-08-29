@@ -48,14 +48,14 @@ ion-view.messaging-view(title='{{roomName}}')
       .row
         .col-80
           input.inputText(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
-            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()' autocorrect="off" clickSendStatus="{{clickSendStatus}}")
+            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur='inputDown()' autocorrect="off" clicksendstatus="false")
         .col
           button.send(ng-click='sendMessage()') SEND
     div(ng-if="amIOwner")
       .row
         .col.col-70
           input(type='text' ng-chat-input = 'ng-chat-input' placeholder='Type your message' 
-            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur ='inputDown()' autocorrect="off" clickSendStatus="{{clickSendStatus}}")
+            on-return='sendMessage()' ng-model='data.message' on-focus='inputUp()' on-blur ='inputDown()' autocorrect="off" clicksendstatus="false")
         .col.col-10
           button.owner_msg_on(ng-click='toggleOwnerMsg()', ng-class="regular_msg_flg ? 'owner_msg_on' : 'owner_msg_off' ")
         .col.col-20

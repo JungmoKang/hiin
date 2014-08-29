@@ -208,8 +208,13 @@ angular.module("hiin").controller "grpChatCtrl", ($ionicSideMenuDelegate,$scope,
     $ionicSideMenuDelegate.canDragContent(true)
   isIOS = ionic.Platform.isWebView() and ionic.Platform.isIOS()
   $scope.sendMessage =->
-    $scope.clickSendStatus = true
+    #$scope.clickSendStatus = true
     time = new Date()
+    angular.element(':text').attr('clicksendstatus','true')
+    console.log '---------------------'
+    console.log angular.element(':text').attr('clicksendstatus')
+    console.log angular.element(':text')
+    console.log '---------------------'
     if $scope.data.message == ""
       return
     if $scope.amIOwner is true and $rootScope.regular_msg_flg is false
