@@ -30,12 +30,12 @@ ion-view(title='{{eventName}}')
     .row
       .col
         button.btn.btn-default.btn_activity(ng-click='activity()') 
-          .badge.unreadBadge(ng-if="unreadActivity>0") {{unreadActivity}}
           span ACTIVITY
+          .badge.unreadBadge(ng-if="unreadActivity>0") {{unreadActivity}}
       .col
         button.btn.btn-default.btn_group_chat(ng-click='groupChat()')
-          .badge.unreadBadge(ng-if="unreadGroup>0") N
           span GROUP CHAT
+          .badge.unreadBadge(ng-if="unreadGroup>0") N
       .col
         button.btn.btn-default.btn_info(ng-click='info()')
           span INFO

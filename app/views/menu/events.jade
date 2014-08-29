@@ -13,27 +13,28 @@ ion-view(title='EVENTS')
   ion-content#menu_events(ng-show="enteredEventsOrOwner")
     .event.current_event
       .title Current event
-      .list_separatebar
       ion-list
         ion-item(ng-repeat='event in events | filter:current',ng-click='GotoEvent(event.code)')
+          .list_separatebar
           .event_item
             .event_name {{event.name}}
             .event_code PASSCODE: {{event.code}}
+          .list_separatebar(ng-if="$last")
     .event.past_events
       .title Past event(s)(With in 48hours)
-      .list_separatebar
       ion-list
         ion-item(ng-repeat='event in events | filter:pastEvent',ng-click='GotoEvent(event.code)')
+          .list_separatebar
           .event_item
             .event_name {{event.name}}
             .event_code PASSCODE: {{event.code}}
-          .list_separatebar
+          .list_separatebar(ng-if="$last")
     .event.my_event
       .title Your event(s)
-      .list_separatebar
       ion-list
         ion-item(ng-repeat='event in events | filter:myEvent',ng-click='GotoEvent(event.code)')
+          .list_separatebar
           .event_item
             .event_name {{event.name}}
             .event_code PASSCODE: {{event.code}}
-          .list_separatebar
+          .list_separatebar(ng-if="$last")

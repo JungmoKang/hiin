@@ -9,20 +9,29 @@ ion-side-menus
       .logo
     #menus
       ion-list
-        .list_separatebar
-        ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/userlists',ng-class="{'selected_item_class':'2' == selectedItem }")
-          span(ng-show="selectedItem == 2 ") > 
-          | HOME
-        .list_separatebar
-        ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/profile', ng-class="{'selected_item_class':'1' == selectedItem }")
-          span(ng-show="selectedItem == 1 ") > 
-          | PROFILE
-        .list_separatebar
-        ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/events',ng-class="{'selected_item_class':'3' == selectedItem }")
-          span(ng-show="selectedItem == 3 ") > 
-          | EVENTS
-        .list_separatebar
-        ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/setting',ng-class="{'selected_item_class':'4' == selectedItem }")
-          span(ng-show="selectedItem == 4 ") > 
-          | SETTING
-        .list_separatebar
+        .row
+          .side_list_separatebar
+        .row
+          ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/userlists',ng-class="{'selected_item_class':'2' == selectedItem }")
+            span(ng-show="selectedItem == 2 ") > 
+            | HOME
+        .row
+          .side_list_separatebar
+        .row
+          ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/profile', ng-class="{'selected_item_class':'1' == selectedItem }")
+            span(ng-show="selectedItem == 1 ") > 
+            | PROFILE
+        .row
+          .side_list_separatebar
+        .row
+          ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/events',ng-class="{'selected_item_class':'3' == selectedItem }")
+            span(ng-show="selectedItem == 3 ") > 
+            | EVENTS
+        .row
+          .side_list_separatebar
+        .row
+          ion-item(nav-clear='nav-clear', menu-close='menu-close', href='#/list/setting',ng-class="{'selected_item_class':'4' == selectedItem }")
+            span(ng-show="selectedItem == 4 ") > 
+            | SETTING
+        .row
+          .side_list_separatebar
