@@ -31,17 +31,17 @@ angular.module("hiin").directive "ngChatInput", ($timeout) ->
       return
     element.bind "blur", (e) ->
       console.log 'blur'
-      console.log document.activeElement.tagName
-      console.log attr
-      console.log attr.clicksendstatus 
-      if angular.element(':text').attr('clicksendstatus') is "true"
-        console.log('true')
-        #attr.clicksendstatus = false
-        angular.element(':text').attr('clicksendstatus','false')
-        angular.element(":text").focus()
-      else
-        console.log('false')
-        if scope.onBlur
+      #console.log document.activeElement.tagName
+      #console.log attr
+      #console.log attr.clicksendstatus 
+      #if angular.element(':text').attr('clicksendstatus') is "true"
+        #console.log('true')
+        ##attr.clicksendstatus = false
+        #angular.element(':text').attr('clicksendstatus','false')
+        ##angular.element(":text").focus()
+      #else
+        #console.log('false')
+      if scope.onBlur
           $timeout ->
           scope.onBlur()
           return
