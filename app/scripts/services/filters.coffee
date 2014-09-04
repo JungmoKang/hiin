@@ -25,3 +25,8 @@ angular.module("filters", [])
     console.log input
     console.log count
     return Util.trimStr(input,count)
+.filter 'noHTML', ->
+  (text) -> text.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/&/, '&amp;') if text?
+.filter "replaceLink", ($sce)->
+  (text) ->
+    return $sce.trustAsHtml(if text? then text.replace(/(http:\/\/[\x21-\x7e]+)/gi, "<a href='$1'>$1</a>") else '')
