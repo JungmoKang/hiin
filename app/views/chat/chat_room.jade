@@ -13,7 +13,7 @@ ion-view.messaging-view(title='{{roomName}}')
         br
         .desc
           .message
-            span.msg(ng-bind-html="message.content | noHTML | replaceLink") {{ message.content }}
+            span.msg(ng-bind-html="message.content | noHTML | replaceLink")
             div.time_wrap
               span.time {{message.created_at | date : 'shortTime' }}
       div(ng-if="message.type == 'notice'")
@@ -23,7 +23,7 @@ ion-view.messaging-view(title='{{roomName}}')
         br
         .desc
           .message
-            span.notice(ng-bind-html="message.content | noHTML | replaceLink") {{ message.content }}
+            span.notice(ng-bind-html="message.content | noHTML | replaceLink")
             div.time_wrap
               span.time {{message.created_at | date : 'shortTime' }}
   .nobody_msg(ng-show='messages.length==0')
