@@ -1,6 +1,6 @@
 ion-view.messaging-view(title='{{roomName}}')
   ion-content(ng-style='{ bottom: (data.keyboardHeight + 40) + "px" }', delegate-handle="myScroll",id='messageList')
-    ion-refresher(pulling-text="Pull to refresh..." on-refresh='pullLoadMsg()')
+    ion-refresher(ng-if='messages.length>0',pulling-text="Pull to refresh..." on-refresh='pullLoadMsg()')
     .message(id="{{$index}}",ng-repeat='message in messages track by $index',
       ng-class="message.sender_name == 'me' ? 'chat-balloon-me' : 'chat-balloon-you'")
       .row#firstmsgspace(ng-if='$first')
@@ -26,12 +26,12 @@ ion-view.messaging-view(title='{{roomName}}')
             span.notice(ng-bind-html="message.content | noHTML | replaceLink")
             div.time_wrap
               span.time {{message.created_at | date : 'shortTime' }}
-  .nobody_msg(ng-show='messages.length==0')
-    div.msg 
-      p.big NO MESSAGES YET
-      p.normal Introduce yourself?
+    .nobody_msg(ng-if='messages.length==0')
+      div.msg 
+        p.big NO MESSAGES YET
+        p.normal Introduce yourself?
   .message-input(ng-style='{ bottom: data.keyboardHeight + "px" }',ontouchmove='return false;')
-    div.alert_new_msg(ng-show='newMsg != null')
+    div.alert_new_msg(ng-if='newMsg != null')
       .row
         .col.col-10
           img.thumb_image.img-circle(ng-profile-image = 'ng-profile-image',source='{{newMsg.thumbnailUrl}}')
