@@ -19,7 +19,7 @@ mountFolder = (connect, dir) ->
   connect["static"] require("path").resolve(dir)
 
 module.exports = (grunt) ->
-  yeomanConfig = undefined  
+  yeomanConfig = undefined
   # Load grunt tasks automatically
   require("load-grunt-tasks") grunt
   # Time how long tasks take. Can help when optimizing build times
@@ -83,7 +83,7 @@ module.exports = (grunt) ->
     connect:
       options:
         port: 9000
-        hostname: "*"
+        hostname: "127.0.0.1"
         bast: "dist"
       livereload:
         options:
@@ -320,7 +320,7 @@ module.exports = (grunt) ->
     # concat: {
     #   dist: {}
     # },
-    
+
     # Test settings
     karma:
       unit:
