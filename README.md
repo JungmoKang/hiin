@@ -13,3 +13,5 @@
 1. Clone this Package
 1. npm install
 1. bower install
+
+You can question to me by Korean, Japanese, and english.
