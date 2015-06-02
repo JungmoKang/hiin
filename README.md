@@ -1,6 +1,6 @@
 # Hiin
 ## Hybrid App created by Ionic.
-### reference
+### references
 * [Jade](https://github.com/jadejs/jade)
 * [Less](http://less-ja.studiomohawk.com/)
 * [angularjs](https://angularjs.org/)
